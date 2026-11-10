@@ -28,6 +28,9 @@ Sem build e sem backend: funciona offline, inclusive por duplo clique (`file://`
 
 Para publicar, envie a pasta inteira (não só o `index.html`).
 
+## Faixas etárias
+5–7 anos: 13 cartas · 8–11 anos: 19 cartas. As 8 cartas originais receberam faixa em 10/11/2026 (antes entravam em qualquer filtro). Análise completa, ordem sugerida e propostas pendentes em `docs/mapa-curricular-cartas.md`.
+
 ## Esquema de carta
 `{title, char, icon, p[6], fake(1-based), correct[], near[], scene, opts[3], pts[3], why[3], faixa, tema}`
 
@@ -36,6 +39,13 @@ Para publicar, envie a pasta inteira (não só o `index.html`).
 - Pista falsa por nível nas 8 cartas originais; conferir cartas 4–8 do gabarito v1.3.3.
 - Versão 12–17 anos.
 - Testes com crianças (Caio ainda não testou).
+
+## Melhorias anotadas (não implementadas)
+- **Escolher personagem no modo "uma pessoa contra o jogo"** (pedido em 10/11/2026): antes de começar, a criança escolhe 1 personagem do MDC para representá-la. Personagens com imagens prontas em `assets/personagens/`: Caio, Mel, Letícia, Vinicius, Bia, Tiko (Rodrigo e Natty são os adultos responsáveis). A definir: onde a personagem aparece (placar, tela final, resumo do feedback) e se ela substitui o nome "Você".
+- **Feedback não fica salvo:** se a pessoa fechar a tela sem enviar pelo WhatsApp ou copiar, as respostas se perdem.
+- **Versão no resumo do feedback:** incluir a versão/commit do jogo no texto enviado (hoje o código grava "v3" internamente e não mostra).
+- **Código morto:** `showResults()` e `DB` vêm da versão com banco do Claude e não funcionam fora dele.
+- **Acessibilidade:** botão "Encerrar" tem 40px de altura (mínimo combinado: 44px).
 
 ## Publicar no GitHub Pages
 Já ativo: Deploy from branch → `main` / root. O jogo abre em https://rodbrito2112-lgtm.github.io/missao-dinheiro-pocket/ e cada push na `main` atualiza o site em 1–2 minutos.
