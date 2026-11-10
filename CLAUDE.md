@@ -2,6 +2,8 @@
 
 Projeto: "Missão Dinheiro Pocket", jogo digital de educação financeira infantil (Meu Dinheiro Club). Idioma da interface e do conteúdo: português do Brasil, linguagem simples para 5–11 anos.
 
+- Nome comercial, usado em todo texto visível ao jogador: **Missão Dinheiro: Pistas** (bot do modo solo: "Robô das Pistas"). "Pocket" é só nome interno: não aparece na interface, mas continua no repositório, no link do site, nas pastas e nas chaves de localStorage (`mdp-pocket-*`, não renomear).
+
 - O jogo é `index.html` + `style.css` + `cartas.js` + `game.js`, com imagens em `assets/personagens/`. Mantenha funcionando por duplo clique (`file://`), sem build: nada de `fetch`/módulos ES para carregar arquivos locais; use `<script src>` e `<img src>` com caminhos relativos.
 - Não usar localStorage além da chave `mdp-album` e das chaves já existentes; o arquivo precisa funcionar mesmo se o storage falhar (try/catch).
 - Marca: azul-marinho #09274D, turquesa #12B8BB, amarelo #FFC12E, fonte Nunito.

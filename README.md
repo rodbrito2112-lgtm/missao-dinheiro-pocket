@@ -1,5 +1,7 @@
 # Missão Dinheiro Pocket — jogo digital (versão Experimental)
 
+**Nome comercial (o que o jogador vê): Missão Dinheiro: Pistas.** "Pocket" é só o nome interno do projeto (repositório, pastas, documentação, chaves de salvamento). O adversário do modo solo se chama "Robô das Pistas".
+
 Jogo de cartas de educação financeira para crianças (5–11 anos; 12–17 pendente), parte do ecossistema **Meu Dinheiro Club**. Standalone: não altera o jogo principal.
 
 ## Como rodar
