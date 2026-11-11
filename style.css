@@ -93,7 +93,15 @@ button:disabled{opacity:.45;cursor:not-allowed}
 textarea.out{width:100%;min-height:200px;font:14px/1.4 ui-monospace,Menlo,monospace;padding:10px;border-radius:12px;border:2px solid var(--line);color:var(--ink);background:#fff}
 .stack{display:flex;flex-direction:column;gap:10px}
 .rules li{margin-bottom:4px}
-@media (prefers-reduced-motion:no-preference){.card{animation:in .25s ease-out}@keyframes in{from{transform:translateY(6px);opacity:.4}to{transform:none;opacity:1}}}
+/* Movimento só no que mudou: .enter (tela nova), .new (pista recém-aberta), .pop (personagem ao acertar). Classes postas por motion() em game.js */
+@media (prefers-reduced-motion:no-preference){
+ .card.enter{animation:in .25s ease-out}
+ @keyframes in{from{transform:translateY(6px);opacity:.4}to{transform:none;opacity:1}}
+ .clue.new{animation:clueIn .45s ease-out}
+ @keyframes clueIn{0%{transform:scaleY(.9);opacity:0;box-shadow:0 0 0 0 rgba(255,193,46,.9)}50%{opacity:1;box-shadow:0 0 0 4px rgba(255,193,46,.7)}100%{transform:none;box-shadow:0 0 0 0 rgba(255,193,46,0)}}
+ .banner img.pop{animation:pop .45s cubic-bezier(.34,1.56,.64,1)}
+ @keyframes pop{0%{transform:scale(.8)}70%{transform:scale(1.08)}100%{transform:none}}
+}
 
 .lifes{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:6px 0 10px}
 .life{border:2px solid var(--yellow);background:#FFF8E1;color:var(--ink);border-radius:12px;padding:8px 6px;font:800 14px Nunito,sans-serif;cursor:pointer;min-height:48px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px}
@@ -114,3 +122,28 @@ button,.seg span,.opt{transition:transform .12s ease-out,box-shadow .12s}
 .banner small{color:#5FE0E2}
 .hint{color:#3D4F66}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Pacote de melhorias 1 (revisão de especialistas em games, 10/11/2026) */
+/* Ícone da carta e cor por tema: faixa sob o banner + fundo claro do ícone (texto continua branco sobre navy, AA mantido) */
+.num.ic{width:52px;height:52px;font-size:28px;line-height:1}
+.banner{border-bottom:6px solid var(--yellow)}
+.tema-poupar{border-bottom-color:#16864F}.tema-poupar .num{background:#DAF3E3}
+.tema-consumo{border-bottom-color:#E0559A}.tema-consumo .num{background:#FDE3EA}
+.tema-digital{border-bottom-color:#3D7BE0}.tema-digital .num{background:#DCEAFD}
+.tema-trabalho{border-bottom-color:#F28C28}.tema-trabalho .num{background:#FFE7CC}
+/* Topo da partida numa linha */
+.game-top{flex-wrap:wrap}
+.game-top .prog{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:15px;min-width:0}
+.dots{display:flex;gap:5px}
+.dots i{width:10px;height:10px;border-radius:50%;background:var(--navy-l);border:2px solid var(--on-navy-mute)}
+.dots i.done{background:var(--teal);border-color:var(--teal)}
+.dots i.now{background:var(--yellow);border-color:var(--yellow)}
+.top .top-b{min-height:44px}
+/* Botões de palpite com ícone, lado a lado */
+.ans-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.ans{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:68px;padding:8px 6px}
+.ans .ic{font-size:26px;line-height:1;font-weight:900}
+.btn-r{background:#FBE0E5;color:#8E2438;border:2px solid var(--bad)}
+/* Cena: o −1 não pune — selo neutro com "pense de novo" */
+.opt .pts.neg{background:#E4EAF2;color:var(--ink);display:flex;flex-direction:column;align-items:center;line-height:1.1;text-align:center;max-width:64px}
+.pts.neg small{font-size:11px;font-weight:700}

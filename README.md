@@ -45,7 +45,7 @@ Para publicar, envie a pasta inteira (não só o `index.html`).
 - **Feedback não fica salvo:** se a pessoa fechar a tela sem enviar pelo WhatsApp ou copiar, as respostas se perdem.
 - **Versão no resumo do feedback:** incluir a versão/commit do jogo no texto enviado (hoje o código grava "v3" internamente e não mostra).
 - **Código morto:** `showResults()` e `DB` vêm da versão com banco do Claude e não funcionam fora dele.
-- **Acessibilidade:** botão "Encerrar" tem 40px de altura (mínimo combinado: 44px).
+- **Revisão de especialistas em games:** 17 melhorias priorizadas em `docs/revisao-especialistas-games.md` (o primeiro pacote já foi implementado).
 
 ## Publicar no GitHub Pages
 Já ativo: Deploy from branch → `main` / root. O jogo abre em https://rodbrito2112-lgtm.github.io/missao-dinheiro-pocket/ e cada push na `main` atualiza o site em 1–2 minutos.

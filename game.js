@@ -79,10 +79,14 @@ function updConn(){const c=$('conn');if(c){c.className='msg good';c.textContent=
 /* ---------- telas ---------- */
 const logo=()=>`<h1 class="sr">Missão Dinheiro: Pistas</h1><div class="top"><img src="${ASSETS.logo}" alt="Missão Dinheiro Club"><span style="font-weight:900;color:var(--teal);letter-spacing:.06em">PISTAS</span></div>`;
 function scoreboard(){return `<div class="score">${[0,1].map(t=>`<div class="chip t${t} ${(ph!=='final'&&team()===t)?'on':''}"><small>${esc(S.names[t])}</small><b>${S.score[t]}</b></div>`).join('')}</div>`}
-function topbar(){return `<div class="top"><span style="font-weight:800">Carta ${S.round+1} de ${S.len}</span>${view.confirmQuit?`<span class="row" style="flex:0 0 auto"><button class="ghost btn-y top-b" onclick="quit()">Sair do jogo</button><button class="ghost btn-g top-b" onclick="cancelQuit()">Voltar</button></span>`:`<button class="ghost btn-g top-b" onclick="quit()">Encerrar</button>`}</div>`}
+/* Topo da partida numa linha só: logo, progresso (texto + marcas) e Encerrar */
+function topbar(){const dots=Array.from({length:S.len},(_,i)=>`<i class="${i<S.round?'done':i===S.round?'now':''}"></i>`).join('');
+ return `<h1 class="sr">Missão Dinheiro: Pistas</h1><div class="top game-top"><img src="${ASSETS.logo}" alt="Missão Dinheiro Club"><span class="prog"><b>Carta ${S.round+1} de ${S.len}</b><span class="dots" aria-hidden="true">${dots}</span></span>${view.confirmQuit?`<span class="row" style="flex:0 0 auto"><button class="ghost btn-y top-b" onclick="quit()">Sair do jogo</button><button class="ghost btn-g top-b" onclick="cancelQuit()">Voltar</button></span>`:`<button class="ghost btn-g top-b" onclick="quit()">Encerrar</button>`}</div>`}
 function who(){const t=team();if(S.mode==='solo')return `<div class="who"><b>${esc(S.names[t])}</b> responde. O jogo lê as pistas.</div>`;
  return `<div class="who"><b>${esc(S.names[t])}</b> responde. <b>${esc(S.names[1-t])}</b> lê as pistas e segura a tela do gabarito.</div>`}
-function banner(c,revealed){return `<div class="banner"><div class="num">${S.round+1}</div><div class="t"><small>${revealed?'O conceito era':'Descubra o conceito'}</small><h2>${revealed?esc(c.title):'O que é?'}</h2></div><img src="${(POSE[c.char]&&POSE[c.char][revealed?'cheer':'think'])||ASSETS[c.char]}" alt="Personagem ${esc(NAMES[c.char]||c.char)}"></div>`}
+/* Cor de cada tema (faixa sob o banner e fundo do ícone). Cartas sem tema usam o amarelo da marca. */
+const TEMA={'Poupar e guardar':'poupar','Consumo e escolhas':'consumo','Dinheiro digital e segurança':'digital','Trabalho e ganhar dinheiro':'trabalho'};
+function banner(c,revealed){return `<div class="banner tema-${TEMA[c.tema]||'base'}"><div class="num ic" aria-hidden="true">${c.icon||S.round+1}</div><div class="t"><small>${revealed?'O conceito era':'Descubra o conceito'}</small><h2>${revealed?esc(c.title):'O que é?'}</h2></div><img src="${(POSE[c.char]&&POSE[c.char][revealed?'cheer':'think'])||ASSETS[c.char]}" alt="Personagem ${esc(NAMES[c.char]||c.char)}"></div>`}
 function clueList(c,mode){let h='<div class="clues">';
  for(let i=1;i<=6;i++){
   if(i>R.shown){h+=`<div class="clue lock"><div class="n">${i}</div><p>Pista ainda fechada</p></div>`;continue}
@@ -109,7 +113,7 @@ function viewClues(c){
  <div class="row"><button class="btn-g" style="color:var(--ink);border-color:var(--line)" onclick="pass()">${R.k>=6?'Desistir da carta':'Sem palpite, próxima pista'}</button></div>
  <div class="row"><button class="keybtn" style="background:#EEF3FA;color:var(--ink)" onclick="onAdult()">Adulto: conta como acerto</button></div>`}
  else{ctl=`<div class="lab">Palpite da pista ${R.k} (um por pista)</div>
- <div class="row"><button class="btn-t" onclick="onGuess('ok')">Acertou</button><button class="btn-y" onclick="onGuess('near')">Quase</button><button style="background:#FBE0E5" onclick="onGuess('bad')">Errou</button></div>
+ <div class="ans-row"><button class="ans btn-t" onclick="onGuess('ok')"><span class="ic" aria-hidden="true">✓</span>Acertou</button><button class="ans btn-y" onclick="onGuess('near')"><span class="ic" aria-hidden="true">≈</span>Quase</button><button class="ans btn-r" onclick="onGuess('bad')"><span class="ic" aria-hidden="true">✗</span>Errou</button></div>
  <button class="btn-g full" style="color:var(--ink);border-color:var(--line)" onclick="pass()">${R.k>=6?'Ninguém acertou':'Sem palpite, próxima pista'}</button>`}
  return `${who()}<div class="card">${banner(c,false)}<div class="body"><div class="lab">Pistas · ${R.k} de 6</div>${clueList(c)}${msgBox()}<hr class="hr">${ctl}${lifeBar()}${keyBox(c)}<p class="hint">Acertar na pista 1 vale 6 pontos, na pista 6 vale 1.</p></div></div>`}
 function viewFalse(c){const done=R.fakePick!==null;
@@ -121,7 +125,7 @@ function viewScene(c,res){
  const L='ABC';
  const best=Math.max(...c.pts),worst=Math.min(...c.pts);
  let opts=c.opts.map((o,i)=>{const cls=['opt',L[i],R.choice===i?'sel':'',res&&c.pts[i]===best?'best':'',res&&c.pts[i]===worst?'worst':''].join(' ');
-  const inner=`<div class="l">${L[i]}</div><span class="x">${esc(o)}${res?`<span class="why">${esc(c.why[i])}</span>`:''}</span>${res?`<span class="pts">${c.pts[i]>0?'+':''}${c.pts[i]}</span>`:''}`;
+  const inner=`<div class="l">${L[i]}</div><span class="x">${esc(o)}${res?`<span class="why">${esc(c.why[i])}</span>`:''}</span>${res?(c.pts[i]<0?`<span class="pts neg">${c.pts[i]}<small>pense de novo</small></span>`:`<span class="pts">${c.pts[i]>0?'+':''}${c.pts[i]}</span>`):''}`;
   return res?`<div class="${cls}">${inner}</div>`:`<button class="${cls}" onclick="pickOpt(${i})">${inner}</button>`}).join('');
  let foot='';
  if(!res)foot=`<p class="hint">${S.mode==='solo'?'Escolham sem ver os pontos.':'A equipe escolhe sem ver os pontos. O leitor mostra o resultado depois.'}</p><button class="btn-y full" ${R.choice===null?'disabled':''} onclick="confirmScene()">Confirmar escolha</button>`;
@@ -217,13 +221,23 @@ function render(){
  else if(ph==='final')h=viewFinal();
  else if(ph==='fb')h=viewFb();
  else if(ph==='saved')h=viewSaved();
- else{const c=card();h=logo()+topbar()+scoreboard();
+ else{const c=card();h=topbar()+scoreboard();
   if(ph==='clues')h+=viewClues(c);else if(ph==='falseq')h+=viewFalse(c);else if(ph==='reveal')h+=viewReveal(c);
   else if(ph==='scene')h+=viewScene(c,false);else if(ph==='sceneRes')h+=viewScene(c,true);else if(ph==='bot')h+=viewBot(c);
   persist()}
  app.innerHTML=h;
  if(ph==='setup'){setupChange();updConn();const al=$('album');if(al)al.textContent='Conceitos que você já descobriu: '+albumN()+' de '+CARDS.length+'.'}
- window.scrollTo(0,0)}
+ motion()}
+/* Movimento e rolagem: só a tela nova sobe e volta ao topo; dentro da mesma tela, destaca e mostra o que mudou */
+let LAST={key:null,ph:null,k:0,fake:null};
+function motion(){
+ const app=$('app'),key=ph+'|'+(S&&S.round)+'|'+(ph==='tut'?TUTI:''),same=key===LAST.key;
+ const show=el=>{if(el)el.scrollIntoView({block:'center'})};
+ if(!same){const cd=app.querySelector('.card');if(cd)cd.classList.add('enter');window.scrollTo(0,0);
+  if(LAST.ph==='clues'&&ph==='falseq'){const im=app.querySelector('.banner img');if(im)im.classList.add('pop')}}
+ else if(ph==='clues'&&R&&R.k>LAST.k){const cl=app.querySelectorAll('.clues .clue')[R.k-1];if(cl){cl.classList.add('new');show(cl)}}
+ else if(ph==='falseq'&&R&&R.fakePick!==null&&LAST.fake===null){show(app.querySelector('.body > button:last-of-type'))}
+ LAST={key,ph,k:R?R.k:0,fake:R?R.fakePick:null}}
 ph=store.get(KEY_TUT)?'setup':'tut';
 render();
 init();
