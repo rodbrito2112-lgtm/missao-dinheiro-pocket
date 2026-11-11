@@ -2,7 +2,7 @@
 
 **Nome comercial (o que o jogador vê): Missão Dinheiro: Pistas.** "Pocket" é só o nome interno do projeto (repositório, pastas, documentação, chaves de salvamento). O adversário do modo solo se chama "Robô das Pistas".
 
-Jogo de cartas de educação financeira para crianças (5–11 anos; 12–17 pendente), parte do ecossistema **Meu Dinheiro Club**. Standalone: não altera o jogo principal.
+Jogo de cartas de educação financeira para crianças a partir de 5 anos (faixas 5–7 e 8+; versão específica para adolescentes pendente), parte do ecossistema **Meu Dinheiro Club**. Standalone: não altera o jogo principal.
 
 ## Como rodar
 - Duplo clique em `index.html`, ou
@@ -17,7 +17,7 @@ Sem build e sem backend: funciona offline, inclusive por duplo clique (`file://`
 - Empate = vitória compartilhada.
 - Ajudas estilo Show do Milhão (Dica, Opções, Pista falsa): usar uma ajuda reduz os pontos de descoberta pela metade (arredondado para cima).
 - Resposta com "Quase!": o jogo dá uma dica e libera nova tentativa na pista seguinte.
-- Filtro por faixa etária (5–7, 8–11, todas) e duração da partida; álbum de cartas descobertas salvo no navegador (`localStorage`, chave `mdp-album`).
+- Filtro por faixa etária (5–7, 8 anos ou mais, todas) e duração da partida; álbum de cartas descobertas salvo no navegador (`localStorage`, chave `mdp-album`).
 
 ## Estrutura
 - `index.html` — página de entrada; carrega `style.css`, `cartas.js` e `game.js`.
@@ -29,7 +29,7 @@ Sem build e sem backend: funciona offline, inclusive por duplo clique (`file://`
 Para publicar, envie a pasta inteira (não só o `index.html`).
 
 ## Faixas etárias
-5–7 anos: 13 cartas · 8–11 anos: 19 cartas. As 8 cartas originais receberam faixa em 10/11/2026 (antes entravam em qualquer filtro). Análise completa, ordem sugerida e propostas pendentes em `docs/mapa-curricular-cartas.md`.
+5–7 anos: 13 cartas · 8 anos ou mais: 19 cartas (chave interna `8–11` no `cartas.js`). As 8 cartas originais receberam faixa em 10/11/2026 (antes entravam em qualquer filtro). Análise completa, ordem sugerida e propostas pendentes em `docs/mapa-curricular-cartas.md`.
 
 ## Esquema de carta
 `{title, char, icon, p[6], fake(1-based), correct[], near[], scene, opts[3], pts[3], why[3], faixa, tema}`
