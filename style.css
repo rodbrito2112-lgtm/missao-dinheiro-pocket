@@ -147,3 +147,17 @@ button,.seg span,.opt{transition:transform .12s ease-out,box-shadow .12s}
 /* Cena: o −1 não pune — selo neutro com "pense de novo" */
 .opt .pts.neg{background:#E4EAF2;color:var(--ink);display:flex;flex-direction:column;align-items:center;line-height:1.1;text-align:center;max-width:64px}
 .pts.neg small{font-size:11px;font-weight:700}
+
+/* Correções da segunda revisão (14/11/2026): acessibilidade e toque */
+/* Foco visível dentro da carta branca: contorno escuro + anel amarelo (o amarelo sozinho tinha 1,63:1 no branco) */
+.card button:focus-visible,.card input:focus-visible,.card textarea:focus-visible,.card select:focus-visible,.card summary:focus-visible,.card a:focus-visible,.card .seg input:focus-visible+span{outline:3px solid var(--ink);outline-offset:2px;box-shadow:0 0 0 6px var(--yellow)}
+h2[tabindex]:focus{outline:none}
+/* Link com cara de botão (WhatsApp) com tamanho de botão */
+a.btn-t,a.btn-y{display:flex!important;align-items:center;justify-content:center;padding:14px 18px;min-height:52px;border-radius:14px;font-weight:800;color:#032a30}
+a.btn-y{color:var(--ink)}
+/* Bordas de campos e opções com contraste ≥3:1 */
+.in input,.setup input[type=text],.fb input[type=text],.fb textarea,.fb select,.seg span{border-color:#7F8FA8}
+/* Linha única das pistas fechadas */
+.clue.lock .n{background:transparent;color:var(--ink);font-size:15px}
+.clue.lock p{color:#3D4F66;font-weight:700}
+summary{list-style-position:inside}

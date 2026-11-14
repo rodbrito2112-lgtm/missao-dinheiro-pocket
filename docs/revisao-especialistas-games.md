@@ -53,3 +53,49 @@ Sequência de dias com punição ou "volte amanhã"; baú/carta rara/roleta; moe
 
 ## Observação sobre a fonte
 A fonte Nunito vem da internet (Google Fonts). Sem conexão, o jogo usa a fonte do sistema e fica com outra aparência. Além disso, os botões de ajuda (`.life`) usam a fonte direto em vez da variável `--font`. Para garantir o mesmo visual offline, seria preciso incluir o arquivo da fonte no projeto.
+
+---
+
+# Segunda rodada — 14/11/2026
+
+Quatro revisões independentes do jogo como está (depois do pacote 1), só leitura: **game-ui-ux**, **game-feel**, **gamification-loops** e **design-skills:accessibility-audit** (WCAG 2.2 AA). Os achados marcados com ✔ foram conferidos no código.
+
+## A. Correções urgentes (bugs, vários vindos do pacote 1) — ✅ implementadas em 14/11/2026
+
+Testado em partida completa: pontuação igual (10, 2, 5, 2, 8, 1); ícone só aparece ao revelar; Opções só da mesma faixa; confirmar a cena não volta ao topo; foco e anúncios (região `#live`) funcionando; link do WhatsApp com 53 px; pistas fechadas agrupadas numa linha ("Mais N pistas fechadas"), o que deixa os botões ✓≈✗ na primeira tela do celular.
+
+| # | Problema | Onde | Esforço |
+|---|---|---|---|
+| A1 ✔ | **O ícone entrega a resposta.** O ícone da carta (🐷 Cofrinho, 💳 Cartão, 🔐 Senha…) aparece desde a pista 1. Mostrar "?" e o nome do tema durante as pistas; o ícone só ao revelar. | `banner()` | Rápido |
+| A2 ✔ | **Confirmar a cena pula para o topo** e esconde o "Leitor explica" e a soma. Tratar `scene`→`sceneRes` como a mesma tela e rolar até a opção escolhida. | `motion()` | Rápido |
+| A3 | **Rolagem empurra os botões ✓≈✗ para fora** (`block:'center'`); Opções e Dica aparecem fora da vista; aviso da ajuda aparece acima do toque. Usar `'nearest'`/`'start'`, rolar até opções/dica, aviso logo abaixo das ajudas. | `motion()`, `lifeBar()` | Rápido |
+| A4 | **Foco e leitor de tela se perdem a cada toque** (WCAG 2.4.3, 4.1.3): `innerHTML` recriado manda o foco para o `body`; `role="status"` recriados não são anunciados. Região `aria-live` fixa fora de `#app` + devolver o foco ao título/controle certo. | `render()`, `index.html` | Médio |
+| A5 | **Contorno de foco amarelo some no branco** (1,63:1). Dentro da carta: contorno escuro + anel amarelo. | `style.css` | Rápido |
+| A6 ✔ | **Link do WhatsApp com ~25 px de altura** (parece botão, não tem tamanho de botão); "Ver as 6 pistas" com 32 px. | `viewSaved`, `viewBot`, CSS | Rápido |
+| A7 | Campo de palpite sem rótulo; seleção de cena/pista falsa sem `aria-pressed`; grupos de rádio sem `fieldset/legend`; bordas de campos 1,36:1; número da pista fechada 3,99:1; símbolos ★ ? ✓ lidos em voz alta. | `viewClues`, `viewScene`, `viewSetup`, `viewFb`, CSS | Rápido |
+| A8 | Modo solo: a cada palpite o teclado do celular fecha (campo perde o foco). | `onType()` | Rápido |
+| A9 ✔ | Ajuda **Opções** sorteia respostas erradas entre as 32 cartas (criança de 5–7 pode ver "Cartão de crédito"). Sortear da mesma faixa. | `useLife()` | Rápido |
+| A10 | Pop do personagem pode não aparecer no site (imagem de comemoração ainda carregando). Pré-carregar as poses. | `game.js` | Rápido |
+
+## B. Decisões do dono antes de implementar
+
+1. **Faixa padrão** ✔: hoje vem marcada "Todas" — quem não mexe dá Juros/Parcelamento a uma criança de 5 anos. Sugestão: nenhuma marcada (o adulto escolhe) ou "5 a 7".
+2. **Ícones repetidos** ✔: 🛒 Preço por unidade e Compra online; 🪙 Economizar e Mesada. Trocar dois ícones em `cartas.js` (metadado; muda também o kit, que teria de ser gerado de novo).
+3. **Tema das 8 cartas originais** (para cor, nome do tema e álbum por tema). Sugestão: Troco, Promoção relâmpago, Preço por unidade, Parcelamento → Consumo e escolhas; Imprevisto, Meta, Empréstimo → Poupar e guardar; Golpe por mensagem → Dinheiro digital e segurança.
+4. **Modo solo** ✔: a criança joga só 3 das 6 cartas e é comparada a um resultado sorteado (pode perder "para o sorteio"); as cartas do robô não entram no álbum. Opção: a criança joga todas as cartas e o robô vira um colega que mostra a escolha dele — muda a alternância descrita no README.
+5. **Chaves novas de salvamento** (CLAUDE.md hoje proíbe): lembrar personagem escolhido, som ligado/desligado, conquistas entre partidas, rascunho do feedback.
+
+## C. Pacote 2 sugerido (sem chave nova)
+
+1. Sorteio que prefere cartas ainda não descobertas e respeita pré-requisitos olhando o álbum (Juros/Parcelamento/Cartão depois de Empréstimo ou Poupança).
+2. Álbum por faixa: tela com os ícones descobertos e "?" nos que faltam ("5 de 13"), com celebração ao completar a faixa.
+3. Escolha de personagem no modo solo (vale para a partida), no placar, na tela final e no resumo do feedback.
+4. Tela final que destaca o melhor de cada um (pista em que acertou, pistas falsas achadas), personagem comemorando, confete curto só no fim; empate celebrado igual.
+5. Resultado da cena revelado em sequência (escolha e porquê primeiro, número depois), "+2" da pista falsa animado, placar contando — tudo desligado com reduced-motion.
+6. Feedback: aviso antes de sair sem enviar, pergunta de atitude ("A criança explicou por que escolheu?") e versão do jogo no resumo.
+
+## D. Continuam pendentes da primeira rodada
+#13 menos texto (rótulo das ajudas em caixa-alta, textos de 11 px), #5 tela inicial simples ("Opções do adulto" recolhidas), #15 som (depende da chave nova para lembrar), #16 missão em família (textos novos para aprovar), #17 conquistas entre partidas (chave nova).
+
+## E. O que está bom
+Reduced-motion bem aplicado, rolagem instantânea, botões nativos com alvos ≥44 px na maioria, `lang="pt-BR"`, ícones ✓≈✗ sempre com texto, contrastes de texto passando (inclusive os novos: `.btn-r` 6,87; selo neutro 13,29; `.lab` 7,44).

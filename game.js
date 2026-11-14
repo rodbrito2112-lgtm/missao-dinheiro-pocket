@@ -58,7 +58,7 @@ function pickOpt(i){R.choice=i;render()}
 function useLife(k){
  if(!S.helps||R.lifeUsed||S.life[team()][k])return;const c=card(),x=EXTRA[c.title]||{};const t=team();
  if(k==='dica'){S.life[t].dica=1;R.lifeUsed=true;R.lifeKind='dica';R.hint=(x.tipo||'')+' Começa com a letra "'+c.title[0].toUpperCase()+'".'}
- else if(k==='opc'){if(R.blocked)return;S.life[t].opc=1;R.lifeUsed=true;R.lifeKind='opcoes';R.options=shuffle([c.title,...shuffle(CARDS.filter(y=>y.title!==c.title).map(y=>y.title)).slice(0,3)])}
+ else if(k==='opc'){if(R.blocked)return;S.life[t].opc=1;R.lifeUsed=true;R.lifeKind='opcoes';R.options=shuffle([c.title,...shuffle(CARDS.filter(y=>y.title!==c.title&&(!c.faixa||y.faixa===c.faixa)).map(y=>y.title)).slice(0,3)])}
  else if(k==='falsa'){if(c.fake>R.k){setMsg('A pista falsa ainda não apareceu. Esta ajuda não foi gasta; tente depois.','');render();return}
   S.life[t].falsa=1;R.lifeUsed=true;R.lifeKind='pista_falsa';R.fakeKnown=true;setMsg('Marcamos a pista falsa. Nesta carta não há bônus de +2.','')}
  render()}
@@ -86,10 +86,14 @@ function who(){const t=team();if(S.mode==='solo')return `<div class="who"><b>${e
  return `<div class="who"><b>${esc(S.names[t])}</b> responde. <b>${esc(S.names[1-t])}</b> lê as pistas e segura a tela do gabarito.</div>`}
 /* Cor de cada tema (faixa sob o banner e fundo do ícone). Cartas sem tema usam o amarelo da marca. */
 const TEMA={'Poupar e guardar':'poupar','Consumo e escolhas':'consumo','Dinheiro digital e segurança':'digital','Trabalho e ganhar dinheiro':'trabalho'};
-function banner(c,revealed){return `<div class="banner tema-${TEMA[c.tema]||'base'}"><div class="num ic" aria-hidden="true">${c.icon||S.round+1}</div><div class="t"><small>${revealed?'O conceito era':'Descubra o conceito'}</small><h2>${revealed?esc(c.title):'O que é?'}</h2></div><img src="${(POSE[c.char]&&POSE[c.char][revealed?'cheer':'think'])||ASSETS[c.char]}" alt="Personagem ${esc(NAMES[c.char]||c.char)}"></div>`}
+/* Durante as pistas o ícone NÃO aparece (ele entregaria a resposta): mostra "?" e o nome do tema.
+   O ícone só aparece quando o conceito é revelado. pose: 'cheer' (acertou) ou 'think' (ninguém acertou). */
+function banner(c,revealed,pose){const p=pose||(revealed?'cheer':'think');
+ return `<div class="banner tema-${TEMA[c.tema]||'base'}"><div class="num ic" aria-hidden="true">${revealed?(c.icon||'★'):'?'}</div><div class="t"><small>${revealed?'O conceito era':'Descubra o conceito'}${c.tema?' · '+esc(c.tema):''}</small><h2 tabindex="-1">${revealed?esc(c.title):'O que é?'}</h2></div><img src="${(POSE[c.char]&&POSE[c.char][p])||ASSETS[c.char]}" alt="Personagem ${esc(NAMES[c.char]||c.char)}"></div>`}
 function clueList(c,mode){let h='<div class="clues">';
  for(let i=1;i<=6;i++){
-  if(i>R.shown){h+=`<div class="clue lock"><div class="n">${i}</div><p>Pista ainda fechada</p></div>`;continue}
+  /* Pistas fechadas numa linha só, para os botões de palpite ficarem perto da pista nova */
+  if(i>R.shown){const n=7-i;h+=`<div class="clue lock"><div class="n" aria-hidden="true">🔒</div><p>Mais ${n} pista${n>1?'s':''} fechada${n>1?'s':''}</p></div>`;break}
   const isFake=((ph==='falseq'&&R.fakePick!==null)||ph==='scene'||ph==='sceneRes'||(ph==='reveal'&&R.correctAt)||R.fakeKnown)&&i===c.fake;
   const pickable=mode==='pick'&&R.fakePick===null;
   const cls=['clue',pickable?'pick':'',R.fakePick===i?'sel':'',isFake?'fake':''].join(' ');
@@ -97,19 +101,19 @@ function clueList(c,mode){let h='<div class="clues">';
   if(pickable)h+=`<button class="${cls}" onclick="pickFake(${i})"><div class="n">${i}</div><p>${esc(c.p[i-1])}</p></button>`;
   else h+=`<div class="${cls}"><div class="n">${i}</div><div style="min-width:0"><p>${esc(c.p[i-1])}</p>${tag}</div></div>`}
  return h+'</div>'}
-function msgBox(){return R.msg?`<div role="status" class="msg ${R.msgKind}">${esc(R.msg)}</div>`:''}
+function msgBox(){return R.msg?`<div class="msg ${R.msgKind}">${esc(R.msg)}</div>`:''}
 function keyBox(c){if(S.mode==='solo')return '';
  return R.showKey?`<div class="keybox"><div><b>Só quem lê olha esta tela.</b></div><div><b>Aceitar:</b> ${esc(c.correct.join('; '))}. Também vale qualquer resposta que diga o mesmo com outras palavras.</div><div><b>Quase (dica, sem ponto):</b> ${esc(c.near.join('; '))}. ${esc((EXTRA[c.title]||{}).nudge||'')}</div><div><b>Pista falsa:</b> nº ${c.fake}</div><button class="keybtn" onclick="toggleKey()">Esconder gabarito</button></div>`
  :`<button class="keybtn" onclick="toggleKey()">Gabarito (só o leitor)</button>`}
 function lifeBar(){if(!S.helps||isBot(team()))return '';
  const t=team(),L=S.life[t],lock=R.lifeUsed;
  const b=(k,label,sub)=>`<button class="life ${L[k]?'used':''}" ${(L[k]||lock||(k==='opc'&&R.blocked))?'disabled':''} onclick="useLife('${k}')"><b>${label}</b><small>${L[k]?'já usada':sub}</small></button>`;
- return `<div class="lab">Ajudas: uma de cada por partida, uma por carta. Usar ajuda vale metade dos pontos da descoberta</div><div class="lifes">${b('dica','Dica','tipo da resposta')}${b('opc','Opções','4 respostas')}${b('falsa','Pista falsa','mostra qual é')}</div>${R.hint?`<div role="status" class="msg">${esc(R.hint)}</div>`:''}${R.options?`<div class="stack">${R.options.map((o,i)=>`<button class="opt B" onclick="pickOption(${i})"><div class="l">${'ABCD'[i]}</div><span class="x">${esc(o)}</span></button>`).join('')}</div>`:''}`}
+ return `<div class="lab">Ajudas: uma de cada por partida, uma por carta. Usar ajuda vale metade dos pontos da descoberta</div><div class="lifes">${b('dica','Dica','tipo da resposta')}${b('opc','Opções','4 respostas')}${b('falsa','Pista falsa','mostra qual é')}</div>${R.hint?`<div class="msg hint-ajuda">${esc(R.hint)}</div>`:''}${R.options?`<div class="stack" role="group" aria-label="Opções de resposta">${R.options.map((o,i)=>`<button class="opt B opt-ajuda" onclick="pickOption(${i})"><div class="l" aria-hidden="true">${'ABCD'[i]}</div><span class="x">${esc(o)}</span></button>`).join('')}</div>`:''}`}
 function viewClues(c){
  const solo=S.mode==='solo';
  let ctl;
- if(R.blocked){ctl=`<div role="status" class="msg">Esta pista: sem palpite. Leiam a próxima.</div><button class="btn-y full" onclick="pass()">${R.k>=6?'Fim das pistas':'Ler próxima pista'}</button>`}
- else if(solo){ctl=`<div class="in"><input id="g" type="text" placeholder="Escreva o palpite" autocomplete="off" onkeydown="if(event.key==='Enter')onType()"><button class="btn-y" onclick="onType()">Palpitar</button></div>
+ if(R.blocked){ctl=`<div class="msg">Esta pista: sem palpite. Leiam a próxima.</div><button class="btn-y full" onclick="pass()">${R.k>=6?'Fim das pistas':'Ler próxima pista'}</button>`}
+ else if(solo){ctl=`<div class="in"><label for="g" class="sr">Seu palpite</label><input id="g" type="text" placeholder="Escreva o palpite" autocomplete="off" onkeydown="if(event.key==='Enter')onType()"><button class="btn-y" onclick="onType()">Palpitar</button></div>
  <div class="row"><button class="btn-g" style="color:var(--ink);border-color:var(--line)" onclick="pass()">${R.k>=6?'Desistir da carta':'Sem palpite, próxima pista'}</button></div>
  <div class="row"><button class="keybtn" style="background:#EEF3FA;color:var(--ink)" onclick="onAdult()">Adulto: conta como acerto</button></div>`}
  else{ctl=`<div class="lab">Palpite da pista ${R.k} (um por pista)</div>
@@ -119,24 +123,24 @@ function viewClues(c){
 function viewFalse(c){const done=R.fakePick!==null;
  const dmsg=R.fakePick===-1?'A ajuda já mostrou a pista falsa, então não há bônus nesta carta.':(R.bonus?'Isso! A pista falsa estava aí. +2 pontos.':'Não foi essa. A pista falsa era a número '+c.fake+'.');
  return `<div class="card">${banner(c,true)}<div class="body">${msgBox()}<div class="lab">Qual pista é a falsa?</div><p class="small"><b>${R.fakePick===null?'Toque na pista que não combina com o conceito. Acertar vale +2.':''}</b></p>${clueList(c,'pick')}
- ${done?`<div role="status" class="msg ${R.bonus?'good':'bad'}">${dmsg}</div><button class="btn-y full" onclick="toScene()">Ir para Cena e Escolha</button>`:''}</div></div>`}
-function viewReveal(c){return `<div class="card">${banner(c,true)}<div class="body">${msgBox()}<div role="status" class="msg"><b>${R.elim?'O leitor encerra as pistas.':'Acabaram as pistas.'}</b> A resposta era <b>${esc(c.title)}</b>. Sem pontos de descoberta nesta carta, mas a equipe continua para a cena.</div>${clueList(c)}<button class="btn-y full" onclick="toScene()">Ir para Cena e Escolha</button></div></div>`}
+ ${done?`<div class="msg ${R.bonus?'good':'bad'}">${dmsg}</div><button class="btn-y full" onclick="toScene()">Ir para Cena e Escolha</button>`:''}</div></div>`}
+function viewReveal(c){return `<div class="card">${banner(c,true,'think')}<div class="body">${msgBox()}<div class="msg"><b>${R.elim?'O leitor encerra as pistas.':'Acabaram as pistas.'}</b> A resposta era <b>${esc(c.title)}</b>. Sem pontos de descoberta nesta carta, mas a equipe continua para a cena.</div>${clueList(c)}<button class="btn-y full" onclick="toScene()">Ir para Cena e Escolha</button></div></div>`}
 function viewScene(c,res){
  const L='ABC';
  const best=Math.max(...c.pts),worst=Math.min(...c.pts);
  let opts=c.opts.map((o,i)=>{const cls=['opt',L[i],R.choice===i?'sel':'',res&&c.pts[i]===best?'best':'',res&&c.pts[i]===worst?'worst':''].join(' ');
-  const inner=`<div class="l">${L[i]}</div><span class="x">${esc(o)}${res?`<span class="why">${esc(c.why[i])}</span>`:''}</span>${res?(c.pts[i]<0?`<span class="pts neg">${c.pts[i]}<small>pense de novo</small></span>`:`<span class="pts">${c.pts[i]>0?'+':''}${c.pts[i]}</span>`):''}`;
-  return res?`<div class="${cls}">${inner}</div>`:`<button class="${cls}" onclick="pickOpt(${i})">${inner}</button>`}).join('');
+  const inner=`<div class="l" aria-hidden="true">${L[i]}</div><span class="x">${esc(o)}${res?`<span class="why">${esc(c.why[i])}</span>`:''}</span>${res?(c.pts[i]<0?`<span class="pts neg">${c.pts[i]}<small>pense de novo</small></span>`:`<span class="pts">${c.pts[i]>0?'+':''}${c.pts[i]}</span>`):''}`;
+  return res?`<div class="${cls}">${inner}</div>`:`<button class="${cls}" aria-pressed="${R.choice===i}" onclick="pickOpt(${i})">${inner}</button>`}).join('');
  let foot='';
  if(!res)foot=`<p class="hint">${S.mode==='solo'?'Escolham sem ver os pontos.':'A equipe escolhe sem ver os pontos. O leitor mostra o resultado depois.'}</p><button class="btn-y full" ${R.choice===null?'disabled':''} onclick="confirmScene()">Confirmar escolha</button>`;
- else{const tot=R.disc+R.bonus+R.sp;foot=`<div role="status" class="msg"><b>Leitor explica:</b> ${esc(c.why[R.choice])}</div><div class="sum"><div><span>Descoberta</span><span>+${R.disc}</span></div><div><span>Pista falsa</span><span>+${R.bonus}</span></div><div><span>Cena e escolha</span><span>${R.sp>0?'+':''}${R.sp}</span></div><div class="tot"><span>Total da carta</span><span>${tot>0?'+':''}${tot}</span></div></div><button class="btn-y full" onclick="next()">${S.round>=S.len-1?'Ver resultado':'Próxima carta'}</button>`}
+ else{const tot=R.disc+R.bonus+R.sp;foot=`<div class="msg"><b>Leitor explica:</b> ${esc(c.why[R.choice])}</div><div class="sum"><div><span>Descoberta</span><span>+${R.disc}</span></div><div><span>Pista falsa</span><span>+${R.bonus}</span></div><div><span>Cena e escolha</span><span>${R.sp>0?'+':''}${R.sp}</span></div><div class="tot"><span>Total da carta</span><span>${tot>0?'+':''}${tot}</span></div></div><button class="btn-y full" onclick="next()">${S.round>=S.len-1?'Ver resultado':'Próxima carta'}</button>`}
  return `<div class="card">${banner(c,true)}<div class="body"><div class="lab">Cena e escolha</div><p style="font-weight:600">${esc(c.scene)}</p><p><b>O que vocês fariam?</b></p><div class="stack">${opts}</div>${foot}</div></div>`}
 function viewBot(c){const b=R.bot,L='ABC';
  return `<div class="who"><b>${esc(S.names[1])}</b> joga esta carta (jogo simulado, só para teste).</div><div class="card">${banner(c,true)}<div class="body"><div class="lab">Vez do jogo</div>
  <p>${b.k?`Descobriu o conceito na pista ${b.k}: <b>+${b.disc}</b>.`:'Não descobriu o conceito: <b>0</b>.'}</p><p>${b.k?(b.bonus?'Acertou a pista falsa: <b>+2</b>.':'Errou a pista falsa: <b>0</b>.'):'Sem pista falsa nesta carta.'}</p>
- <p>Escolheu <b>${L[b.choice]}</b>: ${esc(c.opts[b.choice])} (<b>${b.sp>0?'+':''}${b.sp}</b>)</p><div role="status" class="msg">${esc(c.why[b.choice])}</div>
+ <p>Escolheu <b>${L[b.choice]}</b>: ${esc(c.opts[b.choice])} (<b>${b.sp>0?'+':''}${b.sp}</b>)</p><div class="msg">${esc(c.why[b.choice])}</div>
  <p class="hint">O resultado do jogo é sorteado e não mede o conhecimento de ninguém. Esta carta serve para vocês lerem e conversarem.</p>
- <details class="small"><summary style="font-weight:800;cursor:pointer;min-height:32px">Ver as 6 pistas</summary><div style="margin-top:8px">${(()=>{const o=R.shown;R.shown=6;const h=clueList(c);R.shown=o;return h})()}</div></details>
+ <details class="small"><summary style="font-weight:800;cursor:pointer;min-height:44px;display:flex;align-items:center">Ver as 6 pistas</summary><div style="margin-top:8px">${(()=>{const o=R.shown;R.shown=6;const h=clueList(c);R.shown=o;return h})()}</div></details>
  <button class="btn-y full" onclick="botDone()">${S.round>=S.len-1?'Ver resultado':'Minha vez'}</button></div></div>`}
 const TUT=[
 ['Como se joga','Duas equipes, ou você contra o jogo. As pistas aparecem uma de cada vez. Dê um palpite por pista: acertar cedo vale mais (6, 5, 4, 3, 2 ou 1 ponto).'],
@@ -147,17 +151,17 @@ const TUT=[
 function openTut(){TUTI=0;ph='tut';render()}
 function tutNav(d){TUTI+=d;if(TUTI>=TUT.length){store.set(KEY_TUT,1);ph='setup';render();return}if(TUTI<0)TUTI=0;render()}
 function viewTut(){const t=TUT[TUTI];
- return `${logo()}<div class="card"><div class="banner"><div class="num">${TUTI+1}</div><div class="t"><small>Como jogar · ${TUTI+1} de ${TUT.length}</small><h2>${esc(t[0])}</h2></div></div><div class="body"><p style="font-size:19px">${esc(t[1])}</p><div class="row">${TUTI>0?'<button class="btn-g" style="color:var(--ink);border-color:var(--line)" onclick="tutNav(-1)">Voltar</button>':''}<button class="btn-y" onclick="tutNav(1)">${TUTI>=TUT.length-1?'Entendi, vamos jogar':'Próximo'}</button></div><button class="keybtn" style="background:#EEF3FA;color:var(--ink)" onclick="store.set(KEY_TUT,1);ph='setup';render()">Pular</button></div></div>`}
+ return `${logo()}<div class="card"><div class="banner"><div class="num" aria-hidden="true">${TUTI+1}</div><div class="t"><small>Como jogar · ${TUTI+1} de ${TUT.length}</small><h2 tabindex="-1">${esc(t[0])}</h2></div></div><div class="body"><p style="font-size:19px">${esc(t[1])}</p><div class="row">${TUTI>0?'<button class="btn-g" style="color:var(--ink);border-color:var(--line)" onclick="tutNav(-1)">Voltar</button>':''}<button class="btn-y" onclick="tutNav(1)">${TUTI>=TUT.length-1?'Entendi, vamos jogar':'Próximo'}</button></div><button class="keybtn" style="background:#EEF3FA;color:var(--ink)" onclick="store.set(KEY_TUT,1);ph='setup';render()">Pular</button></div></div>`}
 function viewSetup(){const saved=store.get(KEY_SAVE);
  return `${logo()}<div class="card setup"><div class="body">
- <h2 style="font-size:24px">Missão Dinheiro: Pistas</h2><p class="hint">Versão experimental, a partir de 5 anos. Partida de 4 ou 6 cartas, de 10 a 20 minutos.</p><p class="hint" id="album"></p>
+ <h2 tabindex="-1" style="font-size:24px">Missão Dinheiro: Pistas</h2><p class="hint">Versão experimental, a partir de 5 anos. Partida de 4 ou 6 cartas, de 10 a 20 minutos.</p><p class="hint" id="album"></p>
  <div id="conn" class="msg">Conectando…</div>
- <div><label>Como vão jogar?</label><div class="seg mode"><label><input type="radio" name="mode" value="duo" checked onchange="setupChange()"><span><b>Equipe contra equipe</b><small>Uma tela, passando de mão em mão</small></span></label><label><input type="radio" name="mode" value="solo" onchange="setupChange()"><span><b>Uma pessoa contra o jogo</b><small>Robô das Pistas, jogo simulado</small></span></label></div></div>
+ <div><label>Como vão jogar?</label><div role="radiogroup" aria-label="Como vão jogar?" class="seg mode"><label><input type="radio" name="mode" value="duo" checked onchange="setupChange()"><span><b>Equipe contra equipe</b><small>Uma tela, passando de mão em mão</small></span></label><label><input type="radio" name="mode" value="solo" onchange="setupChange()"><span><b>Uma pessoa contra o jogo</b><small>Robô das Pistas, jogo simulado</small></span></label></div></div>
  <div class="row"><div><label for="n0" id="l0">Nome da equipe 1</label><input id="n0" type="text" maxlength="20" value="Equipe 1"></div><div><label for="n1" id="l1">Nome da equipe 2</label><input id="n1" type="text" maxlength="20" value="Equipe 2"></div></div>
- <div><label>Faixa de idade</label><div class="seg"><label><input type="radio" name="faixa" value="5–7"><span><b>5 a 7 anos</b><br><small>Palavras mais simples</small></span></label><label><input type="radio" name="faixa" value="8–11"><span><b>8 anos ou mais</b><br><small>Conceitos como juros e crédito</small></span></label><label><input type="radio" name="faixa" value="todas" checked><span><b>Todas</b><br><small>Mistura as duas</small></span></label></div></div>
- <div><label>Tamanho da partida</label><div class="seg"><label><input type="radio" name="len" value="4"><span><b>Curta</b><br><small>4 cartas, cerca de 10 min</small></span></label><label><input type="radio" name="len" value="6" checked><span><b>Normal</b><br><small>6 cartas, cerca de 15 a 20 min</small></span></label></div></div>
- <div><label>Se errar um palpite</label><div class="seg"><label><input type="radio" name="rule" value="B" checked><span><b>Regra B</b><br><small>Perde só o palpite da próxima pista</small></span></label><label><input type="radio" name="rule" value="A"><span><b>Regra A</b><br><small>Sai da carta</small></span></label></div></div>
- <div><label>Ajudas estilo Show do Milhão</label><div class="seg"><label><input type="radio" name="helps" value="on" checked><span><b>Ligadas</b><br><small>Dica, Opções e Pista falsa</small></span></label><label><input type="radio" name="helps" value="off"><span><b>Desligadas</b><br><small>Jogo sem ajudas</small></span></label></div></div>
+ <div><label>Faixa de idade</label><div role="radiogroup" aria-label="Faixa de idade" class="seg"><label><input type="radio" name="faixa" value="5–7"><span><b>5 a 7 anos</b><br><small>Palavras mais simples</small></span></label><label><input type="radio" name="faixa" value="8–11"><span><b>8 anos ou mais</b><br><small>Conceitos como juros e crédito</small></span></label><label><input type="radio" name="faixa" value="todas" checked><span><b>Todas</b><br><small>Mistura as duas</small></span></label></div></div>
+ <div><label>Tamanho da partida</label><div role="radiogroup" aria-label="Tamanho da partida" class="seg"><label><input type="radio" name="len" value="4"><span><b>Curta</b><br><small>4 cartas, cerca de 10 min</small></span></label><label><input type="radio" name="len" value="6" checked><span><b>Normal</b><br><small>6 cartas, cerca de 15 a 20 min</small></span></label></div></div>
+ <div><label>Se errar um palpite</label><div role="radiogroup" aria-label="Se errar um palpite" class="seg"><label><input type="radio" name="rule" value="B" checked><span><b>Regra B</b><br><small>Perde só o palpite da próxima pista</small></span></label><label><input type="radio" name="rule" value="A"><span><b>Regra A</b><br><small>Sai da carta</small></span></label></div></div>
+ <div><label>Ajudas estilo Show do Milhão</label><div role="radiogroup" aria-label="Ajudas estilo Show do Milhão" class="seg"><label><input type="radio" name="helps" value="on" checked><span><b>Ligadas</b><br><small>Dica, Opções e Pista falsa</small></span></label><label><input type="radio" name="helps" value="off"><span><b>Desligadas</b><br><small>Jogo sem ajudas</small></span></label></div></div>
  <button id="startbtn" class="btn-y full" onclick="start()">Começar</button>
  <button class="btn-g full" style="color:var(--ink);border-color:var(--line)" onclick="openTut()">Como se joga</button>
  ${saved?`<button class="btn-g full" style="color:var(--ink);border-color:var(--line)" onclick="resumeGame()">Continuar jogo interrompido</button>`:''}
@@ -170,27 +174,27 @@ function start(){if(CONN!=='ok')return;const m=document.querySelector('input[nam
  const fx=document.querySelector('input[name=faixa]:checked').value,ln=+document.querySelector('input[name=len]:checked').value;view={};newGame(m,[n0,n1],r,h,fx,ln)}
 function viewFinal(){const [a,b]=S.score;const w=a===b?'Empate: vitória dividida!':(a>b?S.names[0]:S.names[1])+' venceu!';
  const mins=Math.max(1,Math.round(((S.t1||Date.now())-S.t0)/60000));
- return `${logo()}<div class="card"><div class="banner"><div class="num">★</div><div class="t"><small>Fim da partida</small><h2>${esc(w)}</h2></div></div><div class="body">
+ return `${logo()}<div class="card"><div class="banner"><div class="num" aria-hidden="true">★</div><div class="t"><small>Fim da partida</small><h2 tabindex="-1">${esc(w)}</h2></div></div><div class="body">
  <p class="hint" style="color:var(--ink)">Conceitos descobertos até agora: ${albumN()} de ${CARDS.length}.</p><div class="score"><div class="chip"><small>${esc(S.names[0])}</small><b>${a}</b></div><div class="chip t1"><small>${esc(S.names[1])}</small><b>${b}</b></div></div>
  <p class="small">Partida de ${mins} min. Pontos negativos podem acontecer: a escolha também ensina.</p>
  <div class="lab">Cartas jogadas</div><div class="log">${S.log.map(l=>`<div><span>${l.round+1}. ${esc(l.title)} (${esc(S.names[l.t])})</span><span>${l.tot>0?'+':''}${l.tot}</span></div>`).join('')}</div>
  <button class="btn-y full" onclick="ph='fb';render()">Contar o que acharam</button><button class="btn-g full" style="color:var(--ink);border-color:var(--line)" onclick="ph='setup';render()">Jogar de novo</button></div></div>`}
-function seg(name,opts){return `<div class="seg">${opts.map(o=>`<label><input type="radio" name="${name}" value="${esc(o)}"><span>${esc(o)}</span></label>`).join('')}</div>`}
+function seg(name,opts){return `<div class="seg" role="radiogroup" aria-labelledby="lb_${name}">${opts.map(o=>`<label><input type="radio" name="${name}" value="${esc(o)}"><span>${esc(o)}</span></label>`).join('')}</div>`}
 function viewFb(){const played=[...new Set(S.log.filter(l=>!l.bot).map(l=>l.title))];
- return `${logo()}<div class="card fb"><div class="banner"><div class="num">?</div><div class="t"><small>Percepções do teste</small><h2>O que acharam?</h2></div></div><div class="body">
+ return `${logo()}<div class="card fb"><div class="banner"><div class="num" aria-hidden="true">?</div><div class="t"><small>Percepções do teste</small><h2 tabindex="-1">O que acharam?</h2></div></div><div class="body">
  <p class="hint">Um adulto pode preencher junto com as crianças. Use só o primeiro nome.</p>
  <div class="row"><div><label for="f_who">Quem jogou</label><input id="f_who" type="text" placeholder="Ex.: Caio e Mel"></div><div><label for="f_age">Idades</label><input id="f_age" type="text" placeholder="Ex.: 8 e 10"></div></div>
- <div><label>Foi divertido?</label>${seg('fun',['Muito','Mais ou menos','Pouco','Nada'])}</div>
- <div><label>As regras</label>${seg('rules',['Entenderam sozinhos','Precisaram de ajuda','Não entenderam'])}</div>
- <div><label>Teve palavras difíceis?</label>${seg('vocab',['Muitas','Algumas','Nenhuma'])}</div>
- <div><label>A pista falsa</label>${seg('fake',['Divertida','Confusa','Ignoraram'])}</div>
- <div><label>Cena e escolha (A, B, C)</label>${seg('scene',['Fez sentido','Confusa','Pontos injustos'])}</div>
- <div><label>As ajudas (Dica, Opções, Pista falsa)</label>${seg('help',['Ajudaram','Atrapalharam','Não usamos','Estavam desligadas'])}</div>
- <div><label>A dica quando o palpite estava perto</label>${seg('nudge',['Ajudou','Não ajudou','Não aconteceu'])}</div>
- <div><label>O ritmo da partida</label>${seg('pace',['Rápido demais','Bom','Demorou'])}</div>
+ <div><label id="lb_fun">Foi divertido?</label>${seg('fun',['Muito','Mais ou menos','Pouco','Nada'])}</div>
+ <div><label id="lb_rules">As regras</label>${seg('rules',['Entenderam sozinhos','Precisaram de ajuda','Não entenderam'])}</div>
+ <div><label id="lb_vocab">Teve palavras difíceis?</label>${seg('vocab',['Muitas','Algumas','Nenhuma'])}</div>
+ <div><label id="lb_fake">A pista falsa</label>${seg('fake',['Divertida','Confusa','Ignoraram'])}</div>
+ <div><label id="lb_scene">Cena e escolha (A, B, C)</label>${seg('scene',['Fez sentido','Confusa','Pontos injustos'])}</div>
+ <div><label id="lb_help">As ajudas (Dica, Opções, Pista falsa)</label>${seg('help',['Ajudaram','Atrapalharam','Não usamos','Estavam desligadas'])}</div>
+ <div><label id="lb_nudge">A dica quando o palpite estava perto</label>${seg('nudge',['Ajudou','Não ajudou','Não aconteceu'])}</div>
+ <div><label id="lb_pace">O ritmo da partida</label>${seg('pace',['Rápido demais','Bom','Demorou'])}</div>
  <div><label for="f_hard">Carta mais difícil</label><select id="f_hard"><option value="">Nenhuma</option>${played.map(t=>`<option>${esc(t)}</option>`).join('')}</select></div>
  <div><label for="f_fav">Carta preferida</label><select id="f_fav"><option value="">Nenhuma</option>${played.map(t=>`<option>${esc(t)}</option>`).join('')}</select></div>
- <div><label>Querem jogar de novo?</label>${seg('again',['Sim','Talvez','Não'])}</div>
+ <div><label id="lb_again">Querem jogar de novo?</label>${seg('again',['Sim','Talvez','Não'])}</div>
  <div><label for="f_note">O que disseram ou fizeram que chamou atenção?</label><textarea id="f_note" placeholder="Frases das crianças, dúvidas, momentos de empolgação ou tédio"></textarea></div>
  <button id="savebtn" class="btn-y full" onclick="saveFb()">Ver resumo para enviar</button></div></div>`}
 async function saveFb(){const g=n=>{const e=document.querySelector(`input[name=${n}]:checked`);return e?e.value:''};
@@ -202,7 +206,7 @@ async function saveFb(){const g=n=>{const e=document.querySelector(`input[name=$
 function reportText(all){return all.map((d,i)=>{const dt=new Date(d.date).toLocaleString('pt-BR');
  return `PARTIDA ${i+1} - ${dt}\nJogaram: ${d.who||'-'} (${d.age||'-'} anos)\nModo: ${d.mode==='solo'?'1 pessoa contra o jogo':'equipe contra equipe'} | Regra ${d.rule} | Ajudas ${d.helps?'ligadas':'desligadas'} | ${d.min} min\nPlacar: ${d.names[0]} ${d.score[0]} x ${d.score[1]} ${d.names[1]}\nDiversão: ${d.fun||'-'} | Regras: ${d.rules||'-'} | Palavras difíceis: ${d.vocab||'-'} | Pista falsa: ${d.fake||'-'}\nCena e escolha: ${d.scene||'-'} | Ajudas: ${d.help||'-'} | Dica no quase: ${d.nudge||'-'} | Ritmo: ${d.pace||'-'} | Jogar de novo: ${d.again||'-'}\nMais difícil: ${d.hard||'-'} | Preferida: ${d.fav||'-'}\nCartas: ${d.log.map(l=>`${l.title} [${l.tot>0?'+':''}${l.tot}${l.k?', pista '+l.k:', sem acerto'}${l.bonus?', falsa ok':''}${l.life?', ajuda '+l.life:''}]`).join('; ')}\nObservações: ${d.note||'-'}`}).join('\n\n----\n\n')}
 function viewSaved(){const t=reportText([view.saved]);const url='https://wa.me/5521981133669?text='+encodeURIComponent('Feedback Missão Dinheiro: Pistas\n\n'+t);
- return `${logo()}<div class="card"><div class="banner"><div class="num">✓</div><div class="t"><small>Obrigado!</small><h2>Envie suas percepções</h2></div></div><div class="body"><p class="small">Toque no botão para abrir o WhatsApp com o resumo já escrito e é só enviar. Se não abrir, use "Copiar resumo" e cole na conversa.</p><a class="btn-t full" style="display:block;text-align:center;text-decoration:none" href="${url}" target="_blank" rel="noopener">Enviar pelo WhatsApp</a><textarea class="out" id="out" readonly aria-label="Resumo do teste para copiar">${esc(t)}</textarea><button class="btn-t full" onclick="copyOut()">Copiar resumo</button><div id="cp" class="hint"></div><button class="btn-y full" onclick="ph='setup';render()">Voltar ao início</button></div></div>`}
+ return `${logo()}<div class="card"><div class="banner"><div class="num" aria-hidden="true">✓</div><div class="t"><small>Obrigado!</small><h2 tabindex="-1">Envie suas percepções</h2></div></div><div class="body"><p class="small">Toque no botão para abrir o WhatsApp com o resumo já escrito e é só enviar. Se não abrir, use "Copiar resumo" e cole na conversa.</p><a class="btn-t full" style="display:block;text-align:center;text-decoration:none" href="${url}" target="_blank" rel="noopener">Enviar pelo WhatsApp</a><textarea class="out" id="out" readonly aria-label="Resumo do teste para copiar">${esc(t)}</textarea><button class="btn-t full" onclick="copyOut()">Copiar resumo</button><div id="cp" class="hint"></div><button class="btn-y full" onclick="ph='setup';render()">Voltar ao início</button></div></div>`}
 function copyOut(){const el=$('out');const t=el.value;const done=()=>{$('cp').textContent='Copiado.'};
  const fb=()=>{el.focus();el.select();$('cp').textContent='Texto selecionado. Use Copiar do aparelho.'};
  try{navigator.clipboard.writeText(t).then(done,fb)}catch(e){fb()}}
@@ -228,16 +232,35 @@ function render(){
  app.innerHTML=h;
  if(ph==='setup'){setupChange();updConn();const al=$('album');if(al)al.textContent='Conceitos que você já descobriu: '+albumN()+' de '+CARDS.length+'.'}
  motion()}
-/* Movimento e rolagem: só a tela nova sobe e volta ao topo; dentro da mesma tela, destaca e mostra o que mudou */
-let LAST={key:null,ph:null,k:0,fake:null};
+/* Movimento, rolagem, foco e anúncios depois de cada render.
+   - Tela nova: a carta entra, a página volta ao topo, o foco vai para o título e o leitor de tela ouve o título.
+   - Mesma tela: destaca e mostra o que mudou (rolagem instantânea, 'nearest' para não pular à toa),
+     devolve o foco ao controle certo e anuncia a mensagem na região #live (fixa, fora de #app).
+   "scene" e "sceneRes" contam como a mesma tela: confirmar a escolha não volta ao topo. */
+let LAST={key:null,ph:null,k:0,fake:null,msg:null,hint:null,opts:false,quit:false};
+function anuncia(t){const l=$('live');if(!l||!t)return;l.textContent='';setTimeout(()=>{l.textContent=t},60)}
 function motion(){
- const app=$('app'),key=ph+'|'+(S&&S.round)+'|'+(ph==='tut'?TUTI:''),same=key===LAST.key;
- const show=el=>{if(el)el.scrollIntoView({block:'center'})};
- if(!same){const cd=app.querySelector('.card');if(cd)cd.classList.add('enter');window.scrollTo(0,0);
-  if(LAST.ph==='clues'&&ph==='falseq'){const im=app.querySelector('.banner img');if(im)im.classList.add('pop')}}
- else if(ph==='clues'&&R&&R.k>LAST.k){const cl=app.querySelectorAll('.clues .clue')[R.k-1];if(cl){cl.classList.add('new');show(cl)}}
- else if(ph==='falseq'&&R&&R.fakePick!==null&&LAST.fake===null){show(app.querySelector('.body > button:last-of-type'))}
- LAST={key,ph,k:R?R.k:0,fake:R?R.fakePick:null}}
+ const app=$('app'),fase=ph==='sceneRes'?'scene':ph,key=fase+'|'+(S&&S.round)+'|'+(ph==='tut'?TUTI:''),same=key===LAST.key;
+ const q=s=>app.querySelector(s),show=(el,b)=>{if(el)el.scrollIntoView({block:b||'nearest'})},foca=el=>{if(el)el.focus({preventScroll:true})};
+ const msgTxt=()=>{const m=[...app.querySelectorAll('.body .msg')].pop();return m?m.textContent:''};
+ if(!same){const cd=q('.card');if(cd)cd.classList.add('enter');window.scrollTo(0,0);
+  if(LAST.ph==='clues'&&ph==='falseq'){const im=q('.banner img');if(im)im.classList.add('pop')}
+  const t=q('h2');foca(t);anuncia([t&&t.textContent,R&&ph!=='setup'&&ph!=='tut'&&ph!=='final'?R.msg:''].filter(Boolean).join('. '))}
+ else if(ph==='sceneRes'&&LAST.ph==='scene'){const sel=q('.opt.sel');show(sel,'start');foca(q('.body > button.btn-y'));
+  const tot=R.disc+R.bonus+R.sp;anuncia(`Cena: ${R.sp>0?'+':''}${R.sp}. ${msgTxt()} Total da carta: ${tot>0?'+':''}${tot}. Placar: ${S.names[0]} ${S.score[0]}, ${S.names[1]} ${S.score[1]}.`)}
+ else if(ph==='clues'&&R&&R.k>LAST.k){const cl=app.querySelectorAll('.clues .clue')[R.k-1];
+  const ctl=q('.ans-row')||q('.in')||q('.body > button.btn-y');show(ctl);if(cl){cl.classList.add('new');show(cl)}
+  foca($('g')||q('.ans-row button')||q('.body > button.btn-y'));
+  anuncia([R.msg,cl&&('Pista '+R.k+': '+cl.querySelector('p').textContent)].filter(Boolean).join(' '))}
+ else if(R&&R.options&&!LAST.opts){const o=q('.opt-ajuda');show(app.querySelector('.opt-ajuda:last-child'));foca(o);anuncia('Escolham uma das 4 opções.')}
+ else if(R&&R.hint&&R.hint!==LAST.hint){const h=q('.hint-ajuda');show(h);anuncia(R.hint);foca($('g')||q('.ans-row button'))}
+ else if(ph==='falseq'&&R&&R.fakePick!==null&&LAST.fake===null){const b=q('.body > button:last-of-type');show(b);foca(b);anuncia(msgTxt())}
+ else if(R&&R.msg&&R.msg!==LAST.msg){show(q('.body .msg'));anuncia(R.msg)}
+ else if(view.confirmQuit&&!LAST.quit){foca([...app.querySelectorAll('.top-b')].find(b=>/Sair/.test(b.textContent)))}
+ else if(ph==='scene'&&R&&R.choice!==null){foca(q('.opt.sel'))}
+ LAST={key,ph,k:R?R.k:0,fake:R?R.fakePick:null,msg:R?R.msg:null,hint:R?R.hint:null,opts:!!(R&&R.options),quit:!!view.confirmQuit}}
+/* Pré-carrega as poses (pensando/comemorando) para o "pop" do acerto não falhar no site */
+Object.values(POSE).forEach(p=>Object.values(p).forEach(src=>{const i=new Image();i.src=src}));
 ph=store.get(KEY_TUT)?'setup':'tut';
 render();
 init();
