@@ -5,7 +5,7 @@ Projeto: "Missão Dinheiro Pocket", jogo digital de educação financeira infant
 - Nome comercial, usado em todo texto visível ao jogador: **Missão Dinheiro: Pistas** (bot do modo solo: "Robô das Pistas"). "Pocket" é só nome interno: não aparece na interface, mas continua no repositório, no link do site, nas pastas e nas chaves de localStorage (`mdp-pocket-*`, não renomear).
 
 - O jogo é `index.html` + `style.css` + `cartas.js` + `game.js`, com imagens em `assets/personagens/`. Mantenha funcionando por duplo clique (`file://`), sem build: nada de `fetch`/módulos ES para carregar arquivos locais; use `<script src>` e `<img src>` com caminhos relativos.
-- Não usar localStorage além da chave `mdp-album` e das chaves já existentes; o arquivo precisa funcionar mesmo se o storage falhar (try/catch).
+- localStorage: só as chaves existentes (`mdp-album`, `mdp-pocket-v3-save`, `mdp-pocket-v3-tut`) e as autorizadas em 14/11/2026 para o pacote 2 — `mdp-pocket-char` (personagem do modo solo), `mdp-pocket-som` (som ligado/desligado), `mdp-pocket-conquistas` (conquistas entre partidas) e `mdp-pocket-fb` (rascunho do feedback). Nenhuma outra sem pedido. O jogo precisa funcionar mesmo se o storage falhar (try/catch).
 - Marca: azul-marinho #09274D, turquesa #12B8BB, amarelo #FFC12E, fonte Nunito.
 - Acessibilidade: contraste AA, alvos de toque ≥44px, respeitar prefers-reduced-motion, lang="pt-BR".
 - Regras do jogo em README.md (v1.3.3). Não alterar mecânica de pontuação sem pedido explícito.

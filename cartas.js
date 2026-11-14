@@ -45,7 +45,8 @@ const CARDS = [
       "A oferta é atraente, mas deixa apenas R$ 5 para o caderno necessário.",
       "Resolve a necessidade já conhecida e preserva R$ 10."
     ],
-    "faixa": "8–11"
+    "faixa": "8–11",
+    "tema": "Consumo e escolhas"
   },
   {
     "title": "Troco",
@@ -87,7 +88,8 @@ const CARDS = [
       "Perde R$ 1 por não conferir uma conta simples.",
       "É uma solução possível, mas aumenta o risco de dificuldade para corrigir."
     ],
-    "faixa": "5–7"
+    "faixa": "5–7",
+    "tema": "Consumo e escolhas"
   },
   {
     "title": "Golpe por mensagem",
@@ -131,7 +133,8 @@ const CARDS = [
       "Evita o link suspeito, mas pode deixar sem verificar um problema real.",
       "Verifica por um canal independente sem confiar no link recebido."
     ],
-    "faixa": "8–11"
+    "faixa": "8–11",
+    "tema": "Dinheiro digital e segurança"
   },
   {
     "title": "Parcelamento",
@@ -175,7 +178,8 @@ const CARDS = [
       "O total estimado é R$ 420: menor que parcelar, maior que a nova à vista.",
       "Pagará R$ 450 no total sem urgência, assumindo compromissos futuros."
     ],
-    "faixa": "8–11"
+    "faixa": "8–11",
+    "tema": "Consumo e escolhas"
   },
   {
     "title": "Preço por unidade",
@@ -219,7 +223,8 @@ const CARDS = [
       "Atende à necessidade e preserva R$ 21 para o outro material.",
       "Mantém R$ 16 disponíveis e pode ter utilidade futura, embora compre além da necessidade atual."
     ],
-    "faixa": "8–11"
+    "faixa": "8–11",
+    "tema": "Consumo e escolhas"
   },
   {
     "title": "Imprevisto",
@@ -262,7 +267,8 @@ const CARDS = [
       "Resolve hoje, mas custa mais e adia o brinquedo.",
       "Pode não proteger na chuva e não resolve o problema."
     ],
-    "faixa": "5–7"
+    "faixa": "5–7",
+    "tema": "Poupar e guardar"
   },
   {
     "title": "Meta",
@@ -306,7 +312,8 @@ const CARDS = [
       "Consegue chegar aos R$ 30 em duas semanas.",
       "Mesmo guardando R$ 10 depois, faltará dinheiro para o livro no prazo."
     ],
-    "faixa": "5–7"
+    "faixa": "5–7",
+    "tema": "Poupar e guardar"
   },
   {
     "title": "Empréstimo",
@@ -351,7 +358,8 @@ const CARDS = [
       "É uma possibilidade, mas depende de o colega devolver antes de você precisar.",
       "Respeita sua necessidade e oferece ajuda sem prometer o que não pode cumprir."
     ],
-    "faixa": "5–7"
+    "faixa": "5–7",
+    "tema": "Poupar e guardar"
   },
   {
     "title": "Cofrinho",
@@ -984,7 +992,7 @@ const CARDS = [
   {
     "title": "Compra online",
     "char": "Mel",
-    "icon": "🛒",
+    "icon": "💻",
     "p": [
       "Você escolhe, paga e depois espera chegar.",
       "Acontece sem entrar em uma loja de verdade.",
@@ -1170,7 +1178,7 @@ const CARDS = [
   {
     "title": "Mesada",
     "char": "Mel",
-    "icon": "🪙",
+    "icon": "👛",
     "p": [
       "Vem de alguém da família, a cada semana ou mês.",
       "É um dinheiro que a criança recebe e pode escolher o que fazer.",

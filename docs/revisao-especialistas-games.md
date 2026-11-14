@@ -79,13 +79,24 @@ Testado em partida completa: pontuação igual (10, 2, 5, 2, 8, 1); ícone só a
 
 ## B. Decisões do dono antes de implementar
 
+**Decididas em 14/11/2026:**
+1. Faixa padrão: **nenhuma marcada** — o adulto escolhe antes de começar.
+2. Ícones: **Compra online 🛒→💻** e **Mesada 🪙→👛** (Preço por unidade e Economizar mantêm os seus).
+3. Tema das 8 originais: **aplicar a sugestão** abaixo.
+4. Modo solo: **robô vira colega** — a criança joga as 6 cartas, o robô só comenta a escolha dele na cena, sem placar contra o robô; tela final mostra o melhor da criança.
+5. Novas chaves autorizadas: **personagem**, **som**, **conquistas entre partidas** e **rascunho do feedback** (registradas no CLAUDE.md).
+
+Opções que estavam em discussão:
+
 1. **Faixa padrão** ✔: hoje vem marcada "Todas" — quem não mexe dá Juros/Parcelamento a uma criança de 5 anos. Sugestão: nenhuma marcada (o adulto escolhe) ou "5 a 7".
 2. **Ícones repetidos** ✔: 🛒 Preço por unidade e Compra online; 🪙 Economizar e Mesada. Trocar dois ícones em `cartas.js` (metadado; muda também o kit, que teria de ser gerado de novo).
 3. **Tema das 8 cartas originais** (para cor, nome do tema e álbum por tema). Sugestão: Troco, Promoção relâmpago, Preço por unidade, Parcelamento → Consumo e escolhas; Imprevisto, Meta, Empréstimo → Poupar e guardar; Golpe por mensagem → Dinheiro digital e segurança.
 4. **Modo solo** ✔: a criança joga só 3 das 6 cartas e é comparada a um resultado sorteado (pode perder "para o sorteio"); as cartas do robô não entram no álbum. Opção: a criança joga todas as cartas e o robô vira um colega que mostra a escolha dele — muda a alternância descrita no README.
 5. **Chaves novas de salvamento** (CLAUDE.md hoje proíbe): lembrar personagem escolhido, som ligado/desligado, conquistas entre partidas, rascunho do feedback.
 
-## C. Pacote 2 sugerido (sem chave nova)
+## C. Pacote 2 sugerido (sem chave nova) — ✅ implementado em 14/11/2026, junto com as decisões do grupo B e os itens #15 (som), #16 não (textos novos pendentes) e #17 (conquistas)
+
+Testado: pontuação igual no modo equipes; nenhuma violação de pré-requisito em 300 sorteios; cartas novas primeiro; modo solo com a criança jogando todas as cartas e o robô comentando a cena; rascunho do feedback salvo/restaurado/apagado; celebração ao completar a faixa; som liga/desliga e fica salvo; topo continua numa linha (46 px).
 
 1. Sorteio que prefere cartas ainda não descobertas e respeita pré-requisitos olhando o álbum (Juros/Parcelamento/Cartão depois de Empréstimo ou Poupança).
 2. Álbum por faixa: tela com os ícones descobertos e "?" nos que faltam ("5 de 13"), com celebração ao completar a faixa.

@@ -161,3 +161,51 @@ a.btn-y{color:var(--ink)}
 .clue.lock .n{background:transparent;color:var(--ink);font-size:15px}
 .clue.lock p{color:#3D4F66;font-weight:700}
 summary{list-style-position:inside}
+
+/* Pacote 2 (14/11/2026): modo solo com personagem, álbum, celebração, som */
+.top-b.som{min-width:44px;padding-inline:10px;font-size:18px}
+.score.solo{grid-template-columns:1fr}
+.score.solo .chip{display:flex;align-items:center;gap:12px}
+.chip .av{width:44px;height:44px;border-radius:12px;background:#fff;object-fit:contain;flex:0 0 auto}
+.albumbox{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:#F2F6FB;border-radius:12px;padding:8px 10px;font-weight:700;font-size:14px;color:#3D4F66}
+.albumbox .keybtn{min-height:44px}
+.seg.chars{display:grid;grid-template-columns:repeat(3,1fr)}
+.seg.chars span{display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 4px}
+.seg.chars img{width:56px;height:56px;border-radius:12px;background:#fff;object-fit:contain}
+.seg.chars input:checked+span img{outline:3px solid var(--yellow)}
+.fxmsg{color:#8E2438;font-weight:800;margin-top:6px}
+.fxmsg:empty{display:none}
+.msg.robo{background:#E8F4FF;color:var(--ink)}
+.clue .mais2{display:inline-block;margin-left:8px;font-weight:900;color:#0E5B34;background:#DCF3E6;border-radius:8px;padding:2px 8px}
+.dest{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-direction:column;gap:6px;font-size:15px;font-weight:600}
+.fim2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fimbox{background:#F2F6FB;border-radius:16px;padding:12px;border:3px solid transparent;display:flex;gap:12px;align-items:flex-start}
+.fim2 .fimbox{display:block}
+.fimbox.top{border-color:var(--yellow);background:#FFF8E1}
+.fimbox .big{font-size:40px;line-height:1.1;display:inline-block}
+.fimchar{width:96px;height:96px;border-radius:18px;background:#fff;object-fit:contain;flex:0 0 auto}
+@media (max-width:400px){.fim2{grid-template-columns:1fr}}
+.cqs{display:flex;flex-wrap:wrap;gap:6px}
+.cq{background:#FFF4D6;border-radius:999px;padding:4px 10px;font-weight:800;font-size:14px}
+.alb{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:8px}
+.ac{border-radius:12px;padding:8px 6px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;background:#FFF8E1;border-bottom:4px solid var(--yellow);min-height:84px;justify-content:center}
+.ac span{font-size:28px;line-height:1}
+.ac small{font-size:12px;font-weight:800;line-height:1.2}
+.ac.t-poupar{background:#DAF3E3;border-color:#16864F}.ac.t-consumo{background:#FDE3EA;border-color:#E0559A}.ac.t-digital{background:#DCEAFD;border-color:#3D7BE0}.ac.t-trabalho{background:#FFE7CC;border-color:#F28C28}
+.ac.falta{background:#F2F6FB;border:2px dashed #7F8FA8;color:#3D4F66}
+.card.fim{position:relative}
+.confete{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:2;display:none}
+@media (prefers-reduced-motion:no-preference){
+ .confete{display:block}
+ .confete i{position:absolute;top:-12px;width:8px;height:12px;border-radius:2px;opacity:0;animation:cai 1.3s ease-in forwards}
+ .confete i:nth-child(odd){background:var(--yellow)}.confete i:nth-child(even){background:var(--teal)}.confete i:nth-child(3n){background:#E0559A}
+ .confete i:nth-child(1){left:6%;animation-delay:.05s}.confete i:nth-child(2){left:13%;animation-delay:.2s}.confete i:nth-child(3){left:20%;animation-delay:.1s}.confete i:nth-child(4){left:28%;animation-delay:.3s}.confete i:nth-child(5){left:35%;animation-delay:0s}.confete i:nth-child(6){left:42%;animation-delay:.25s}.confete i:nth-child(7){left:50%;animation-delay:.15s}
+ .confete i:nth-child(8){left:57%;animation-delay:.35s}.confete i:nth-child(9){left:64%;animation-delay:.05s}.confete i:nth-child(10){left:71%;animation-delay:.2s}.confete i:nth-child(11){left:78%;animation-delay:.1s}.confete i:nth-child(12){left:85%;animation-delay:.3s}.confete i:nth-child(13){left:91%;animation-delay:.15s}.confete i:nth-child(14){left:96%;animation-delay:.4s}
+ @keyframes cai{0%{opacity:1;transform:translateY(0) rotate(0)}100%{opacity:0;transform:translateY(320px) rotate(300deg)}}
+ .opt .pts.late{animation:aparece .3s ease-out .45s both}
+ @keyframes aparece{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:none}}
+ .clue .mais2{animation:sobe .7s ease-out both}
+ @keyframes sobe{0%{opacity:0;transform:translateY(8px) scale(.7)}60%{opacity:1;transform:translateY(-4px) scale(1.15)}100%{transform:none}}
+ .chip.bump{animation:bump .5s ease-out}
+ @keyframes bump{50%{transform:scale(1.08)}}
+}

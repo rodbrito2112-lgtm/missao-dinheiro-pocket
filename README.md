@@ -1,6 +1,6 @@
 # Missão Dinheiro Pocket — jogo digital (versão Experimental)
 
-**Nome comercial (o que o jogador vê): Missão Dinheiro: Pistas.** "Pocket" é só o nome interno do projeto (repositório, pastas, documentação, chaves de salvamento). O adversário do modo solo se chama "Robô das Pistas".
+**Nome comercial (o que o jogador vê): Missão Dinheiro: Pistas.** "Pocket" é só o nome interno do projeto (repositório, pastas, documentação, chaves de salvamento). No modo solo, o "Robô das Pistas" é um colega, não adversário.
 
 Jogo de cartas de educação financeira para crianças a partir de 5 anos (faixas 5–7 e 8+; versão específica para adolescentes pendente), parte do ecossistema **Meu Dinheiro Club**. Standalone: não altera o jogo principal.
 
@@ -17,7 +17,11 @@ Sem build e sem backend: funciona offline, inclusive por duplo clique (`file://`
 - Empate = vitória compartilhada.
 - Ajudas estilo Show do Milhão (Dica, Opções, Pista falsa): usar uma ajuda reduz os pontos de descoberta pela metade (arredondado para cima).
 - Resposta com "Quase!": o jogo dá uma dica e libera nova tentativa na pista seguinte.
-- Filtro por faixa etária (5–7, 8 anos ou mais, todas) e duração da partida; álbum de cartas descobertas salvo no navegador (`localStorage`, chave `mdp-album`).
+- Filtro por faixa etária (5–7, 8 anos ou mais, todas) — **nenhuma vem marcada**, um adulto escolhe — e duração da partida.
+- **Modo solo (desde 14/11/2026):** uma pessoa joga todas as cartas, com o personagem que escolheu (Caio, Mel, Letícia, Vinicius, Bia ou Tiko). O Robô das Pistas é colega: não pontua, só dá a opinião dele na cena. A tela final mostra os destaques da criança, sem "quem venceu".
+- Sorteio: prefere conceitos ainda não descobertos; Juros, Parcelamento e Cartão de crédito só entram depois de Empréstimo ou Poupança (no álbum ou antes na partida).
+- Álbum por faixa (tela "Ver álbum"), com celebração ao completar uma faixa; conquistas de atitude (Detetive, Boa escolha, Por conta própria, Não desistiu); som curto opcional (começa desligado).
+- Salvo no navegador: `mdp-album`, `mdp-pocket-v3-save`, `mdp-pocket-v3-tut`, `mdp-pocket-char`, `mdp-pocket-som`, `mdp-pocket-conquistas`, `mdp-pocket-fb` (rascunho do feedback).
 
 ## Estrutura
 - `index.html` — página de entrada; carrega `style.css`, `cartas.js` e `game.js`.
@@ -41,9 +45,9 @@ Para publicar, envie a pasta inteira (não só o `index.html`).
 - Testes com crianças (Caio ainda não testou).
 
 ## Melhorias anotadas (não implementadas)
-- **Escolher personagem no modo "uma pessoa contra o jogo"** (pedido em 10/11/2026): antes de começar, a criança escolhe 1 personagem do MDC para representá-la. Personagens com imagens prontas em `assets/personagens/`: Caio, Mel, Letícia, Vinicius, Bia, Tiko (Rodrigo e Natty são os adultos responsáveis). A definir: onde a personagem aparece (placar, tela final, resumo do feedback) e se ela substitui o nome "Você".
-- **Feedback não fica salvo:** se a pessoa fechar a tela sem enviar pelo WhatsApp ou copiar, as respostas se perdem.
-- **Versão no resumo do feedback:** incluir a versão/commit do jogo no texto enviado (hoje o código grava "v3" internamente e não mostra).
+- ~~Escolher personagem no modo solo~~ — feito em 14/11/2026 (pacote 2).
+- ~~Feedback não fica salvo~~ — resolvido em 14/11/2026: rascunho em `mdp-pocket-fb` e aviso antes de sair sem enviar.
+- ~~Versão no resumo do feedback~~ — resolvido em 14/11/2026 (`VERSAO_JOGO` em game.js).
 - **Código morto:** `showResults()` e `DB` vêm da versão com banco do Claude e não funcionam fora dele.
 - **Revisão de especialistas em games:** 17 melhorias priorizadas em `docs/revisao-especialistas-games.md` (o primeiro pacote já foi implementado).
 
