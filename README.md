@@ -17,7 +17,8 @@ Sem build e sem backend: funciona offline, inclusive por duplo clique (`file://`
 - Empate = vitória compartilhada.
 - Ajudas estilo Show do Milhão (Dica, Opções, Pista falsa): usar uma ajuda reduz os pontos de descoberta pela metade (arredondado para cima).
 - Resposta com "Quase!": o jogo dá uma dica e libera nova tentativa na pista seguinte.
-- Filtro por faixa etária (5–7, 8 anos ou mais, todas) — **nenhuma vem marcada**, um adulto escolhe — e duração da partida.
+- Filtro por faixa etária (5–7, 8 anos ou mais, todas) — **nenhuma vem marcada**, alguém escolhe antes de começar.
+- **Configurações** (recolhidas na tela inicial): tamanho da partida, regra do erro (A/B), ajudas, **Cena e escolha opcional** (sem cena, a carta conta só descoberta e pista falsa — como no kit impresso), som e "Recomeçar o álbum" (apaga álbum e conquistas do aparelho, com confirmação).
 - **Modo solo (desde 14/11/2026):** uma pessoa joga todas as cartas, com o personagem que escolheu (Caio, Mel, Letícia, Vinicius, Bia ou Tiko). O Robô das Pistas é colega: não pontua, só dá a opinião dele na cena. A tela final mostra os destaques da criança, sem "quem venceu".
 - Sorteio: prefere conceitos ainda não descobertos; Juros, Parcelamento e Cartão de crédito só entram depois de Empréstimo ou Poupança (no álbum ou antes na partida).
 - Álbum por faixa (tela "Ver álbum"), com celebração ao completar uma faixa; conquistas de atitude (Detetive, Boa escolha, Por conta própria, Não desistiu); som curto opcional (começa desligado).

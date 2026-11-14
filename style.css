@@ -209,3 +209,141 @@ summary{list-style-position:inside}
  .chip.bump{animation:bump .5s ease-out}
  @keyframes bump{50%{transform:scale(1.08)}}
 }
+
+/* Tela inicial nova (14/11/2026): abertura azul + cartão curto + opções do adulto recolhidas */
+.albumbtn{background:var(--navy-l);color:#fff;border:2px solid var(--teal);border-radius:999px;min-height:44px;padding:8px 16px;display:inline-flex;align-items:center;gap:8px;font-weight:800}
+.albumbtn small{background:var(--teal);color:#032a30;border-radius:999px;padding:2px 8px;font-weight:900;font-size:13px}
+.setup .seg.mode span{min-height:84px;justify-content:center}
+.setup .seg.mode b{font-size:18px}
+.seg.faixas span{padding:14px 6px;display:flex;align-items:center;justify-content:center}
+.adulto{border:2px solid #C9D3E0;border-radius:14px;padding:0 12px}
+.adulto summary{min-height:48px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-weight:800;cursor:pointer;color:var(--ink)}
+.adulto summary small{font-weight:600;color:#3D4F66;font-size:13px}
+.adulto[open]{padding-bottom:12px}
+.big-start{font-size:20px;min-height:60px}
+.linkbtn{background:transparent;color:var(--ink);text-decoration:underline;font-weight:800;min-height:44px;padding:8px}
+.top .som{color:#fff;border-color:var(--on-navy-mute)}
+
+/* Tela inicial sem cartão branco: opções direto sobre o azul-marinho */
+.card.setup{background:transparent;color:var(--on-navy);overflow:visible}
+.card.setup .body{padding:6px 0 0}
+.setup label{color:#fff}
+.setup .seg span{background:var(--navy-l);color:#fff;border-color:#4A6A96}
+.setup .seg span small{color:#C9D7EA;opacity:1}
+.setup .seg input:checked+span{background:var(--yellow);color:var(--ink);border-color:var(--yellow)}
+.setup .seg input:checked+span small{color:var(--ink)}
+.setup .seg.chars input:checked+span img{outline:3px solid var(--ink)}
+.setup input[type=text]{border-color:#fff}
+.setup input[type=text]:disabled{background:#C9D7EA}
+.setup .adulto{border-color:#4A6A96}
+.setup .adulto summary{color:#fff}
+.setup .adulto summary small{color:#C9D7EA}
+.setup .linkbtn{color:#fff}
+.setup .fxmsg{color:#1a0a0e;background:#FBE0E5;border-radius:10px;padding:8px 10px}
+/* Foco visível sobre o azul: anel amarelo (contraste alto no navy) */
+.card.setup button:focus-visible,.card.setup input:focus-visible,.card.setup summary:focus-visible,.card.setup .seg input:focus-visible+span{outline:3px solid var(--yellow);outline-offset:2px;box-shadow:none}
+.card.setup .seg input:checked:focus-visible+span{outline-color:#fff}
+
+/* ===== Identidade oficial (Manual da Marca Única v1.1, 03.1) — 14/11/2026 =====
+   Cores: azul-marinho #09274D (base), amarelo #FFC12E (destaque), turquesa #12B8BB (apoio);
+   complementares rosa #F35A8B e roxo #7966D8 (conteúdo). Tipografia: Nunito 800/700 em títulos;
+   Inter 400 texto, 500 rótulos, 600 botões. */
+:root{--rosa:#F35A8B;--roxo:#7966D8;--ui:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif}
+body{font-family:var(--ui);font-weight:400}
+h1,h2,h3,.banner h2,.hero h2,.chip b,.big,.num,.nome,.selo,.interrog{font-family:var(--font)}
+h2,.banner h2{font-weight:800}
+button{font-family:var(--ui);font-weight:600}
+label,.lab,.seg span b{font-weight:500}
+.setup label,.fb label{font-weight:600}
+.seg span b,.mode b{font-weight:700}
+
+/* Cores de tema dentro da paleta oficial */
+.tema-poupar{border-bottom-color:var(--teal)}.tema-poupar .num{background:#D9F4F4}
+.tema-consumo{border-bottom-color:var(--rosa)}.tema-consumo .num{background:#FDE3EC}
+.tema-digital{border-bottom-color:var(--roxo)}.tema-digital .num{background:#E9E5FA}
+.tema-trabalho{border-bottom-color:var(--yellow)}.tema-trabalho .num{background:#FFF1CC}
+.ac.t-poupar{background:#D9F4F4;border-color:var(--teal)}.ac.t-consumo{background:#FDE3EC;border-color:var(--rosa)}
+.ac.t-digital{background:#E9E5FA;border-color:var(--roxo)}.ac.t-trabalho{background:#FFF1CC;border-color:var(--yellow)}
+
+/* ===== Tela inicial: carta misteriosa (redesenho) ===== */
+.abertura{display:flex;flex-direction:column;align-items:center;gap:14px;padding:6px 0 4px;text-align:center}
+.mesa{position:relative;width:min(64vw,236px);aspect-ratio:63/88;margin:10px auto 6px}
+.carta{position:absolute;inset:0;border-radius:22px}
+.carta.tras{background:var(--teal);transform:rotate(7deg) translate(14px,4px);box-shadow:0 10px 0 -2px rgba(0,0,0,.18)}
+.carta.frente{background:var(--navy-d);transform:rotate(-4deg);box-shadow:0 14px 0 -4px rgba(0,0,0,.28),inset 0 0 0 2px #1B3B66}
+.moldura{position:absolute;inset:12px;border:3px solid var(--yellow);border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:#fff}
+.interrog{font-size:88px;line-height:.9;font-weight:900;color:var(--yellow)}
+.nome{font-size:22px;font-weight:800;line-height:1.05;max-width:9ch}
+.selo{margin-top:8px;font-size:18px;font-weight:900;color:var(--navy);background:var(--yellow);border-radius:999px;padding:4px 16px}
+.espia{position:absolute;width:76px;height:76px;object-fit:contain;filter:drop-shadow(0 4px 0 rgba(0,0,0,.25))}
+.espia.esq{left:-46px;bottom:-8px;transform:rotate(-8deg)}
+.espia.dir{right:-48px;bottom:26px;transform:rotate(6deg) scaleX(-1)}
+.chamada{color:var(--on-navy);font-size:16px;line-height:1.45;max-width:30ch}
+.albumbtn{background:transparent;color:#fff;border:2px solid var(--teal);border-radius:999px;min-height:44px;padding:8px 16px;display:inline-flex;align-items:center;gap:8px;font-weight:600}
+.albumbtn small{background:var(--teal);color:#032a30;border-radius:999px;padding:2px 9px;font-weight:700;font-size:13px}
+@media (prefers-reduced-motion:no-preference){
+ .mesa.entra .carta.frente{animation:vira .7s cubic-bezier(.34,1.4,.64,1) both}
+ .mesa.entra .carta.tras{animation:desliza .6s ease-out .15s both}
+ .mesa.entra .espia{animation:espiar .5s ease-out .55s both}
+ @keyframes vira{from{transform:rotate(-4deg) rotateY(90deg)}to{transform:rotate(-4deg)}}
+ @keyframes desliza{from{transform:rotate(0) translate(0,0);opacity:0}to{transform:rotate(7deg) translate(14px,4px);opacity:1}}
+ @keyframes espiar{from{opacity:0;translate:0 14px}to{opacity:1;translate:0 0}}
+}
+/* Escolhas como peças de jogo, direto sobre o azul */
+.setup .seg.mode span{min-height:0;padding:14px 10px;align-items:center;text-align:center;gap:4px}
+.faces{display:flex;justify-content:center;margin-bottom:4px}
+.faces img,.faces i{width:46px;height:46px;border-radius:50%;background:#fff;border:3px solid var(--navy-l);object-fit:cover;margin-left:-10px;font-style:normal;display:grid;place-items:center;font-size:24px}
+.faces>:first-child{margin-left:0}
+.setup .seg input:checked+span .faces img,.setup .seg input:checked+span .faces i{border-color:var(--yellow)}
+.seg.faixas{display:flex;flex-wrap:wrap;gap:8px}
+.seg.faixas label{flex:1 1 auto}
+.setup .seg.faixas span{border-radius:999px;padding:12px 14px;font-weight:600;min-height:48px;display:flex;align-items:center;justify-content:center}
+.big-start{font-family:var(--font);font-weight:800;font-size:22px;min-height:60px;box-shadow:0 6px 0 -1px #C8901A}
+/* Personagens como adesivos redondos na borda da carta (as imagens têm fundo branco quadrado) */
+.espia{width:78px;height:78px;border-radius:50%;background:#fff;border:4px solid var(--yellow);object-fit:cover;filter:none;box-shadow:0 5px 0 -1px rgba(0,0,0,.3)}
+.espia.esq{left:-30px;bottom:-14px;transform:rotate(-10deg)}
+.espia.dir{right:-30px;bottom:34px;transform:rotate(8deg);border-color:var(--teal)}
+/* Os rostos dentro dos cartões de modo não herdam o estilo de botão de opção */
+.setup .seg span.faces,.seg span.faces{display:flex;flex-direction:row;justify-content:center;background:transparent;border:0;padding:0;min-height:0;border-radius:0}
+/* Abertura compacta: carta pequena à esquerda, texto e álbum à direita (o Começar fica mais perto do topo) */
+.abertura{display:grid;grid-template-columns:auto 1fr;grid-template-areas:"mesa texto" "mesa album";align-items:center;column-gap:22px;row-gap:10px;text-align:left;padding:4px 6px 2px 14px}
+.mesa{grid-area:mesa;width:104px;margin:4px 0 8px}
+.carta{border-radius:12px}
+.carta.tras{transform:rotate(8deg) translate(8px,2px);box-shadow:0 6px 0 -2px rgba(0,0,0,.18)}
+.carta.frente{box-shadow:0 8px 0 -3px rgba(0,0,0,.28),inset 0 0 0 2px #1B3B66}
+.moldura{inset:6px;border-width:2px;border-radius:8px;gap:2px}
+.interrog{font-size:40px}
+.nome{font-size:11px;max-width:8ch}
+.selo{margin-top:3px;font-size:10px;padding:2px 8px}
+.espia{width:42px;height:42px;border-width:3px;box-shadow:0 3px 0 -1px rgba(0,0,0,.3)}
+.espia.esq{left:-16px;bottom:-10px}
+.espia.dir{right:-18px;bottom:22px}
+.chamada{grid-area:texto;font-size:15px;max-width:none;align-self:end}
+.albumbtn{grid-area:album;justify-self:start;align-self:start;padding:6px 12px;font-size:15px}
+@media (prefers-reduced-motion:no-preference){@keyframes desliza{from{transform:rotate(0) translate(0,0);opacity:0}to{transform:rotate(8deg) translate(8px,2px);opacity:1}}}
+/* Mais compacto até o Começar */
+.albumbtn{white-space:nowrap}
+.setup .body{gap:12px}
+.setup .seg.mode span{padding:10px 8px;gap:2px}
+.setup .seg.mode b{font-size:17px}
+.setup .seg.mode small{font-size:12.5px;line-height:1.3}
+.faces img,.faces i{width:38px;height:38px;font-size:20px}
+.seg.faixas{flex-wrap:nowrap;gap:6px}
+.seg.faixas label{flex:1 1 0;min-width:0}
+.setup .seg.faixas span{padding:10px 6px;font-size:14px;line-height:1.2;text-align:center}
+.nomes input{padding:10px 12px}
+/* Configurações: botão de recomeçar o álbum e texto de apoio */
+.setup .zera{color:#fff;border-color:#C9D7EA;min-height:48px}
+.setup .zera.alerta{background:#FBE0E5;color:#8E2438;border-color:#C93A52}
+.setup .zera:disabled{opacity:.7}
+.hint-cfg{color:#C9D7EA;font-size:13px;margin-top:6px}
+/* Configurações: indicação clara de abrir/fechar */
+.adulto summary{list-style:none;justify-content:space-between;flex-wrap:nowrap}
+.adulto summary::-webkit-details-marker{display:none}
+.cfg-t{display:flex;flex-direction:column;gap:2px}
+.cfg-acao{flex:0 0 auto;background:var(--navy-l);border:2px solid #4A6A96;border-radius:999px;padding:6px 12px;font-size:14px;font-weight:600;color:#fff;white-space:nowrap}
+.adulto .fechar{display:none}
+.adulto[open] .abrir{display:none}
+.adulto[open] .fechar{display:inline}
+.adulto[open] .cfg-acao{background:var(--yellow);color:var(--ink);border-color:var(--yellow)}
+.setup .fechar-cfg{color:#fff;border-color:#C9D7EA;min-height:48px;margin-top:4px}

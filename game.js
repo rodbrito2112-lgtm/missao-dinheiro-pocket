@@ -46,8 +46,8 @@ function montarBaralho(pool,len){const a=albumList();
  for(const i of [...novos,...vistos]){if(deck.length>=len)break;if(pode(i)){deck.push(i);for(let k=esperando.length-1;k>=0;k--)if(deck.length<len&&pode(esperando[k]))deck.push(esperando.splice(k,1)[0])}else esperando.push(i)}
  while(deck.length<len&&esperando.length)deck.push(esperando.shift());
  return deck}
-function newGame(mode,names,rule,helps,faixa,len,ch){const pool=CARDS.map((c,i)=>i).filter(i=>faixa==='todas'||!CARDS[i].faixa||CARDS[i].faixa===faixa);
- S={mode,names,rule,helps,faixa,len,char:ch||null,life:[{dica:0,opc:0,falsa:0},{dica:0,opc:0,falsa:0}],deck:montarBaralho(pool,len),round:0,score:[0,0],log:[],t0:Date.now()};startRound()}
+function newGame(mode,names,rule,helps,faixa,len,ch,cena){const pool=CARDS.map((c,i)=>i).filter(i=>faixa==='todas'||!CARDS[i].faixa||CARDS[i].faixa===faixa);
+ S={mode,names,rule,helps,faixa,len,char:ch||null,cena:cena!==false,life:[{dica:0,opc:0,falsa:0},{dica:0,opc:0,falsa:0}],deck:montarBaralho(pool,len),round:0,score:[0,0],log:[],t0:Date.now()};startRound()}
 function startRound(){
  R={k:1,shown:1,blocked:false,nextBlocked:false,elim:false,correctAt:0,disc:0,bonus:0,fakePick:null,choice:null,msg:null,msgKind:'',showKey:false,adults:0,guesses:0,nears:0,lifeUsed:false,lifeKind:'',hint:null,options:null,fakeKnown:false};
  /* Modo solo: o Robô das Pistas escolhe a opção dele na cena (mais vezes a melhor) para comentar depois; não pontua */
@@ -64,7 +64,17 @@ function somLigado(){return !!store.get(KEY_SOM)}
 function som(tipo){if(!somLigado())return;try{AC=AC||new (window.AudioContext||window.webkitAudioContext)();
  const N={pista:[[880,.06,.08]],acerto:[[523,.12,.15],[659,.18,.15]],quase:[[440,.12,.06],[440,.12,.06]],mais2:[[659,.08,.13],[784,.08,.13],[988,.16,.13]],fim:[[523,.1,.14],[659,.1,.14],[784,.1,.14],[1047,.28,.14]]}[tipo];if(!N)return;
  let t=AC.currentTime;for(const[f,d,v]of N){const o=AC.createOscillator(),g=AC.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(v,t+.01);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(g).connect(AC.destination);o.start(t);o.stop(t+d+.02);t+=d*.9}}catch(e){}}
-function toggleSom(){store.set(KEY_SOM,!somLigado());if(somLigado())som('pista');render()}
+/* Fecha o painel de configurações e volta a tela para o título dele */
+function fechaCfg(){const d=$('cfg');if(!d)return;d.open=false;const s=d.querySelector('summary');s.scrollIntoView({block:'nearest'});s.focus({preventScroll:true})}
+function setSom(v){store.set(KEY_SOM,!!v);if(v)som('pista');if(ph==='setup'){atualizaSom()}else render()}
+function toggleSom(){setSom(!somLigado())}
+/* Na tela inicial, atualiza só os controles de som (redesenhar apagaria as escolhas já feitas) */
+function atualizaSom(){const on=somLigado();document.querySelectorAll('.som').forEach(b=>{b.setAttribute('aria-pressed',on);b.setAttribute('aria-label','Som '+(on?'ligado':'desligado'));b.querySelector('span').textContent=on?'🔊':'🔇'});
+ const r=document.querySelector(`input[name=somcfg][value=${on?'on':'off'}]`);if(r)r.checked=true}
+/* Recomeçar o álbum: pede confirmação no próprio botão, depois apaga álbum e conquistas deste aparelho */
+function zeraAlbum(b){if(!b.dataset.conf){b.dataset.conf=1;b.textContent='Toque de novo para apagar o álbum';b.classList.add('alerta');return}
+ store.del('mdp-album');store.del(KEY_CONQ);delete b.dataset.conf;b.classList.remove('alerta');b.textContent='Álbum recomeçado';b.disabled=true;
+ const a=$('album');if(a)a.textContent='0 de '+CARDS.length;anuncia('Álbum e conquistas apagados neste aparelho.')}
 const botaoSom=()=>`<button class="ghost btn-g top-b som" aria-pressed="${somLigado()}" aria-label="Som ${somLigado()?'ligado':'desligado'}" onclick="toggleSom()"><span aria-hidden="true">${somLigado()?'🔊':'🔇'}</span></button>`;
 function advance(semSom){
  if(R.k>=6){ph='reveal';R.shown=6;return}
@@ -87,6 +97,10 @@ function pass(){if(R.blocked&&R.k>=6){advance()}else guess('pass');render()}
 function toggleKey(){R.showKey=!R.showKey;render()}
 function pickFake(i){if(R.fakePick!==null)return;R.fakePick=i;const c=card();R.bonus=i===c.fake?2:0;if(R.bonus)som('mais2');render()}
 function toScene(){ph='scene';render()}
+/* Sem cena: fecha a carta só com descoberta e pista falsa e vai para a próxima */
+function fecharSemCena(){const c=card(),t=team();R.sp=0;R.choice=null;const tot=R.disc+R.bonus;S.score[t]+=tot;
+ S.log.push({round:S.round,t,title:c.title,k:R.correctAt,elim:R.elim,bonus:R.bonus,sp:0,ch:null,tot,adults:R.adults,guesses:R.guesses,nears:R.nears,life:R.lifeKind,semCena:true});next()}
+const botaoCena=()=>S.cena===false?`<button class="btn-y full" onclick="fecharSemCena()">${S.round>=S.len-1?'Ver resultado':'Próxima carta'}</button>`:'<button class="btn-y full" onclick="toScene()">Ir para Cena e Escolha</button>';
 function pickOpt(i){R.choice=i;render()}
 function useLife(k){
  if(!S.helps||R.lifeUsed||S.life[team()][k])return;const c=card(),x=EXTRA[c.title]||{};const t=team();
@@ -164,8 +178,8 @@ function viewClues(c){
 function viewFalse(c){const done=R.fakePick!==null;
  const dmsg=R.fakePick===-1?'A ajuda já mostrou a pista falsa, então não há bônus nesta carta.':(R.bonus?'Isso! A pista falsa estava aí. +2 pontos.':'Não foi essa. A pista falsa era a número '+c.fake+'.');
  return `<div class="card">${banner(c,true)}<div class="body">${msgBox()}<div class="lab">Qual pista é a falsa?</div><p class="small"><b>${R.fakePick===null?'Toque na pista que não combina com o conceito. Acertar vale +2.':''}</b></p>${clueList(c,'pick')}
- ${done?`<div class="msg ${R.bonus?'good':'bad'}">${dmsg}</div><button class="btn-y full" onclick="toScene()">Ir para Cena e Escolha</button>`:''}</div></div>`}
-function viewReveal(c){return `<div class="card">${banner(c,true,'think')}<div class="body">${msgBox()}<div class="msg"><b>${R.elim?'O leitor encerra as pistas.':'Acabaram as pistas.'}</b> A resposta era <b>${esc(c.title)}</b>. Sem pontos de descoberta nesta carta, mas a equipe continua para a cena.</div>${clueList(c)}<button class="btn-y full" onclick="toScene()">Ir para Cena e Escolha</button></div></div>`}
+ ${done?`<div class="msg ${R.bonus?'good':'bad'}">${dmsg}</div>${botaoCena()}`:''}</div></div>`}
+function viewReveal(c){return `<div class="card">${banner(c,true,'think')}<div class="body">${msgBox()}<div class="msg"><b>${R.elim?'O leitor encerra as pistas.':'Acabaram as pistas.'}</b> A resposta era <b>${esc(c.title)}</b>. Sem pontos de descoberta nesta carta${S.cena===false?'.':', mas a equipe continua para a cena.'}</div>${clueList(c)}${botaoCena()}</div></div>`}
 function viewScene(c,res){
  const L='ABC';
  const best=Math.max(...c.pts),worst=Math.min(...c.pts);
@@ -192,37 +206,53 @@ const TUT=[
 ['Como se joga','Duas equipes, ou uma pessoa sozinha com o Robô das Pistas de colega. As pistas aparecem uma de cada vez. Dê um palpite por pista: acertar cedo vale mais (6, 5, 4, 3, 2 ou 1 ponto).'],
 ['Quase certo?','Se o palpite for parecido, o jogo dá uma dica e você tenta de novo na pista seguinte. Se errar, na Regra B você só perde o palpite da próxima pista.'],
 ['Pista falsa','Depois de acertar, descubra qual das 6 pistas era falsa. Acertar vale mais 2 pontos.'],
-['Cena e escolha','Escolha A, B ou C. A pontuação (−1, +1 ou +2) só aparece depois. O placar pode ficar negativo, e tudo bem.'],
+['Cena e escolha','Escolha A, B ou C. A pontuação (−1, +1 ou +2) só aparece depois. O placar pode ficar negativo, e tudo bem. Quer uma partida mais rápida? Desligue a cena em Configurações.'],
 ['Ajudas','Com as ajudas ligadas, cada equipe usa uma vez cada: Dica (o tipo da resposta), Opções (4 respostas para escolher) e Pista falsa (mostra qual é). Só uma ajuda por carta. Usar uma ajuda tem preço: os pontos da descoberta nessa carta valem metade (arredondado para cima).']];
 function openTut(){TUTI=0;ph='tut';render()}
 function tutNav(d){TUTI+=d;if(TUTI>=TUT.length){store.set(KEY_TUT,1);ph='setup';render();return}if(TUTI<0)TUTI=0;render()}
 function viewTut(){const t=TUT[TUTI];
  return `${logo()}<div class="card"><div class="banner"><div class="num" aria-hidden="true">${TUTI+1}</div><div class="t"><small>Como jogar · ${TUTI+1} de ${TUT.length}</small><h2 tabindex="-1">${esc(t[0])}</h2></div></div><div class="body"><p style="font-size:19px">${esc(t[1])}</p><div class="row">${TUTI>0?'<button class="btn-g" style="color:var(--ink);border-color:var(--line)" onclick="tutNav(-1)">Voltar</button>':''}<button class="btn-y" onclick="tutNav(1)">${TUTI>=TUT.length-1?'Entendi, vamos jogar':'Próximo'}</button></div><button class="keybtn" style="background:#EEF3FA;color:var(--ink)" onclick="store.set(KEY_TUT,1);ph='setup';render()">Pular</button></div></div>`}
-function viewSetup(){const saved=store.get(KEY_SAVE);
- return `${logo()}<div class="card setup"><div class="body">
- <div class="row" style="align-items:center"><h2 tabindex="-1" style="font-size:24px;flex:1 1 auto">Missão Dinheiro: Pistas</h2><span style="flex:0 0 auto">${botaoSom()}</span></div><p class="hint">Versão experimental, a partir de 5 anos. Partida de 4 ou 6 cartas, de 10 a 20 minutos.</p>
- <div class="albumbox"><span id="album"></span><button class="keybtn" style="background:#EEF3FA;color:var(--ink)" onclick="ph='album';render()">Ver álbum</button></div>
- <div id="conn" class="msg">Conectando…</div>
- <div><label>Como vão jogar?</label><div role="radiogroup" aria-label="Como vão jogar?" class="seg mode"><label><input type="radio" name="mode" value="duo" checked onchange="setupChange()"><span><b>Equipe contra equipe</b><small>Uma tela, passando de mão em mão</small></span></label><label><input type="radio" name="mode" value="solo" onchange="setupChange()"><span><b>Uma pessoa sozinha</b><small>Com o Robô das Pistas de colega</small></span></label></div></div>
- <div class="row"><div><label for="n0" id="l0">Nome da equipe 1</label><input id="n0" type="text" maxlength="20" value="Equipe 1"></div><div id="w1"><label for="n1" id="l1">Nome da equipe 2</label><input id="n1" type="text" maxlength="20" value="Equipe 2"></div></div>
+/* Tela inicial (redesenho 14/11/2026): a carta misteriosa é a protagonista; o resto é discreto, direto sobre o azul.
+   Tamanho, regra A/B e ajudas ficam em "Opções do adulto" (recolhido), com os padrões de sempre. */
+let SETUP_VISTA=false;
+function viewSetup(){const saved=store.get(KEY_SAVE),p=albumFaixa('5–7'),g=albumFaixa('8–11'),entra=!SETUP_VISTA;SETUP_VISTA=true;
+ return `<h1 class="sr">Missão Dinheiro: Pistas</h1><div class="top"><img src="${ASSETS.logo}" alt="Missão Dinheiro Club">${botaoSom()}</div>
+ <section class="abertura">
+  <div class="mesa${entra?' entra':''}" aria-hidden="true">
+   <div class="carta tras"></div>
+   <div class="carta frente"><div class="moldura"><span class="interrog">?</span><span class="nome">Missão Dinheiro</span><span class="selo">Pistas</span></div></div>
+   <img class="espia esq" src="${POSE.Tiko.think}" alt=""><img class="espia dir" src="${POSE.Mel.cheer}" alt="">
+  </div>
+  <h2 tabindex="-1" class="sr">Missão Dinheiro: Pistas</h2>
+  <p class="chamada">Seis pistas, uma delas é falsa. Descubra o conceito e decida o que fazer com o dinheiro.</p>
+  <button class="albumbtn" onclick="ph='album';render()"><span aria-hidden="true">📒</span> Meu álbum <small id="album">${p.tem+g.tem} de ${p.tot+g.tot}</small></button>
+ </section>
+ ${saved?`<button class="btn-t full" onclick="resumeGame()">Continuar jogo interrompido</button>`:''}
+ <div class="card setup"><div class="body">
+ <div><label>Quem vai jogar?</label><div role="radiogroup" aria-label="Quem vai jogar?" class="seg mode"><label><input type="radio" name="mode" value="duo" checked onchange="setupChange()"><span><span class="faces" aria-hidden="true"><img src="${ASSETS.Caio}" alt=""><img src="${ASSETS.Bia}" alt=""></span><b>Equipes</b><small>Um celular passando de mão em mão</small></span></label><label><input type="radio" name="mode" value="solo" onchange="setupChange()"><span><span class="faces" aria-hidden="true"><img src="${ASSETS.Leticia}" alt=""><i>🤖</i></span><b>Sozinho</b><small>Com o Robô das Pistas de colega</small></span></label></div></div>
+ <div class="row nomes"><div><label for="n0" id="l0" class="sr">Equipe 1</label><input id="n0" type="text" maxlength="20" value="Equipe 1" placeholder="Nome da equipe 1"></div><div id="w1"><label for="n1" id="l1" class="sr">Equipe 2</label><input id="n1" type="text" maxlength="20" value="Equipe 2" placeholder="Nome da equipe 2"></div></div>
  <div id="charbox" hidden><label id="lb_char">Escolha seu personagem</label><div role="radiogroup" aria-labelledby="lb_char" class="seg chars">${PERSONAGENS.map(p=>`<label><input type="radio" name="char" value="${p}" ${store.get(KEY_CHAR)===p?'checked':''}><span><img src="${ASSETS[p]}" alt=""><b>${esc(NAMES[p]||p)}</b></span></label>`).join('')}</div></div>
- <div><label id="lb_faixa">Faixa de idade <small style="font-weight:700;color:#3D4F66">(um adulto escolhe)</small></label><div role="radiogroup" aria-labelledby="lb_faixa" class="seg"><label><input type="radio" name="faixa" value="5–7" onchange="$('fxmsg').textContent=''"><span><b>5 a 7 anos</b><br><small>Palavras mais simples</small></span></label><label><input type="radio" name="faixa" value="8–11" onchange="$('fxmsg').textContent=''"><span><b>8 anos ou mais</b><br><small>Conceitos como juros e crédito</small></span></label><label><input type="radio" name="faixa" value="todas" onchange="$('fxmsg').textContent=''"><span><b>Todas</b><br><small>Mistura as duas</small></span></label></div><p id="fxmsg" class="fxmsg" role="alert"></p></div>
+ <div><label id="lb_faixa">Idade de quem vai jogar</label><div role="radiogroup" aria-labelledby="lb_faixa" class="seg faixas"><label><input type="radio" name="faixa" value="5–7" onchange="$('fxmsg').textContent=''"><span>5 a 7 anos</span></label><label><input type="radio" name="faixa" value="8–11" onchange="$('fxmsg').textContent=''"><span>8 anos ou mais</span></label><label><input type="radio" name="faixa" value="todas" onchange="$('fxmsg').textContent=''"><span>Todas</span></label></div><p id="fxmsg" class="fxmsg" role="alert"></p></div>
+ <button id="startbtn" class="btn-y full big-start" onclick="start()">Começar</button>
+ <details class="adulto" id="cfg"><summary><span class="cfg-t">Configurações <small>tamanho, erro, ajudas, cena, som, álbum</small></span><span class="cfg-acao" aria-hidden="true"><span class="abrir">Abrir ▾</span><span class="fechar">Fechar ▴</span></span></summary><div class="stack">
  <div><label>Tamanho da partida</label><div role="radiogroup" aria-label="Tamanho da partida" class="seg"><label><input type="radio" name="len" value="4"><span><b>Curta</b><br><small>4 cartas, cerca de 10 min</small></span></label><label><input type="radio" name="len" value="6" checked><span><b>Normal</b><br><small>6 cartas, cerca de 15 a 20 min</small></span></label></div></div>
  <div><label>Se errar um palpite</label><div role="radiogroup" aria-label="Se errar um palpite" class="seg"><label><input type="radio" name="rule" value="B" checked><span><b>Regra B</b><br><small>Perde só o palpite da próxima pista</small></span></label><label><input type="radio" name="rule" value="A"><span><b>Regra A</b><br><small>Sai da carta</small></span></label></div></div>
  <div><label>Ajudas estilo Show do Milhão</label><div role="radiogroup" aria-label="Ajudas estilo Show do Milhão" class="seg"><label><input type="radio" name="helps" value="on" checked><span><b>Ligadas</b><br><small>Dica, Opções e Pista falsa</small></span></label><label><input type="radio" name="helps" value="off"><span><b>Desligadas</b><br><small>Jogo sem ajudas</small></span></label></div></div>
- <button id="startbtn" class="btn-y full" onclick="start()">Começar</button>
- <button class="btn-g full" style="color:var(--ink);border-color:var(--line)" onclick="openTut()">Como se joga</button>
- ${saved?`<button class="btn-g full" style="color:var(--ink);border-color:var(--line)" onclick="resumeGame()">Continuar jogo interrompido</button>`:''}
- <div id="adm"></div>
+ <div><label>Cena e escolha</label><div role="radiogroup" aria-label="Cena e escolha" class="seg"><label><input type="radio" name="cena" value="on" checked><span><b>Com cena</b><br><small>Escolher A, B ou C no fim de cada carta (+2, +1 ou −1)</small></span></label><label><input type="radio" name="cena" value="off"><span><b>Sem cena</b><br><small>Partida mais rápida: conta descoberta e pista falsa</small></span></label></div></div>
+ <div><label>Som</label><div role="radiogroup" aria-label="Som" class="seg"><label><input type="radio" name="somcfg" value="on" ${somLigado()?'checked':''} onchange="setSom(true)"><span><b>Ligado</b></span></label><label><input type="radio" name="somcfg" value="off" ${somLigado()?'':'checked'} onchange="setSom(false)"><span><b>Desligado</b></span></label></div></div>
+ <div><label>Álbum deste aparelho</label><button type="button" id="zeraAlb" class="btn-g full zera" onclick="zeraAlbum(this)">Recomeçar o álbum</button><p class="hint-cfg">Apaga os conceitos descobertos e as conquistas guardados neste celular. Útil quando outra criança vai jogar.</p></div>
+ <button type="button" class="btn-g full fechar-cfg" onclick="fechaCfg()">Fechar configurações</button>
+ </div></details>
+ <button class="linkbtn" onclick="openTut()">Como se joga?</button>
  </div></div>`}
 function setupChange(){const m=document.querySelector('input[name=mode]:checked').value,solo=m==='solo';
- $('l0').textContent=solo?'Seu nome':'Nome da equipe 1';$('n0').value=solo?'Você':'Equipe 1';$('n1').value=solo?'Robô das Pistas':'Equipe 2';$('w1').hidden=solo;$('charbox').hidden=!solo}
+ $('l0').textContent=solo?'Seu nome':'Equipe 1';$('n0').placeholder=solo?'Seu nome':'Nome da equipe 1';$('n0').value=solo?'Você':'Equipe 1';$('n1').value=solo?'Robô das Pistas':'Equipe 2';$('w1').hidden=solo;$('charbox').hidden=!solo}
 /* A faixa de idade não vem marcada: o adulto precisa escolher antes de começar */
 function start(){if(CONN!=='ok')return;const m=document.querySelector('input[name=mode]:checked').value;const r=document.querySelector('input[name=rule]:checked').value;const h=document.querySelector('input[name=helps]:checked').value==='on';
  const fxEl=document.querySelector('input[name=faixa]:checked');if(!fxEl){$('fxmsg').textContent='Escolham a faixa de idade antes de começar.';const f=document.querySelector('input[name=faixa]');f.closest('div').scrollIntoView({block:'center'});f.focus();return}
  const chEl=document.querySelector('input[name=char]:checked'),ch=m==='solo'&&chEl?chEl.value:null;if(ch)store.set(KEY_CHAR,ch);
  const n0=($('n0').value.trim()||(m==='solo'?'Você':'Equipe 1')),n1=m==='solo'?'Robô das Pistas':($('n1').value.trim()||'Equipe 2');
- const ln=+document.querySelector('input[name=len]:checked').value;view={};newGame(m,[n0,n1],r,h,fxEl.value,ln,ch)}
+ const ln=+document.querySelector('input[name=len]:checked').value,cena=document.querySelector('input[name=cena]:checked').value==='on';view={};newGame(m,[n0,n1],r,h,fxEl.value,ln,ch,cena)}
 /* Destaques de uma equipe/jogador: melhor descoberta, pistas falsas, boas escolhas e conquistas da partida */
 function destaques(t){const L=S.log.filter(l=>l.t===t&&!l.bot),ac=L.filter(l=>l.k);const melhor=ac.sort((x,y)=>x.k-y.k)[0];
  const cq=conquistas(t);
@@ -276,14 +306,14 @@ const FB_TXT=['f_who','f_age','f_hard','f_fav','f_note'],FB_RAD=['fun','rules','
 function salvaFb(){const d={};FB_TXT.forEach(id=>{const e=$(id);if(e)d[id]=e.value});FB_RAD.forEach(n=>{const e=document.querySelector(`input[name=${n}]:checked`);if(e)d[n]=e.value});store.set(KEY_FB,d)}
 function restauraFb(){const d=store.get(KEY_FB);if(!d)return;FB_TXT.forEach(id=>{const e=$(id);if(e&&d[id]!=null)e.value=d[id]});FB_RAD.forEach(n=>{if(d[n]){const e=[...document.querySelectorAll(`input[name=${n}]`)].find(x=>x.value===d[n]);if(e)e.checked=true}})}
 async function saveFb(){const g=n=>{const e=document.querySelector(`input[name=${n}]:checked`);return e?e.value:''};
- const d={ver:VERSAO_JOGO,date:new Date().toISOString(),mode:S.mode,faixa:S.faixa,char:S.char,why:g('why'),rule:S.rule,helps:!!S.helps,names:S.names,score:S.score,min:Math.max(1,Math.round(((S.t1||Date.now())-S.t0)/60000)),log:S.log,
+ const d={ver:VERSAO_JOGO,cena:S.cena!==false,date:new Date().toISOString(),mode:S.mode,faixa:S.faixa,char:S.char,why:g('why'),rule:S.rule,helps:!!S.helps,names:S.names,score:S.score,min:Math.max(1,Math.round(((S.t1||Date.now())-S.t0)/60000)),log:S.log,
   who:$('f_who').value,age:$('f_age').value,fun:g('fun'),rules:g('rules'),vocab:g('vocab'),fake:g('fake'),scene:g('scene'),help:g('help'),nudge:g('nudge'),pace:g('pace'),hard:$('f_hard').value,fav:$('f_fav').value,again:g('again'),note:$('f_note').value};
  const btn=$('savebtn');btn.disabled=true;
  view.saved=d;view.saveErr='aberto';view.fbEnviado=true;store.del(KEY_FB);
  ph='saved';render()}
 function reportText(all){return all.map((d,i)=>{const dt=new Date(d.date).toLocaleString('pt-BR');
  return `PARTIDA ${i+1} - ${dt}\nJogaram: ${d.who||'-'} (${d.age||'-'} anos)\nVersão do jogo: ${d.ver||'-'}
-Modo: ${d.mode==='solo'?'1 pessoa (com o Robô das Pistas)'+(d.char?', personagem '+(NAMES[d.char]||d.char):''):'equipe contra equipe'} | Faixa: ${FAIXA_TXT[d.faixa]||'todas'} | Regra ${d.rule} | Ajudas ${d.helps?'ligadas':'desligadas'} | ${d.min} min\nPlacar: ${d.mode==='solo'?d.names[0]+' '+d.score[0]:d.names[0]+' '+d.score[0]+' x '+d.score[1]+' '+d.names[1]}\nDiversão: ${d.fun||'-'} | Regras: ${d.rules||'-'} | Palavras difíceis: ${d.vocab||'-'} | Pista falsa: ${d.fake||'-'}\nCena e escolha: ${d.scene||'-'} | Explicou a escolha: ${d.why||'-'} | Ajudas: ${d.help||'-'} | Dica no quase: ${d.nudge||'-'} | Ritmo: ${d.pace||'-'} | Jogar de novo: ${d.again||'-'}\nMais difícil: ${d.hard||'-'} | Preferida: ${d.fav||'-'}\nCartas: ${d.log.map(l=>`${l.title} [${l.tot>0?'+':''}${l.tot}${l.k?', pista '+l.k:', sem acerto'}${l.bonus?', falsa ok':''}${l.life?', ajuda '+l.life:''}]`).join('; ')}\nObservações: ${d.note||'-'}`}).join('\n\n----\n\n')}
+Modo: ${d.mode==='solo'?'1 pessoa (com o Robô das Pistas)'+(d.char?', personagem '+(NAMES[d.char]||d.char):''):'equipe contra equipe'} | Faixa: ${FAIXA_TXT[d.faixa]||'todas'} | Cena ${d.cena===false?'desligada':'ligada'} | Regra ${d.rule} | Ajudas ${d.helps?'ligadas':'desligadas'} | ${d.min} min\nPlacar: ${d.mode==='solo'?d.names[0]+' '+d.score[0]:d.names[0]+' '+d.score[0]+' x '+d.score[1]+' '+d.names[1]}\nDiversão: ${d.fun||'-'} | Regras: ${d.rules||'-'} | Palavras difíceis: ${d.vocab||'-'} | Pista falsa: ${d.fake||'-'}\nCena e escolha: ${d.scene||'-'} | Explicou a escolha: ${d.why||'-'} | Ajudas: ${d.help||'-'} | Dica no quase: ${d.nudge||'-'} | Ritmo: ${d.pace||'-'} | Jogar de novo: ${d.again||'-'}\nMais difícil: ${d.hard||'-'} | Preferida: ${d.fav||'-'}\nCartas: ${d.log.map(l=>`${l.title} [${l.tot>0?'+':''}${l.tot}${l.k?', pista '+l.k:', sem acerto'}${l.bonus?', falsa ok':''}${l.life?', ajuda '+l.life:''}]`).join('; ')}\nObservações: ${d.note||'-'}`}).join('\n\n----\n\n')}
 function viewSaved(){const t=reportText([view.saved]);const url='https://wa.me/5521981133669?text='+encodeURIComponent('Feedback Missão Dinheiro: Pistas\n\n'+t);
  return `${logo()}<div class="card"><div class="banner"><div class="num" aria-hidden="true">✓</div><div class="t"><small>Obrigado!</small><h2 tabindex="-1">Envie suas percepções</h2></div></div><div class="body"><p class="small">Toque no botão para abrir o WhatsApp com o resumo já escrito e é só enviar. Se não abrir, use "Copiar resumo" e cole na conversa.</p><a class="btn-t full" style="display:block;text-align:center;text-decoration:none" href="${url}" target="_blank" rel="noopener">Enviar pelo WhatsApp</a><textarea class="out" id="out" readonly aria-label="Resumo do teste para copiar">${esc(t)}</textarea><button class="btn-t full" onclick="copyOut()">Copiar resumo</button><div id="cp" class="hint"></div><button class="btn-y full" onclick="ph='setup';render()">Voltar ao início</button></div></div>`}
 function copyOut(){const el=$('out');const t=el.value;const done=()=>{$('cp').textContent='Copiado.'};
@@ -310,7 +340,7 @@ function render(){
   else if(ph==='scene')h+=viewScene(c,false);else if(ph==='sceneRes')h+=viewScene(c,true);else if(ph==='bot')h+=viewBot(c);
   persist()}
  app.innerHTML=h;
- if(ph==='setup'){setupChange();updConn();const al=$('album');if(al){const p=albumFaixa('5–7'),g=albumFaixa('8–11');al.textContent=`Álbum: 5 a 7 anos ${p.tem} de ${p.tot} · 8 anos ou mais ${g.tem} de ${g.tot}`}}
+ if(ph==='setup'){setupChange();updConn();const al=$('album');}
  if(ph==='fb')restauraFb();
  motion()}
 /* Movimento, rolagem, foco e anúncios depois de cada render.
