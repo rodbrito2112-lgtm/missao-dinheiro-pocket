@@ -264,6 +264,9 @@ label,.lab,.seg span b{font-weight:500}
 .tema-trabalho{border-bottom-color:var(--yellow)}.tema-trabalho .num{background:#FFF1CC}
 .ac.t-poupar{background:#D9F4F4;border-color:var(--teal)}.ac.t-consumo{background:#FDE3EC;border-color:var(--rosa)}
 .ac.t-digital{background:#E9E5FA;border-color:var(--roxo)}.ac.t-trabalho{background:#FFF1CC;border-color:var(--yellow)}
+/* Tema "Ajudar e compartilhar": as 5 cores oficiais já estão em uso; usa um tom de azul derivado do navy da marca */
+.tema-ajudar{border-bottom-color:#4F7FC4}.tema-ajudar .num{background:#E2EBF7}
+.ac.t-ajudar{background:#E2EBF7;border-color:#4F7FC4}
 
 /* ===== Tela inicial: carta misteriosa (redesenho) ===== */
 .abertura{display:flex;flex-direction:column;align-items:center;gap:14px;padding:6px 0 4px;text-align:center}

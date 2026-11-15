@@ -27,7 +27,7 @@ Sem build e sem backend: funciona offline, inclusive por duplo clique (`file://`
 ## Estrutura
 - `index.html` — página de entrada; carrega `style.css`, `cartas.js` e `game.js`.
 - `style.css` — todo o visual.
-- `cartas.js` — **fonte única das cartas**: `CARDS` (as 32 cartas, 8 originais + 24 novas; JSON puro depois de `const CARDS =`) e `EXTRA` (dica de tipo, "nudge" e respostas aceitas de cada carta). Fica em `.js` e não em `.json` porque o navegador bloqueia `fetch` de arquivo local no duplo clique.
+- `cartas.js` — **fonte única das cartas**: `CARDS` (44 cartas: as 32 do baralho impresso e, depois delas, as cartas novas só do jogo digital, rumo a 100+; JSON puro depois de `const CARDS =`). Temas: Poupar e guardar, Consumo e escolhas, Dinheiro digital e segurança, Trabalho e ganhar dinheiro e Ajudar e compartilhar e `EXTRA` (dica de tipo, "nudge" e respostas aceitas de cada carta). Fica em `.js` e não em `.json` porque o navegador bloqueia `fetch` de arquivo local no duplo clique.
 - `game.js` — lógica do jogo, telas e caminhos das imagens (`ASSETS`, `POSE`).
 - `assets/personagens/` — imagens webp leves (idle, think/pensa, cheer, wow etc.) de Caio, Mel, Letícia, Vinicius, Bia, Tiko, Rodrigo, Natty + `logo-main.webp`. O jogo usa `*-idle`, `*-think` (Bia: idle), `*-cheer` e o logo.
 

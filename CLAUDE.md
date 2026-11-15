@@ -9,6 +9,6 @@ Projeto: "Missão Dinheiro Pocket", jogo digital de educação financeira infant
 - Marca: azul-marinho #09274D, turquesa #12B8BB, amarelo #FFC12E, fonte Nunito.
 - Acessibilidade: contraste AA, alvos de toque ≥44px, respeitar prefers-reduced-motion, lang="pt-BR".
 - Regras do jogo em README.md (v1.3.3). Não alterar mecânica de pontuação sem pedido explícito.
-- Cartas: `cartas.js` é a fonte única (`CARDS` + `EXTRA`). Mantenha o esquema e o `CARDS` como JSON válido.
+- Cartas: `cartas.js` é a fonte única (`CARDS` + `EXTRA`). Mantenha o esquema e o `CARDS` como JSON válido. As 32 primeiras cartas são as do kit impresso (`kit/kit.js` usa `KIT_N=32`): não reordene nem insira cartas antes delas; cartas novas do jogo digital entram sempre no fim. Tema novo "Ajudar e compartilhar" (classe `ajudar`, azul derivado do navy).
 - Imagens: usar webp de `assets/personagens/`; fotos são quadradas 192×192 (exceto `*-pensa`, `*-aponta` etc., que são corpo inteiro: não usar em quadrados com corte).
 - Teste rápido: abrir no navegador e jogar uma partida completa (tutorial → 6 cartas → resultado).

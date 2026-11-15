@@ -8,7 +8,7 @@ const KEY_SAVE='mdp-pocket-v3-save',KEY_TUT='mdp-pocket-v3-tut';
 /* Chaves autorizadas em 14/11/2026 (ver CLAUDE.md) */
 const KEY_CHAR='mdp-pocket-char',KEY_SOM='mdp-pocket-som',KEY_CONQ='mdp-pocket-conquistas',KEY_FB='mdp-pocket-fb';
 /* Versão que vai no resumo do feedback, para saber de qual jogo veio cada resposta */
-const VERSAO_JOGO='2026-11-14 (pacote 2)';
+const VERSAO_JOGO='2026-11-15 (lote 1 de cartas)';
 const PERSONAGENS=['Caio','Mel','Leticia','Vinicius','Bia','Tiko'];
 const FAIXA_TXT={'5–7':'5 a 7 anos','8–11':'8 anos ou mais'};
 /* Conceitos que só entram depois da base: Juros, Parcelamento e Cartão pedem Empréstimo ou Poupança antes */
@@ -140,7 +140,7 @@ function topbar(){const dots=Array.from({length:S.len},(_,i)=>`<i class="${i<S.r
 function who(){const t=team();if(S.mode==='solo')return `<div class="who"><b>${esc(S.names[t])}</b>, é sua vez! O <b>Robô das Pistas</b> joga junto e dá a opinião dele na cena.</div>`;
  return `<div class="who"><b>${esc(S.names[t])}</b> responde. <b>${esc(S.names[1-t])}</b> lê as pistas e segura a tela do gabarito.</div>`}
 /* Cor de cada tema (faixa sob o banner e fundo do ícone). Cartas sem tema usam o amarelo da marca. */
-const TEMA={'Poupar e guardar':'poupar','Consumo e escolhas':'consumo','Dinheiro digital e segurança':'digital','Trabalho e ganhar dinheiro':'trabalho'};
+const TEMA={'Poupar e guardar':'poupar','Consumo e escolhas':'consumo','Dinheiro digital e segurança':'digital','Trabalho e ganhar dinheiro':'trabalho','Ajudar e compartilhar':'ajudar'};
 /* Durante as pistas o ícone NÃO aparece (ele entregaria a resposta): mostra "?" e o nome do tema.
    O ícone só aparece quando o conceito é revelado. pose: 'cheer' (acertou) ou 'think' (ninguém acertou). */
 function banner(c,revealed,pose){const p=pose||(revealed?'cheer':'think');
