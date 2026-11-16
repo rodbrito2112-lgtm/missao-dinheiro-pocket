@@ -4079,13 +4079,465 @@ const CARDS = [
     ],
     "faixa": "13+",
     "tema": "Ajudar e compartilhar"
+  },
+  {
+    "title": "Ajudar em casa",
+    "char": "Bia",
+    "icon": "🧹",
+    "p": [
+      "Acontece todos os dias, em toda família.",
+      "Pode ser arrumar a cama, guardar os brinquedos ou pôr a mesa.",
+      "Só vale se alguém pagar por isso.",
+      "Cada um faz uma parte, do seu tamanho.",
+      "A casa fica boa para todo mundo.",
+      "É fazer a sua parte nas tarefas da casa."
+    ],
+    "fake": 3,
+    "correct": [
+      "ajudar em casa",
+      "ajudar na casa",
+      "tarefas da casa",
+      "ajudar nas tarefas",
+      "arrumar a casa"
+    ],
+    "near": [
+      "mesada",
+      "trabalho",
+      "arrumar",
+      "limpar",
+      "ajudar"
+    ],
+    "scene": "Depois do jantar, sua mãe pede ajuda para tirar a mesa. Você queria ver desenho.",
+    "opts": [
+      "Levar só o seu prato e ir ver desenho.",
+      "Tirar a mesa primeiro e ver desenho depois.",
+      "Dizer que só ajuda se ganhar dinheiro."
+    ],
+    "pts": [
+      1,
+      2,
+      -1
+    ],
+    "why": [
+      "Já ajuda um pouco, mas o resto fica para os outros.",
+      "Todo mundo ajuda, e ainda sobra tempo para o desenho.",
+      "Em casa, todos ajudam porque moram juntos, não para ganhar dinheiro."
+    ],
+    "faixa": "5–7",
+    "tema": "Ajudar e compartilhar"
+  },
+  {
+    "title": "Profissão",
+    "char": "Caio",
+    "icon": "🩺",
+    "p": [
+      "Toda pessoa grande pode ter uma.",
+      "Todo mundo tem a mesma, igualzinha.",
+      "Pode ser padeira, médico, motorista ou professora.",
+      "Muitas vezes a pessoa estuda para aprender.",
+      "Quando você crescer, vai poder escolher a sua.",
+      "É o tipo de trabalho que a pessoa faz."
+    ],
+    "fake": 2,
+    "correct": [
+      "profissão",
+      "profissões",
+      "o que eu quero ser",
+      "ocupação"
+    ],
+    "near": [
+      "trabalho",
+      "emprego",
+      "dinheiro",
+      "escola"
+    ],
+    "scene": "Na escola, a professora pergunta o que você quer ser quando crescer. Você gosta muito de animais.",
+    "opts": [
+      "Dizer que vai escolher só a profissão que ganha mais, sem pensar no que gosta.",
+      "Dizer que não sabe e não pensar mais nisso.",
+      "Contar que gosta de animais e perguntar que profissões cuidam deles."
+    ],
+    "pts": [
+      -1,
+      1,
+      2
+    ],
+    "why": [
+      "Ganhar bem importa, mas fazer algo de que você gosta também.",
+      "Tudo bem não saber, mas pensar no que você gosta ajuda a descobrir.",
+      "Você descobre profissões como veterinária e cuidadora de animais."
+    ],
+    "faixa": "5–7",
+    "tema": "Trabalho e ganhar dinheiro"
+  },
+  {
+    "title": "Caixa eletrônico",
+    "char": "Mel",
+    "icon": "🏧",
+    "p": [
+      "Fica no banco, no mercado ou no shopping.",
+      "Tem uma tela, teclas e uma abertura para o cartão.",
+      "Pede uma senha secreta.",
+      "Dá para tirar dinheiro da conta.",
+      "Qualquer pessoa pode tirar dinheiro da conta de outra.",
+      "É a máquina do banco que entrega dinheiro."
+    ],
+    "fake": 5,
+    "correct": [
+      "caixa eletrônico",
+      "caixa do banco",
+      "máquina do banco",
+      "caixa 24 horas"
+    ],
+    "near": [
+      "banco",
+      "maquininha",
+      "cartão",
+      "senha",
+      "dinheiro"
+    ],
+    "scene": "Você está com seu pai no caixa eletrônico. Um moço atrás de vocês fica olhando a tela bem de perto.",
+    "opts": [
+      "Avisar o pai baixinho para tampar a senha com a mão.",
+      "Ler a senha em voz alta para ajudar o pai.",
+      "Ficar quieto e não falar nada."
+    ],
+    "pts": [
+      2,
+      -1,
+      1
+    ],
+    "why": [
+      "Ninguém vê a senha, e o dinheiro fica protegido.",
+      "Todo mundo fica sabendo a senha secreta.",
+      "Você não atrapalha, mas o moço pode ver a senha."
+    ],
+    "faixa": "5–7",
+    "tema": "Dinheiro digital e segurança"
+  },
+  {
+    "title": "Preço de venda",
+    "char": "Vinicius",
+    "icon": "🏷️",
+    "p": [
+      "Quem vende precisa decidir.",
+      "Começa somando quanto custou fazer o produto.",
+      "Depois, coloca um pouco a mais para ter lucro.",
+      "Quanto mais caro, mais clientes compram.",
+      "Vale olhar quanto os outros cobram pelo mesmo produto.",
+      "É o valor que você cobra de quem compra."
+    ],
+    "fake": 4,
+    "correct": [
+      "preço de venda",
+      "quanto cobrar",
+      "valor de venda",
+      "preço para vender"
+    ],
+    "near": [
+      "preço",
+      "lucro",
+      "custo",
+      "desconto",
+      "preço por unidade"
+    ],
+    "scene": "Você vai vender brigadeiros na escola. Cada um custa R$ 1 para fazer, e na cantina um doce parecido custa R$ 3.",
+    "opts": [
+      "Cobrar R$ 3, igual à cantina.",
+      "Cobrar R$ 6, porque o seu é o melhor.",
+      "Cobrar R$ 2,50: paga o custo, sobra lucro e fica mais barato que a cantina."
+    ],
+    "pts": [
+      1,
+      -1,
+      2
+    ],
+    "why": [
+      "Tem lucro, mas não chama mais atenção do que a cantina.",
+      "Fica caro demais, e os clientes vão para a cantina.",
+      "Cobre o custo, tem lucro e atrai clientes."
+    ],
+    "faixa": "8–11",
+    "tema": "Trabalho e ganhar dinheiro"
+  },
+  {
+    "title": "Gorjeta",
+    "char": "Leticia",
+    "icon": "🍽️",
+    "p": [
+      "Acontece depois de um serviço bem feito.",
+      "Pode ser num restaurante, num salão ou numa entrega.",
+      "É obrigatória em qualquer compra.",
+      "É um valor a mais, além do preço.",
+      "Vai para quem trabalhou e atendeu você.",
+      "É um dinheiro extra dado como agradecimento por um serviço."
+    ],
+    "fake": 3,
+    "correct": [
+      "gorjeta",
+      "gorjetas",
+      "taxa de serviço",
+      "caixinha"
+    ],
+    "near": [
+      "troco",
+      "salário",
+      "presente",
+      "desconto"
+    ],
+    "scene": "A pizza chegou rápida e quentinha. O entregador foi muito educado, e sobraram R$ 5 de troco.",
+    "opts": [
+      "Reclamar que ele demorou, para ganhar desconto.",
+      "Só agradecer e fechar a porta.",
+      "Combinar com a família se dá para deixar uma gorjeta e agradecer."
+    ],
+    "pts": [
+      -1,
+      1,
+      2
+    ],
+    "why": [
+      "Mentir para ganhar desconto prejudica quem trabalhou bem.",
+      "Agradecer já é gentil, mesmo sem gorjeta.",
+      "Agradecer e, quando dá, dar gorjeta valoriza um bom trabalho."
+    ],
+    "faixa": "8–11",
+    "tema": "Trabalho e ganhar dinheiro"
+  },
+  {
+    "title": "Feira de trocas",
+    "char": "Tiko",
+    "icon": "🧸",
+    "p": [
+      "Acontece na escola, na praça ou no condomínio.",
+      "Cada um leva coisas que não usa mais.",
+      "Para participar, é preciso pagar com dinheiro.",
+      "Brinquedos, livros e roupas ganham um novo dono.",
+      "Ninguém compra nada, e todo mundo leva algo novo.",
+      "É um encontro para trocar coisas, sem usar dinheiro."
+    ],
+    "fake": 3,
+    "correct": [
+      "feira de trocas",
+      "feira de troca",
+      "troca",
+      "trocar",
+      "troca de brinquedos",
+      "escambo"
+    ],
+    "near": [
+      "doar",
+      "brechó",
+      "vender",
+      "feira",
+      "compartilhar"
+    ],
+    "scene": "Sua escola vai fazer uma feira de trocas. Você tem 5 livros que já leu e um que adora.",
+    "opts": [
+      "Levar os 5 livros já lidos, em bom estado, e ficar com o preferido.",
+      "Levar só um livro, para não ficar sem nenhum.",
+      "Levar livros rasgados que ninguém quer."
+    ],
+    "pts": [
+      2,
+      1,
+      -1
+    ],
+    "why": [
+      "Os livros ganham novos leitores, e você volta com livros novos.",
+      "Você participa, mas poderia trocar mais coisas que não usa.",
+      "Ninguém quer trocar por algo estragado."
+    ],
+    "faixa": "8–11",
+    "tema": "Ajudar e compartilhar"
+  },
+  {
+    "title": "Conta bancária",
+    "char": "Tiko",
+    "icon": "🗂️",
+    "p": [
+      "Fica num banco ou num app de banco.",
+      "Só adultos podem ter uma.",
+      "Tem um número e o nome do dono.",
+      "Guarda o dinheiro e mostra o saldo.",
+      "Pode ter cartão, Pix e extrato.",
+      "É o lugar no banco onde fica o dinheiro de uma pessoa."
+    ],
+    "fake": 2,
+    "correct": [
+      "conta bancária",
+      "conta no banco",
+      "conta de banco",
+      "conta corrente",
+      "conta digital"
+    ],
+    "near": [
+      "conta",
+      "banco",
+      "poupança",
+      "saldo",
+      "cartão"
+    ],
+    "scene": "Você recebe mesada todo mês e quer juntar para um videogame. Seus pais oferecem abrir uma conta para você, que eles acompanham.",
+    "opts": [
+      "Continuar guardando tudo na gaveta.",
+      "Pedir a senha da conta dos pais para usar quando quiser.",
+      "Abrir a conta, guardar parte da mesada e olhar o saldo com os pais."
+    ],
+    "pts": [
+      1,
+      -1,
+      2
+    ],
+    "why": [
+      "Funciona, mas o dinheiro pode sumir e não fica anotado.",
+      "A senha é só de quem é dono da conta.",
+      "O dinheiro fica protegido, e você aprende a acompanhar o saldo."
+    ],
+    "faixa": "8–11",
+    "tema": "Poupar e guardar"
+  },
+  {
+    "title": "Entrevista de emprego",
+    "char": "Leticia",
+    "icon": "🗣️",
+    "p": [
+      "Acontece depois que você manda o currículo.",
+      "Pode ser presencial ou por vídeo.",
+      "Alguém faz perguntas sobre você.",
+      "Quem chega atrasado ganha mais pontos.",
+      "Vale pesquisar sobre a empresa antes.",
+      "É a conversa para ver se você combina com a vaga."
+    ],
+    "fake": 4,
+    "correct": [
+      "entrevista de emprego",
+      "entrevista",
+      "entrevista de trabalho",
+      "processo seletivo"
+    ],
+    "near": [
+      "currículo",
+      "vaga",
+      "emprego",
+      "jovem aprendiz"
+    ],
+    "scene": "Você foi chamado para uma entrevista de jovem aprendiz amanhã às 9h, por vídeo.",
+    "opts": [
+      "Entrar na hora certa, sem se preparar.",
+      "Pesquisar sobre a empresa, testar a internet e entrar alguns minutos antes.",
+      "Entrar na hora, deitado na cama, e ver o que acontece."
+    ],
+    "pts": [
+      1,
+      2,
+      -1
+    ],
+    "why": [
+      "Mostra pontualidade, mas fica difícil responder sobre a empresa.",
+      "Você mostra interesse e evita problemas na hora.",
+      "Passa a impressão de que não liga para a vaga."
+    ],
+    "faixa": "13+",
+    "tema": "Trabalho e ganhar dinheiro"
+  },
+  {
+    "title": "Carteira de trabalho",
+    "char": "Caio",
+    "icon": "📘",
+    "p": [
+      "Hoje ela também existe no celular, num app do governo.",
+      "Só serve para quem é dono de empresa.",
+      "Registra os empregos com contrato.",
+      "Garante direitos como férias, 13º salário e FGTS.",
+      "Conta o tempo para a aposentadoria.",
+      "É o documento que registra o trabalho com carteira assinada."
+    ],
+    "fake": 2,
+    "correct": [
+      "carteira de trabalho",
+      "carteira assinada",
+      "ctps",
+      "registro em carteira"
+    ],
+    "near": [
+      "carteira",
+      "contrato",
+      "salário",
+      "emprego",
+      "mei"
+    ],
+    "scene": "Você conseguiu um emprego numa loja. O dono oferece pagar um pouco a mais se você trabalhar sem registro.",
+    "opts": [
+      "Aceitar sem registro, porque o dinheiro hoje é maior.",
+      "Aceitar por um tempo e pedir o registro depois.",
+      "Pedir o registro na carteira, mesmo ganhando um pouco menos agora."
+    ],
+    "pts": [
+      -1,
+      1,
+      2
+    ],
+    "why": [
+      "Sem registro, você perde direitos e fica desprotegido se for demitido.",
+      "Pode dar certo, mas o tempo sem registro não conta para nada.",
+      "Com registro, você tem férias, 13º, FGTS e tempo para a aposentadoria."
+    ],
+    "faixa": "13+",
+    "tema": "Trabalho e ganhar dinheiro"
+  },
+  {
+    "title": "Fiador",
+    "char": "Vinicius",
+    "icon": "✍️",
+    "p": [
+      "Aparece no aluguel de uma casa ou num empréstimo.",
+      "Alguém pede para você assinar junto.",
+      "Você não pega o dinheiro nem mora na casa.",
+      "Se a outra pessoa não pagar, ninguém cobra de você.",
+      "Antes de aceitar, vale saber se você conseguiria pagar a dívida.",
+      "É quem garante pagar a dívida de outra pessoa se ela não pagar."
+    ],
+    "fake": 4,
+    "correct": [
+      "fiador",
+      "fiadora",
+      "fiança",
+      "ser fiador",
+      "avalista"
+    ],
+    "near": [
+      "empréstimo",
+      "dívida",
+      "aluguel",
+      "emprestar para amigo",
+      "nome sujo"
+    ],
+    "scene": "Um amigo vai alugar um apartamento e pede para você ser fiador. Ele já atrasou contas antes, e você não teria como pagar o aluguel dele.",
+    "opts": [
+      "Dizer que vai pensar e não responder mais.",
+      "Assinar na hora, porque amigo não deixa amigo na mão.",
+      "Explicar que não pode ser fiador e ajudar a procurar outra garantia, como seguro-fiança ou caução."
+    ],
+    "pts": [
+      1,
+      -1,
+      2
+    ],
+    "why": [
+      "Você não assina, mas deixa o amigo sem resposta.",
+      "Se ele não pagar, a dívida vira sua e pode sujar o seu nome.",
+      "Você protege o seu nome e ainda ajuda o amigo a achar uma saída."
+    ],
+    "faixa": "13+",
+    "tema": "Ajudar e compartilhar"
   }
 ];
 
 /* Respostas ampliadas para o teste: cada conjunto vale como acerto quando todas as palavras aparecem (prefixo da palavra). */
 const EXTRA={
 'Promoção relâmpago':{tipo:'É um tipo de oferta de loja.',nudge:'Pense: essa oferta dura muito ou pouco tempo?',sets:[['relampago'],['promocao','hoje'],['oferta','hoje'],['promocao','tempo'],['oferta','tempo'],['promocao','pouco'],['oferta','pouco'],['promocao','curta'],['oferta','curta'],['promocao','acaba'],['oferta','acaba'],['promocao','rapida'],['oferta','rapida']]},
-'Troco':{tipo:'É um valor de dinheiro que aparece quando você paga.',nudge:'Pense: você paga com uma nota maior e o caixa devolve algo.',sets:[['troco'],['dinheiro','devolvid'],['diferenca','devolvid']]},
+'Troco':{tipo:'É um valor de dinheiro que aparece quando você paga.',nudge:'Pense: você paga com uma nota maior e o caixa devolve algo.',sets:[['dinheiro','devolvid'],['diferenca','devolvid']]},
 'Golpe por mensagem':{tipo:'É um perigo que chega no celular.',nudge:'Pense: alguém quer enganar você por uma mensagem.',sets:[['golpe','mensag'],['golpe','celular'],['golpe','sms'],['golpe','whats'],['fraud','mensag'],['phishing'],['enganar','mensagem'],['mensagem','falsa'],['mensagem','enganosa']]},
 'Parcelamento':{tipo:'É um jeito de pagar uma compra.',nudge:'Pense: pagar uma compra aos poucos, em vários pedaços.',sets:[['parcel'],['prestac'],['dividir','pagamento'],['dividir','compra'],['pagar','partes'],['pagar','meses'],['pagar','pedacos'],['pagar','aos poucos']]},
 'Preço por unidade':{tipo:'É uma conta para comparar produtos.',nudge:'Pense: quanto custa cada um, não a caixa toda.',sets:[['preco','unidade'],['preco','unitario'],['custo','unidade'],['valor','cada'],['preco','cada'],['quanto','cada'],['preco','item'],['unitario']]},
@@ -4104,3 +4556,5 @@ Object.assign(EXTRA,{"Assinatura":{"tipo":"É um jeito de pagar por um serviço.
 Object.assign(EXTRA,{"Prioridade":{"tipo":"É um jeito de organizar escolhas.","nudge":"Pense: entre várias coisas, qual vem primeiro?","sets":[["priorid"],["primeiro","importante"],["vem","primeiro"]]},"Consertar":{"tipo":"É uma ação.","nudge":"Pense: o que se faz com um brinquedo quebrado em vez de jogar fora?","sets":[["consert"],["arrum"],["repar"]]},"Vender":{"tipo":"É uma ação de quem trabalha.","nudge":"Pense: trocar uma coisa sua por dinheiro.","sets":[["vend"]]},"Pedir ajuda":{"tipo":"É uma ação de segurança.","nudge":"Pense: quem você chama quando a tela pede coisas estranhas?","sets":[["ped","ajud"],["cham","adult"],["cham","mae"],["cham","pai"]]},"Vaquinha":{"tipo":"É algo que se faz em grupo.","nudge":"Pense: cada um coloca um pouco para comprar algo juntos.","sets":[["vaquinh"],["junt","dinheiro","grupo"],["junt","dinheiro","amig"],["junt","dinheiro","turma"]]},"Publi":{"tipo":"É um tipo de propaganda.","nudge":"Pense: o influenciador foi pago para mostrar o produto.","sets":[["publi"],["patrocin"],["post","pago"],["propaganda","influenc"]]},"Pressão dos amigos":{"tipo":"É um sentimento que vem do grupo.","nudge":"Pense: querer algo só porque todos os amigos têm.","sets":[["pressa","amig"],["pressa","grup"],["pressa","social"],["influenc","amig"]]},"Caixa surpresa":{"tipo":"É uma compra com sorteio.","nudge":"Pense: pagar sem saber o que vem dentro.","sets":[["caixa","surpres"],["caixa","mister"],["loot"],["bau"],["pacot","surpres"],["premio","sortead"]]},"Dívida":{"tipo":"É algo que alguém deve.","nudge":"Pense: o dinheiro que você prometeu pagar depois.","sets":[["deve","dinheiro"],["devend"]]},"Direito de arrependimento":{"tipo":"É um direito de quem compra.","nudge":"Pense: desistir de uma compra feita pela internet.","sets":[["arrepend"],["desist","compr"],["devol","7"],["devol","sete"]]},"Imposto de Renda":{"tipo":"É um imposto.","nudge":"Pense: a declaração que muita gente faz todo ano sobre o que ganhou.","sets":[["impost","renda"],["declarac","impost"],["leao"]]},"Aposentadoria":{"tipo":"É uma fase da vida.","nudge":"Pense: o dinheiro de quem já parou de trabalhar.","sets":[["aposent"],["previdenc"]]}});
 /* Lote 5 de cartas novas do jogo digital: 4 de 5–7, 3 de 8–12, 3 de 13+ (15/11/2026) */
 Object.assign(EXTRA,{"Maquininha":{"tipo":"É uma máquina.","nudge":"Pense: onde a gente passa o cartão para pagar na padaria?","sets":[["maquina","cartao"],["maquina","pag"]]},"Cliente":{"tipo":"É uma pessoa.","nudge":"Pense: quem compra na loja ou na barraquinha?","sets":[["client"],["fregues"],["comprador"],["quem","compr"]]},"Desperdício":{"tipo":"É um jeito de gastar.","nudge":"Pense: usar mais do que precisa e jogar fora.","sets":[["desperdic"],["gast","toa"]]},"Banco":{"tipo":"É um lugar.","nudge":"Pense: onde as pessoas guardam dinheiro numa conta?","sets":[["banc"],["agenci"]]},"Investimento":{"tipo":"É um jeito de usar o dinheiro guardado.","nudge":"Pense: colocar o dinheiro num lugar para ele crescer com o tempo.","sets":[["invest"],["aplic","dinheiro"]]},"Campanha solidária":{"tipo":"É uma ação em grupo.","nudge":"Pense: a escola junta agasalhos para quem precisa.","sets":[["campanh"],["arrecad"],["solidari"]]},"Imposto":{"tipo":"É um pagamento que todos fazem.","nudge":"Pense: o dinheiro que vai para o governo cuidar da escola e do posto.","sets":[["impost"],["tribut"]]},"Cashback":{"tipo":"É um tipo de vantagem na compra.","nudge":"Pense: parte do dinheiro que você gastou volta para você.","sets":[["cashback"],["cash","back"],["dinheiro","volta"]]},"Sócio":{"tipo":"É uma pessoa num negócio.","nudge":"Pense: quem divide o negócio com você.","sets":[["socio"],["socia"],["sociedad"]]},"Vaquinha online":{"tipo":"É um jeito de ajudar.","nudge":"Pense: juntar doações pela internet.","sets":[["vaquinh","online"],["vaquinh","internet"],["vaquinh","virtual"],["crowdfund"],["doac","online"],["doac","internet"]]}});
+/* Lote 6 de cartas novas do jogo digital: 3 de 5–7, 4 de 8–12, 3 de 13+ — 100 cartas (16/11/2026) */
+Object.assign(EXTRA,{"Ajudar em casa":{"tipo":"É algo que se faz em família.","nudge":"Pense: pôr a mesa e arrumar a cama, sem ganhar nada por isso.","sets":[["ajud","casa"],["tarefa","casa"],["arrum","casa"]]},"Profissão":{"tipo":"É algo que a pessoa escolhe para a vida.","nudge":"Pense: padeira, médico e motorista são exemplos de quê?","sets":[["profiss"]]},"Caixa eletrônico":{"tipo":"É uma máquina.","nudge":"Pense: a máquina do banco que entrega dinheiro com senha.","sets":[["caixa","eletron"],["caixa","banco"],["maquina","banco"]]},"Preço de venda":{"tipo":"É um valor de dinheiro.","nudge":"Pense: quanto você vai cobrar de quem compra.","sets":[["preco","venda"],["quanto","cobr"],["valor","venda"],["preco","vend"]]},"Gorjeta":{"tipo":"É um dinheiro a mais.","nudge":"Pense: o que se dá para agradecer um bom atendimento.","sets":[["gorjet"],["taxa","servico"]]},"Feira de trocas":{"tipo":"É um encontro.","nudge":"Pense: cada um leva o que não usa e volta com outra coisa, sem dinheiro.","sets":[["trocar"],["trocas"],["escamb"]]},"Conta bancária":{"tipo":"É algo que se abre num banco.","nudge":"Pense: onde fica o seu dinheiro no banco, com número e saldo.","sets":[["conta","banc"],["conta","corrent"],["conta","digital"]]},"Entrevista de emprego":{"tipo":"É uma conversa.","nudge":"Pense: a conversa antes de conseguir a vaga.","sets":[["entrevist"],["process","seletiv"]]},"Carteira de trabalho":{"tipo":"É um documento.","nudge":"Pense: o documento que registra o emprego com direitos.","sets":[["carteira","trabalh"],["carteira","assinad"],["ctps"],["registr","carteira"]]},"Fiador":{"tipo":"É uma pessoa que dá garantia.","nudge":"Pense: quem assina junto no aluguel e paga se o outro não pagar.","sets":[["fiador"],["fianc"],["avalist"]]}});
