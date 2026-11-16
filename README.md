@@ -2,7 +2,7 @@
 
 **Nome comercial (o que o jogador vê): Missão Dinheiro: Pistas.** "Pocket" é só o nome interno do projeto (repositório, pastas, documentação, chaves de salvamento). No modo solo, o "Robô das Pistas" é um colega, não adversário.
 
-Jogo de cartas de educação financeira para crianças a partir de 5 anos, adolescentes e adultos (faixas 5 a 7, 8 a 12 e 13 anos ou mais), parte do ecossistema **Meu Dinheiro Club**. Standalone: não altera o jogo principal.
+Jogo de cartas de educação financeira para crianças a partir de 5 anos, adolescentes e adultos (faixas 5 a 7, 8 a 12 e 13 anos ou mais), parte do ecossistema **Missão Dinheiro Club**. Standalone: não altera o jogo principal.
 
 ## Como rodar
 - Duplo clique em `index.html`, ou

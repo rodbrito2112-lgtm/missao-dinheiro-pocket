@@ -89,7 +89,8 @@ const CARDS = [
       "Avisar na hora é o jeito mais fácil de resolver."
     ],
     "faixa": "5–7",
-    "tema": "Consumo e escolhas"
+    "tema": "Consumo e escolhas",
+    "kit": true
   },
   {
     "title": "Golpe por mensagem",
@@ -179,7 +180,8 @@ const CARDS = [
       "Pagará R$ 450 no total sem urgência, assumindo compromissos futuros."
     ],
     "faixa": "8–11",
-    "tema": "Consumo e escolhas"
+    "tema": "Consumo e escolhas",
+    "kit": true
   },
   {
     "title": "Preço por unidade",
@@ -313,7 +315,8 @@ const CARDS = [
       "Você volta para R$ 10, e o livro fica bem mais longe."
     ],
     "faixa": "5–7",
-    "tema": "Poupar e guardar"
+    "tema": "Poupar e guardar",
+    "kit": true
   },
   {
     "title": "Empréstimo",
@@ -359,7 +362,8 @@ const CARDS = [
       "Você ajuda o colega e não fica sem o que precisa."
     ],
     "faixa": "5–7",
-    "tema": "Poupar e guardar"
+    "tema": "Poupar e guardar",
+    "kit": true
   },
   {
     "title": "Cofrinho",
@@ -404,7 +408,8 @@ const CARDS = [
       "Esvazia o cofrinho e o sonho some."
     ],
     "faixa": "5–7",
-    "tema": "Poupar e guardar"
+    "tema": "Poupar e guardar",
+    "kit": true
   },
   {
     "title": "Economizar",
@@ -457,13 +462,13 @@ const CARDS = [
     "icon": "🏦",
     "p": [
       "Muita gente começa a fazer isso ainda criança.",
+      "Todo dinheiro guardado desse jeito dobra sozinho em um mês.",
       "Você coloca dinheiro de lado de pouco em pouco.",
       "Geralmente é uma parte do que você recebe.",
-      "Todo dinheiro guardado desse jeito dobra sozinho em um mês.",
       "Quem faz isso sempre chega mais perto de um objetivo.",
       "É separar um pouco todo mês para usar mais tarde."
     ],
-    "fake": 4,
+    "fake": 2,
     "correct": [
       "poupança",
       "poupar",
@@ -479,22 +484,23 @@ const CARDS = [
     ],
     "scene": "Você recebe R$ 20 de mesada por mês e quer uma bola de R$ 60 em três meses. Seu amigo chama para um sorvete de R$ 10 hoje.",
     "opts": [
-      "Guardar R$ 20 por mês e pular o sorvete.",
       "Tomar o sorvete e guardar R$ 10 neste mês.",
+      "Guardar R$ 20 por mês e pular o sorvete.",
       "Gastar tudo agora e pensar na bola depois."
     ],
     "pts": [
-      2,
       1,
+      2,
       -1
     ],
     "why": [
-      "Chega nos R$ 60 no prazo planejado.",
       "Aproveita o amigo, mas atrasa a bola.",
+      "Chega nos R$ 60 no prazo planejado.",
       "Sem guardar, a bola não vem."
     ],
     "faixa": "8–11",
-    "tema": "Poupar e guardar"
+    "tema": "Poupar e guardar",
+    "kit": true
   },
   {
     "title": "Juros",
@@ -539,7 +545,8 @@ const CARDS = [
       "Aproveita um pouco agora, mas rende menos."
     ],
     "faixa": "8–11",
-    "tema": "Poupar e guardar"
+    "tema": "Poupar e guardar",
+    "kit": true
   },
   {
     "title": "Reserva de emergência",
@@ -549,11 +556,11 @@ const CARDS = [
       "É dinheiro que não tem uma compra marcada.",
       "Fica separado para quando você não puder planejar.",
       "Pode ajudar a pagar um conserto ou um remédio.",
-      "Serve para comprar presentes de aniversário.",
       "Ninguém quer usar, mas todo mundo fica feliz que existe.",
+      "Serve para comprar presentes de aniversário.",
       "É dinheiro guardado para surpresas ruins."
     ],
-    "fake": 4,
+    "fake": 5,
     "correct": [
       "reserva de emergência",
       "reserva",
@@ -584,7 +591,8 @@ const CARDS = [
       "Resolve, mas desmonta o sonho do fone sem necessidade."
     ],
     "faixa": "8–11",
-    "tema": "Poupar e guardar"
+    "tema": "Poupar e guardar",
+    "kit": true
   },
   {
     "title": "Esperar para comprar",
@@ -628,7 +636,8 @@ const CARDS = [
       "Evita o choro, mas troca o que você quer por outra coisa qualquer."
     ],
     "faixa": "5–7",
-    "tema": "Poupar e guardar"
+    "tema": "Poupar e guardar",
+    "kit": true
   },
   {
     "title": "Necessidade",
@@ -673,7 +682,8 @@ const CARDS = [
       "Segura o dinheiro, mas o problema continua."
     ],
     "faixa": "5–7",
-    "tema": "Consumo e escolhas"
+    "tema": "Consumo e escolhas",
+    "kit": true
   },
   {
     "title": "Desejo",
@@ -718,7 +728,8 @@ const CARDS = [
       "Esconder tira a chance de conversar e planejar."
     ],
     "faixa": "5–7",
-    "tema": "Consumo e escolhas"
+    "tema": "Consumo e escolhas",
+    "kit": true
   },
   {
     "title": "Propaganda",
@@ -808,7 +819,8 @@ const CARDS = [
       "Gasta menos, mas ainda compra algo que não estava nos planos."
     ],
     "faixa": "8–11",
-    "tema": "Consumo e escolhas"
+    "tema": "Consumo e escolhas",
+    "kit": true
   },
   {
     "title": "Custo-benefício",
@@ -906,12 +918,12 @@ const CARDS = [
     "p": [
       "É usado no celular, sem precisar de nota ou moeda.",
       "Costuma levar poucos segundos para chegar.",
-      "A pessoa escolhe quanto vai mandar e para quem.",
       "Só funciona quando o banco está aberto em horário comercial.",
+      "A pessoa escolhe quanto vai mandar e para quem.",
       "Pede uma chave ou um código para encontrar quem vai receber.",
       "É um jeito de pagar ou receber dinheiro na hora pelo celular."
     ],
-    "fake": 4,
+    "fake": 3,
     "correct": [
       "pix",
       "pagamento pelo celular",
@@ -942,7 +954,8 @@ const CARDS = [
       "Conferir antes evita um erro difícil de corrigir."
     ],
     "faixa": "8–11",
-    "tema": "Dinheiro digital e segurança"
+    "tema": "Dinheiro digital e segurança",
+    "kit": true
   },
   {
     "title": "Senha",
@@ -987,7 +1000,8 @@ const CARDS = [
       "Você ajuda e mantém a conta protegida."
     ],
     "faixa": "8–11",
-    "tema": "Dinheiro digital e segurança"
+    "tema": "Dinheiro digital e segurança",
+    "kit": true
   },
   {
     "title": "Compra online",
@@ -1083,7 +1097,8 @@ const CARDS = [
       "Evita assumir mais do que cabe."
     ],
     "faixa": "8–11",
-    "tema": "Dinheiro digital e segurança"
+    "tema": "Dinheiro digital e segurança",
+    "kit": true
   },
   {
     "title": "Saldo",
@@ -1218,7 +1233,8 @@ const CARDS = [
       "Escolhe uma coisa por vez com a mesada."
     ],
     "faixa": "5–7",
-    "tema": "Trabalho e ganhar dinheiro"
+    "tema": "Trabalho e ganhar dinheiro",
+    "kit": true
   },
   {
     "title": "Trabalho",
@@ -1262,7 +1278,8 @@ const CARDS = [
       "Você foi sincero, mas a tia fica sem a sua ajuda."
     ],
     "faixa": "5–7",
-    "tema": "Trabalho e ganhar dinheiro"
+    "tema": "Trabalho e ganhar dinheiro",
+    "kit": true
   },
   {
     "title": "Salário",
@@ -1362,11 +1379,11 @@ const CARDS = [
       "É um dinheiro a mais, além do que a pessoa já recebe.",
       "Pode vir de uma tarefa feita nos fins de semana.",
       "Quem faz isso usa algo que sabe fazer bem.",
-      "Tem que ser guardado até a pessoa fazer 18 anos.",
       "Pode ser pouco, mas ajuda no fim do mês.",
+      "Tem que ser guardado até a pessoa fazer 18 anos.",
       "É um dinheiro a mais por um trabalho a mais."
     ],
-    "fake": 4,
+    "fake": 5,
     "correct": [
       "renda extra",
       "dinheiro extra",
@@ -1382,22 +1399,23 @@ const CARDS = [
     ],
     "scene": "Sua prima sabe desenhar muito bem. Colegas pediram desenhos de personagens. Ela pode cobrar R$ 5 por desenho ou fazer de graça.",
     "opts": [
-      "Cobrar R$ 5 e combinar quantos desenhos faz por semana.",
       "Fazer de graça e ficar sem tempo para estudar.",
+      "Cobrar R$ 5 e combinar quantos desenhos faz por semana.",
       "Cobrar R$ 50 por desenho sem conversar."
     ],
     "pts": [
-      2,
       1,
+      2,
       -1
     ],
     "why": [
-      "Valor justo e combinado com limite de tempo.",
       "Ajuda os amigos, mas não vira renda.",
+      "Valor justo e combinado com limite de tempo.",
       "Preço sem conversa pode afastar os clientes."
     ],
     "faixa": "8–11",
-    "tema": "Trabalho e ganhar dinheiro"
+    "tema": "Trabalho e ganhar dinheiro",
+    "kit": true
   },
   {
     "title": "Empreender",
@@ -1442,7 +1460,8 @@ const CARDS = [
       "Evita o risco, mas não aprende nada."
     ],
     "faixa": "8–11",
-    "tema": "Trabalho e ganhar dinheiro"
+    "tema": "Trabalho e ganhar dinheiro",
+    "kit": true
   },
   {
     "title": "Escolha",
@@ -1486,7 +1505,8 @@ const CARDS = [
       "Não erra, mas fica sem nenhum dos dois hoje."
     ],
     "faixa": "5–7",
-    "tema": "Consumo e escolhas"
+    "tema": "Consumo e escolhas",
+    "kit": true
   },
   {
     "title": "Moeda",
@@ -1533,36 +1553,36 @@ const CARDS = [
     "tema": "Poupar e guardar"
   },
   {
-    "title": "Três potes",
+    "title": "Quatro potes",
     "char": "Vinicius",
     "icon": "🫙",
     "p": [
       "É um jeito de organizar o dinheiro que você ganha.",
-      "Usa três recipientes, um ao lado do outro.",
+      "Usa quatro potes, um ao lado do outro.",
       "Todo o dinheiro vai sempre para o mesmo pote.",
-      "Cada pote tem um nome e um motivo.",
-      "Os nomes podem ser Gastar, Guardar e Ajudar.",
-      "É dividir o dinheiro em três potes."
+      "Um é para o que você usa agora; outro, para quando algo der errado.",
+      "Os nomes são Agora, Reserva, Sonho e Compartilhar.",
+      "É dividir o dinheiro em quatro potes."
     ],
     "fake": 3,
     "correct": [
-      "três potes",
-      "3 potes",
-      "dividir o dinheiro em três potes",
-      "pote de gastar, guardar e ajudar",
-      "três cofrinhos"
+      "quatro potes",
+      "4 potes",
+      "dividir o dinheiro em quatro potes",
+      "quatro cofrinhos"
     ],
     "near": [
       "cofrinho",
       "pote",
       "poupança",
-      "guardar dinheiro"
+      "guardar dinheiro",
+      "três potes"
     ],
-    "scene": "Você ganhou R$ 10. Na estante tem três potes: Gastar, Guardar e Ajudar.",
+    "scene": "Você ganhou R$ 10. Na estante tem quatro potes: Agora, Reserva, Sonho e Compartilhar.",
     "opts": [
-      "Colocar um pouco em cada pote, por exemplo R$ 5, R$ 4 e R$ 1.",
-      "Colocar tudo no pote Gastar e comprar doces hoje.",
-      "Colocar tudo no pote Guardar."
+      "Dividir entre os potes do jeito que a família combinou (por exemplo, R$ 4, R$ 2, R$ 3 e R$ 1).",
+      "Colocar tudo no pote Agora e comprar doces hoje.",
+      "Colocar tudo no pote Sonho."
     ],
     "pts": [
       2,
@@ -1570,12 +1590,13 @@ const CARDS = [
       1
     ],
     "why": [
-      "Dá para aproveitar agora, juntar para depois e ainda ajudar alguém.",
-      "Acaba tudo hoje e os outros dois potes ficam vazios.",
-      "Guardar é bom, mas não sobra nada para usar agora nem para ajudar."
+      "Dá para usar agora, ter uma reserva, juntar para o sonho e, se você quiser, ajudar alguém. Cada família combina a sua divisão.",
+      "Acaba tudo hoje, e não sobra nada para quando algo der errado nem para o sonho.",
+      "Juntar para o sonho é bom, mas não sobra nada para agora nem para quando algo der errado."
     ],
     "faixa": "5–7",
-    "tema": "Poupar e guardar"
+    "tema": "Poupar e guardar",
+    "kit": true
   },
   {
     "title": "Dinheiro de presente",
@@ -1664,7 +1685,8 @@ const CARDS = [
       "Quem decide gastar o dinheiro da família é o adulto."
     ],
     "faixa": "5–7",
-    "tema": "Dinheiro digital e segurança"
+    "tema": "Dinheiro digital e segurança",
+    "kit": true
   },
   {
     "title": "Doar",
@@ -1708,7 +1730,8 @@ const CARDS = [
       "Não faz mal, mas os brinquedos ficam parados enquanto alguém poderia usar."
     ],
     "faixa": "5–7",
-    "tema": "Ajudar e compartilhar"
+    "tema": "Ajudar e compartilhar",
+    "kit": true
   },
   {
     "title": "Compartilhar",
@@ -1797,7 +1820,8 @@ const CARDS = [
       "Contar é bom, mas é muito mais fácil resolver na hora."
     ],
     "faixa": "5–7",
-    "tema": "Ajudar e compartilhar"
+    "tema": "Ajudar e compartilhar",
+    "kit": true
   },
   {
     "title": "Custo de oportunidade",
@@ -1887,7 +1911,8 @@ const CARDS = [
       "A conta fecha (20 + 15 = 35), mas a meta de guardar fica para trás."
     ],
     "faixa": "8–11",
-    "tema": "Consumo e escolhas"
+    "tema": "Consumo e escolhas",
+    "kit": true
   },
   {
     "title": "Link falso",
@@ -1932,7 +1957,8 @@ const CARDS = [
       "Evita o golpe, mas outras pessoas da casa podem receber a mesma mensagem."
     ],
     "faixa": "8–11",
-    "tema": "Dinheiro digital e segurança"
+    "tema": "Dinheiro digital e segurança",
+    "kit": true
   },
   {
     "title": "Voluntariado",
@@ -1977,7 +2003,8 @@ const CARDS = [
       "Quem contava com você fica sem ajuda."
     ],
     "faixa": "8–11",
-    "tema": "Ajudar e compartilhar"
+    "tema": "Ajudar e compartilhar",
+    "kit": true
   },
   {
     "title": "Rotativo do cartão",
@@ -3214,7 +3241,8 @@ const CARDS = [
       "Paga o que gastou e ainda sobra R$ 1 por copo."
     ],
     "faixa": "5–7",
-    "tema": "Trabalho e ganhar dinheiro"
+    "tema": "Trabalho e ganhar dinheiro",
+    "kit": true
   },
   {
     "title": "Pedir ajuda",
@@ -3260,7 +3288,8 @@ const CARDS = [
       "Você se protege, mas ninguém fica sabendo do que apareceu."
     ],
     "faixa": "5–7",
-    "tema": "Dinheiro digital e segurança"
+    "tema": "Dinheiro digital e segurança",
+    "kit": true
   },
   {
     "title": "Vaquinha",
@@ -3351,7 +3380,8 @@ const CARDS = [
       "Desconfiar ajuda, mas nem todo vídeo é publi."
     ],
     "faixa": "8–11",
-    "tema": "Consumo e escolhas"
+    "tema": "Consumo e escolhas",
+    "kit": true
   },
   {
     "title": "Pressão dos amigos",
@@ -3406,11 +3436,11 @@ const CARDS = [
       "Aparece em jogos e em lojas de brinquedos.",
       "Você paga sem saber o que vem dentro.",
       "Pode vir algo raro, mas quase sempre vem algo comum.",
-      "Quem compra bastante sempre ganha o item mais raro.",
       "Dá vontade de comprar de novo para tentar a sorte.",
+      "Quem compra bastante sempre ganha o item mais raro.",
       "É pagar por um prêmio sorteado."
     ],
-    "fake": 4,
+    "fake": 5,
     "correct": [
       "caixa surpresa",
       "caixa misteriosa",
@@ -3444,7 +3474,8 @@ const CARDS = [
       "Cada baú custa R$ 10, e não há garantia de ganhar."
     ],
     "faixa": "8–11",
-    "tema": "Dinheiro digital e segurança"
+    "tema": "Dinheiro digital e segurança",
+    "kit": true
   },
   {
     "title": "Dívida",
@@ -3452,13 +3483,13 @@ const CARDS = [
     "icon": "📉",
     "p": [
       "Começa quando alguém pega algo e promete pagar depois.",
+      "Some sozinha se a pessoa esquecer dela.",
       "Fica uma conta esperando para ser paga.",
       "Quanto mais demora, mais pode crescer.",
-      "Some sozinha se a pessoa esquecer dela.",
       "Pode vir de um empréstimo, de um cartão ou de uma compra parcelada.",
       "É o dinheiro que você deve para alguém."
     ],
-    "fake": 4,
+    "fake": 2,
     "correct": [
       "dívida",
       "estar devendo",
@@ -3489,7 +3520,8 @@ const CARDS = [
       "Você cumpre o combinado e fica livre da dívida."
     ],
     "faixa": "8–11",
-    "tema": "Poupar e guardar"
+    "tema": "Poupar e guardar",
+    "kit": true
   },
   {
     "title": "Direito de arrependimento",
@@ -3671,7 +3703,8 @@ const CARDS = [
       "A máquina também pode estar com o valor errado."
     ],
     "faixa": "5–7",
-    "tema": "Dinheiro digital e segurança"
+    "tema": "Dinheiro digital e segurança",
+    "kit": true
   },
   {
     "title": "Cliente",
@@ -4124,7 +4157,8 @@ const CARDS = [
       "Em casa, todos ajudam porque moram juntos, não para ganhar dinheiro."
     ],
     "faixa": "5–7",
-    "tema": "Ajudar e compartilhar"
+    "tema": "Ajudar e compartilhar",
+    "kit": true
   },
   {
     "title": "Profissão",
@@ -4258,7 +4292,8 @@ const CARDS = [
       "Cobre o custo, tem lucro e atrai clientes."
     ],
     "faixa": "8–11",
-    "tema": "Trabalho e ganhar dinheiro"
+    "tema": "Trabalho e ganhar dinheiro",
+    "kit": true
   },
   {
     "title": "Gorjeta",
@@ -4334,22 +4369,23 @@ const CARDS = [
     ],
     "scene": "Sua escola vai fazer uma feira de trocas. Você tem 5 livros que já leu e um que adora.",
     "opts": [
-      "Levar os 5 livros já lidos, em bom estado, e ficar com o preferido.",
       "Levar só um livro, para não ficar sem nenhum.",
-      "Levar livros rasgados que ninguém quer."
+      "Levar livros rasgados que ninguém quer.",
+      "Levar os 5 livros já lidos, em bom estado, e ficar com o preferido."
     ],
     "pts": [
-      2,
       1,
-      -1
+      -1,
+      2
     ],
     "why": [
-      "Os livros ganham novos leitores, e você volta com livros novos.",
       "Você participa, mas poderia trocar mais coisas que não usa.",
-      "Ninguém quer trocar por algo estragado."
+      "Ninguém quer trocar por algo estragado.",
+      "Os livros ganham novos leitores, e você volta com livros novos."
     ],
     "faixa": "8–11",
-    "tema": "Ajudar e compartilhar"
+    "tema": "Ajudar e compartilhar",
+    "kit": true
   },
   {
     "title": "Conta bancária",
@@ -4547,7 +4583,7 @@ const EXTRA={
 };
 Object.assign(EXTRA,{"Cofrinho": {"tipo": "É um objeto, não uma ação.", "nudge": "Pense: onde uma criança guarda moedas em casa?", "sets": [["cofr"], ["porquinho"], ["guardar", "dinheiro"]]}, "Economizar": {"tipo": "É uma ação (verbo).", "nudge": "Pense: o que você faz para sobrar mais dinheiro?", "sets": [["economiz"], ["gastar", "menos"], ["poup"]]}, "Poupança": {"tipo": "É um hábito, que se repete.", "nudge": "Pense: o que acontece quando você guarda um pouquinho sempre?", "sets": [["poupanc"], ["poupar"], ["guardar", "mes"]]}, "Juros": {"tipo": "É um valor extra, e depende do tempo.", "nudge": "Pense: o que muda no dinheiro guardado depois de muitos meses?", "sets": [["juro"], ["rendimento"], ["valor", "extra"], ["valor", "mais", "tempo"]]}, "Reserva de emergência": {"tipo": "É dinheiro guardado com um propósito.", "nudge": "Pense: para qual tipo de dia esse dinheiro foi guardado?", "sets": [["reserva"], ["emerg", "guard"], ["dinheiro", "imprevisto"]]}, "Esperar para comprar": {"tipo": "É uma atitude, tem tempo envolvido.", "nudge": "Pense: o que você faz antes de levar uma coisa para casa?", "sets": [["esper"], ["pacienc"], ["adiar"], ["comprar", "depois"]]}, "Necessidade": {"tipo": "É um tipo de coisa que se precisa.", "nudge": "Pense: sem o que você não consegue viver bem?", "sets": [["necessid"], ["essencial"], ["preciso"]]}, "Desejo": {"tipo": "É um sentimento, não um objeto.", "nudge": "Pense: como se chama o que você sente ao ver algo e dizer \"eu quero\"?", "sets": [["desej"], ["vontade"], ["quero"], ["quer"]]}, "Propaganda": {"tipo": "É uma mensagem, não um produto.", "nudge": "Pense: o que quer te convencer a comprar enquanto você vê um vídeo?", "sets": [["propagand"], ["anunc"], ["publicid"], ["comercial"]]}, "Compra por impulso": {"tipo": "É um jeito de comprar.", "nudge": "Pense: como se chama comprar de repente, só pela emoção?", "sets": [["impuls"], ["sem", "pens"], ["sem", "planej"]]}, "Custo-benefício": {"tipo": "É uma forma de comparar.", "nudge": "Pense: o que se compara além do preço?", "sets": [["custo", "benef"], ["vale", "pena"], ["qualidade", "preco"]]}, "Lista de compras": {"tipo": "É um papel ou nota, não uma ação.", "nudge": "Pense: o que a família escreve antes de ir ao mercado?", "sets": [["lista"], ["anotar", "compr"]]}, "Pix": {"tipo": "É um meio de pagamento.", "nudge": "Pense: como se paga na hora pelo celular, com uma chave?", "sets": [["pix"], ["pagar", "celular"], ["pagamento", "instant"]]}, "Senha": {"tipo": "É um segredo, feito de letras e números.", "nudge": "Pense: o que protege a sua conta e só você sabe?", "sets": [["senha"], ["codigo", "secret"], ["segredo", "acesso"]]}, "Compra online": {"tipo": "É um jeito de comprar.", "nudge": "Pense: como se compra sem sair de casa?", "sets": [["compra", "online"], ["comprar", "internet"], ["comprar", "site"], ["loja", "online"], ["compra", "digital"], ["compra", "virtual"], ["comprar", "app"]]}, "Cartão de crédito": {"tipo": "É um objeto e também uma forma de pagar.", "nudge": "Pense: como se chama o cartão que você paga depois, na fatura?", "sets": [["cartao", "credito"], ["credito"], ["cartao", "fatura"], ["pagar", "depois"]]}, "Saldo": {"tipo": "É um número sobre o seu dinheiro.", "nudge": "Pense: como se chama o número que mostra quanto sobrou?", "sets": [["saldo"], ["quanto", "tenho"], ["dinheiro", "sobrou"], ["quanto", "conta"]]}, "Código de verificação": {"tipo": "É um número, e vale por pouco tempo.", "nudge": "Pense: o que chega por mensagem para provar que é você?", "sets": [["codigo"], ["verific"], ["numero", "uso", "unico"]]}, "Mesada": {"tipo": "É um dinheiro, vem de alguém da família.", "nudge": "Pense: como se chama o dinheiro combinado que a criança recebe?", "sets": [["mesada"], ["semanada"]]}, "Trabalho": {"tipo": "É uma ação, e muita gente faz todo dia.", "nudge": "Pense: o que o seu pai ou mãe faz para ganhar dinheiro?", "sets": [["trabalh"], ["emprego"], ["profiss"]]}, "Salário": {"tipo": "É um pagamento, com data certa.", "nudge": "Pense: o que chega todo mês para quem trabalha?", "sets": [["salario"], ["ordenado"], ["pagamento", "trabalh"]]}, "Lucro": {"tipo": "É um resultado de uma conta.", "nudge": "Pense: o que sobra depois de tirar o que se gastou?", "sets": [["lucro"], ["sobra", "venda"], ["ganho", "custo"], ["sobra", "custo"]]}, "Renda extra": {"tipo": "É um dinheiro, vem além do que se recebe normalmente.", "nudge": "Pense: como se chama o dinheiro que vem de um trabalho a mais?", "sets": [["renda", "extra"], ["dinheiro", "extra"], ["dinheiro", "mais"], ["bico"]]}, "Empreender": {"tipo": "É uma ação (verbo).", "nudge": "Pense: o que se faz para criar o próprio negócio?", "sets": [["empreend"], ["criar", "negocio"], ["abrir", "negocio"], ["proprio", "negocio"]]}});
 /* Lote 1 de cartas novas do jogo digital (15/11/2026) */
-Object.assign(EXTRA,{"Escolha":{"tipo":"É algo que você faz antes de comprar.","nudge":"Pense: o dinheiro dá para uma coisa só. O que você faz?","sets":[["escolh"],["decid"],["decis"],["isto","aquilo"]]},"Moeda":{"tipo":"É um tipo de dinheiro que você pode pegar na mão.","nudge":"Pense: dinheiro redondo, de metal.","sets":[["moed"]]},"Três potes":{"tipo":"É um jeito de organizar o dinheiro.","nudge":"Pense: quantos potes e para que serve cada um?","sets":[["tres","pote"],["3","pote"],["pote","gastar"],["pote","guardar","ajudar"],["tres","cofr"]]},"Dinheiro de presente":{"tipo":"É dinheiro que chega de um jeito especial.","nudge":"Pense: em que dia alguém da família dá dinheiro para você?","sets":[["presente","dinheiro"],["dinheiro","aniversari"],["ganh","presente"]]},"Compra dentro do jogo":{"tipo":"É algo que aparece no meio de um jogo.","nudge":"Pense: o jogo quer que você gaste dinheiro de verdade.","sets":[["compr","jogo"],["compr","app"],["compr","aplicativ"],["gast","jogo"],["pag","jogo"]]},"Doar":{"tipo":"É uma ação de ajudar.","nudge":"Pense: dar algo para quem precisa, sem pedir nada em troca.","sets":[["doa"],["dar","precis"]]},"Compartilhar":{"tipo":"É uma ação que se faz junto com outras pessoas.","nudge":"Pense: o que você faz quando o amigo não tem lanche?","sets":[["compartilh"],["dividir"],["dividindo"],["partilh"]]},"Honestidade":{"tipo":"É uma qualidade de uma pessoa.","nudge":"Pense: devolver o que não é seu, mesmo se ninguém viu.","sets":[["honest"],["verdad"],["sincer"]]},"Custo de oportunidade":{"tipo":"É uma ideia sobre escolhas.","nudge":"Pense: quando você escolhe uma coisa, o que perde?","sets":[["oportunidad"],["deix","de ter"],["deix","de fazer"],["abr","mao"],["renunc"]]},"Orçamento":{"tipo":"É um plano.","nudge":"Pense: anotar quanto entra e quanto sai antes de gastar.","sets":[["orcament"],["planej"],["plano","gast"],["plano","dinheiro"],["control","gast"]]},"Link falso":{"tipo":"É um perigo da internet.","nudge":"Pense: um endereço de internet que parece verdadeiro, mas engana.","sets":[["link","fals"],["link","golpe"],["link","suspeit"],["link","fraud"],["site","fals"],["link","engan"]]},"Voluntariado":{"tipo":"É um jeito de ajudar.","nudge":"Pense: trabalhar de graça para ajudar a comunidade.","sets":[["voluntar"]]}});
+Object.assign(EXTRA,{"Escolha":{"tipo":"É algo que você faz antes de comprar.","nudge":"Pense: o dinheiro dá para uma coisa só. O que você faz?","sets":[["escolh"],["decid"],["decis"],["isto","aquilo"]]},"Moeda":{"tipo":"É um tipo de dinheiro que você pode pegar na mão.","nudge":"Pense: dinheiro redondo, de metal.","sets":[["moed"]]},"Quatro potes":{"tipo":"É um jeito de organizar o dinheiro.","nudge":"Pense: quantos potes e para que serve cada um?","sets":[["quatro","pote"],["4","pote"],["pote","agora"],["pote","reserva"],["pote","sonho"],["pote","compartilh"],["quatro","cofr"]]},"Dinheiro de presente":{"tipo":"É dinheiro que chega de um jeito especial.","nudge":"Pense: em que dia alguém da família dá dinheiro para você?","sets":[["presente","dinheiro"],["dinheiro","aniversari"],["ganh","presente"]]},"Compra dentro do jogo":{"tipo":"É algo que aparece no meio de um jogo.","nudge":"Pense: o jogo quer que você gaste dinheiro de verdade.","sets":[["compr","jogo"],["compr","app"],["compr","aplicativ"],["gast","jogo"],["pag","jogo"]]},"Doar":{"tipo":"É uma ação de ajudar.","nudge":"Pense: dar algo para quem precisa, sem pedir nada em troca.","sets":[["doa"],["dar","precis"]]},"Compartilhar":{"tipo":"É uma ação que se faz junto com outras pessoas.","nudge":"Pense: o que você faz quando o amigo não tem lanche?","sets":[["compartilh"],["dividir"],["dividindo"],["partilh"]]},"Honestidade":{"tipo":"É uma qualidade de uma pessoa.","nudge":"Pense: devolver o que não é seu, mesmo se ninguém viu.","sets":[["honest"],["verdad"],["sincer"]]},"Custo de oportunidade":{"tipo":"É uma ideia sobre escolhas.","nudge":"Pense: quando você escolhe uma coisa, o que perde?","sets":[["oportunidad"],["deix","de ter"],["deix","de fazer"],["abr","mao"],["renunc"]]},"Orçamento":{"tipo":"É um plano.","nudge":"Pense: anotar quanto entra e quanto sai antes de gastar.","sets":[["orcament"],["planej"],["plano","gast"],["plano","dinheiro"],["control","gast"]]},"Link falso":{"tipo":"É um perigo da internet.","nudge":"Pense: um endereço de internet que parece verdadeiro, mas engana.","sets":[["link","fals"],["link","golpe"],["link","suspeit"],["link","fraud"],["site","fals"],["link","engan"]]},"Voluntariado":{"tipo":"É um jeito de ajudar.","nudge":"Pense: trabalhar de graça para ajudar a comunidade.","sets":[["voluntar"]]}});
 /* Lote 2 de cartas novas do jogo digital: faixa 13 anos ou mais (15/11/2026) */
 Object.assign(EXTRA,{"Rotativo do cartão":{"tipo":"É um tipo de dívida.","nudge":"Pense: o que acontece com a parte da fatura que você não pagou?","sets":[["rotativ"],["pag","minimo"]]},"Nome sujo":{"tipo":"É uma situação de quem deve.","nudge":"Pense: como se diz quando o CPF entra na lista de devedores?","sets":[["nome","sujo"],["negativ"]]},"Score":{"tipo":"É um número.","nudge":"Pense: a nota que os bancos dão para quem paga em dia.","sets":[["score"],["pontua","credito"],["nota","credito"]]},"Juros compostos":{"tipo":"É um jeito de o dinheiro crescer.","nudge":"Pense: juros que também rendem juros, como uma bola de neve.","sets":[["juro","compost"],["juro","sobre","juro"]]},"Aposta":{"tipo":"É um jogo com dinheiro.","nudge":"Pense: colocar dinheiro num resultado de sorte, esperando ganhar mais.","sets":[["aposta"],["jogo","azar"]]},"Pirâmide financeira":{"tipo":"É um golpe com cara de investimento.","nudge":"Pense: o dinheiro de quem entra depois paga quem entrou antes.","sets":[["piramid"],["ponzi"]]},"Conta laranja":{"tipo":"É algo que alguém pede emprestado.","nudge":"Pense: deixar outra pessoa usar a sua conta do banco. Que nome tem isso?","sets":[["laranj"],["emprest","conta"]]},"Perfil falso":{"tipo":"É um golpe no celular.","nudge":"Pense: alguém usa a foto de um parente para pedir dinheiro.","sets":[["perfil","fals"],["fals","parent"],["fing","outra"],["passa","outra","pessoa"]]},"Golpe do falso emprego":{"tipo":"É um golpe.","nudge":"Pense: uma vaga de trabalho que, na verdade, quer o seu dinheiro.","sets":[["fals","empreg"],["fals","vaga"],["fals","trabalh"],["golpe","tarefa"],["golpe","empreg"],["golpe","vaga"]]},"Jovem aprendiz":{"tipo":"É um tipo de trabalho.","nudge":"Pense: o programa de primeiro emprego para quem ainda estuda.","sets":[["aprendiz"]]},"Salário líquido":{"tipo":"É um valor de dinheiro.","nudge":"Pense: o salário que sobra depois dos descontos tem um nome.","sets":[["sobra","descont"],["depois","descont"]]},"Contas da casa":{"tipo":"É um grupo de gastos.","nudge":"Pense: luz, água, internet e aluguel. Todas juntas são o quê?","sets":[["conta","casa"],["despes","casa"],["gast","casa"],["conta","mes"]]}});
 /* Lote 3 de cartas novas do jogo digital: faixa 13 anos ou mais (15/11/2026) */
