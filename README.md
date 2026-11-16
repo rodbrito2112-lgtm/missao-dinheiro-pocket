@@ -2,7 +2,7 @@
 
 **Nome comercial (o que o jogador vê): Missão Dinheiro: Pistas.** "Pocket" é só o nome interno do projeto (repositório, pastas, documentação, chaves de salvamento). No modo solo, o "Robô das Pistas" é um colega, não adversário.
 
-Jogo de cartas de educação financeira para crianças a partir de 5 anos (faixas 5–7 e 8+; versão específica para adolescentes pendente), parte do ecossistema **Meu Dinheiro Club**. Standalone: não altera o jogo principal.
+Jogo de cartas de educação financeira para crianças a partir de 5 anos, adolescentes e adultos (faixas 5 a 7, 8 a 12 e 13 anos ou mais), parte do ecossistema **Meu Dinheiro Club**. Standalone: não altera o jogo principal.
 
 ## Como rodar
 - Duplo clique em `index.html`, ou
@@ -17,7 +17,7 @@ Sem build e sem backend: funciona offline, inclusive por duplo clique (`file://`
 - Empate = vitória compartilhada.
 - Ajudas estilo Show do Milhão (Dica, Opções, Pista falsa): usar uma ajuda reduz os pontos de descoberta pela metade (arredondado para cima).
 - Resposta com "Quase!": o jogo dá uma dica e libera nova tentativa na pista seguinte.
-- Filtro por faixa etária (5–7, 8 anos ou mais, todas) — **nenhuma vem marcada**, alguém escolhe antes de começar.
+- Filtro por faixa etária (5 a 7, 8 a 12, 13 anos ou mais, todas) — **nenhuma vem marcada**, alguém escolhe antes de começar.
 - **Configurações** (recolhidas na tela inicial): tamanho da partida, regra do erro (A/B), ajudas, **Cena e escolha opcional** (sem cena, a carta conta só descoberta e pista falsa — como no kit impresso), som e "Recomeçar o álbum" (apaga álbum e conquistas do aparelho, com confirmação).
 - **Modo solo (desde 14/11/2026):** uma pessoa joga todas as cartas, com o personagem que escolheu (Caio, Mel, Letícia, Vinicius, Bia ou Tiko). O Robô das Pistas é colega: não pontua, só dá a opinião dele na cena. A tela final mostra os destaques da criança, sem "quem venceu".
 - Sorteio: prefere conceitos ainda não descobertos; Juros, Parcelamento e Cartão de crédito só entram depois de Empréstimo ou Poupança (no álbum ou antes na partida).
@@ -27,14 +27,14 @@ Sem build e sem backend: funciona offline, inclusive por duplo clique (`file://`
 ## Estrutura
 - `index.html` — página de entrada; carrega `style.css`, `cartas.js` e `game.js`.
 - `style.css` — todo o visual.
-- `cartas.js` — **fonte única das cartas**: `CARDS` (44 cartas: as 32 do baralho impresso e, depois delas, as cartas novas só do jogo digital, rumo a 100+; JSON puro depois de `const CARDS =`). Temas: Poupar e guardar, Consumo e escolhas, Dinheiro digital e segurança, Trabalho e ganhar dinheiro e Ajudar e compartilhar e `EXTRA` (dica de tipo, "nudge" e respostas aceitas de cada carta). Fica em `.js` e não em `.json` porque o navegador bloqueia `fetch` de arquivo local no duplo clique.
+- `cartas.js` — **fonte única das cartas**: `CARDS` (68 cartas: as 32 do baralho impresso e, depois delas, as cartas novas só do jogo digital, rumo a 100+; JSON puro depois de `const CARDS =`). Temas: Poupar e guardar, Consumo e escolhas, Dinheiro digital e segurança, Trabalho e ganhar dinheiro e Ajudar e compartilhar e `EXTRA` (dica de tipo, "nudge" e respostas aceitas de cada carta). Fica em `.js` e não em `.json` porque o navegador bloqueia `fetch` de arquivo local no duplo clique.
 - `game.js` — lógica do jogo, telas e caminhos das imagens (`ASSETS`, `POSE`).
 - `assets/personagens/` — imagens webp leves (idle, think/pensa, cheer, wow etc.) de Caio, Mel, Letícia, Vinicius, Bia, Tiko, Rodrigo, Natty + `logo-main.webp`. O jogo usa `*-idle`, `*-think` (Bia: idle), `*-cheer` e o logo.
 
 Para publicar, envie a pasta inteira (não só o `index.html`).
 
 ## Faixas etárias
-5–7 anos: 13 cartas · 8 anos ou mais: 19 cartas (chave interna `8–11` no `cartas.js`). As 8 cartas originais receberam faixa em 10/11/2026 (antes entravam em qualquer filtro). Análise completa, ordem sugerida e propostas pendentes em `docs/mapa-curricular-cartas.md`.
+5 a 7 anos: 21 cartas · 8 a 12 anos: 23 cartas (chave interna `8–11` no `cartas.js`, mantida para não perder álbuns salvos) · 13 anos ou mais (jovens e adultos, desde 15/11/2026): 24 cartas (chave `13+`: dívida, crédito, golpes, apostas, primeiro emprego, contas da casa). As cartas de 13+ não têm pré-requisito de outras faixas. As 8 cartas originais receberam faixa em 10/11/2026 (antes entravam em qualquer filtro). Análise completa, ordem sugerida e propostas pendentes em `docs/mapa-curricular-cartas.md`.
 
 ## Esquema de carta
 `{title, char, icon, p[6], fake(1-based), correct[], near[], scene, opts[3], pts[3], why[3], faixa, tema}`

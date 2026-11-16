@@ -1978,6 +1978,1109 @@ const CARDS = [
     ],
     "faixa": "8–11",
     "tema": "Ajudar e compartilhar"
+  },
+  {
+    "title": "Rotativo do cartão",
+    "char": "Leticia",
+    "icon": "🔄",
+    "p": [
+      "Começa no dia em que chega uma conta com data marcada.",
+      "Aparece quando você paga só uma parte do valor.",
+      "O que ficou faltando passa para o mês seguinte, maior.",
+      "É uma das formas mais caras de ficar devendo.",
+      "Pagar só o valor mínimo todo mês faz a dívida acabar rápido.",
+      "É o crédito que entra quando a fatura do cartão não é paga inteira."
+    ],
+    "fake": 5,
+    "correct": [
+      "rotativo",
+      "rotativo do cartão",
+      "crédito rotativo",
+      "juros do rotativo",
+      "pagar o mínimo da fatura"
+    ],
+    "near": [
+      "cartão de crédito",
+      "fatura",
+      "dívida",
+      "juros",
+      "limite"
+    ],
+    "scene": "A fatura do cartão chegou: R$ 800. Este mês só dá para pagar R$ 300 sem faltar dinheiro para o mercado.",
+    "opts": [
+      "Pagar R$ 300 e parar de usar o cartão até zerar a fatura.",
+      "Pagar só o mínimo e continuar usando o cartão normalmente.",
+      "Pagar R$ 300 e trocar o resto por um parcelamento da fatura, comparando o custo total antes."
+    ],
+    "pts": [
+      1,
+      -1,
+      2
+    ],
+    "why": [
+      "Ajuda, mas o que ficou para trás continua no rotativo, que cresce rápido.",
+      "O resto vira a dívida mais cara que existe, e ainda entram gastos novos.",
+      "Troca a dívida mais cara por parcelas conhecidas que cabem no mês."
+    ],
+    "faixa": "13+",
+    "tema": "Poupar e guardar"
+  },
+  {
+    "title": "Nome sujo",
+    "char": "Tiko",
+    "icon": "📋",
+    "p": [
+      "É uma situação que quase todo mundo quer evitar.",
+      "Acontece depois que uma conta fica muito tempo sem pagamento.",
+      "O CPF vai parar numa lista de quem está devendo.",
+      "Some sozinho no dia seguinte, mesmo sem pagar nada.",
+      "Atrapalha na hora de pedir um cartão, um empréstimo ou alugar uma casa.",
+      "É o jeito popular de dizer que a pessoa está negativada."
+    ],
+    "fake": 4,
+    "correct": [
+      "nome sujo",
+      "nome negativado",
+      "negativado",
+      "negativação",
+      "cadastro de devedores"
+    ],
+    "near": [
+      "dívida",
+      "devedor",
+      "conta atrasada",
+      "score",
+      "calote"
+    ],
+    "scene": "Uma conta de celular de R$ 120 ficou esquecida, e seu nome foi negativado. Chega uma proposta de acordo: pagar à vista com desconto ou em 3 parcelas.",
+    "opts": [
+      "Ignorar e esperar: um dia a dívida some.",
+      "Fazer o acordo que cabe no mês e guardar o comprovante.",
+      "Não fazer acordo e esperar juntar o valor inteiro."
+    ],
+    "pts": [
+      -1,
+      2,
+      1
+    ],
+    "why": [
+      "O nome fica sujo por muito tempo, e as portas continuam fechadas enquanto isso.",
+      "Resolve a dívida de um jeito possível, e o comprovante prova que você pagou.",
+      "Também resolve, mas o nome fica sujo por mais tempo enquanto você junta."
+    ],
+    "faixa": "13+",
+    "tema": "Poupar e guardar"
+  },
+  {
+    "title": "Score",
+    "char": "Bia",
+    "icon": "📊",
+    "p": [
+      "É um número que fala sobre você, mas que você não escolhe.",
+      "Quanto mais você ganha por mês, mais alto ele fica, mesmo atrasando contas.",
+      "Lojas e bancos olham para ele antes de dar crédito.",
+      "Pagar as contas em dia faz ele subir.",
+      "Dá para consultar de graça em sites de proteção ao crédito.",
+      "É a pontuação de crédito de uma pessoa."
+    ],
+    "fake": 2,
+    "correct": [
+      "score",
+      "score de crédito",
+      "pontuação de crédito",
+      "nota de crédito"
+    ],
+    "near": [
+      "crédito",
+      "nome sujo",
+      "limite",
+      "cpf",
+      "cadastro positivo"
+    ],
+    "scene": "Você quer alugar seu primeiro apartamento daqui a três meses, e a imobiliária vai consultar seu score.",
+    "opts": [
+      "Pagar todas as contas em dia e conferir se o CPF não tem nada pendente.",
+      "Esperar e ver o que acontece, sem olhar o CPF.",
+      "Pedir vários cartões de crédito ao mesmo tempo para parecer bom cliente."
+    ],
+    "pts": [
+      2,
+      1,
+      -1
+    ],
+    "why": [
+      "Mostra que você é bom pagador e dá tempo de corrigir alguma pendência.",
+      "Não piora, mas perde a chance de achar e resolver um problema antes.",
+      "Muitos pedidos de crédito de uma vez costumam baixar a pontuação."
+    ],
+    "faixa": "13+",
+    "tema": "Poupar e guardar"
+  },
+  {
+    "title": "Juros compostos",
+    "char": "Caio",
+    "icon": "🧮",
+    "p": [
+      "Funciona como uma bola de neve rolando morro abaixo.",
+      "Quanto mais tempo passa, mais rápido ele cresce.",
+      "Ajuda muito quem guarda dinheiro por muitos anos.",
+      "Atrapalha muito quem deixa uma dívida crescer.",
+      "Cresce sempre o mesmo valor por mês, do primeiro ao último.",
+      "São juros calculados em cima de juros."
+    ],
+    "fake": 5,
+    "correct": [
+      "juros compostos",
+      "juro composto",
+      "juros sobre juros",
+      "juro sobre juro"
+    ],
+    "near": [
+      "juros",
+      "juros simples",
+      "rendimento",
+      "bola de neve",
+      "investimento"
+    ],
+    "scene": "Você tem 18 anos e conseguiu um estágio. Sobram R$ 100 por mês.",
+    "opts": [
+      "Esperar ganhar mais e começar a guardar lá pelos 30 anos.",
+      "Gastar tudo agora e contar com o cartão quando precisar.",
+      "Começar a guardar já, mesmo pouco, num investimento seguro."
+    ],
+    "pts": [
+      1,
+      -1,
+      2
+    ],
+    "why": [
+      "Guardar depois ainda ajuda, mas perde anos de juros sobre juros, que fazem a maior diferença.",
+      "Sem reserva, qualquer imprevisto vira dívida, e aí os juros compostos jogam contra.",
+      "Quanto antes começa, mais tempo os juros têm para render em cima de juros."
+    ],
+    "faixa": "13+",
+    "tema": "Poupar e guardar"
+  },
+  {
+    "title": "Aposta",
+    "char": "Vinicius",
+    "icon": "🎰",
+    "p": [
+      "Começa com a promessa de ganhar fácil e rápido.",
+      "Aparece muito em propaganda, no celular e com gente famosa.",
+      "No começo pode até dar um ganho pequeno.",
+      "Quem joga bastante aprende a sempre sair ganhando.",
+      "As regras são feitas para a casa ganhar mais do que paga.",
+      "É arriscar dinheiro num resultado que depende de sorte."
+    ],
+    "fake": 4,
+    "correct": [
+      "aposta",
+      "apostas",
+      "apostar",
+      "bet",
+      "bets",
+      "jogo de azar",
+      "casa de apostas"
+    ],
+    "near": [
+      "sorte",
+      "jogo",
+      "loteria",
+      "cassino",
+      "pirâmide"
+    ],
+    "scene": "Um amigo mostra no celular que ganhou R$ 200 num app de apostas e diz: \"Coloca R$ 50, é dinheiro fácil.\"",
+    "opts": [
+      "Pesquisar antes como esses apps ganham dinheiro.",
+      "Colocar o dinheiro da conta de luz, porque vai dobrar.",
+      "Dizer que não e lembrar que ele só mostra quando ganha, nunca quando perde."
+    ],
+    "pts": [
+      1,
+      -1,
+      2
+    ],
+    "why": [
+      "Pesquisar ajuda, mas a resposta já é conhecida: no total, a casa sempre ganha mais.",
+      "Dinheiro de conta não é para arriscar: se perder, a conta fica sem pagar.",
+      "Você não arrisca nada e ainda ajuda o amigo a ver o que ele esconde de si mesmo."
+    ],
+    "faixa": "13+",
+    "tema": "Dinheiro digital e segurança"
+  },
+  {
+    "title": "Pirâmide financeira",
+    "char": "Mel",
+    "icon": "🔺",
+    "p": [
+      "Promete um ganho alto todo mês, sem esforço.",
+      "Pede que você convide amigos e família para entrar também.",
+      "É fiscalizada e garantida pelo governo.",
+      "Quem entrou primeiro recebe com o dinheiro de quem entrou depois.",
+      "Quando param de entrar pessoas novas, ela desmorona.",
+      "É um esquema em que o dinheiro dos novos paga os antigos."
+    ],
+    "fake": 3,
+    "correct": [
+      "pirâmide",
+      "pirâmide financeira",
+      "esquema de pirâmide",
+      "esquema ponzi",
+      "ponzi"
+    ],
+    "near": [
+      "golpe",
+      "investimento",
+      "aposta",
+      "marketing multinível"
+    ],
+    "scene": "Uma colega diz que entrou num \"clube de investimento\" que paga 10% por mês. Para entrar, é preciso pagar R$ 500 e chamar mais três pessoas.",
+    "opts": [
+      "Entrar e chamar três amigos para recuperar logo o dinheiro.",
+      "Não entrar e mostrar para ela que ganho alto, garantido e com indicação é sinal de pirâmide.",
+      "Não entrar, mas também não falar nada."
+    ],
+    "pts": [
+      -1,
+      2,
+      1
+    ],
+    "why": [
+      "Você perde o dinheiro e ainda leva os amigos para o prejuízo.",
+      "Protege você e ainda pode salvar o dinheiro da colega.",
+      "Você se protege, mas a colega continua arriscando o dinheiro dela."
+    ],
+    "faixa": "13+",
+    "tema": "Dinheiro digital e segurança"
+  },
+  {
+    "title": "Conta laranja",
+    "char": "Tiko",
+    "icon": "🍊",
+    "p": [
+      "Começa com um pedido que parece um favor simples.",
+      "Um desconhecido oferece dinheiro para usar algo que está no seu nome.",
+      "Se der problema, quem responde é só a pessoa que pediu.",
+      "Por ela passa dinheiro que não é seu.",
+      "Muitas vezes é usada para esconder dinheiro de golpes.",
+      "É uma conta bancária emprestada para outra pessoa movimentar."
+    ],
+    "fake": 3,
+    "correct": [
+      "conta laranja",
+      "laranja",
+      "emprestar a conta",
+      "emprestar conta",
+      "conta emprestada"
+    ],
+    "near": [
+      "golpe",
+      "conta bancária",
+      "pix",
+      "lavagem de dinheiro",
+      "crime"
+    ],
+    "scene": "Alguém numa rede social oferece R$ 300 para você receber um Pix na sua conta e repassar para outra pessoa.",
+    "opts": [
+      "Recusar, bloquear o perfil e contar para um adulto ou para o banco.",
+      "Recusar e só apagar a mensagem.",
+      "Aceitar: é só receber e repassar, ninguém sai prejudicado."
+    ],
+    "pts": [
+      2,
+      1,
+      -1
+    ],
+    "why": [
+      "Você se protege e ainda ajuda a parar quem está fazendo isso com outras pessoas.",
+      "Você se protege, mas o perfil continua procurando outra pessoa.",
+      "O dinheiro costuma ser de golpe, e quem empresta a conta também responde por isso."
+    ],
+    "faixa": "13+",
+    "tema": "Dinheiro digital e segurança"
+  },
+  {
+    "title": "Perfil falso",
+    "char": "Bia",
+    "icon": "🎭",
+    "p": [
+      "Chega de um número ou de uma conta que você não conhece.",
+      "Só cai nisso quem é muito distraído.",
+      "Usa a foto e o nome de alguém de confiança.",
+      "Conta uma história com pressa: precisa de ajuda agora.",
+      "Pede um Pix e promete devolver amanhã.",
+      "É alguém se passando por outra pessoa para pedir dinheiro."
+    ],
+    "fake": 2,
+    "correct": [
+      "perfil falso",
+      "conta falsa",
+      "falso parente",
+      "golpe do falso parente",
+      "número falso"
+    ],
+    "near": [
+      "golpe",
+      "golpe por mensagem",
+      "fraude",
+      "pix",
+      "hacker"
+    ],
+    "scene": "Chega uma mensagem com a foto da sua tia: \"Troquei de número. Me manda R$ 400 por Pix agora? Amanhã te devolvo.\"",
+    "opts": [
+      "Ligar para a tia no número antigo antes de qualquer coisa.",
+      "Mandar só R$ 100 para ajudar um pouco.",
+      "Fazer uma pergunta que só a tia saberia responder."
+    ],
+    "pts": [
+      2,
+      -1,
+      1
+    ],
+    "why": [
+      "Falar com a pessoa pelo contato que você já tinha é o jeito mais seguro de confirmar.",
+      "Se for golpe, os R$ 100 vão embora do mesmo jeito.",
+      "Ajuda a desconfiar, mas quem aplica o golpe às vezes pesquisa antes."
+    ],
+    "faixa": "13+",
+    "tema": "Dinheiro digital e segurança"
+  },
+  {
+    "title": "Golpe do falso emprego",
+    "char": "Mel",
+    "icon": "💼",
+    "p": [
+      "Aparece como uma oportunidade boa demais.",
+      "Promete pagar bem por tarefas fáceis, como curtir vídeos.",
+      "Vem sempre com contrato assinado e carteira de trabalho.",
+      "Os primeiros pagamentos podem ser pequenos e chegar de verdade.",
+      "Depois pede um valor para \"liberar\" ganhos maiores.",
+      "É uma vaga falsa, feita para tirar dinheiro de quem procura trabalho."
+    ],
+    "fake": 3,
+    "correct": [
+      "golpe do falso emprego",
+      "falso emprego",
+      "emprego falso",
+      "vaga falsa",
+      "golpe da vaga",
+      "golpe do emprego",
+      "golpe da tarefa",
+      "trabalho falso"
+    ],
+    "near": [
+      "golpe",
+      "pirâmide",
+      "renda extra",
+      "trabalho online",
+      "perfil falso"
+    ],
+    "scene": "Você procura o primeiro emprego. Chega a proposta: R$ 150 por dia para curtir vídeos. Depois de dois dias, pedem R$ 200 para \"subir de nível\".",
+    "opts": [
+      "Parar, não pagar nada e denunciar o perfil.",
+      "Pedir para eles descontarem os R$ 200 dos próximos pagamentos.",
+      "Pagar os R$ 200, porque os primeiros pagamentos chegaram certinho."
+    ],
+    "pts": [
+      2,
+      1,
+      -1
+    ],
+    "why": [
+      "Empresa séria não cobra para você trabalhar, e a denúncia protege outras pessoas.",
+      "Você não paga agora, mas continua conversando com quem quer o seu dinheiro.",
+      "Os primeiros pagamentos servem de isca: os R$ 200 não voltam."
+    ],
+    "faixa": "13+",
+    "tema": "Dinheiro digital e segurança"
+  },
+  {
+    "title": "Jovem aprendiz",
+    "char": "Vinicius",
+    "icon": "🎒",
+    "p": [
+      "É uma porta de entrada para o mundo do trabalho.",
+      "É para quem tem a partir de 14 anos.",
+      "A pessoa precisa largar a escola para participar.",
+      "Junta trabalho na empresa com um curso de formação.",
+      "Tem carteira assinada, salário e férias.",
+      "É um programa de primeiro emprego para jovens que ainda estudam."
+    ],
+    "fake": 3,
+    "correct": [
+      "jovem aprendiz",
+      "aprendiz",
+      "menor aprendiz",
+      "aprendizagem"
+    ],
+    "near": [
+      "estágio",
+      "estagiário",
+      "primeiro emprego",
+      "trabalho",
+      "emprego"
+    ],
+    "scene": "Você tem 16 anos e foi chamado para ser jovem aprendiz. O salário é pequeno, e você ainda está no ensino médio.",
+    "opts": [
+      "Aceitar e gastar todo o salário, já que é o primeiro.",
+      "Aceitar, organizar os horários de estudo e guardar uma parte de cada salário.",
+      "Recusar: salário pequeno não vale a pena."
+    ],
+    "pts": [
+      1,
+      2,
+      -1
+    ],
+    "why": [
+      "Ganha experiência, mas perde a chance de começar uma reserva desde o primeiro salário.",
+      "Ganha experiência, mantém os estudos e já começa a guardar.",
+      "Perde experiência, contatos e o primeiro registro na carteira, que valem mais que o salário."
+    ],
+    "faixa": "13+",
+    "tema": "Trabalho e ganhar dinheiro"
+  },
+  {
+    "title": "Salário líquido",
+    "char": "Caio",
+    "icon": "💵",
+    "p": [
+      "Só dá para saber o valor depois de algumas contas.",
+      "Aparece no fim do contracheque.",
+      "Dele já saíram descontos, como a contribuição para o INSS.",
+      "É sempre maior que o valor combinado na contratação.",
+      "É menor que o salário bruto.",
+      "É o que cai de verdade na conta depois dos descontos."
+    ],
+    "fake": 4,
+    "correct": [
+      "salário líquido",
+      "líquido",
+      "valor líquido",
+      "salário com desconto",
+      "salário depois dos descontos"
+    ],
+    "near": [
+      "salário",
+      "salário bruto",
+      "contracheque",
+      "holerite",
+      "desconto",
+      "inss"
+    ],
+    "scene": "Seu primeiro emprego paga R$ 1.800 por mês. Você já quer parcelar um celular em parcelas de R$ 150, contando com os R$ 1.800.",
+    "opts": [
+      "Parcelar já, porque R$ 150 cabe fácil em R$ 1.800.",
+      "Fazer a conta com um desconto estimado e escolher uma parcela menor.",
+      "Esperar o primeiro contracheque para ver quanto cai de verdade e só então decidir."
+    ],
+    "pts": [
+      -1,
+      1,
+      2
+    ],
+    "why": [
+      "O que cai na conta é menos que R$ 1.800, e a parcela pode apertar o mês.",
+      "É melhor que contar com o valor cheio, mas ainda é um chute.",
+      "Você decide com o valor real, que é o que paga as contas."
+    ],
+    "faixa": "13+",
+    "tema": "Trabalho e ganhar dinheiro"
+  },
+  {
+    "title": "Contas da casa",
+    "char": "Leticia",
+    "icon": "🏠",
+    "p": [
+      "Quem mora de aluguel não paga nenhuma delas.",
+      "Chegam todo mês, mesmo quando você não quer.",
+      "Algumas mudam de valor conforme o uso; outras são fixas.",
+      "Precisam ser pagas antes de qualquer gasto com lazer.",
+      "Luz, água, internet e aluguel fazem parte delas.",
+      "São os gastos de todo mês para manter um lar funcionando."
+    ],
+    "fake": 1,
+    "correct": [
+      "contas da casa",
+      "contas de casa",
+      "despesas da casa",
+      "gastos da casa",
+      "contas do mês",
+      "contas fixas"
+    ],
+    "near": [
+      "gasto fixo",
+      "orçamento",
+      "aluguel",
+      "conta de luz",
+      "boleto"
+    ],
+    "scene": "Você e um amigo vão dividir um apartamento. O aluguel é R$ 1.200, e cada um ganha R$ 2.000.",
+    "opts": [
+      "Contar só o aluguel: R$ 600 para cada, sobram R$ 1.400.",
+      "Dividir o aluguel e combinar o resto quando as contas chegarem.",
+      "Listar todas as contas (aluguel, luz, água, internet, mercado) e ver quanto sobra para cada um."
+    ],
+    "pts": [
+      -1,
+      1,
+      2
+    ],
+    "why": [
+      "Esquece luz, água, internet e mercado, e o dinheiro acaba antes do mês.",
+      "Dá para começar, mas as surpresas podem virar briga entre vocês.",
+      "Vocês sabem desde o início quanto custa morar ali e quanto sobra."
+    ],
+    "faixa": "13+",
+    "tema": "Consumo e escolhas"
+  },
+  {
+    "title": "Assinatura",
+    "char": "Mel",
+    "icon": "📺",
+    "p": [
+      "Muitas vezes começa com um período de graça.",
+      "Você não paga uma vez só: a cobrança se repete.",
+      "Termina sozinha quando você para de usar.",
+      "Filmes, músicas e jogos costumam funcionar assim.",
+      "Várias pequenas, somadas, podem pesar no mês.",
+      "É um serviço pago todo mês até você cancelar."
+    ],
+    "fake": 3,
+    "correct": [
+      "assinatura",
+      "assinaturas",
+      "serviço por assinatura",
+      "mensalidade",
+      "cobrança recorrente",
+      "plano mensal"
+    ],
+    "near": [
+      "streaming",
+      "teste grátis",
+      "gasto fixo",
+      "débito automático",
+      "cartão de crédito"
+    ],
+    "scene": "Você olha a fatura e encontra 5 assinaturas: dois serviços de filmes, um de música, um de jogo e um app de exercícios que você não abre há meses.",
+    "opts": [
+      "Manter todas: cada uma é baratinha.",
+      "Cancelar as que não usa e ficar com as que realmente aproveita.",
+      "Cancelar todas de uma vez e assinar de novo quando sentir falta."
+    ],
+    "pts": [
+      -1,
+      2,
+      1
+    ],
+    "why": [
+      "Somadas, as baratinhas viram um gasto grande, e você paga até pelo que não usa.",
+      "Você continua com o que gosta e para de pagar pelo que esqueceu.",
+      "Corta o gasto, mas pode virar um vai e vem de assinar e cancelar sem planejar."
+    ],
+    "faixa": "13+",
+    "tema": "Consumo e escolhas"
+  },
+  {
+    "title": "Financiamento",
+    "char": "Caio",
+    "icon": "🏍️",
+    "p": [
+      "Serve para comprar algo caro sem ter todo o dinheiro agora.",
+      "Um banco ou uma financeira paga a compra para você.",
+      "Você devolve em muitas parcelas, por meses ou anos.",
+      "No final, o total pago é igual ao preço à vista.",
+      "É muito usado para comprar carro, moto ou casa.",
+      "É um empréstimo para comprar um bem, pago em parcelas com juros."
+    ],
+    "fake": 4,
+    "correct": [
+      "financiamento",
+      "financiar",
+      "financiado",
+      "financiada"
+    ],
+    "near": [
+      "empréstimo",
+      "parcelamento",
+      "consórcio",
+      "juros",
+      "dívida",
+      "prestação"
+    ],
+    "scene": "Você precisa de uma moto de R$ 12.000 para trabalhar. À vista não dá. A loja oferece 48 parcelas de R$ 400.",
+    "opts": [
+      "Juntar dinheiro por um tempo e comprar uma moto usada mais barata.",
+      "Fechar logo: R$ 400 por mês cabe no salário.",
+      "Somar as parcelas (R$ 19.200), comparar com outras ofertas e ver se dá para dar uma entrada maior."
+    ],
+    "pts": [
+      1,
+      -1,
+      2
+    ],
+    "why": [
+      "Pode sair bem mais barato, mas você fica mais tempo sem a moto de que precisa para trabalhar.",
+      "Você paga R$ 7.200 a mais sem saber se havia uma oferta melhor.",
+      "Você enxerga o custo total e escolhe a oferta mais barata."
+    ],
+    "faixa": "13+",
+    "tema": "Consumo e escolhas"
+  },
+  {
+    "title": "Padrão de vida",
+    "char": "Tiko",
+    "icon": "🛋️",
+    "p": [
+      "Tem a ver com o jeito como a pessoa vive no dia a dia.",
+      "Inclui onde mora, o que come e como se diverte.",
+      "Costuma subir quando a renda sobe.",
+      "Depois que sobe, é fácil fazer ele descer de novo.",
+      "Se cresce junto com cada aumento, nunca sobra dinheiro.",
+      "É o nível de gastos e de conforto de uma pessoa ou de uma família."
+    ],
+    "fake": 4,
+    "correct": [
+      "padrão de vida",
+      "nível de vida",
+      "estilo de vida"
+    ],
+    "near": [
+      "custo de vida",
+      "qualidade de vida",
+      "consumo",
+      "gastos",
+      "luxo",
+      "ostentação"
+    ],
+    "scene": "Você ganhou um aumento de R$ 500 por mês. Os amigos sugerem trocar de celular e sair mais vezes.",
+    "opts": [
+      "Usar uma parte para melhorar algo que importa e guardar a outra parte.",
+      "Guardar o aumento inteiro e não mudar nada.",
+      "Gastar todo o aumento: você trabalhou para isso."
+    ],
+    "pts": [
+      2,
+      1,
+      -1
+    ],
+    "why": [
+      "Você aproveita o aumento sem perder a chance de montar uma reserva.",
+      "É ótimo para a reserva, mas também vale curtir um pouco o que você conquistou.",
+      "O padrão de vida sobe junto, e no fim do mês sobra o mesmo de antes."
+    ],
+    "faixa": "13+",
+    "tema": "Consumo e escolhas"
+  },
+  {
+    "title": "Renegociar",
+    "char": "Leticia",
+    "icon": "🤝",
+    "p": [
+      "Começa com uma conversa.",
+      "Quem deve procura quem vai receber.",
+      "Só é possível depois que o nome fica sujo.",
+      "O objetivo é trocar as condições por outras que caibam no bolso.",
+      "Pode baixar os juros, mudar o prazo ou juntar várias dívidas numa só.",
+      "É fazer um novo acordo para pagar uma dívida."
+    ],
+    "fake": 3,
+    "correct": [
+      "renegociar",
+      "renegociação",
+      "acordo",
+      "fazer um acordo",
+      "negociar a dívida"
+    ],
+    "near": [
+      "negociar",
+      "dívida",
+      "empréstimo",
+      "parcelar",
+      "desconto"
+    ],
+    "scene": "Você tem duas dívidas: o rotativo do cartão e um empréstimo. Todo mês falta dinheiro para pagar as duas.",
+    "opts": [
+      "Pegar um novo empréstimo qualquer para pagar as duas, sem comparar.",
+      "Pagar o que dá de cada uma e esperar o mês melhorar.",
+      "Procurar os credores, comparar propostas e trocar a dívida mais cara por uma mais barata, com parcela que cabe no mês."
+    ],
+    "pts": [
+      -1,
+      1,
+      2
+    ],
+    "why": [
+      "Você pode trocar uma dívida cara por outra ainda mais cara.",
+      "Ajuda a não parar de pagar, mas os juros continuam correndo.",
+      "Você paga menos juros e volta a ter controle do mês."
+    ],
+    "faixa": "13+",
+    "tema": "Poupar e guardar"
+  },
+  {
+    "title": "Seguro",
+    "char": "Vinicius",
+    "icon": "☂️",
+    "p": [
+      "Você paga um pouco, torcendo para nunca precisar usar.",
+      "O dinheiro pago volta inteiro no fim do ano se nada acontecer.",
+      "Existe para celular, carro, casa, viagem e saúde.",
+      "Se acontecer um problema coberto, você recebe ajuda para o prejuízo.",
+      "Antes de contratar, vale ler o que ele cobre e o que não cobre.",
+      "É uma proteção paga contra um prejuízo grande."
+    ],
+    "fake": 2,
+    "correct": [
+      "seguro",
+      "seguros",
+      "apólice",
+      "seguradora"
+    ],
+    "near": [
+      "reserva de emergência",
+      "imprevisto",
+      "garantia",
+      "proteção",
+      "plano de saúde"
+    ],
+    "scene": "Você comprou um celular de R$ 2.000 em 10 parcelas. A loja oferece um seguro contra roubo e quebra por R$ 25 por mês.",
+    "opts": [
+      "Contratar sem ler, porque seguro é sempre bom.",
+      "Ler o que ele cobre (roubo, quebra, franquia), comparar preços e decidir se vale para você.",
+      "Não contratar e andar com o celular de qualquer jeito."
+    ],
+    "pts": [
+      1,
+      2,
+      -1
+    ],
+    "why": [
+      "Pode ajudar, mas você pode pagar por algo que não cobre o que você precisa.",
+      "Você decide sabendo o que está comprando e quanto custa.",
+      "Se o celular sumir, você fica sem ele e ainda com as parcelas para pagar."
+    ],
+    "faixa": "13+",
+    "tema": "Poupar e guardar"
+  },
+  {
+    "title": "Diversificar",
+    "char": "Bia",
+    "icon": "🧺",
+    "p": [
+      "Tem a ver com onde você coloca o dinheiro que guarda.",
+      "Garante que você nunca vai perder dinheiro.",
+      "Lembra o ditado: não coloque todos os ovos na mesma cesta.",
+      "Se um investimento vai mal, os outros podem segurar.",
+      "Mistura opções com riscos e prazos diferentes.",
+      "É dividir o dinheiro entre vários investimentos."
+    ],
+    "fake": 2,
+    "correct": [
+      "diversificar",
+      "diversificação",
+      "dividir os investimentos",
+      "não colocar todos os ovos na mesma cesta"
+    ],
+    "near": [
+      "investimento",
+      "investir",
+      "renda fixa",
+      "risco",
+      "poupança"
+    ],
+    "scene": "Você juntou R$ 3.000. Um amigo diz para colocar tudo numa única ação da moda que \"vai explodir\".",
+    "opts": [
+      "Deixar uma parte como reserva segura e dividir o resto entre opções diferentes.",
+      "Colocar tudo na ação da moda.",
+      "Deixar tudo na poupança, sem arriscar nada."
+    ],
+    "pts": [
+      2,
+      -1,
+      1
+    ],
+    "why": [
+      "Se uma opção for mal, as outras seguram, e a reserva fica protegida.",
+      "Se a ação cair, você perde boa parte do que juntou de uma vez.",
+      "É seguro, mas rende pouco; dividir entre opções costuma render mais com risco controlado."
+    ],
+    "faixa": "13+",
+    "tema": "Poupar e guardar"
+  },
+  {
+    "title": "Boleto falso",
+    "char": "Tiko",
+    "icon": "🧾",
+    "p": [
+      "Parece uma conta comum, com código de barras.",
+      "Chega por e-mail, por mensagem ou em papel com cara de oficial.",
+      "O nome de quem vai receber não é o da empresa certa.",
+      "O dinheiro vai para a conta de quem aplica o golpe.",
+      "Se o código de barras funciona no app do banco, o boleto é verdadeiro.",
+      "É uma cobrança falsificada para desviar o pagamento."
+    ],
+    "fake": 5,
+    "correct": [
+      "boleto falso",
+      "boleto falsificado",
+      "golpe do boleto",
+      "boleto adulterado",
+      "boleto fraudado"
+    ],
+    "near": [
+      "boleto",
+      "golpe",
+      "conta",
+      "link falso",
+      "pix"
+    ],
+    "scene": "Chega por e-mail o boleto da escola de inglês, com o logo certinho. No app do banco, o nome de quem recebe é de uma pessoa desconhecida.",
+    "opts": [
+      "Pagar, porque o logo e o valor estão certos.",
+      "Não pagar e esperar a escola cobrar de novo.",
+      "Não pagar e pegar o boleto direto no site ou na secretaria da escola."
+    ],
+    "pts": [
+      -1,
+      1,
+      2
+    ],
+    "why": [
+      "O nome de quem recebe é o que vale: o dinheiro iria para o golpista.",
+      "Você não cai no golpe, mas a conta verdadeira pode atrasar.",
+      "Você evita o golpe e paga a conta certa, no prazo."
+    ],
+    "faixa": "13+",
+    "tema": "Dinheiro digital e segurança"
+  },
+  {
+    "title": "QR Code falso",
+    "char": "Vinicius",
+    "icon": "🔳",
+    "p": [
+      "Todo QR Code em lugar público foi conferido pela loja.",
+      "É um quadradinho cheio de pontinhos pretos.",
+      "Você aponta a câmera do celular para ele.",
+      "Pode estar num adesivo colado por cima de outro.",
+      "Leva para um Pix ou para um site de quem aplica o golpe.",
+      "É um código de pagamento trocado para desviar o dinheiro."
+    ],
+    "fake": 1,
+    "correct": [
+      "qr code falso",
+      "qrcode falso",
+      "qr falso",
+      "código qr falso",
+      "golpe do qr code",
+      "qr code trocado",
+      "qr code adulterado"
+    ],
+    "near": [
+      "qr code",
+      "pix",
+      "golpe",
+      "link falso",
+      "boleto falso"
+    ],
+    "scene": "Na lanchonete, o QR Code da mesa leva para um Pix no nome de uma pessoa, e não da lanchonete.",
+    "opts": [
+      "Não pagar pelo QR Code e avisar o caixa, pagando direto com ele.",
+      "Pagar em dinheiro e não falar nada.",
+      "Pagar, porque o QR Code estava na mesa da própria loja."
+    ],
+    "pts": [
+      2,
+      1,
+      -1
+    ],
+    "why": [
+      "Você paga certo e ainda ajuda a loja a tirar o adesivo falso.",
+      "Você não cai no golpe, mas o próximo cliente pode cair.",
+      "O nome de quem recebe não confere: o dinheiro vai para o golpista."
+    ],
+    "faixa": "13+",
+    "tema": "Dinheiro digital e segurança"
+  },
+  {
+    "title": "MEI",
+    "char": "Leticia",
+    "icon": "🧁",
+    "p": [
+      "É para quem trabalha por conta própria.",
+      "Tem uma pequena taxa fixa todo mês.",
+      "Qualquer empresa, de qualquer tamanho, pode ser.",
+      "Dá um CNPJ e permite emitir nota fiscal.",
+      "Garante direitos como a aposentadoria.",
+      "É o jeito mais simples de formalizar um pequeno negócio."
+    ],
+    "fake": 3,
+    "correct": [
+      "mei",
+      "microempreendedor",
+      "formalizar o negócio"
+    ],
+    "near": [
+      "cnpj",
+      "empresa",
+      "empreender",
+      "nota fiscal",
+      "autônomo"
+    ],
+    "scene": "Você vende bolos por encomenda, e as vendas cresceram. Uma empresa quer comprar todo mês, mas pede nota fiscal.",
+    "opts": [
+      "Recusar a empresa e continuar só com as vendas pequenas.",
+      "Abrir o MEI, pagar a taxa mensal em dia e emitir a nota.",
+      "Pedir para um amigo emitir a nota no nome dele."
+    ],
+    "pts": [
+      1,
+      2,
+      -1
+    ],
+    "why": [
+      "Não arrisca nada, mas perde um cliente que compraria todo mês.",
+      "Você ganha o cliente, fica em dia com a lei e conta tempo para a aposentadoria.",
+      "A nota no nome de outra pessoa é irregular e pode dar problema para os dois."
+    ],
+    "faixa": "13+",
+    "tema": "Trabalho e ganhar dinheiro"
+  },
+  {
+    "title": "Currículo",
+    "char": "Mel",
+    "icon": "📄",
+    "p": [
+      "É um papel, ou um arquivo, que fala sobre você.",
+      "Quem procura emprego costuma enviar.",
+      "Mostra o que você estudou e o que já fez.",
+      "Cursos, trabalho voluntário e idiomas podem entrar nele.",
+      "Quanto mais páginas, maior a chance de ser chamado.",
+      "É o resumo da sua formação e da sua experiência para pedir uma vaga."
+    ],
+    "fake": 5,
+    "correct": [
+      "currículo",
+      "curriculum",
+      "cv"
+    ],
+    "near": [
+      "entrevista",
+      "emprego",
+      "carteira de trabalho",
+      "vaga",
+      "portfólio"
+    ],
+    "scene": "Você tem 17 anos e quer a primeira vaga. Nunca trabalhou com carteira assinada.",
+    "opts": [
+      "Não mandar currículo: sem experiência, não adianta.",
+      "Fazer um currículo de uma página com estudos, cursos, trabalho voluntário e o que sabe fazer.",
+      "Copiar um modelo pronto da internet e trocar só o nome."
+    ],
+    "pts": [
+      -1,
+      2,
+      1
+    ],
+    "why": [
+      "Muitas vagas de primeiro emprego não pedem experiência: sem currículo, ninguém te chama.",
+      "Mostra quem você é, mesmo sem emprego anterior, e cabe numa leitura rápida.",
+      "Ajuda a começar, mas um currículo igual a todos não mostra o que você tem de especial."
+    ],
+    "faixa": "13+",
+    "tema": "Trabalho e ganhar dinheiro"
+  },
+  {
+    "title": "Rachar a conta",
+    "char": "Caio",
+    "icon": "🍕",
+    "p": [
+      "Acontece quando um grupo sai junto.",
+      "Pode ser na pizzaria, no cinema ou num presente.",
+      "Quem pediu menos sempre paga mais.",
+      "Combinar antes evita briga depois.",
+      "Cada um paga a sua parte, ou todos pagam igual.",
+      "É dividir o valor de uma conta entre as pessoas."
+    ],
+    "fake": 3,
+    "correct": [
+      "rachar a conta",
+      "rachar",
+      "dividir a conta",
+      "dividir o valor",
+      "cada um paga a sua parte"
+    ],
+    "near": [
+      "vaquinha",
+      "compartilhar",
+      "conta",
+      "pix",
+      "gorjeta"
+    ],
+    "scene": "Cinco amigos vão comer pizza. A conta vai dar uns R$ 150. Você só vai tomar água e comer uma fatia.",
+    "opts": [
+      "Combinar antes de pedir como vão dividir e pagar a sua parte certinho.",
+      "Pagar R$ 30, como todo mundo, mesmo achando injusto, e não falar nada.",
+      "Sair sem pagar, porque comeu pouco."
+    ],
+    "pts": [
+      2,
+      1,
+      -1
+    ],
+    "why": [
+      "Todo mundo sabe quanto vai pagar, e ninguém sai chateado.",
+      "Evita discussão, mas você paga pelo que não consumiu.",
+      "Os amigos pagam a sua parte, e a amizade sai arranhada."
+    ],
+    "faixa": "13+",
+    "tema": "Ajudar e compartilhar"
+  },
+  {
+    "title": "Emprestar para amigo",
+    "char": "Bia",
+    "icon": "🤲",
+    "p": [
+      "Começa quando alguém próximo passa por um aperto.",
+      "Envolve dinheiro e amizade ao mesmo tempo.",
+      "Combinar o valor e a data de devolução ajuda muito.",
+      "Só vale com um dinheiro de que você não vai precisar logo.",
+      "Entre amigos, não precisa combinar nada: sempre dá certo.",
+      "É dar dinheiro a um amigo para ele devolver depois."
+    ],
+    "fake": 5,
+    "correct": [
+      "emprestar para amigo",
+      "emprestar para um amigo",
+      "emprestar dinheiro",
+      "emprestar",
+      "empréstimo para amigo"
+    ],
+    "near": [
+      "empréstimo",
+      "ajudar",
+      "dívida",
+      "doar",
+      "vaquinha"
+    ],
+    "scene": "Um amigo pede R$ 300 emprestados para pagar uma conta atrasada. Você tem R$ 500 guardados na sua reserva.",
+    "opts": [
+      "Emprestar R$ 300 sem combinar nada, porque amigo não se cobra.",
+      "Emprestar um valor que não faça falta, combinando por escrito quando ele devolve.",
+      "Dizer que não pode emprestar, mas ajudar a pensar em como ele organiza as contas."
+    ],
+    "pts": [
+      -1,
+      2,
+      1
+    ],
+    "why": [
+      "Sem combinado, a devolução pode atrasar e a amizade sofre.",
+      "Você ajuda sem esvaziar a sua reserva, e os dois sabem o combinado.",
+      "Protege a sua reserva e ainda ajuda, mas ele continua com a conta atrasada."
+    ],
+    "faixa": "13+",
+    "tema": "Ajudar e compartilhar"
   }
 ];
 
@@ -1995,3 +3098,7 @@ const EXTRA={
 Object.assign(EXTRA,{"Cofrinho": {"tipo": "É um objeto, não uma ação.", "nudge": "Pense: onde uma criança guarda moedas em casa?", "sets": [["cofr"], ["porquinho"], ["guardar", "dinheiro"]]}, "Economizar": {"tipo": "É uma ação (verbo).", "nudge": "Pense: o que você faz para sobrar mais dinheiro?", "sets": [["economiz"], ["gastar", "menos"], ["poup"]]}, "Poupança": {"tipo": "É um hábito, que se repete.", "nudge": "Pense: o que acontece quando você guarda um pouquinho sempre?", "sets": [["poupanc"], ["poupar"], ["guardar", "mes"]]}, "Juros": {"tipo": "É um valor extra, e depende do tempo.", "nudge": "Pense: o que muda no dinheiro guardado depois de muitos meses?", "sets": [["juro"], ["rendimento"], ["valor", "extra"], ["valor", "mais", "tempo"]]}, "Reserva de emergência": {"tipo": "É dinheiro guardado com um propósito.", "nudge": "Pense: para qual tipo de dia esse dinheiro foi guardado?", "sets": [["reserva"], ["emerg", "guard"], ["dinheiro", "imprevisto"]]}, "Esperar para comprar": {"tipo": "É uma atitude, tem tempo envolvido.", "nudge": "Pense: o que você faz antes de levar uma coisa para casa?", "sets": [["esper"], ["pacienc"], ["adiar"], ["comprar", "depois"]]}, "Necessidade": {"tipo": "É um tipo de coisa que se precisa.", "nudge": "Pense: sem o que você não consegue viver bem?", "sets": [["necessid"], ["essencial"], ["preciso"]]}, "Desejo": {"tipo": "É um sentimento, não um objeto.", "nudge": "Pense: como se chama o que você sente ao ver algo e dizer \"eu quero\"?", "sets": [["desej"], ["vontade"], ["quero"], ["quer"]]}, "Propaganda": {"tipo": "É uma mensagem, não um produto.", "nudge": "Pense: o que quer te convencer a comprar enquanto você vê um vídeo?", "sets": [["propagand"], ["anunc"], ["publicid"], ["comercial"]]}, "Compra por impulso": {"tipo": "É um jeito de comprar.", "nudge": "Pense: como se chama comprar de repente, só pela emoção?", "sets": [["impuls"], ["sem", "pens"], ["sem", "planej"]]}, "Custo-benefício": {"tipo": "É uma forma de comparar.", "nudge": "Pense: o que se compara além do preço?", "sets": [["custo", "benef"], ["vale", "pena"], ["qualidade", "preco"]]}, "Lista de compras": {"tipo": "É um papel ou nota, não uma ação.", "nudge": "Pense: o que a família escreve antes de ir ao mercado?", "sets": [["lista"], ["anotar", "compr"]]}, "Pix": {"tipo": "É um meio de pagamento.", "nudge": "Pense: como se paga na hora pelo celular, com uma chave?", "sets": [["pix"], ["pagar", "celular"], ["pagamento", "instant"]]}, "Senha": {"tipo": "É um segredo, feito de letras e números.", "nudge": "Pense: o que protege a sua conta e só você sabe?", "sets": [["senha"], ["codigo", "secret"], ["segredo", "acesso"]]}, "Compra online": {"tipo": "É um jeito de comprar.", "nudge": "Pense: como se compra sem sair de casa?", "sets": [["compra", "online"], ["comprar", "internet"], ["comprar", "site"], ["online"], ["compra", "digital"], ["compra", "virtual"], ["comprar", "app"]]}, "Cartão de crédito": {"tipo": "É um objeto e também uma forma de pagar.", "nudge": "Pense: como se chama o cartão que você paga depois, na fatura?", "sets": [["cartao", "credito"], ["credito"], ["cartao", "fatura"], ["pagar", "depois"]]}, "Saldo": {"tipo": "É um número sobre o seu dinheiro.", "nudge": "Pense: como se chama o número que mostra quanto sobrou?", "sets": [["saldo"], ["quanto", "tenho"], ["dinheiro", "sobrou"], ["quanto", "conta"]]}, "Código de verificação": {"tipo": "É um número, e vale por pouco tempo.", "nudge": "Pense: o que chega por mensagem para provar que é você?", "sets": [["codigo"], ["verific"], ["numero", "uso", "unico"]]}, "Mesada": {"tipo": "É um dinheiro, vem de alguém da família.", "nudge": "Pense: como se chama o dinheiro combinado que a criança recebe?", "sets": [["mesada"], ["semanada"]]}, "Trabalho": {"tipo": "É uma ação, e muita gente faz todo dia.", "nudge": "Pense: o que o seu pai ou mãe faz para ganhar dinheiro?", "sets": [["trabalh"], ["emprego"], ["profiss"]]}, "Salário": {"tipo": "É um pagamento, com data certa.", "nudge": "Pense: o que chega todo mês para quem trabalha?", "sets": [["salario"], ["ordenado"], ["pagamento", "trabalh"]]}, "Lucro": {"tipo": "É um resultado de uma conta.", "nudge": "Pense: o que sobra depois de tirar o que se gastou?", "sets": [["lucro"], ["sobra", "venda"], ["ganho", "custo"], ["sobra", "custo"]]}, "Renda extra": {"tipo": "É um dinheiro, vem além do que se recebe normalmente.", "nudge": "Pense: como se chama o dinheiro que vem de um trabalho a mais?", "sets": [["renda", "extra"], ["dinheiro", "extra"], ["dinheiro", "mais"], ["bico"]]}, "Empreender": {"tipo": "É uma ação (verbo).", "nudge": "Pense: o que se faz para criar o próprio negócio?", "sets": [["empreend"], ["criar", "negocio"], ["abrir", "negocio"], ["proprio", "negocio"]]}});
 /* Lote 1 de cartas novas do jogo digital (15/11/2026) */
 Object.assign(EXTRA,{"Escolha":{"tipo":"É algo que você faz antes de comprar.","nudge":"Pense: o dinheiro dá para uma coisa só. O que você faz?","sets":[["escolh"],["decid"],["decis"],["isto","aquilo"]]},"Moeda":{"tipo":"É um tipo de dinheiro que você pode pegar na mão.","nudge":"Pense: dinheiro redondo, de metal.","sets":[["moed"]]},"Três potes":{"tipo":"É um jeito de organizar o dinheiro.","nudge":"Pense: quantos potes e para que serve cada um?","sets":[["tres","pote"],["3","pote"],["pote","gastar"],["pote","guardar","ajudar"],["tres","cofr"]]},"Dinheiro de presente":{"tipo":"É dinheiro que chega de um jeito especial.","nudge":"Pense: em que dia alguém da família dá dinheiro para você?","sets":[["presente","dinheiro"],["dinheiro","aniversari"],["ganh","presente"]]},"Compra dentro do jogo":{"tipo":"É algo que aparece no meio de um jogo.","nudge":"Pense: o jogo quer que você gaste dinheiro de verdade.","sets":[["compr","jogo"],["compr","app"],["compr","aplicativ"],["gast","jogo"],["pag","jogo"]]},"Doar":{"tipo":"É uma ação de ajudar.","nudge":"Pense: dar algo para quem precisa, sem pedir nada em troca.","sets":[["doa"],["dar","precis"]]},"Compartilhar":{"tipo":"É uma ação que se faz junto com outras pessoas.","nudge":"Pense: o que você faz quando o amigo não tem lanche?","sets":[["compartilh"],["divid"],["partilh"]]},"Honestidade":{"tipo":"É uma qualidade de uma pessoa.","nudge":"Pense: devolver o que não é seu, mesmo se ninguém viu.","sets":[["honest"],["verdad"],["sincer"]]},"Custo de oportunidade":{"tipo":"É uma ideia sobre escolhas.","nudge":"Pense: quando você escolhe uma coisa, o que perde?","sets":[["oportunidad"],["deix","de ter"],["deix","de fazer"],["abr","mao"],["renunc"]]},"Orçamento":{"tipo":"É um plano.","nudge":"Pense: anotar quanto entra e quanto sai antes de gastar.","sets":[["orcament"],["planej"],["plano","gast"],["plano","dinheiro"],["control","gast"]]},"Link falso":{"tipo":"É um perigo da internet.","nudge":"Pense: um endereço de internet que parece verdadeiro, mas engana.","sets":[["link","fals"],["link","golpe"],["link","suspeit"],["link","fraud"],["site","fals"],["link","engan"]]},"Voluntariado":{"tipo":"É um jeito de ajudar.","nudge":"Pense: trabalhar de graça para ajudar a comunidade.","sets":[["voluntar"]]}});
+/* Lote 2 de cartas novas do jogo digital: faixa 13 anos ou mais (15/11/2026) */
+Object.assign(EXTRA,{"Rotativo do cartão":{"tipo":"É um tipo de dívida.","nudge":"Pense: o que acontece com a parte da fatura que você não pagou?","sets":[["rotativ"],["pag","minimo"]]},"Nome sujo":{"tipo":"É uma situação de quem deve.","nudge":"Pense: como se diz quando o CPF entra na lista de devedores?","sets":[["nome","sujo"],["negativ"]]},"Score":{"tipo":"É um número.","nudge":"Pense: a nota que os bancos dão para quem paga em dia.","sets":[["score"],["pontua","credito"],["nota","credito"]]},"Juros compostos":{"tipo":"É um jeito de o dinheiro crescer.","nudge":"Pense: juros que também rendem juros, como uma bola de neve.","sets":[["juro","compost"],["juro","sobre","juro"]]},"Aposta":{"tipo":"É um jogo com dinheiro.","nudge":"Pense: colocar dinheiro num resultado de sorte, esperando ganhar mais.","sets":[["apost"],["jogo","azar"]]},"Pirâmide financeira":{"tipo":"É um golpe com cara de investimento.","nudge":"Pense: o dinheiro de quem entra depois paga quem entrou antes.","sets":[["piramid"],["ponzi"]]},"Conta laranja":{"tipo":"É algo que alguém pede emprestado.","nudge":"Pense: deixar outra pessoa usar a sua conta do banco. Que nome tem isso?","sets":[["laranj"],["emprest","conta"]]},"Perfil falso":{"tipo":"É um golpe no celular.","nudge":"Pense: alguém usa a foto de um parente para pedir dinheiro.","sets":[["perfil","fals"],["fals","parent"],["fing","outra"],["passa","outra","pessoa"]]},"Golpe do falso emprego":{"tipo":"É um golpe.","nudge":"Pense: uma vaga de trabalho que, na verdade, quer o seu dinheiro.","sets":[["fals","empreg"],["fals","vaga"],["fals","trabalh"],["golpe","tarefa"],["golpe","empreg"],["golpe","vaga"]]},"Jovem aprendiz":{"tipo":"É um tipo de trabalho.","nudge":"Pense: o programa de primeiro emprego para quem ainda estuda.","sets":[["aprendiz"]]},"Salário líquido":{"tipo":"É um valor de dinheiro.","nudge":"Pense: o salário que sobra depois dos descontos tem um nome.","sets":[["sobra","descont"],["depois","descont"]]},"Contas da casa":{"tipo":"É um grupo de gastos.","nudge":"Pense: luz, água, internet e aluguel. Todas juntas são o quê?","sets":[["conta","casa"],["despes","casa"],["gast","casa"],["conta","mes"]]}});
+/* Lote 3 de cartas novas do jogo digital: faixa 13 anos ou mais (15/11/2026) */
+Object.assign(EXTRA,{"Assinatura":{"tipo":"É um jeito de pagar por um serviço.","nudge":"Pense: um serviço que cobra todo mês até você cancelar.","sets":[["assinat"],["mensalid"],["cobranc","recorr"],["cobranc","todo","mes"]]},"Financiamento":{"tipo":"É um jeito de comprar algo caro.","nudge":"Pense: o banco paga a moto, e você devolve em parcelas com juros.","sets":[["financiam"]]},"Padrão de vida":{"tipo":"É um jeito de viver.","nudge":"Pense: o nível de conforto e de gastos que sobe quando a renda sobe.","sets":[["padrao","vida"],["nivel","vida"],["estilo","vida"]]},"Renegociar":{"tipo":"É uma ação de quem deve.","nudge":"Pense: conversar com quem você deve para fazer um acordo novo.","sets":[["renegoci"],["acord"],["negoci","divid"]]},"Seguro":{"tipo":"É uma proteção.","nudge":"Pense: pagar pouco todo mês para não ter um prejuízo grande.","sets":[["apolic"]]},"Diversificar":{"tipo":"É um jeito de investir.","nudge":"Pense: não colocar todos os ovos na mesma cesta.","sets":[["diversific"],["divid","invest"],["ovos","cesta"]]},"Boleto falso":{"tipo":"É um golpe.","nudge":"Pense: uma conta com código de barras que manda o dinheiro para o lugar errado.","sets":[["boleto","fals"],["boleto","golpe"],["boleto","fraud"],["boleto","adulter"]]},"QR Code falso":{"tipo":"É um golpe.","nudge":"Pense: um quadradinho de pagamento trocado por outro.","sets":[["qr","fals"],["qrcode","fals"],["qr","golpe"],["qr","troc"],["qr","adulter"]]},"MEI":{"tipo":"É um tipo de cadastro de trabalho.","nudge":"Pense: a sigla do jeito mais simples de formalizar um pequeno negócio.","sets":[["microempreend"],["formaliz"]]},"Currículo":{"tipo":"É um documento.","nudge":"Pense: o papel que você manda quando procura emprego.","sets":[["curricul"]]},"Rachar a conta":{"tipo":"É algo que se faz em grupo.","nudge":"Pense: a pizza acabou, e cada um paga um pedaço da conta.","sets":[["rach"],["divid","conta"]]},"Emprestar para amigo":{"tipo":"É uma forma de ajudar.","nudge":"Pense: dar dinheiro a um amigo, combinando que ele devolve.","sets":[["emprest","amig"],["emprest","dinheiro"]]}});

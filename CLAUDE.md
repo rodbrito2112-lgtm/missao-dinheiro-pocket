@@ -1,6 +1,6 @@
 # Contexto para o Claude Code
 
-Projeto: "Missão Dinheiro Pocket", jogo digital de educação financeira infantil (Meu Dinheiro Club). Idioma da interface e do conteúdo: português do Brasil, linguagem simples para crianças a partir de 5 anos. Faixas: "5 a 7 anos" e "8 anos ou mais" (sem limite superior); nos dados a segunda faixa continua com a chave `8–11` — não renomear, o filtro do jogo depende dela.
+Projeto: "Missão Dinheiro Pocket", jogo digital de educação financeira infantil (Meu Dinheiro Club). Idioma da interface e do conteúdo: português do Brasil, linguagem simples para crianças a partir de 5 anos. Faixas (desde 15/11/2026): "5 a 7 anos" (`5–7`), "8 a 12 anos" (chave `8–11` — não renomear, o álbum salvo depende dela) e "13 anos ou mais", jovens e adultos (`13+`). Nas cartas de 13+: nada de número que envelhece (taxa de juros atual, salário mínimo, regra do ano), sem marcas de banco/app/casa de apostas, tom sem medo. O kit impresso fica só com faixas infantis.
 
 - Nome comercial, usado em todo texto visível ao jogador: **Missão Dinheiro: Pistas** (bot do modo solo: "Robô das Pistas"). "Pocket" é só nome interno: não aparece na interface, mas continua no repositório, no link do site, nas pastas e nas chaves de localStorage (`mdp-pocket-*`, não renomear).
 

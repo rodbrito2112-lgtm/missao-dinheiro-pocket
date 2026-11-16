@@ -8,9 +8,11 @@ const KEY_SAVE='mdp-pocket-v3-save',KEY_TUT='mdp-pocket-v3-tut';
 /* Chaves autorizadas em 14/11/2026 (ver CLAUDE.md) */
 const KEY_CHAR='mdp-pocket-char',KEY_SOM='mdp-pocket-som',KEY_CONQ='mdp-pocket-conquistas',KEY_FB='mdp-pocket-fb';
 /* Versão que vai no resumo do feedback, para saber de qual jogo veio cada resposta */
-const VERSAO_JOGO='2026-11-15 (lote 1 de cartas)';
+const VERSAO_JOGO='2026-11-15 (lotes 2 e 3: faixa 13+)';
 const PERSONAGENS=['Caio','Mel','Leticia','Vinicius','Bia','Tiko'];
-const FAIXA_TXT={'5–7':'5 a 7 anos','8–11':'8 anos ou mais'};
+/* Faixas: a chave '8–11' continua (álbum salvo depende dela), mas aparece como 8 a 12 anos. '13+' = jovens e adultos. */
+const FAIXAS=['5–7','8–11','13+'];
+const FAIXA_TXT={'5–7':'5 a 7 anos','8–11':'8 a 12 anos','13+':'13 anos ou mais'};
 /* Conceitos que só entram depois da base: Juros, Parcelamento e Cartão pedem Empréstimo ou Poupança antes */
 const PRE={'Juros':['Empréstimo','Poupança'],'Parcelamento':['Empréstimo','Poupança'],'Cartão de crédito':['Empréstimo','Poupança']};
 const $=id=>document.getElementById(id);
@@ -215,7 +217,7 @@ function viewTut(){const t=TUT[TUTI];
 /* Tela inicial (redesenho 14/11/2026): a carta misteriosa é a protagonista; o resto é discreto, direto sobre o azul.
    Tamanho, regra A/B e ajudas ficam em "Opções do adulto" (recolhido), com os padrões de sempre. */
 let SETUP_VISTA=false;
-function viewSetup(){const saved=store.get(KEY_SAVE),p=albumFaixa('5–7'),g=albumFaixa('8–11'),entra=!SETUP_VISTA;SETUP_VISTA=true;
+function viewSetup(){const saved=store.get(KEY_SAVE),alb=FAIXAS.map(albumFaixa),entra=!SETUP_VISTA;SETUP_VISTA=true;
  return `<h1 class="sr">Missão Dinheiro: Pistas</h1><div class="top"><img src="${ASSETS.logo}" alt="Missão Dinheiro Club">${botaoSom()}</div>
  <section class="abertura">
   <div class="mesa${entra?' entra':''}" aria-hidden="true">
@@ -225,14 +227,14 @@ function viewSetup(){const saved=store.get(KEY_SAVE),p=albumFaixa('5–7'),g=alb
   </div>
   <h2 tabindex="-1" class="sr">Missão Dinheiro: Pistas</h2>
   <p class="chamada">Seis pistas, uma delas é falsa. Descubra o conceito e decida o que fazer com o dinheiro.</p>
-  <button class="albumbtn" onclick="ph='album';render()"><span aria-hidden="true">📒</span> Meu álbum <small id="album">${p.tem+g.tem} de ${p.tot+g.tot}</small></button>
+  <button class="albumbtn" onclick="ph='album';render()"><span aria-hidden="true">📒</span> Meu álbum <small id="album">${alb.reduce((s,x)=>s+x.tem,0)} de ${alb.reduce((s,x)=>s+x.tot,0)}</small></button>
  </section>
  ${saved?`<button class="btn-t full" onclick="resumeGame()">Continuar jogo interrompido</button>`:''}
  <div class="card setup"><div class="body">
  <div><label>Quem vai jogar?</label><div role="radiogroup" aria-label="Quem vai jogar?" class="seg mode"><label><input type="radio" name="mode" value="duo" checked onchange="setupChange()"><span><span class="faces" aria-hidden="true"><img src="${ASSETS.Caio}" alt=""><img src="${ASSETS.Bia}" alt=""></span><b>Equipes</b><small>Um celular passando de mão em mão</small></span></label><label><input type="radio" name="mode" value="solo" onchange="setupChange()"><span><span class="faces" aria-hidden="true"><img src="${ASSETS.Leticia}" alt=""><i>🤖</i></span><b>Sozinho</b><small>Com o Robô das Pistas de colega</small></span></label></div></div>
  <div class="row nomes"><div><label for="n0" id="l0" class="sr">Equipe 1</label><input id="n0" type="text" maxlength="20" value="Equipe 1" placeholder="Nome da equipe 1"></div><div id="w1"><label for="n1" id="l1" class="sr">Equipe 2</label><input id="n1" type="text" maxlength="20" value="Equipe 2" placeholder="Nome da equipe 2"></div></div>
  <div id="charbox" hidden><label id="lb_char">Escolha seu personagem</label><div role="radiogroup" aria-labelledby="lb_char" class="seg chars">${PERSONAGENS.map(p=>`<label><input type="radio" name="char" value="${p}" ${store.get(KEY_CHAR)===p?'checked':''}><span><img src="${ASSETS[p]}" alt=""><b>${esc(NAMES[p]||p)}</b></span></label>`).join('')}</div></div>
- <div><label id="lb_faixa">Idade de quem vai jogar</label><div role="radiogroup" aria-labelledby="lb_faixa" class="seg faixas"><label><input type="radio" name="faixa" value="5–7" onchange="$('fxmsg').textContent=''"><span>5 a 7 anos</span></label><label><input type="radio" name="faixa" value="8–11" onchange="$('fxmsg').textContent=''"><span>8 anos ou mais</span></label><label><input type="radio" name="faixa" value="todas" onchange="$('fxmsg').textContent=''"><span>Todas</span></label></div><p id="fxmsg" class="fxmsg" role="alert"></p></div>
+ <div><label id="lb_faixa">Idade de quem vai jogar</label><div role="radiogroup" aria-labelledby="lb_faixa" class="seg faixas"><label><input type="radio" name="faixa" value="5–7" onchange="$('fxmsg').textContent=''"><span>5 a 7 anos</span></label><label><input type="radio" name="faixa" value="8–11" onchange="$('fxmsg').textContent=''"><span>8 a 12 anos</span></label><label><input type="radio" name="faixa" value="13+" onchange="$('fxmsg').textContent=''"><span>13 anos ou mais</span></label><label><input type="radio" name="faixa" value="todas" onchange="$('fxmsg').textContent=''"><span>Todas</span></label></div><p id="fxmsg" class="fxmsg" role="alert"></p></div>
  <button id="startbtn" class="btn-y full big-start" onclick="start()">Começar</button>
  <details class="adulto" id="cfg"><summary><span class="cfg-t">Configurações <small>tamanho, erro, ajudas, cena, som, álbum</small></span><span class="cfg-acao" aria-hidden="true"><span class="abrir">Abrir ▾</span><span class="fechar">Fechar ▴</span></span></summary><div class="stack">
  <div><label>Tamanho da partida</label><div role="radiogroup" aria-label="Tamanho da partida" class="seg"><label><input type="radio" name="len" value="4"><span><b>Curta</b><br><small>4 cartas, cerca de 10 min</small></span></label><label><input type="radio" name="len" value="6" checked><span><b>Normal</b><br><small>6 cartas, cerca de 15 a 20 min</small></span></label></div></div>
@@ -262,7 +264,7 @@ function viewFinal(){const [a,b]=S.score,solo=S.mode==='solo';
  const w=solo?'Partida concluída!':a===b?'Empate: vitória dividida!':(a>b?S.names[0]:S.names[1])+' venceu!';
  const mins=Math.max(1,Math.round(((S.t1||Date.now())-S.t0)/60000));
  const ch=solo&&S.char,img=ch&&POSE[ch]?`<img class="fimchar" src="${POSE[ch].cheer}" alt="${esc(NAMES[ch]||ch)} comemorando">`:'';
- const comp=(S.completou||[]).map(f=>`<div class="msg good"><span aria-hidden="true">🎉</span> <b>Álbum completo: ${FAIXA_TXT[f]}!</b> Vocês descobriram todos os conceitos desta faixa.${f==='5–7'?' Que tal experimentar a faixa <b>8 anos ou mais</b>?':''}</div>`).join('');
+ const comp=(S.completou||[]).map(f=>`<div class="msg good"><span aria-hidden="true">🎉</span> <b>Álbum completo: ${FAIXA_TXT[f]}!</b> Vocês descobriram todos os conceitos desta faixa.${f==='5–7'?' Que tal experimentar a faixa <b>8 a 12 anos</b>?':f==='8–11'?' Que tal experimentar a faixa <b>13 anos ou mais</b>?':''}</div>`).join('');
  const blocos=solo?`<div class="fimbox">${img}<div><div class="lab">${esc(S.names[0])}</div><b class="big">${a}</b> pontos${destaques(0)}</div></div>`
   :`<div class="fim2">${[0,1].map(t=>`<div class="fimbox ${a===b||S.score[t]===Math.max(a,b)?'top':''}"><div class="lab">${esc(S.names[t])}</div><b class="big">${S.score[t]}</b>${destaques(t)}</div>`).join('')}</div>`;
  const tot=store.get(KEY_CONQ)||{},acum=CONQ.filter(([id])=>tot[id]).map(([id,ic,nome])=>`<span class="cq"><span aria-hidden="true">${ic}</span> ${nome} ×${tot[id]}</span>`).join('');
@@ -279,7 +281,7 @@ function jogarDeNovo(){if(!view.fbEnviado&&!view.sairSemFb){view.sairSemFb=true;
 /* Álbum: conceitos descobertos neste aparelho, por faixa, com "?" nos que faltam */
 function viewAlbum(){const a=albumList();
  return `${logo()}<div class="card"><div class="banner"><div class="num" aria-hidden="true">📒</div><div class="t"><small>Neste aparelho</small><h2 tabindex="-1">Álbum de conceitos</h2></div></div><div class="body">
- ${['5–7','8–11'].map(f=>{const L=CARDS.filter(c=>c.faixa===f),n=L.filter(c=>a.includes(c.title)).length;
+ ${FAIXAS.map(f=>{const L=CARDS.filter(c=>c.faixa===f),n=L.filter(c=>a.includes(c.title)).length;
   return `<div class="lab">${FAIXA_TXT[f]} · ${n} de ${L.length}${n===L.length?' · completo! 🎉':''}</div><div class="alb">${L.map(c=>a.includes(c.title)?`<div class="ac t-${TEMA[c.tema]||'base'}"><span aria-hidden="true">${c.icon}</span><small>${esc(c.title)}</small></div>`:`<div class="ac falta"><span aria-hidden="true">?</span><small>Ainda não descoberto</small></div>`).join('')}</div>`}).join('')}
  <button class="btn-y full" onclick="ph='setup';render()">Voltar</button></div></div>`}
 function seg(name,opts){return `<div class="seg" role="radiogroup" aria-labelledby="lb_${name}">${opts.map(o=>`<label><input type="radio" name="${name}" value="${esc(o)}"><span>${esc(o)}</span></label>`).join('')}</div>`}
