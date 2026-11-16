@@ -10,8 +10,8 @@ const CARDS = [
     "icon": "🛍️",
     "p": [
       "O anúncio informa que o desconto vai durar os próximos seis meses.",
-      "Uma loja destaca um relógio ao lado de uma oferta.",
-      "O anúncio tenta acelerar a decisão de compra.",
+      "A loja coloca um relógio contando o tempo ao lado da oferta.",
+      "A ideia é fazer você comprar depressa, sem pensar muito.",
       "O preço ou benefício especial tem prazo curto.",
       "O aviso destaca quanto falta para a oferta acabar.",
       "É uma promoção que termina em poucas horas ou ainda hoje."
@@ -188,12 +188,12 @@ const CARDS = [
     "p": [
       "Duas caixas do mesmo produto trazem quantidades diferentes.",
       "A embalagem mais barata nem sempre é a que rende mais.",
+      "Uma caixa de menor preço total sempre tem menor preço por unidade.",
       "Na etiqueta aparecem o preço da caixa e a quantidade de itens.",
       "Para comparar, você considera o preço e a quantidade.",
-      "Mostra quanto custa um lápis, não a caixa inteira.",
-      "Uma caixa de menor preço total sempre tem menor preço por unidade."
+      "Mostra quanto custa um lápis, não a caixa inteira."
     ],
-    "fake": 6,
+    "fake": 3,
     "correct": [
       "preço por unidade",
       "preço unitário",
@@ -369,7 +369,7 @@ const CARDS = [
       "Costuma ter formato de bichinho ou de caixinha.",
       "Tem uma fenda por onde algo entra, mas não sai fácil.",
       "Serve para gastar todo dia na cantina.",
-      "Quando está cheio, faz barulho de moedas e não precisa de tomada.",
+      "Quando você chacoalha, dá para ouvir as moedas.",
       "Fica no quarto e guarda moedas e notas.",
       "É um lugar para guardar dinheiro até você precisar dele."
     ],
@@ -501,14 +501,14 @@ const CARDS = [
     "char": "Caio",
     "icon": "📈",
     "p": [
-      "Aparece quando o dinheiro fica parado em algum lugar combinado.",
+      "Aparece quando o dinheiro passa um tempo guardado ou emprestado.",
       "Pode aumentar o que você guardou ou o que você deve.",
       "Quem guarda recebe um pouco; quem deve paga um pouco.",
+      "Todo mundo recebe o mesmo valor, não importa quanto tempo passe.",
       "Cresce com o tempo e com o valor envolvido.",
-      "É um valor a mais que se ganha ou se paga com o tempo.",
-      "Todo mundo recebe o mesmo valor, não importa quanto tempo passe."
+      "É um valor a mais que se ganha ou se paga com o tempo."
     ],
-    "fake": 6,
+    "fake": 4,
     "correct": [
       "juros",
       "juro",
@@ -536,7 +536,7 @@ const CARDS = [
     "why": [
       "Gasta tudo sem deixar o dinheiro trabalhar.",
       "O dinheiro cresce um pouco enquanto você espera.",
-      "Divide o risco, mas rende menos."
+      "Aproveita um pouco agora, mas rende menos."
     ],
     "faixa": "8–11",
     "tema": "Poupar e guardar"
@@ -614,7 +614,7 @@ const CARDS = [
     "scene": "Você vê um carrinho de R$ 18 na loja e só tem R$ 10. Sua avó disse que pode ajudar no seu aniversário daqui a duas semanas.",
     "opts": [
       "Esperar o aniversário e ver se ainda quer o carrinho.",
-      "Pedir o carrinho para a avó agora e chorar.",
+      "Fazer birra na loja para levar o carrinho agora.",
       "Gastar os R$ 10 em outro brinquedo e esquecer o carrinho."
     ],
     "pts": [
@@ -624,7 +624,7 @@ const CARDS = [
     ],
     "why": [
       "Dá tempo de ter certeza, e a ajuda chega.",
-      "Pedir chorando não ajuda ninguém a decidir bem.",
+      "Birra não ajuda ninguém a decidir bem.",
       "Evita o choro, mas troca o que você quer por outra coisa qualquer."
     ],
     "faixa": "5–7",
@@ -726,13 +726,13 @@ const CARDS = [
     "icon": "📺",
     "p": [
       "Aparece no intervalo de vídeos, em placas e em revistas.",
+      "É sempre uma opinião neutra de um amigo que não ganha nada.",
       "Quer chamar a sua atenção para alguma coisa.",
       "Usa cores, músicas e personagens que você gosta.",
       "Mostra o lado bom e quase nunca fala do preço total.",
-      "É uma mensagem feita para convencer alguém a comprar.",
-      "É sempre uma opinião neutra de um amigo que não ganha nada."
+      "É uma mensagem feita para convencer alguém a comprar."
     ],
-    "fake": 6,
+    "fake": 2,
     "correct": [
       "propaganda",
       "anúncio",
@@ -953,10 +953,10 @@ const CARDS = [
       "Pode ser feita de letras, números e símbolos.",
       "Protege contas, jogos e aplicativos.",
       "Quanto mais difícil de adivinhar, mais segura fica.",
-      "É um segredo que só você usa para entrar numa conta.",
-      "Funciona melhor quando é igual para todos os aplicativos."
+      "Funciona melhor quando é igual para todos os aplicativos.",
+      "É um segredo que só você usa para entrar numa conta."
     ],
-    "fake": 6,
+    "fake": 5,
     "correct": [
       "senha",
       "código secreto",
@@ -1181,13 +1181,13 @@ const CARDS = [
     "icon": "👛",
     "p": [
       "Vem de alguém da família, a cada semana ou mês.",
+      "É um prêmio que sempre aparece quando a criança pede.",
       "É um dinheiro que a criança recebe e pode escolher o que fazer.",
       "Pode ajudar a treinar o guardar e o gastar.",
       "O valor costuma ser combinado em conversa.",
-      "É o dinheiro que a criança recebe da família de tempos em tempos.",
-      "É um prêmio que sempre aparece quando a criança pede."
+      "É o dinheiro que a criança recebe da família de tempos em tempos."
     ],
-    "fake": 6,
+    "fake": 2,
     "correct": [
       "mesada",
       "mesada da família",
@@ -1407,11 +1407,11 @@ const CARDS = [
       "Começa com uma ideia e um pouco de coragem.",
       "Quem faz isso decide o que vender e para quem.",
       "Precisa de um plano e de aprender com os erros.",
+      "É sempre esperar que outra pessoa dê as ordens.",
       "Pode dar certo ou não, mas ensina muito.",
-      "É criar o seu próprio negócio ou projeto.",
-      "É sempre esperar que outra pessoa dê as ordens."
+      "É criar o seu próprio negócio ou projeto."
     ],
-    "fake": 6,
+    "fake": 4,
     "correct": [
       "empreender",
       "empreendedorismo",
@@ -1451,12 +1451,12 @@ const CARDS = [
     "p": [
       "Acontece quando você quer duas coisas ao mesmo tempo.",
       "O dinheiro que você tem só dá para uma delas.",
-      "Quem tem dinheiro pode comprar tudo o que quiser de uma vez.",
       "Para fazer bem, vale pensar: qual eu quero mais?",
       "Quando você fica com uma coisa, a outra fica para depois.",
+      "Quem tem dinheiro pode comprar tudo o que quiser de uma vez.",
       "É decidir entre isto ou aquilo."
     ],
-    "fake": 3,
+    "fake": 5,
     "correct": [
       "escolha",
       "escolher",
@@ -1494,13 +1494,13 @@ const CARDS = [
     "icon": "🪙",
     "p": [
       "É pequena, redonda e faz barulho no bolso.",
+      "É feita de papel e dobra no meio.",
       "Tem um número de um lado e um desenho do outro.",
       "Cabe na fenda do cofrinho.",
-      "É feita de papel e dobra no meio.",
       "No Brasil, a de 1 real é prateada no meio e dourada na borda.",
       "É dinheiro de metal."
     ],
-    "fake": 4,
+    "fake": 2,
     "correct": [
       "moeda",
       "moedas",
@@ -1517,7 +1517,7 @@ const CARDS = [
     "opts": [
       "Separar duas moedas de R$ 1, conferir com um adulto e pagar.",
       "Entregar todas as moedas e deixar o caixa escolher.",
-      "Pagar com uma moeda de R$ 1 e as duas de 50 centavos."
+      "Separar as moedas sozinho, sem conferir com ninguém."
     ],
     "pts": [
       2,
@@ -1527,7 +1527,7 @@ const CARDS = [
     "why": [
       "É o jeito mais simples de juntar R$ 2, e você confere antes de pagar.",
       "Sem contar, você pode entregar mais do que precisa.",
-      "Também dá R$ 2 (1 + 0,50 + 0,50), só precisa contar com calma."
+      "Pode dar certo, mas sem conferir é fácil errar a conta."
     ],
     "faixa": "5–7",
     "tema": "Poupar e guardar"
@@ -1585,11 +1585,11 @@ const CARDS = [
       "Chega em dias especiais, como aniversário ou Natal.",
       "Às vezes vem dentro de um cartão ou de um envelope.",
       "Quem dá costuma ser alguém da família.",
-      "Você precisa devolver depois de um mês.",
       "Não é mesada nem pagamento por um trabalho.",
+      "Você precisa devolver depois de um mês.",
       "É dinheiro que alguém dá para você de presente."
     ],
-    "fake": 4,
+    "fake": 5,
     "correct": [
       "dinheiro de presente",
       "presente em dinheiro",
@@ -1672,13 +1672,13 @@ const CARDS = [
     "icon": "💝",
     "p": [
       "Começa olhando o que você tem e não usa mais.",
-      "Pode ser brinquedo, roupa, livro ou comida.",
       "Só vale se for coisa quebrada ou estragada.",
+      "Pode ser brinquedo, roupa, livro ou comida.",
       "Outra pessoa vai usar e ficar feliz.",
       "Você não recebe nada em troca.",
       "É dar algo para quem precisa."
     ],
-    "fake": 3,
+    "fake": 2,
     "correct": [
       "doar",
       "doação",
@@ -1716,13 +1716,13 @@ const CARDS = [
     "icon": "🤝",
     "p": [
       "Dá para fazer com lanche, brinquedo ou lápis de cor.",
-      "Duas ou mais pessoas aproveitam a mesma coisa.",
       "Você fica sem o que é seu para sempre.",
+      "Duas ou mais pessoas aproveitam a mesma coisa.",
       "Às vezes cada um usa um pouco, um de cada vez.",
       "Deixa os amigos felizes e ninguém fica de fora.",
       "É dividir algo com outra pessoa."
     ],
-    "fake": 3,
+    "fake": 2,
     "correct": [
       "compartilhar",
       "dividir",
@@ -1762,11 +1762,11 @@ const CARDS = [
       "Tem a ver com falar a verdade.",
       "Aparece quando você acha algo que não é seu.",
       "Pode ser quando o troco vem a mais.",
-      "Se ninguém viu, não tem problema ficar.",
       "É fazer o certo mesmo quando ninguém está olhando.",
+      "Se ninguém viu, não tem problema ficar.",
       "Quem tem essa qualidade devolve o que não é seu."
     ],
-    "fake": 4,
+    "fake": 5,
     "correct": [
       "honestidade",
       "ser honesto",
@@ -1828,7 +1828,7 @@ const CARDS = [
     "scene": "Você tem R$ 40 e está juntando para um skate de R$ 120. Os amigos chamam para o cinema com pipoca, que sai R$ 35.",
     "opts": [
       "Ir ao cinema com pipoca e pensar no skate depois.",
-      "Pensar no que perde: o cinema leva quase tudo o que juntou. Propor um programa mais barato.",
+      "Lembrar que o cinema leva quase tudo o que juntou e propor um programa mais barato.",
       "Ir ao cinema, mas sem pipoca, gastando R$ 20."
     ],
     "pts": [
@@ -1850,13 +1850,13 @@ const CARDS = [
     "icon": "📋",
     "p": [
       "É feito antes de o dinheiro ser gasto.",
+      "Só adulto com salário precisa fazer.",
       "Pode ser escrito num caderno, numa folha ou no celular.",
       "Mostra quanto entra e quanto sai.",
-      "Só adulto com salário precisa fazer.",
       "Ajuda a não faltar dinheiro no fim do mês.",
       "É um plano de como usar o dinheiro."
     ],
-    "fake": 4,
+    "fake": 2,
     "correct": [
       "orçamento",
       "planejamento",
@@ -1941,12 +1941,12 @@ const CARDS = [
     "p": [
       "Pode acontecer numa escola, numa praça ou num abrigo.",
       "Juntar pessoas para limpar a praia é um exemplo.",
-      "Quem faz recebe um salário no fim do mês.",
       "A pessoa doa o seu tempo e o seu trabalho.",
       "Ajuda a comunidade e quem precisa.",
+      "Quem faz recebe um salário no fim do mês.",
       "É trabalhar sem receber dinheiro para ajudar os outros."
     ],
-    "fake": 3,
+    "fake": 5,
     "correct": [
       "voluntariado",
       "trabalho voluntário",
