@@ -27,14 +27,14 @@ Sem build e sem backend: funciona offline, inclusive por duplo clique (`file://`
 ## Estrutura
 - `index.html` — página de entrada; carrega `style.css`, `cartas.js` e `game.js`.
 - `style.css` — todo o visual.
-- `cartas.js` — **fonte única das cartas**: `CARDS` (68 cartas: as 32 do baralho impresso e, depois delas, as cartas novas só do jogo digital, rumo a 100+; JSON puro depois de `const CARDS =`). Temas: Poupar e guardar, Consumo e escolhas, Dinheiro digital e segurança, Trabalho e ganhar dinheiro e Ajudar e compartilhar e `EXTRA` (dica de tipo, "nudge" e respostas aceitas de cada carta). Fica em `.js` e não em `.json` porque o navegador bloqueia `fetch` de arquivo local no duplo clique.
+- `cartas.js` — **fonte única das cartas**: `CARDS` (80 cartas: as 32 do baralho impresso e, depois delas, as cartas novas só do jogo digital, rumo a 100+; JSON puro depois de `const CARDS =`). Temas: Poupar e guardar, Consumo e escolhas, Dinheiro digital e segurança, Trabalho e ganhar dinheiro e Ajudar e compartilhar e `EXTRA` (dica de tipo, "nudge" e respostas aceitas de cada carta). Fica em `.js` e não em `.json` porque o navegador bloqueia `fetch` de arquivo local no duplo clique.
 - `game.js` — lógica do jogo, telas e caminhos das imagens (`ASSETS`, `POSE`).
 - `assets/personagens/` — imagens webp leves (idle, think/pensa, cheer, wow etc.) de Caio, Mel, Letícia, Vinicius, Bia, Tiko, Rodrigo, Natty + `logo-main.webp`. O jogo usa `*-idle`, `*-think` (Bia: idle), `*-cheer` e o logo.
 
 Para publicar, envie a pasta inteira (não só o `index.html`).
 
 ## Faixas etárias
-5 a 7 anos: 21 cartas · 8 a 12 anos: 23 cartas (chave interna `8–11` no `cartas.js`, mantida para não perder álbuns salvos) · 13 anos ou mais (jovens e adultos, desde 15/11/2026): 24 cartas (chave `13+`: dívida, crédito, golpes, apostas, primeiro emprego, contas da casa). As cartas de 13+ não têm pré-requisito de outras faixas. As 8 cartas originais receberam faixa em 10/11/2026 (antes entravam em qualquer filtro). Análise completa, ordem sugerida e propostas pendentes em `docs/mapa-curricular-cartas.md`.
+5 a 7 anos: 26 cartas · 8 a 12 anos: 27 cartas (chave interna `8–11` no `cartas.js`, mantida para não perder álbuns salvos) · 13 anos ou mais (jovens e adultos, desde 15/11/2026): 27 cartas (chave `13+`: dívida, crédito, golpes, apostas, primeiro emprego, contas da casa). As cartas de 13+ não têm pré-requisito de outras faixas. As 8 cartas originais receberam faixa em 10/11/2026 (antes entravam em qualquer filtro). Análise completa, ordem sugerida e propostas pendentes em `docs/mapa-curricular-cartas.md`.
 
 ## Esquema de carta
 `{title, char, icon, p[6], fake(1-based), correct[], near[], scene, opts[3], pts[3], why[3], faixa, tema}`
