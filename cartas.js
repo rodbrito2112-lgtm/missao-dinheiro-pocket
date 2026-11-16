@@ -53,12 +53,12 @@ const CARDS = [
     "char": "Mel",
     "icon": "💰",
     "p": [
-      "Depois de pagar em dinheiro, algo pode voltar para sua mão.",
-      "Pode acontecer quando entrega uma nota maior que o preço.",
-      "Vale conferir a quantia recebida.",
-      "Para calcular o troco, você soma o preço ao valor pago.",
-      "É a diferença entre o dinheiro entregue e o valor cobrado.",
-      "Se paga R$ 10 por algo de R$ 7, recebe R$ 3."
+      "Volta para a sua mão depois de pagar.",
+      "Acontece quando você paga com uma nota maior.",
+      "Vale contar antes de guardar.",
+      "Para saber quanto volta, você soma tudo.",
+      "Paguei 10, custou 7: voltam 3.",
+      "É o dinheiro que o caixa devolve."
     ],
     "fake": 4,
     "correct": [
@@ -68,15 +68,15 @@ const CARDS = [
       "diferença devolvida depois de pagar"
     ],
     "near": [
-      "reembolso",
-      "devolução de compra",
-      "dinheiro que volta"
+      "dinheiro que volta",
+      "devolução",
+      "moeda"
     ],
-    "scene": "Uma compra custa R$ 13. Você paga com R$ 20, mas o caixa devolve apenas R$ 6. A fila está grande e você está com pressa.",
+    "scene": "Um suco custa R$ 7. Você paga com uma nota de R$ 10, e o caixa devolve só R$ 2.",
     "opts": [
-      "Avisar imediatamente que falta R$ 1.",
-      "Guardar os R$ 6 e sair sem conferir.",
-      "Conferir o valor com calma e voltar ao caixa depois."
+      "Contar na hora e avisar que falta R$ 1.",
+      "Guardar sem contar e sair correndo.",
+      "Contar em casa e voltar outro dia."
     ],
     "pts": [
       2,
@@ -84,9 +84,9 @@ const CARDS = [
       1
     ],
     "why": [
-      "Corrige o valor no momento, sem deixar a pendência para depois.",
-      "Perde R$ 1 por não conferir uma conta simples.",
-      "É uma solução possível, mas aumenta o risco de dificuldade para corrigir."
+      "Avisar na hora é o jeito mais fácil de resolver.",
+      "Sem contar, você perde R$ 1 e nem percebe.",
+      "Você percebe o erro, mas depois fica mais difícil de resolver."
     ],
     "faixa": "5–7",
     "tema": "Consumo e escolhas"
@@ -231,12 +231,12 @@ const CARDS = [
     "char": "Bia",
     "icon": "☔",
     "p": [
-      "Algo muda um plano que parecia organizado.",
-      "O acontecimento já estava marcado no calendário havia semanas.",
-      "Pode ocorrer em casa, na escola ou num passeio.",
-      "Nem sempre faz você gastar dinheiro.",
-      "Se houver custo, uma reserva pode ajudar.",
-      "É um acontecimento que chega sem você esperar."
+      "Acontece de repente.",
+      "Você já sabia que ia acontecer.",
+      "Pode ser em casa, na escola ou num passeio.",
+      "Às vezes custa dinheiro.",
+      "Ter um dinheirinho guardado ajuda.",
+      "É algo que acontece sem você esperar."
     ],
     "fake": 2,
     "correct": [
@@ -251,11 +251,11 @@ const CARDS = [
       "gasto extra",
       "problema"
     ],
-    "scene": "Seu guarda-chuva quebra antes da escola, e está chovendo. Um amigo pode emprestar outro hoje; consertar o seu amanhã custa R$ 8; comprar um novo hoje custa R$ 30. Você tem R$ 35 guardados para um brinquedo.",
+    "scene": "Está chovendo, e o seu guarda-chuva quebrou. Você tem R$ 35 guardados para um brinquedo.",
     "opts": [
-      "Usar o emprestado hoje e consertar o seu amanhã por R$ 8.",
-      "Usar R$ 30 do dinheiro do brinquedo para comprar outro hoje.",
-      "Sair usando o guarda-chuva quebrado para não mexer no dinheiro."
+      "Pegar um emprestado hoje e consertar o seu depois, por R$ 8.",
+      "Usar R$ 30 do brinquedo para comprar um novo.",
+      "Ir com o guarda-chuva quebrado e se molhar."
     ],
     "pts": [
       2,
@@ -263,9 +263,9 @@ const CARDS = [
       -1
     ],
     "why": [
-      "Resolve o presente e reduz o gasto, desde que a oferta de empréstimo seja confiável.",
-      "Resolve hoje, mas custa mais e adia o brinquedo.",
-      "Pode não proteger na chuva e não resolve o problema."
+      "Resolve hoje e gasta pouco.",
+      "Resolve, mas o brinquedo vai demorar mais.",
+      "Você se molha, e o problema continua."
     ],
     "faixa": "5–7",
     "tema": "Poupar e guardar"
@@ -275,12 +275,12 @@ const CARDS = [
     "char": "Vinicius",
     "icon": "🎯",
     "p": [
-      "Você escolhe uma conquista que ainda não alcançou.",
-      "Pode definir quanto falta e em quanto tempo quer chegar.",
-      "Pequenas ações podem aproximar você do resultado.",
-      "O plano pode ser revisado ao longo do caminho.",
-      "Se você mudar o prazo, o objetivo deixa de existir.",
-      "É um objetivo definido que você procura alcançar."
+      "É algo que você quer muito conseguir.",
+      "Você sabe quanto custa.",
+      "Você guarda um pouco de cada vez.",
+      "Dá para pintar num desenho quanto já juntou.",
+      "Só gente grande pode ter uma.",
+      "É o que você quer alcançar juntando dinheiro."
     ],
     "fake": 5,
     "correct": [
@@ -296,11 +296,11 @@ const CARDS = [
       "planejamento",
       "reserva"
     ],
-    "scene": "Você quer comprar um livro de R$ 30 em duas semanas. Já guardou R$ 20 e consegue guardar R$ 5 por semana. Hoje vê figurinhas por R$ 12; há também um pacote de R$ 4.",
+    "scene": "Você quer um livro de R$ 30. Já tem R$ 20 e guarda R$ 5 por semana. Hoje viu figurinhas de R$ 10.",
     "opts": [
-      "Comprar o pacote de R$ 4 e adiar o livro por uma semana.",
-      "Não comprar figurinhas e guardar R$ 5 em cada semana.",
-      "Comprar agora as figurinhas de R$ 12."
+      "Comprar figurinhas mais baratas e esperar um pouco mais pelo livro.",
+      "Não comprar e guardar R$ 5 por semana: em 2 semanas, o livro é seu.",
+      "Comprar as figurinhas de R$ 10 agora."
     ],
     "pts": [
       1,
@@ -308,9 +308,9 @@ const CARDS = [
       -1
     ],
     "why": [
-      "Mantém um objetivo viável, mas muda o prazo conscientemente.",
-      "Consegue chegar aos R$ 30 em duas semanas.",
-      "Mesmo guardando R$ 10 depois, faltará dinheiro para o livro no prazo."
+      "Dá para ter os dois, mas o livro demora mais.",
+      "Em duas semanas você chega aos R$ 30.",
+      "Você volta para R$ 10, e o livro fica bem mais longe."
     ],
     "faixa": "5–7",
     "tema": "Poupar e guardar"
@@ -320,12 +320,12 @@ const CARDS = [
     "char": "Mel",
     "icon": "🤝",
     "p": [
-      "Um colega pede algo que você tem por alguns dias.",
-      "Vocês combinam o tempo de uso.",
-      "Depois do acordo, o objeto passa a pertencer ao colega.",
-      "Pode envolver um objeto ou dinheiro.",
-      "Há uma responsabilidade de devolução.",
-      "Não é presente: é algo cedido temporariamente."
+      "Alguém pede uma coisa sua por um tempo.",
+      "Vocês combinam quando ela volta.",
+      "Depois, a coisa fica para sempre com quem pegou.",
+      "Pode ser um brinquedo, um lápis ou dinheiro.",
+      "Quem pega precisa cuidar e devolver.",
+      "Não é presente: é usar e devolver."
     ],
     "fake": 3,
     "correct": [
@@ -340,13 +340,13 @@ const CARDS = [
       "favor",
       "doação",
       "troca",
-      "financiamento"
+      "presente"
     ],
-    "scene": "Você tem um único lápis reserva, que precisará usar amanhã. Um colega pede para levar esse lápis para casa por uma semana; ele costuma cumprir os combinados.",
+    "scene": "Seu colega pede o seu único lápis azul para levar para casa. Você vai precisar dele amanhã na aula.",
     "opts": [
-      "Emprestar por uma semana sem conversar sobre a sua necessidade.",
-      "Emprestar até o início da aula amanhã, combinando a devolução.",
-      "Explicar que precisa dele amanhã e ajudar o colega a procurar outro."
+      "Emprestar sem falar nada.",
+      "Emprestar e pedir para ele trazer amanhã cedo.",
+      "Contar que precisa dele amanhã e emprestar outra cor."
     ],
     "pts": [
       -1,
@@ -354,9 +354,9 @@ const CARDS = [
       2
     ],
     "why": [
-      "Pode deixar você sem o único lápis de que precisa amanhã.",
-      "É uma possibilidade, mas depende de o colega devolver antes de você precisar.",
-      "Respeita sua necessidade e oferece ajuda sem prometer o que não pode cumprir."
+      "Você pode ficar sem o lápis amanhã.",
+      "Pode dar certo, se ele lembrar de trazer.",
+      "Você ajuda o colega e não fica sem o que precisa."
     ],
     "faixa": "5–7",
     "tema": "Poupar e guardar"
@@ -3088,7 +3088,7 @@ const CARDS = [
 const EXTRA={
 'Promoção relâmpago':{tipo:'É um tipo de oferta de loja.',nudge:'Pense: essa oferta dura muito ou pouco tempo?',sets:[['relampago'],['promocao','hoje'],['oferta','hoje'],['promocao','tempo'],['oferta','tempo'],['promocao','pouco'],['oferta','pouco'],['promocao','curta'],['oferta','curta'],['promocao','acaba'],['oferta','acaba'],['promocao','rapida'],['oferta','rapida']]},
 'Troco':{tipo:'É um valor de dinheiro que aparece quando você paga.',nudge:'Pense: você paga com uma nota maior e o caixa devolve algo.',sets:[['troco'],['dinheiro','devolvid'],['diferenca','devolvid']]},
-'Golpe por mensagem':{tipo:'É um perigo que chega no celular.',nudge:'Pense: alguém quer enganar você por uma mensagem.',sets:[['golpe'],['fraude'],['phishing'],['enganar','mensagem'],['mensagem','falsa'],['mensagem','enganosa']]},
+'Golpe por mensagem':{tipo:'É um perigo que chega no celular.',nudge:'Pense: alguém quer enganar você por uma mensagem.',sets:[['golpe','mensag'],['golpe','celular'],['golpe','sms'],['golpe','whats'],['fraud','mensag'],['phishing'],['enganar','mensagem'],['mensagem','falsa'],['mensagem','enganosa']]},
 'Parcelamento':{tipo:'É um jeito de pagar uma compra.',nudge:'Pense: pagar uma compra aos poucos, em vários pedaços.',sets:[['parcel'],['prestac'],['dividir','pagamento'],['dividir','compra'],['pagar','partes'],['pagar','meses'],['pagar','pedacos'],['pagar','aos poucos']]},
 'Preço por unidade':{tipo:'É uma conta para comparar produtos.',nudge:'Pense: quanto custa cada um, não a caixa toda.',sets:[['preco','unidade'],['preco','unitario'],['custo','unidade'],['valor','cada'],['preco','cada'],['quanto','cada'],['preco','item'],['unitario']]},
 'Imprevisto':{tipo:'É uma situação que acontece sem avisar.',nudge:'Pense: algo que ninguém esperava e mudou os planos.',sets:[['imprevist'],['inesperad'],['nao','planejad'],['nao','esperad'],['sem','avisar']]},
