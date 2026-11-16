@@ -791,11 +791,11 @@ const CARDS = [
       "oferta",
       "pressa"
     ],
-    "scene": "Num jogo de celular, aparece uma oferta de R$ 15 em moedas que acaba em 5 minutos. Você tem R$ 20.",
+    "scene": "Na fila do caixa do mercado, você vê um chaveiro de R$ 15 que nem pensava em comprar. Você tem R$ 20 para o lanche da semana.",
     "opts": [
-      "Comprar para não perder a oferta.",
-      "Fechar o jogo, esperar um dia e decidir depois.",
-      "Pedir emprestado para comprar o dobro."
+      "Comprar, porque é legal e está ali.",
+      "Esperar até amanhã e só comprar se ainda quiser e couber no dinheiro.",
+      "Comprar um chaveiro mais barato, de R$ 5."
     ],
     "pts": [
       -1,
@@ -803,9 +803,9 @@ const CARDS = [
       1
     ],
     "why": [
-      "A pressa fez a decisão por você.",
-      "Dar tempo ajuda a ver se vale a pena.",
-      "Aumenta o gasto e cria dívida pequena."
+      "Gasta quase todo o dinheiro do lanche em algo que você nem queria antes.",
+      "Dar um tempo ajuda a ver se é vontade de verdade ou só impulso.",
+      "Gasta menos, mas ainda compra algo que não estava nos planos."
     ],
     "faixa": "8–11",
     "tema": "Consumo e escolhas"
@@ -888,12 +888,12 @@ const CARDS = [
     ],
     "pts": [
       2,
-      -1,
-      1
+      1,
+      -1
     ],
     "why": [
       "A lista cuida do essencial e o extra vem se der.",
-      "O extra vem antes do que é necessário.",
+      "Compra o que precisa, mas o extra vem antes e pode faltar dinheiro.",
       "Sem lista, é fácil esquecer algo ou gastar demais."
     ],
     "faixa": "5–7",
@@ -929,7 +929,7 @@ const CARDS = [
     "opts": [
       "Pagar rápido porque está com pressa.",
       "Parar, conferir o valor e falar com o responsável.",
-      "Pagar R$ 120 e pedir para devolver depois."
+      "Não pagar pelo código e pagar em dinheiro, sem avisar o dono."
     ],
     "pts": [
       -1,
@@ -939,7 +939,7 @@ const CARDS = [
     "why": [
       "O erro pode custar caro e nem sempre dá para voltar.",
       "Conferir antes evita um erro difícil de corrigir.",
-      "Pode ser resolvido, mas dá trabalho e risco."
+      "Evita o erro, mas o código errado continua lá para o próximo cliente."
     ],
     "faixa": "8–11",
     "tema": "Dinheiro digital e segurança"
@@ -1025,7 +1025,7 @@ const CARDS = [
     "opts": [
       "Pagar, porque o preço está ótimo.",
       "Procurar a loja em outro lugar e perguntar ao responsável.",
-      "Pedir um desconto ainda maior e pagar."
+      "Desistir do fone por enquanto."
     ],
     "pts": [
       -1,
@@ -1035,7 +1035,7 @@ const CARDS = [
     "why": [
       "Preço muito baixo e pagamento estranho são sinais de alerta.",
       "Verifica antes de arriscar.",
-      "Ainda assume o risco de perder o dinheiro."
+      "Evita o golpe, mas você continua sem o fone."
     ],
     "faixa": "8–11",
     "tema": "Dinheiro digital e segurança"
@@ -1047,7 +1047,7 @@ const CARDS = [
     "p": [
       "É um cartão que você passa e paga depois.",
       "Quem usa recebe uma fatura com o que gastou.",
-      "Dinheiro de verdade só sai da conta se você usar o cartão de débito.",
+      "Com cartão de crédito, a compra sai de graça.",
       "Se a fatura não for paga, o valor cresce.",
       "Tem um limite de quanto pode usar.",
       "É um cartão que deixa pagar depois, com data marcada."
@@ -1070,7 +1070,7 @@ const CARDS = [
     "opts": [
       "Comprar e depois ver como paga a fatura.",
       "Conferir se a parcela cabe no que entra todo mês antes de comprar.",
-      "Comprar dois sofás para dividir o gasto."
+      "Parcelar em 8 vezes de R$ 150 para caber no mês."
     ],
     "pts": [
       -1,
@@ -1080,7 +1080,7 @@ const CARDS = [
     "why": [
       "Pode virar dívida se a fatura passar do que entra.",
       "Evita assumir mais do que cabe.",
-      "Aumenta o gasto sem resolver."
+      "A parcela cabe, mas o compromisso dura o dobro do tempo e pode ter juros."
     ],
     "faixa": "8–11",
     "tema": "Dinheiro digital e segurança"
@@ -1160,7 +1160,7 @@ const CARDS = [
     "opts": [
       "Passar o código para cancelar logo.",
       "Desligar e ligar para o número oficial do banco.",
-      "Pedir para a pessoa repetir o nome e passar depois."
+      "Desligar sem passar o código, mas não contar para ninguém."
     ],
     "pts": [
       -1,
@@ -1170,7 +1170,7 @@ const CARDS = [
     "why": [
       "Esse código nunca deve ser passado a ninguém.",
       "Confirma por um canal que você mesmo escolheu.",
-      "A pessoa pode fingir um nome. O risco continua."
+      "Você não cai no golpe, mas sua família não fica sabendo que alguém tentou."
     ],
     "faixa": "8–11",
     "tema": "Dinheiro digital e segurança"
@@ -1245,11 +1245,11 @@ const CARDS = [
       "ganhar",
       "empresa"
     ],
-    "scene": "O padeiro acorda às 4 da manhã para fazer pão antes de todo mundo acordar. Você pergunta o que ele ganha com isso.",
+    "scene": "Sua tia faz bolos para vender. Ela pede a sua ajuda no sábado de manhã para embalar, e você queria brincar a manhã toda.",
     "opts": [
-      "Ele ganha dinheiro e todo mundo tem pão fresco.",
-      "Ele ganha só para se divertir.",
-      "Ele não ganha nada, o pão aparece sozinho."
+      "Ajudar de manhã e brincar à tarde.",
+      "Dizer que vai ajudar e não aparecer.",
+      "Brincar e pedir que ela chame outra pessoa."
     ],
     "pts": [
       2,
@@ -1257,9 +1257,9 @@ const CARDS = [
       1
     ],
     "why": [
-      "O trabalho gera dinheiro para ele e valor para os outros.",
-      "Quem trabalha tem uma razão para fazer, e muitas vezes é o pagamento.",
-      "O pão não aparece sozinho, alguém o faz."
+      "A tia consegue entregar os bolos, e você ainda brinca.",
+      "Ela contava com você, e os bolos podem atrasar.",
+      "Você foi sincero, mas a tia fica sem a sua ajuda."
     ],
     "faixa": "5–7",
     "tema": "Trabalho e ganhar dinheiro"
@@ -1294,7 +1294,7 @@ const CARDS = [
     "opts": [
       "Fazer a viagem de uma vez e atrasar contas.",
       "Guardar R$ 100 por mês até chegar nos R$ 800.",
-      "Cancelar as contas fixas para viajar."
+      "Parcelar a viagem no cartão em 8 vezes de R$ 100."
     ],
     "pts": [
       -1,
@@ -1304,7 +1304,7 @@ const CARDS = [
     "why": [
       "Atrasar contas costuma custar mais do que a viagem.",
       "Planeja sem faltar com o essencial.",
-      "Resolve a viagem, mas perde serviços necessários."
+      "Cabe no mês, mas ela viaja já devendo e prende o salário por 8 meses."
     ],
     "faixa": "8–11",
     "tema": "Trabalho e ganhar dinheiro"
