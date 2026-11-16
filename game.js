@@ -8,7 +8,7 @@ const KEY_SAVE='mdp-pocket-v3-save',KEY_TUT='mdp-pocket-v3-tut';
 /* Chaves autorizadas em 14/11/2026 (ver CLAUDE.md) */
 const KEY_CHAR='mdp-pocket-char',KEY_SOM='mdp-pocket-som',KEY_CONQ='mdp-pocket-conquistas',KEY_FB='mdp-pocket-fb';
 /* Versão que vai no resumo do feedback, para saber de qual jogo veio cada resposta */
-const VERSAO_JOGO='2026-11-15 (lotes 2 e 3: faixa 13+)';
+const VERSAO_JOGO='2026-11-15 (revisão das cartas; opções da cena sorteadas)';
 const PERSONAGENS=['Caio','Mel','Leticia','Vinicius','Bia','Tiko'];
 /* Faixas: a chave '8–11' continua (álbum salvo depende dela), mas aparece como 8 a 12 anos. '13+' = jovens e adultos. */
 const FAIXAS=['5–7','8–11','13+'];
@@ -51,7 +51,7 @@ function montarBaralho(pool,len){const a=albumList();
 function newGame(mode,names,rule,helps,faixa,len,ch,cena){const pool=CARDS.map((c,i)=>i).filter(i=>faixa==='todas'||!CARDS[i].faixa||CARDS[i].faixa===faixa);
  S={mode,names,rule,helps,faixa,len,char:ch||null,cena:cena!==false,life:[{dica:0,opc:0,falsa:0},{dica:0,opc:0,falsa:0}],deck:montarBaralho(pool,len),round:0,score:[0,0],log:[],t0:Date.now()};startRound()}
 function startRound(){
- R={k:1,shown:1,blocked:false,nextBlocked:false,elim:false,correctAt:0,disc:0,bonus:0,fakePick:null,choice:null,msg:null,msgKind:'',showKey:false,adults:0,guesses:0,nears:0,lifeUsed:false,lifeKind:'',hint:null,options:null,fakeKnown:false};
+ R={k:1,shown:1,blocked:false,nextBlocked:false,elim:false,correctAt:0,disc:0,bonus:0,fakePick:null,choice:null,msg:null,msgKind:'',showKey:false,adults:0,guesses:0,nears:0,lifeUsed:false,lifeKind:'',hint:null,options:null,fakeKnown:false,ord:shuffle([0,1,2])};
  /* Modo solo: o Robô das Pistas escolhe a opção dele na cena (mais vezes a melhor) para comentar depois; não pontua */
  if(S.mode==='solo'){const c=card(),idx=[...c.pts.keys()].sort((a,b)=>c.pts[b]-c.pts[a]),q=Math.random();R.robo=q<.6?idx[0]:q<.9?idx[1]:idx[2]}
  if(isBot(team())){const c=card();const r=Math.random();const k=r<.12?0:r<.3?2:r<.55?3:r<.75?4:r<.9?5:6;
@@ -184,23 +184,25 @@ function viewFalse(c){const done=R.fakePick!==null;
 function viewReveal(c){return `<div class="card">${banner(c,true,'think')}<div class="body">${msgBox()}<div class="msg"><b>${R.elim?'O leitor encerra as pistas.':'Acabaram as pistas.'}</b> A resposta era <b>${esc(c.title)}</b>. Sem pontos de descoberta nesta carta${S.cena===false?'.':', mas a equipe continua para a cena.'}</div>${clueList(c)}${botaoCena()}</div></div>`}
 function viewScene(c,res){
  const L='ABC';
+ /* Ordem das opções sorteada a cada carta (R.ord): a letra mostrada é a posição na tela; os pontos seguem a opção */
+ const ord=R.ord||[0,1,2],LL=i=>L[ord.indexOf(i)];
  const best=Math.max(...c.pts),worst=Math.min(...c.pts);
- const um=i=>{const cls=['opt',L[i],R.choice===i?'sel':'',res&&c.pts[i]===best?'best':'',res&&c.pts[i]===worst?'worst':''].join(' ');
+ const um=i=>{const cls=['opt',LL(i),R.choice===i?'sel':'',res&&c.pts[i]===best?'best':'',res&&c.pts[i]===worst?'worst':''].join(' ');
   /* No resultado, o porquê vem antes e o número aparece por último (classe .late) */
-  const inner=`<div class="l" aria-hidden="true">${L[i]}</div><span class="x">${esc(c.opts[i])}${res?`<span class="why">${esc(c.why[i])}</span>`:''}</span>${res?(c.pts[i]<0?`<span class="pts neg late">${c.pts[i]}<small>pense de novo</small></span>`:`<span class="pts late">${c.pts[i]>0?'+':''}${c.pts[i]}</span>`):''}`;
+  const inner=`<div class="l" aria-hidden="true">${LL(i)}</div><span class="x">${esc(c.opts[i])}${res?`<span class="why">${esc(c.why[i])}</span>`:''}</span>${res?(c.pts[i]<0?`<span class="pts neg late">${c.pts[i]}<small>pense de novo</small></span>`:`<span class="pts late">${c.pts[i]>0?'+':''}${c.pts[i]}</span>`):''}`;
   return res?`<div class="${cls}">${inner}</div>`:`<button class="${cls}" aria-pressed="${R.choice===i}" onclick="pickOpt(${i})">${inner}</button>`};
  /* Resultado: primeiro a opção escolhida, depois as outras */
- let opts=res?`<div class="lab">${S.mode==='solo'?'Você escolheu':'Vocês escolheram'}</div>${um(R.choice)}<div class="lab">As outras opções</div>${[0,1,2].filter(i=>i!==R.choice).map(um).join('')}`:[0,1,2].map(um).join('');
+ let opts=res?`<div class="lab">${S.mode==='solo'?'Você escolheu':'Vocês escolheram'}</div>${um(R.choice)}<div class="lab">As outras opções</div>${ord.filter(i=>i!==R.choice).map(um).join('')}`:ord.map(um).join('');
  let foot='';
  if(!res)foot=`<p class="hint">${S.mode==='solo'?'Escolha sem ver os pontos.':'A equipe escolhe sem ver os pontos. O leitor mostra o resultado depois.'}</p><button class="btn-y full" ${R.choice===null?'disabled':''} onclick="confirmScene()">Confirmar escolha</button>`;
  else{const tot=R.disc+R.bonus+R.sp;
-  const robo=S.mode==='solo'&&R.robo!==undefined?`<div class="msg robo"><span aria-hidden="true">🤖</span> <b>Robô das Pistas:</b> ${R.robo===R.choice?'eu escolheria a mesma coisa!':'eu escolheria a <b>'+L[R.robo]+'</b>.'} ${esc(c.why[R.robo])}</div>`:'';
+  const robo=S.mode==='solo'&&R.robo!==undefined?`<div class="msg robo"><span aria-hidden="true">🤖</span> <b>Robô das Pistas:</b> ${R.robo===R.choice?'eu escolheria a mesma coisa!':'eu escolheria a <b>'+LL(R.robo)+'</b>.'} ${esc(c.why[R.robo])}</div>`:'';
   foot=`<div class="msg"><b>${S.mode==='solo'?'Por quê':'Leitor explica'}:</b> ${esc(c.why[R.choice])}</div>${robo}<div class="sum"><div><span>Descoberta</span><span>+${R.disc}</span></div><div><span>Pista falsa</span><span>+${R.bonus}</span></div><div><span>Cena e escolha</span><span>${R.sp>0?'+':''}${R.sp}</span></div><div class="tot"><span>Total da carta</span><span>${tot>0?'+':''}${tot}</span></div></div><button class="btn-y full" onclick="next()">${S.round>=S.len-1?'Ver resultado':'Próxima carta'}</button>`}
  return `<div class="card">${banner(c,true)}<div class="body"><div class="lab">Cena e escolha</div><p style="font-weight:600">${esc(c.scene)}</p><p><b>O que vocês fariam?</b></p><div class="stack">${opts}</div>${foot}</div></div>`}
 function viewBot(c){const b=R.bot,L='ABC';
  return `<div class="who"><b>${esc(S.names[1])}</b> joga esta carta (jogo simulado, só para teste).</div><div class="card">${banner(c,true)}<div class="body"><div class="lab">Vez do jogo</div>
  <p>${b.k?`Descobriu o conceito na pista ${b.k}: <b>+${b.disc}</b>.`:'Não descobriu o conceito: <b>0</b>.'}</p><p>${b.k?(b.bonus?'Acertou a pista falsa: <b>+2</b>.':'Errou a pista falsa: <b>0</b>.'):'Sem pista falsa nesta carta.'}</p>
- <p>Escolheu <b>${L[b.choice]}</b>: ${esc(c.opts[b.choice])} (<b>${b.sp>0?'+':''}${b.sp}</b>)</p><div class="msg">${esc(c.why[b.choice])}</div>
+ <p>Escolheu <b>${L[(R.ord||[0,1,2]).indexOf(b.choice)]}</b>: ${esc(c.opts[b.choice])} (<b>${b.sp>0?'+':''}${b.sp}</b>)</p><div class="msg">${esc(c.why[b.choice])}</div>
  <p class="hint">O resultado do jogo é sorteado e não mede o conhecimento de ninguém. Esta carta serve para vocês lerem e conversarem.</p>
  <details class="small"><summary style="font-weight:800;cursor:pointer;min-height:44px;display:flex;align-items:center">Ver as 6 pistas</summary><div style="margin-top:8px">${(()=>{const o=R.shown;R.shown=6;const h=clueList(c);R.shown=o;return h})()}</div></details>
  <button class="btn-y full" onclick="botDone()">${S.round>=S.len-1?'Ver resultado':'Minha vez'}</button></div></div>`}

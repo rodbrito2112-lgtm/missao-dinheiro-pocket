@@ -74,19 +74,19 @@ const CARDS = [
     ],
     "scene": "Um suco custa R$ 7. Você paga com uma nota de R$ 10, e o caixa devolve só R$ 2.",
     "opts": [
-      "Contar na hora e avisar que falta R$ 1.",
+      "Contar em casa e voltar outro dia.",
       "Guardar sem contar e sair correndo.",
-      "Contar em casa e voltar outro dia."
+      "Contar na hora e avisar que falta R$ 1."
     ],
     "pts": [
-      2,
+      1,
       -1,
-      1
+      2
     ],
     "why": [
-      "Avisar na hora é o jeito mais fácil de resolver.",
+      "Você percebe o erro, mas depois fica mais difícil de resolver.",
       "Sem contar, você perde R$ 1 e nem percebe.",
-      "Você percebe o erro, mas depois fica mais difícil de resolver."
+      "Avisar na hora é o jeito mais fácil de resolver."
     ],
     "faixa": "5–7",
     "tema": "Consumo e escolhas"
@@ -928,18 +928,18 @@ const CARDS = [
     "scene": "Você vai pagar R$ 12 num lanche. O dono do quiosque mostra um código para pagar por Pix. O valor que aparece no seu celular é R$ 120.",
     "opts": [
       "Pagar rápido porque está com pressa.",
-      "Parar, conferir o valor e falar com o responsável.",
-      "Não pagar pelo código e pagar em dinheiro, sem avisar o dono."
+      "Não pagar pelo código e pagar em dinheiro, sem avisar o dono.",
+      "Parar, conferir o valor e falar com o responsável."
     ],
     "pts": [
       -1,
-      2,
-      1
+      1,
+      2
     ],
     "why": [
       "O erro pode custar caro e nem sempre dá para voltar.",
-      "Conferir antes evita um erro difícil de corrigir.",
-      "Evita o erro, mas o código errado continua lá para o próximo cliente."
+      "Evita o erro, mas o código errado continua lá para o próximo cliente.",
+      "Conferir antes evita um erro difícil de corrigir."
     ],
     "faixa": "8–11",
     "tema": "Dinheiro digital e segurança"
@@ -972,19 +972,19 @@ const CARDS = [
     ],
     "scene": "Um amigo pede a senha do seu jogo para \"dar uma força\" no nível. Ele promete devolver os itens.",
     "opts": [
+      "Dar a senha só por um minuto e trocar depois.",
       "Dar a senha porque é um amigo.",
-      "Não dar e jogar junto sem mostrar a senha.",
-      "Dar a senha só por um minuto e trocar depois."
+      "Não dar e jogar junto sem mostrar a senha."
     ],
     "pts": [
+      1,
       -1,
-      2,
-      1
+      2
     ],
     "why": [
+      "Reduz o risco, mas a senha já foi vista.",
       "A senha é só sua. Passar para outra pessoa tira a proteção.",
-      "Você ajuda e mantém a conta protegida.",
-      "Reduz o risco, mas a senha já foi vista."
+      "Você ajuda e mantém a conta protegida."
     ],
     "faixa": "8–11",
     "tema": "Dinheiro digital e segurança"
@@ -1069,18 +1069,18 @@ const CARDS = [
     "scene": "Sua família usa o cartão de crédito para comprar um sofá de R$ 1.200 em 4 vezes de R$ 300. O dinheiro do mês já está comprometido com contas.",
     "opts": [
       "Comprar e depois ver como paga a fatura.",
-      "Conferir se a parcela cabe no que entra todo mês antes de comprar.",
-      "Parcelar em 8 vezes de R$ 150 para caber no mês."
+      "Parcelar em 8 vezes de R$ 150 para caber no mês.",
+      "Conferir se a parcela cabe no que entra todo mês antes de comprar."
     ],
     "pts": [
       -1,
-      2,
-      1
+      1,
+      2
     ],
     "why": [
       "Pode virar dívida se a fatura passar do que entra.",
-      "Evita assumir mais do que cabe.",
-      "A parcela cabe, mas o compromisso dura o dobro do tempo e pode ter juros."
+      "A parcela cabe, mas o compromisso dura o dobro do tempo e pode ter juros.",
+      "Evita assumir mais do que cabe."
     ],
     "faixa": "8–11",
     "tema": "Dinheiro digital e segurança"
@@ -1203,19 +1203,19 @@ const CARDS = [
     ],
     "scene": "Você recebe R$ 10 de mesada por semana. Hoje, na escola, há uma feira de livros de R$ 8 e um colega chama para comprar um doce de R$ 5.",
     "opts": [
-      "Comprar o livro e deixar o doce para a próxima semana.",
+      "Guardar R$ 10 e não comprar nada.",
       "Gastar R$ 10 em doces.",
-      "Guardar R$ 10 e não comprar nada."
+      "Comprar o livro e deixar o doce para a próxima semana."
     ],
     "pts": [
-      2,
+      1,
       -1,
-      1
+      2
     ],
     "why": [
-      "Escolhe uma coisa por vez com a mesada.",
+      "Guarda, mas deixa o livro sem chance.",
       "Gasta tudo sem pensar no que vem depois.",
-      "Guarda, mas deixa o livro sem chance."
+      "Escolhe uma coisa por vez com a mesada."
     ],
     "faixa": "5–7",
     "tema": "Trabalho e ganhar dinheiro"
@@ -1292,19 +1292,19 @@ const CARDS = [
     ],
     "scene": "Sua tia recebe R$ 2.000 de salário. Ela tem R$ 1.500 de contas fixas e quer fazer uma viagem de R$ 800.",
     "opts": [
+      "Parcelar a viagem no cartão em 8 vezes de R$ 100.",
       "Fazer a viagem de uma vez e atrasar contas.",
-      "Guardar R$ 100 por mês até chegar nos R$ 800.",
-      "Parcelar a viagem no cartão em 8 vezes de R$ 100."
+      "Guardar R$ 100 por mês até chegar nos R$ 800."
     ],
     "pts": [
+      1,
       -1,
-      2,
-      1
+      2
     ],
     "why": [
+      "Cabe no mês, mas ela viaja já devendo e prende o salário por 8 meses.",
       "Atrasar contas costuma custar mais do que a viagem.",
-      "Planeja sem faltar com o essencial.",
-      "Cabe no mês, mas ela viaja já devendo e prende o salário por 8 meses."
+      "Planeja sem faltar com o essencial."
     ],
     "faixa": "8–11",
     "tema": "Trabalho e ganhar dinheiro"
