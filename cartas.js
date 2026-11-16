@@ -3627,6 +3627,458 @@ const CARDS = [
     ],
     "faixa": "13+",
     "tema": "Poupar e guardar"
+  },
+  {
+    "title": "Maquininha",
+    "char": "Caio",
+    "icon": "📟",
+    "p": [
+      "Fica no balcão da padaria ou da loja.",
+      "Tem teclas e uma telinha.",
+      "Ela faz dinheiro aparecer do nada.",
+      "Você encosta ou coloca o cartão nela.",
+      "Às vezes pede uma senha.",
+      "É a máquina de pagar com cartão."
+    ],
+    "fake": 3,
+    "correct": [
+      "maquininha",
+      "maquininha de cartão",
+      "máquina de cartão",
+      "máquina de pagar"
+    ],
+    "near": [
+      "cartão",
+      "caixa",
+      "senha",
+      "pix",
+      "caixa eletrônico"
+    ],
+    "scene": "Na padaria, o pão custa R$ 6. Sua mãe passa o cartão, e a maquininha mostra R$ 60.",
+    "opts": [
+      "Contar para a mãe depois, em casa.",
+      "Avisar a mãe para olhar o valor antes de pagar.",
+      "Ficar quieto, porque a máquina nunca erra."
+    ],
+    "pts": [
+      1,
+      2,
+      -1
+    ],
+    "why": [
+      "É bom contar, mas depois fica mais difícil de resolver.",
+      "Ela confere e corrige antes de pagar.",
+      "A máquina também pode estar com o valor errado."
+    ],
+    "faixa": "5–7",
+    "tema": "Dinheiro digital e segurança"
+  },
+  {
+    "title": "Cliente",
+    "char": "Mel",
+    "icon": "🛍️",
+    "p": [
+      "Aparece em lojas, feiras e barraquinhas.",
+      "É quem vende as coisas na loja.",
+      "Escolhe o que quer levar.",
+      "Paga para quem vende.",
+      "Toda loja precisa de muitos deles.",
+      "É a pessoa que compra."
+    ],
+    "fake": 2,
+    "correct": [
+      "cliente",
+      "clientes",
+      "comprador",
+      "freguês",
+      "consumidor",
+      "quem compra"
+    ],
+    "near": [
+      "vendedor",
+      "loja",
+      "dinheiro",
+      "comprar"
+    ],
+    "scene": "Você vende pulseiras na feira da escola. Uma cliente pergunta se tem de outra cor.",
+    "opts": [
+      "Dizer que não tem e virar de costas.",
+      "Mostrar as cores que tem e ser gentil.",
+      "Prometer outra cor para amanhã, sem saber se vai dar."
+    ],
+    "pts": [
+      -1,
+      2,
+      1
+    ],
+    "why": [
+      "Ela vai embora e não volta mais.",
+      "Cliente bem tratado volta e conta para os amigos.",
+      "Ela fica contente, mas você prometeu algo que talvez não consiga cumprir."
+    ],
+    "faixa": "5–7",
+    "tema": "Trabalho e ganhar dinheiro"
+  },
+  {
+    "title": "Desperdício",
+    "char": "Tiko",
+    "icon": "🗑️",
+    "p": [
+      "Pode acontecer com comida, água ou luz.",
+      "É usar mais do que precisa.",
+      "Ajuda a sobrar mais dinheiro no fim do mês.",
+      "Muitas vezes acaba no lixo.",
+      "Torneira aberta à toa é um exemplo.",
+      "É gastar à toa e jogar coisas fora."
+    ],
+    "fake": 3,
+    "correct": [
+      "desperdício",
+      "desperdiçar",
+      "gastar à toa",
+      "jogar comida fora"
+    ],
+    "near": [
+      "lixo",
+      "gastar",
+      "jogar fora",
+      "economizar"
+    ],
+    "scene": "No almoço, você coloca muita comida no prato e não consegue comer tudo.",
+    "opts": [
+      "Comer tudo, mesmo sem fome.",
+      "Jogar o resto fora e não pensar nisso.",
+      "Da próxima vez, servir um pouco e repetir se tiver fome."
+    ],
+    "pts": [
+      1,
+      -1,
+      2
+    ],
+    "why": [
+      "Não joga fora, mas comer sem fome faz mal.",
+      "Comida e dinheiro vão para o lixo.",
+      "Ninguém joga comida fora, e você come o quanto precisa."
+    ],
+    "faixa": "5–7",
+    "tema": "Consumo e escolhas"
+  },
+  {
+    "title": "Banco",
+    "char": "Vinicius",
+    "icon": "🏦",
+    "p": [
+      "Tem prédio na rua e também app no celular.",
+      "Guarda o dinheiro de muitas pessoas.",
+      "Lá o dinheiro fica mais seguro do que no bolso.",
+      "Ele dá dinheiro de presente para quem pedir.",
+      "Dá para ter uma conta e um cartão nele.",
+      "É o lugar que guarda e cuida do dinheiro das pessoas."
+    ],
+    "fake": 4,
+    "correct": [
+      "banco",
+      "agência",
+      "agência bancária"
+    ],
+    "near": [
+      "cofrinho",
+      "conta",
+      "caixa eletrônico",
+      "poupança",
+      "dinheiro"
+    ],
+    "scene": "Você juntou R$ 100 no cofrinho, e ele já está cheio. A família tem conta no banco.",
+    "opts": [
+      "Pedir para um adulto guardar o dinheiro numa conta no banco.",
+      "Guardar num segundo cofrinho.",
+      "Esconder o dinheiro dentro do travesseiro."
+    ],
+    "pts": [
+      2,
+      1,
+      -1
+    ],
+    "why": [
+      "No banco, o dinheiro fica protegido e anotado.",
+      "Funciona, mas o dinheiro continua em casa, sem proteção.",
+      "Dá para perder ou esquecer onde está."
+    ],
+    "faixa": "5–7",
+    "tema": "Poupar e guardar"
+  },
+  {
+    "title": "Investimento",
+    "char": "Leticia",
+    "icon": "🌱",
+    "p": [
+      "Começa com um dinheiro que você não vai usar agora.",
+      "Você coloca esse dinheiro num lugar para ele crescer.",
+      "Existem vários tipos, uns mais seguros e outros mais arriscados.",
+      "Quanto mais tempo, mais ele pode render.",
+      "Todo investimento dobra o dinheiro em poucos dias.",
+      "É aplicar o dinheiro para que ele cresça com o tempo."
+    ],
+    "fake": 5,
+    "correct": [
+      "investimento",
+      "investimentos",
+      "investir",
+      "aplicar dinheiro",
+      "aplicação"
+    ],
+    "near": [
+      "poupança",
+      "juros",
+      "guardar",
+      "renda fixa",
+      "ações"
+    ],
+    "scene": "Você ganhou R$ 200 de presente e não precisa de nada agora. Seu tio diz que dá para investir com segurança.",
+    "opts": [
+      "Deixar o dinheiro no cofrinho.",
+      "Investir com ajuda do tio num lugar seguro e acompanhar o crescimento.",
+      "Colocar tudo num app que promete dobrar o dinheiro em uma semana."
+    ],
+    "pts": [
+      1,
+      2,
+      -1
+    ],
+    "why": [
+      "Fica seguro, mas não cresce nada.",
+      "O dinheiro fica protegido e cresce um pouco com o tempo.",
+      "Promessa de dobrar rápido é sinal de golpe."
+    ],
+    "faixa": "8–11",
+    "tema": "Poupar e guardar"
+  },
+  {
+    "title": "Campanha solidária",
+    "char": "Bia",
+    "icon": "🧥",
+    "p": [
+      "Pode acontecer na escola, na igreja ou no bairro.",
+      "Muitas pessoas juntam coisas para quem precisa.",
+      "Só vale se doar dinheiro.",
+      "Precisa de organização: divulgar, recolher e entregar.",
+      "Agasalhos, alimentos e brinquedos são exemplos.",
+      "É uma ação em grupo para ajudar quem precisa."
+    ],
+    "fake": 3,
+    "correct": [
+      "campanha solidária",
+      "campanha",
+      "arrecadação",
+      "campanha do agasalho",
+      "ação solidária"
+    ],
+    "near": [
+      "doar",
+      "doação",
+      "voluntariado",
+      "vaquinha"
+    ],
+    "scene": "Sua turma vai organizar uma campanha do agasalho. Você ficou responsável pelos cartazes.",
+    "opts": [
+      "Não fazer, achando que alguém faz no seu lugar.",
+      "Fazer um cartaz bonito, mas sem dizer onde deixar as doações.",
+      "Fazer cartazes dizendo o que doar, onde deixar e até quando."
+    ],
+    "pts": [
+      -1,
+      1,
+      2
+    ],
+    "why": [
+      "Sem cartaz, pouca gente fica sabendo.",
+      "Chama a atenção, mas as pessoas não sabem onde levar.",
+      "As pessoas sabem como ajudar, e a campanha arrecada mais."
+    ],
+    "faixa": "8–11",
+    "tema": "Ajudar e compartilhar"
+  },
+  {
+    "title": "Imposto",
+    "char": "Leticia",
+    "icon": "🏫",
+    "p": [
+      "Aparece no preço de quase tudo que se compra.",
+      "Pessoas e empresas pagam.",
+      "O dinheiro vai para o governo.",
+      "Fica guardado pelo governo e nunca é usado.",
+      "Ajuda a pagar escola pública, posto de saúde e rua asfaltada.",
+      "É o dinheiro que todos pagam para cuidar do que é de todos."
+    ],
+    "fake": 4,
+    "correct": [
+      "imposto",
+      "impostos",
+      "tributo",
+      "tributos",
+      "taxa do governo"
+    ],
+    "near": [
+      "nota fiscal",
+      "taxa",
+      "governo",
+      "conta"
+    ],
+    "scene": "Na nota fiscal do mercado aparece: \"Valor aproximado dos tributos: R$ 8\". Seu primo diz que imposto não serve para nada.",
+    "opts": [
+      "Dizer que não sabe e pesquisar com um adulto para onde vai o imposto.",
+      "Concordar que é dinheiro jogado fora.",
+      "Mostrar que esse dinheiro ajuda a pagar escola, posto de saúde e ruas."
+    ],
+    "pts": [
+      1,
+      -1,
+      2
+    ],
+    "why": [
+      "Pesquisar é bom, e vocês vão descobrir para onde vai.",
+      "Sem imposto, não teria escola pública nem posto de saúde.",
+      "Você explica para que serve o que todo mundo paga."
+    ],
+    "faixa": "8–11",
+    "tema": "Trabalho e ganhar dinheiro"
+  },
+  {
+    "title": "Cashback",
+    "char": "Tiko",
+    "icon": "💸",
+    "p": [
+      "Aparece em apps, cartões e lojas online.",
+      "Uma parte do dinheiro gasto volta para você.",
+      "Quanto mais você gasta, mais rico você fica.",
+      "Só vale se você comprar.",
+      "Às vezes demora para cair ou vira crédito só naquela loja.",
+      "É receber de volta uma parte do que gastou."
+    ],
+    "fake": 3,
+    "correct": [
+      "cashback",
+      "cash back",
+      "dinheiro de volta",
+      "parte do dinheiro de volta"
+    ],
+    "near": [
+      "desconto",
+      "reembolso",
+      "promoção",
+      "pontos",
+      "milhas"
+    ],
+    "scene": "Um app oferece 10% de cashback em tênis. Você não precisava de tênis novo, mas no de R$ 300 voltariam R$ 30.",
+    "opts": [
+      "Não comprar: cashback só vale a pena no que você já ia comprar.",
+      "Comprar um tênis mais barato só para aproveitar o cashback.",
+      "Comprar, porque vai ganhar R$ 30."
+    ],
+    "pts": [
+      2,
+      1,
+      -1
+    ],
+    "why": [
+      "Cashback é bom quando a compra já estava nos planos.",
+      "Gasta menos, mas ainda compra algo de que não precisava.",
+      "Você gasta R$ 300 para receber R$ 30: no fim, sai com R$ 270 a menos."
+    ],
+    "faixa": "13+",
+    "tema": "Consumo e escolhas"
+  },
+  {
+    "title": "Sócio",
+    "char": "Mel",
+    "icon": "👥",
+    "p": [
+      "Tem a ver com abrir ou cuidar de um negócio.",
+      "São duas ou mais pessoas no mesmo projeto.",
+      "Cada um pode entrar com dinheiro, trabalho ou ideias.",
+      "Na hora do prejuízo, só um paga; o lucro é de todos.",
+      "Combinar tudo por escrito evita briga.",
+      "É quem divide um negócio com você."
+    ],
+    "fake": 4,
+    "correct": [
+      "sócio",
+      "sócios",
+      "sócia",
+      "sociedade",
+      "parceiro de negócio"
+    ],
+    "near": [
+      "amigo",
+      "empresa",
+      "empreender",
+      "parceiro",
+      "mei"
+    ],
+    "scene": "Você e uma amiga querem vender brigadeiros juntas. Você entra com a cozinha, e ela com o dinheiro dos ingredientes.",
+    "opts": [
+      "Começar sem combinar nada, porque são amigas.",
+      "Combinar por escrito quem faz o quê e como dividir o lucro e os gastos.",
+      "Combinar só de boca como dividir o lucro."
+    ],
+    "pts": [
+      -1,
+      2,
+      1
+    ],
+    "why": [
+      "Na primeira dúvida sobre dinheiro, pode surgir briga.",
+      "Fica claro para as duas, e a amizade fica protegida.",
+      "Ajuda, mas o que é combinado de boca é fácil de esquecer."
+    ],
+    "faixa": "13+",
+    "tema": "Trabalho e ganhar dinheiro"
+  },
+  {
+    "title": "Vaquinha online",
+    "char": "Vinicius",
+    "icon": "🌐",
+    "p": [
+      "Aparece em redes sociais e em sites de doação.",
+      "Toda campanha na internet é verdadeira.",
+      "Alguém conta uma história e pede ajuda.",
+      "Muita gente doa um pouco pela internet.",
+      "Vale conferir quem organiza e para onde vai o dinheiro.",
+      "É juntar doações de muitas pessoas pela internet."
+    ],
+    "fake": 2,
+    "correct": [
+      "vaquinha online",
+      "vaquinha virtual",
+      "vaquinha na internet",
+      "crowdfunding",
+      "doação online"
+    ],
+    "near": [
+      "vaquinha",
+      "doação",
+      "doar",
+      "golpe",
+      "pix"
+    ],
+    "scene": "Um perfil que você não conhece pede Pix para o tratamento de um cachorro. Tem foto, mas não diz quem organiza.",
+    "opts": [
+      "Doar na hora, porque a foto é muito triste.",
+      "Não doar e seguir em frente.",
+      "Procurar quem organiza e doar por uma plataforma ou ONG em que você confia."
+    ],
+    "pts": [
+      -1,
+      1,
+      2
+    ],
+    "why": [
+      "A pressa é o que golpistas querem, e a foto pode ser de outro lugar.",
+      "Você se protege, mas perde a chance de ajudar alguém de verdade.",
+      "Você ajuda e sabe para onde vai o dinheiro."
+    ],
+    "faixa": "13+",
+    "tema": "Ajudar e compartilhar"
   }
 ];
 
@@ -3641,7 +4093,7 @@ const EXTRA={
 'Meta':{tipo:'É algo que você planeja alcançar.',nudge:'Pense: um objetivo com valor e prazo.',sets:[['meta'],['objetivo'],['alvo']]},
 'Empréstimo':{tipo:'É algo que você pega e depois devolve.',nudge:'Pense: alguém deixa uma coisa com você só por um tempo.',sets:[['emprest']]}
 };
-Object.assign(EXTRA,{"Cofrinho": {"tipo": "É um objeto, não uma ação.", "nudge": "Pense: onde uma criança guarda moedas em casa?", "sets": [["cofr"], ["porquinho"], ["guardar", "dinheiro"]]}, "Economizar": {"tipo": "É uma ação (verbo).", "nudge": "Pense: o que você faz para sobrar mais dinheiro?", "sets": [["economiz"], ["gastar", "menos"], ["poup"]]}, "Poupança": {"tipo": "É um hábito, que se repete.", "nudge": "Pense: o que acontece quando você guarda um pouquinho sempre?", "sets": [["poupanc"], ["poupar"], ["guardar", "mes"]]}, "Juros": {"tipo": "É um valor extra, e depende do tempo.", "nudge": "Pense: o que muda no dinheiro guardado depois de muitos meses?", "sets": [["juro"], ["rendimento"], ["valor", "extra"], ["valor", "mais", "tempo"]]}, "Reserva de emergência": {"tipo": "É dinheiro guardado com um propósito.", "nudge": "Pense: para qual tipo de dia esse dinheiro foi guardado?", "sets": [["reserva"], ["emerg", "guard"], ["dinheiro", "imprevisto"]]}, "Esperar para comprar": {"tipo": "É uma atitude, tem tempo envolvido.", "nudge": "Pense: o que você faz antes de levar uma coisa para casa?", "sets": [["esper"], ["pacienc"], ["adiar"], ["comprar", "depois"]]}, "Necessidade": {"tipo": "É um tipo de coisa que se precisa.", "nudge": "Pense: sem o que você não consegue viver bem?", "sets": [["necessid"], ["essencial"], ["preciso"]]}, "Desejo": {"tipo": "É um sentimento, não um objeto.", "nudge": "Pense: como se chama o que você sente ao ver algo e dizer \"eu quero\"?", "sets": [["desej"], ["vontade"], ["quero"], ["quer"]]}, "Propaganda": {"tipo": "É uma mensagem, não um produto.", "nudge": "Pense: o que quer te convencer a comprar enquanto você vê um vídeo?", "sets": [["propagand"], ["anunc"], ["publicid"], ["comercial"]]}, "Compra por impulso": {"tipo": "É um jeito de comprar.", "nudge": "Pense: como se chama comprar de repente, só pela emoção?", "sets": [["impuls"], ["sem", "pens"], ["sem", "planej"]]}, "Custo-benefício": {"tipo": "É uma forma de comparar.", "nudge": "Pense: o que se compara além do preço?", "sets": [["custo", "benef"], ["vale", "pena"], ["qualidade", "preco"]]}, "Lista de compras": {"tipo": "É um papel ou nota, não uma ação.", "nudge": "Pense: o que a família escreve antes de ir ao mercado?", "sets": [["lista"], ["anotar", "compr"]]}, "Pix": {"tipo": "É um meio de pagamento.", "nudge": "Pense: como se paga na hora pelo celular, com uma chave?", "sets": [["pix"], ["pagar", "celular"], ["pagamento", "instant"]]}, "Senha": {"tipo": "É um segredo, feito de letras e números.", "nudge": "Pense: o que protege a sua conta e só você sabe?", "sets": [["senha"], ["codigo", "secret"], ["segredo", "acesso"]]}, "Compra online": {"tipo": "É um jeito de comprar.", "nudge": "Pense: como se compra sem sair de casa?", "sets": [["compra", "online"], ["comprar", "internet"], ["comprar", "site"], ["online"], ["compra", "digital"], ["compra", "virtual"], ["comprar", "app"]]}, "Cartão de crédito": {"tipo": "É um objeto e também uma forma de pagar.", "nudge": "Pense: como se chama o cartão que você paga depois, na fatura?", "sets": [["cartao", "credito"], ["credito"], ["cartao", "fatura"], ["pagar", "depois"]]}, "Saldo": {"tipo": "É um número sobre o seu dinheiro.", "nudge": "Pense: como se chama o número que mostra quanto sobrou?", "sets": [["saldo"], ["quanto", "tenho"], ["dinheiro", "sobrou"], ["quanto", "conta"]]}, "Código de verificação": {"tipo": "É um número, e vale por pouco tempo.", "nudge": "Pense: o que chega por mensagem para provar que é você?", "sets": [["codigo"], ["verific"], ["numero", "uso", "unico"]]}, "Mesada": {"tipo": "É um dinheiro, vem de alguém da família.", "nudge": "Pense: como se chama o dinheiro combinado que a criança recebe?", "sets": [["mesada"], ["semanada"]]}, "Trabalho": {"tipo": "É uma ação, e muita gente faz todo dia.", "nudge": "Pense: o que o seu pai ou mãe faz para ganhar dinheiro?", "sets": [["trabalh"], ["emprego"], ["profiss"]]}, "Salário": {"tipo": "É um pagamento, com data certa.", "nudge": "Pense: o que chega todo mês para quem trabalha?", "sets": [["salario"], ["ordenado"], ["pagamento", "trabalh"]]}, "Lucro": {"tipo": "É um resultado de uma conta.", "nudge": "Pense: o que sobra depois de tirar o que se gastou?", "sets": [["lucro"], ["sobra", "venda"], ["ganho", "custo"], ["sobra", "custo"]]}, "Renda extra": {"tipo": "É um dinheiro, vem além do que se recebe normalmente.", "nudge": "Pense: como se chama o dinheiro que vem de um trabalho a mais?", "sets": [["renda", "extra"], ["dinheiro", "extra"], ["dinheiro", "mais"], ["bico"]]}, "Empreender": {"tipo": "É uma ação (verbo).", "nudge": "Pense: o que se faz para criar o próprio negócio?", "sets": [["empreend"], ["criar", "negocio"], ["abrir", "negocio"], ["proprio", "negocio"]]}});
+Object.assign(EXTRA,{"Cofrinho": {"tipo": "É um objeto, não uma ação.", "nudge": "Pense: onde uma criança guarda moedas em casa?", "sets": [["cofr"], ["porquinho"], ["guardar", "dinheiro"]]}, "Economizar": {"tipo": "É uma ação (verbo).", "nudge": "Pense: o que você faz para sobrar mais dinheiro?", "sets": [["economiz"], ["gastar", "menos"], ["poup"]]}, "Poupança": {"tipo": "É um hábito, que se repete.", "nudge": "Pense: o que acontece quando você guarda um pouquinho sempre?", "sets": [["poupanc"], ["poupar"], ["guardar", "mes"]]}, "Juros": {"tipo": "É um valor extra, e depende do tempo.", "nudge": "Pense: o que muda no dinheiro guardado depois de muitos meses?", "sets": [["juro"], ["rendimento"], ["valor", "extra"], ["valor", "mais", "tempo"]]}, "Reserva de emergência": {"tipo": "É dinheiro guardado com um propósito.", "nudge": "Pense: para qual tipo de dia esse dinheiro foi guardado?", "sets": [["reserva"], ["emerg", "guard"], ["dinheiro", "imprevisto"]]}, "Esperar para comprar": {"tipo": "É uma atitude, tem tempo envolvido.", "nudge": "Pense: o que você faz antes de levar uma coisa para casa?", "sets": [["esper"], ["pacienc"], ["adiar"], ["comprar", "depois"]]}, "Necessidade": {"tipo": "É um tipo de coisa que se precisa.", "nudge": "Pense: sem o que você não consegue viver bem?", "sets": [["necessid"], ["essencial"], ["preciso"]]}, "Desejo": {"tipo": "É um sentimento, não um objeto.", "nudge": "Pense: como se chama o que você sente ao ver algo e dizer \"eu quero\"?", "sets": [["desej"], ["vontade"], ["quero"], ["quer"]]}, "Propaganda": {"tipo": "É uma mensagem, não um produto.", "nudge": "Pense: o que quer te convencer a comprar enquanto você vê um vídeo?", "sets": [["propagand"], ["anunc"], ["publicid"], ["comercial"]]}, "Compra por impulso": {"tipo": "É um jeito de comprar.", "nudge": "Pense: como se chama comprar de repente, só pela emoção?", "sets": [["impuls"], ["sem", "pens"], ["sem", "planej"]]}, "Custo-benefício": {"tipo": "É uma forma de comparar.", "nudge": "Pense: o que se compara além do preço?", "sets": [["custo", "benef"], ["vale", "pena"], ["qualidade", "preco"]]}, "Lista de compras": {"tipo": "É um papel ou nota, não uma ação.", "nudge": "Pense: o que a família escreve antes de ir ao mercado?", "sets": [["lista"], ["anotar", "compr"]]}, "Pix": {"tipo": "É um meio de pagamento.", "nudge": "Pense: como se paga na hora pelo celular, com uma chave?", "sets": [["pix"], ["pagar", "celular"], ["pagamento", "instant"]]}, "Senha": {"tipo": "É um segredo, feito de letras e números.", "nudge": "Pense: o que protege a sua conta e só você sabe?", "sets": [["senha"], ["codigo", "secret"], ["segredo", "acesso"]]}, "Compra online": {"tipo": "É um jeito de comprar.", "nudge": "Pense: como se compra sem sair de casa?", "sets": [["compra", "online"], ["comprar", "internet"], ["comprar", "site"], ["loja", "online"], ["compra", "digital"], ["compra", "virtual"], ["comprar", "app"]]}, "Cartão de crédito": {"tipo": "É um objeto e também uma forma de pagar.", "nudge": "Pense: como se chama o cartão que você paga depois, na fatura?", "sets": [["cartao", "credito"], ["credito"], ["cartao", "fatura"], ["pagar", "depois"]]}, "Saldo": {"tipo": "É um número sobre o seu dinheiro.", "nudge": "Pense: como se chama o número que mostra quanto sobrou?", "sets": [["saldo"], ["quanto", "tenho"], ["dinheiro", "sobrou"], ["quanto", "conta"]]}, "Código de verificação": {"tipo": "É um número, e vale por pouco tempo.", "nudge": "Pense: o que chega por mensagem para provar que é você?", "sets": [["codigo"], ["verific"], ["numero", "uso", "unico"]]}, "Mesada": {"tipo": "É um dinheiro, vem de alguém da família.", "nudge": "Pense: como se chama o dinheiro combinado que a criança recebe?", "sets": [["mesada"], ["semanada"]]}, "Trabalho": {"tipo": "É uma ação, e muita gente faz todo dia.", "nudge": "Pense: o que o seu pai ou mãe faz para ganhar dinheiro?", "sets": [["trabalh"], ["emprego"], ["profiss"]]}, "Salário": {"tipo": "É um pagamento, com data certa.", "nudge": "Pense: o que chega todo mês para quem trabalha?", "sets": [["salario"], ["ordenado"], ["pagamento", "trabalh"]]}, "Lucro": {"tipo": "É um resultado de uma conta.", "nudge": "Pense: o que sobra depois de tirar o que se gastou?", "sets": [["lucro"], ["sobra", "venda"], ["ganho", "custo"], ["sobra", "custo"]]}, "Renda extra": {"tipo": "É um dinheiro, vem além do que se recebe normalmente.", "nudge": "Pense: como se chama o dinheiro que vem de um trabalho a mais?", "sets": [["renda", "extra"], ["dinheiro", "extra"], ["dinheiro", "mais"], ["bico"]]}, "Empreender": {"tipo": "É uma ação (verbo).", "nudge": "Pense: o que se faz para criar o próprio negócio?", "sets": [["empreend"], ["criar", "negocio"], ["abrir", "negocio"], ["proprio", "negocio"]]}});
 /* Lote 1 de cartas novas do jogo digital (15/11/2026) */
 Object.assign(EXTRA,{"Escolha":{"tipo":"É algo que você faz antes de comprar.","nudge":"Pense: o dinheiro dá para uma coisa só. O que você faz?","sets":[["escolh"],["decid"],["decis"],["isto","aquilo"]]},"Moeda":{"tipo":"É um tipo de dinheiro que você pode pegar na mão.","nudge":"Pense: dinheiro redondo, de metal.","sets":[["moed"]]},"Três potes":{"tipo":"É um jeito de organizar o dinheiro.","nudge":"Pense: quantos potes e para que serve cada um?","sets":[["tres","pote"],["3","pote"],["pote","gastar"],["pote","guardar","ajudar"],["tres","cofr"]]},"Dinheiro de presente":{"tipo":"É dinheiro que chega de um jeito especial.","nudge":"Pense: em que dia alguém da família dá dinheiro para você?","sets":[["presente","dinheiro"],["dinheiro","aniversari"],["ganh","presente"]]},"Compra dentro do jogo":{"tipo":"É algo que aparece no meio de um jogo.","nudge":"Pense: o jogo quer que você gaste dinheiro de verdade.","sets":[["compr","jogo"],["compr","app"],["compr","aplicativ"],["gast","jogo"],["pag","jogo"]]},"Doar":{"tipo":"É uma ação de ajudar.","nudge":"Pense: dar algo para quem precisa, sem pedir nada em troca.","sets":[["doa"],["dar","precis"]]},"Compartilhar":{"tipo":"É uma ação que se faz junto com outras pessoas.","nudge":"Pense: o que você faz quando o amigo não tem lanche?","sets":[["compartilh"],["dividir"],["dividindo"],["partilh"]]},"Honestidade":{"tipo":"É uma qualidade de uma pessoa.","nudge":"Pense: devolver o que não é seu, mesmo se ninguém viu.","sets":[["honest"],["verdad"],["sincer"]]},"Custo de oportunidade":{"tipo":"É uma ideia sobre escolhas.","nudge":"Pense: quando você escolhe uma coisa, o que perde?","sets":[["oportunidad"],["deix","de ter"],["deix","de fazer"],["abr","mao"],["renunc"]]},"Orçamento":{"tipo":"É um plano.","nudge":"Pense: anotar quanto entra e quanto sai antes de gastar.","sets":[["orcament"],["planej"],["plano","gast"],["plano","dinheiro"],["control","gast"]]},"Link falso":{"tipo":"É um perigo da internet.","nudge":"Pense: um endereço de internet que parece verdadeiro, mas engana.","sets":[["link","fals"],["link","golpe"],["link","suspeit"],["link","fraud"],["site","fals"],["link","engan"]]},"Voluntariado":{"tipo":"É um jeito de ajudar.","nudge":"Pense: trabalhar de graça para ajudar a comunidade.","sets":[["voluntar"]]}});
 /* Lote 2 de cartas novas do jogo digital: faixa 13 anos ou mais (15/11/2026) */
@@ -3650,3 +4102,5 @@ Object.assign(EXTRA,{"Rotativo do cartão":{"tipo":"É um tipo de dívida.","nud
 Object.assign(EXTRA,{"Assinatura":{"tipo":"É um jeito de pagar por um serviço.","nudge":"Pense: um serviço que cobra todo mês até você cancelar.","sets":[["assinat"],["mensalid"],["cobranc","recorr"],["cobranc","todo","mes"]]},"Financiamento":{"tipo":"É um jeito de comprar algo caro.","nudge":"Pense: o banco paga a moto, e você devolve em parcelas com juros.","sets":[["financiam"]]},"Padrão de vida":{"tipo":"É um jeito de viver.","nudge":"Pense: o nível de conforto e de gastos que sobe quando a renda sobe.","sets":[["padrao","vida"],["nivel","vida"],["estilo","vida"]]},"Renegociar":{"tipo":"É uma ação de quem deve.","nudge":"Pense: conversar com quem você deve para fazer um acordo novo.","sets":[["renegoci"],["acord"],["negoci","divid"]]},"Seguro":{"tipo":"É uma proteção.","nudge":"Pense: pagar pouco todo mês para não ter um prejuízo grande.","sets":[["apolic"]]},"Diversificar":{"tipo":"É um jeito de investir.","nudge":"Pense: não colocar todos os ovos na mesma cesta.","sets":[["diversific"],["divid","invest"],["ovos","cesta"]]},"Boleto falso":{"tipo":"É um golpe.","nudge":"Pense: uma conta com código de barras que manda o dinheiro para o lugar errado.","sets":[["boleto","fals"],["boleto","golpe"],["boleto","fraud"],["boleto","adulter"]]},"QR Code falso":{"tipo":"É um golpe.","nudge":"Pense: um quadradinho de pagamento trocado por outro.","sets":[["qr","fals"],["qrcode","fals"],["qr","golpe"],["qr","troc"],["qr","adulter"]]},"MEI":{"tipo":"É um tipo de cadastro de trabalho.","nudge":"Pense: a sigla do jeito mais simples de formalizar um pequeno negócio.","sets":[["microempreend"],["formaliz"]]},"Currículo":{"tipo":"É um documento.","nudge":"Pense: o papel que você manda quando procura emprego.","sets":[["curricul"]]},"Rachar a conta":{"tipo":"É algo que se faz em grupo.","nudge":"Pense: a pizza acabou, e cada um paga um pedaço da conta.","sets":[["rach"],["divid","conta"]]},"Emprestar para amigo":{"tipo":"É uma forma de ajudar.","nudge":"Pense: dar dinheiro a um amigo, combinando que ele devolve.","sets":[["emprest","amig"],["emprest","dinheiro"]]}});
 /* Lote 4 de cartas novas do jogo digital: 5 de 5–7, 4 de 8–12, 3 de 13+ (15/11/2026) */
 Object.assign(EXTRA,{"Prioridade":{"tipo":"É um jeito de organizar escolhas.","nudge":"Pense: entre várias coisas, qual vem primeiro?","sets":[["priorid"],["primeiro","importante"],["vem","primeiro"]]},"Consertar":{"tipo":"É uma ação.","nudge":"Pense: o que se faz com um brinquedo quebrado em vez de jogar fora?","sets":[["consert"],["arrum"],["repar"]]},"Vender":{"tipo":"É uma ação de quem trabalha.","nudge":"Pense: trocar uma coisa sua por dinheiro.","sets":[["vend"]]},"Pedir ajuda":{"tipo":"É uma ação de segurança.","nudge":"Pense: quem você chama quando a tela pede coisas estranhas?","sets":[["ped","ajud"],["cham","adult"],["cham","mae"],["cham","pai"]]},"Vaquinha":{"tipo":"É algo que se faz em grupo.","nudge":"Pense: cada um coloca um pouco para comprar algo juntos.","sets":[["vaquinh"],["junt","dinheiro","grupo"],["junt","dinheiro","amig"],["junt","dinheiro","turma"]]},"Publi":{"tipo":"É um tipo de propaganda.","nudge":"Pense: o influenciador foi pago para mostrar o produto.","sets":[["publi"],["patrocin"],["post","pago"],["propaganda","influenc"]]},"Pressão dos amigos":{"tipo":"É um sentimento que vem do grupo.","nudge":"Pense: querer algo só porque todos os amigos têm.","sets":[["pressa","amig"],["pressa","grup"],["pressa","social"],["influenc","amig"]]},"Caixa surpresa":{"tipo":"É uma compra com sorteio.","nudge":"Pense: pagar sem saber o que vem dentro.","sets":[["caixa","surpres"],["caixa","mister"],["loot"],["bau"],["pacot","surpres"],["premio","sortead"]]},"Dívida":{"tipo":"É algo que alguém deve.","nudge":"Pense: o dinheiro que você prometeu pagar depois.","sets":[["deve","dinheiro"],["devend"]]},"Direito de arrependimento":{"tipo":"É um direito de quem compra.","nudge":"Pense: desistir de uma compra feita pela internet.","sets":[["arrepend"],["desist","compr"],["devol","7"],["devol","sete"]]},"Imposto de Renda":{"tipo":"É um imposto.","nudge":"Pense: a declaração que muita gente faz todo ano sobre o que ganhou.","sets":[["impost","renda"],["declarac","impost"],["leao"]]},"Aposentadoria":{"tipo":"É uma fase da vida.","nudge":"Pense: o dinheiro de quem já parou de trabalhar.","sets":[["aposent"],["previdenc"]]}});
+/* Lote 5 de cartas novas do jogo digital: 4 de 5–7, 3 de 8–12, 3 de 13+ (15/11/2026) */
+Object.assign(EXTRA,{"Maquininha":{"tipo":"É uma máquina.","nudge":"Pense: onde a gente passa o cartão para pagar na padaria?","sets":[["maquina","cartao"],["maquina","pag"]]},"Cliente":{"tipo":"É uma pessoa.","nudge":"Pense: quem compra na loja ou na barraquinha?","sets":[["client"],["fregues"],["comprador"],["quem","compr"]]},"Desperdício":{"tipo":"É um jeito de gastar.","nudge":"Pense: usar mais do que precisa e jogar fora.","sets":[["desperdic"],["gast","toa"]]},"Banco":{"tipo":"É um lugar.","nudge":"Pense: onde as pessoas guardam dinheiro numa conta?","sets":[["banc"],["agenci"]]},"Investimento":{"tipo":"É um jeito de usar o dinheiro guardado.","nudge":"Pense: colocar o dinheiro num lugar para ele crescer com o tempo.","sets":[["invest"],["aplic","dinheiro"]]},"Campanha solidária":{"tipo":"É uma ação em grupo.","nudge":"Pense: a escola junta agasalhos para quem precisa.","sets":[["campanh"],["arrecad"],["solidari"]]},"Imposto":{"tipo":"É um pagamento que todos fazem.","nudge":"Pense: o dinheiro que vai para o governo cuidar da escola e do posto.","sets":[["impost"],["tribut"]]},"Cashback":{"tipo":"É um tipo de vantagem na compra.","nudge":"Pense: parte do dinheiro que você gastou volta para você.","sets":[["cashback"],["cash","back"],["dinheiro","volta"]]},"Sócio":{"tipo":"É uma pessoa num negócio.","nudge":"Pense: quem divide o negócio com você.","sets":[["socio"],["socia"],["sociedad"]]},"Vaquinha online":{"tipo":"É um jeito de ajudar.","nudge":"Pense: juntar doações pela internet.","sets":[["vaquinh","online"],["vaquinh","internet"],["vaquinh","virtual"],["crowdfund"],["doac","online"],["doac","internet"]]}});
