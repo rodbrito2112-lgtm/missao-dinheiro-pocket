@@ -15,6 +15,7 @@ CARDS.forEach((c,i)=>{const e=[];if(T.has(c.title))e.push('título repetido');T.
  if(!TEMAS.includes(c.tema))e.push('tema');
  const IDADE={'5–7':[5],'8–12':[8,11],'13+':[13]};if(!(IDADE[c.faixa]||[]).includes(c.idade))e.push('idade '+c.idade);if(c.kit&&c.idade>8)e.push('kit com idade '+c.idade);
  for(const k of c.correct)if(evalGuess(c,k)!=='ok')e.push('correct não aceita: '+k);
+ if(evalGuess(c,c.title)!=='ok')e.push('título não aceito');for(const k of ['tipo','nudge'])if(EXTRA[c.title]&&evalGuess(c,EXTRA[c.title][k])==='ok')e.push(k+' entrega a resposta');
  for(const k of c.near)if(evalGuess(c,k)==='ok')e.push('near vira acerto: '+k);
  if(e.length){err++;console.log(i+1,c.title,e)}});
 console.log('total',CARDS.length,'| erros de esquema',err);

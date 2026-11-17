@@ -8,7 +8,7 @@ const KEY_SAVE='mdp-pocket-v3-save',KEY_TUT='mdp-pocket-v3-tut';
 /* Chaves autorizadas em 14/11/2026 (ver CLAUDE.md) */
 const KEY_CHAR='mdp-pocket-char',KEY_SOM='mdp-pocket-som',KEY_CONQ='mdp-pocket-conquistas',KEY_FB='mdp-pocket-fb';
 /* Versão que vai no resumo do feedback, para saber de qual jogo veio cada resposta */
-const VERSAO_JOGO='2026-11-17 (idade mínima por carta; 9 cartas novas; faixa 8–12; Aposta: menores de 18)';
+const VERSAO_JOGO='2026-11-17 (curadoria: ajudas das 109 cartas revisadas; Pix com nome de quem recebe)';
 const PERSONAGENS=['Caio','Mel','Leticia','Vinicius','Bia','Tiko'];
 /* Faixas: '8–12' (até 17/11/2026 a chave era '8–11'; partidas e relatórios antigos são convertidos). '13+' = jovens e adultos. */
 const FAIXAS=['5–7','8–12','13+'];
@@ -33,7 +33,7 @@ function persist(){if(S&&['clues','falseq','reveal','scene','sceneRes','bot'].in
 function lev(a,b){const m=a.length,n=b.length;if(!m)return n;if(!n)return m;let p=[...Array(n+1).keys()];for(let i=1;i<=m;i++){const c=[i];for(let j=1;j<=n;j++)c[j]=Math.min(p[j]+1,c[j-1]+1,p[j-1]+(a[i-1]===b[j-1]?0:1));p=c}return p[n]}
 function hasTok(n,words,t){if(t.includes(' '))return n.includes(t);return words.some(w=>w.startsWith(t)||(t.length>=5&&w.length>=t.length&&lev(w.slice(0,t.length),t)<=1))}
 function evalGuess(c,g){const n=norm(g);if(!n)return null;const words=n.split(' ');const x=EXTRA[c.title]||{};
- for(const m of c.correct.map(norm)){if(n===m||n.includes(m))return'ok'}
+ for(const m of c.correct.map(norm)){if(n===m||((x.palavra||[]).includes(m)?words.includes(m):n.includes(m)))return'ok'}
  for(const set of (x.sets||[])){if(set.every(t=>hasTok(n,words,t)))return'ok'}
  for(const m of c.near.map(norm)){if(n===m||n.includes(m))return'near'}
  return'bad'}
@@ -43,10 +43,13 @@ function team(){return S.mode==='solo'?0:S.round%2}
 function card(){return CARDS[S.deck[S.round]]}
 /* Sorteio: primeiro conceitos ainda não descobertos (álbum), depois os já vistos;
    Juros/Parcelamento/Cartão só entram depois da base (no álbum ou antes na partida). */
+/* Pares que não saem na mesma partida (mesma cena), salvo se faltar carta (curadoria, 17/11/2026) */
+const EXCLUI=[['Troco','Honestidade']];
 function montarBaralho(pool,len){const a=albumList();
  const novos=shuffle(pool.filter(i=>!a.includes(CARDS[i].title))),vistos=shuffle(pool.filter(i=>a.includes(CARDS[i].title)));
  const deck=[],esperando=[];
- const pode=i=>{const p=PRE[CARDS[i].title];return !p||p.some(t=>a.includes(t)||deck.some(j=>CARDS[j].title===t))};
+ const par=i=>EXCLUI.some(([x,y])=>{const t=CARDS[i].title,o=t===x?y:t===y?x:null;return o&&deck.some(j=>CARDS[j].title===o)});
+ const pode=i=>{if(par(i))return false;const p=PRE[CARDS[i].title];return !p||p.some(t=>a.includes(t)||deck.some(j=>CARDS[j].title===t))};
  for(const i of [...novos,...vistos]){if(deck.length>=len)break;if(pode(i)){deck.push(i);for(let k=esperando.length-1;k>=0;k--)if(deck.length<len&&pode(esperando[k]))deck.push(esperando.splice(k,1)[0])}else esperando.push(i)}
  while(deck.length<len&&esperando.length)deck.push(esperando.shift());
  return deck}
