@@ -34,10 +34,10 @@ Sem build e sem backend: funciona offline, inclusive por duplo clique (`file://`
 Para publicar, envie a pasta inteira (não só o `index.html`).
 
 ## Faixas etárias
-5 a 7 anos: 33 cartas · 8 a 12 anos: 34 cartas (chave interna `8–11` no `cartas.js`, mantida para não perder álbuns salvos) · 13 anos ou mais (jovens e adultos, desde 15/11/2026): 33 cartas (chave `13+`: dívida, crédito, golpes, apostas, primeiro emprego, contas da casa). As cartas de 13+ não têm pré-requisito de outras faixas. As 8 cartas originais receberam faixa em 10/11/2026 (antes entravam em qualquer filtro). Análise completa, ordem sugerida e propostas pendentes em `docs/mapa-curricular-cartas.md`.
+5 a 7 anos: 33 cartas · 8 a 12 anos: 34 cartas (chave `8–12`; era `8–11` até 17/11/2026) · cartas de 8 a 12 com idade mínima 11 (8) entram só em "13 anos ou mais" e em "Todas" · 13 anos ou mais (jovens e adultos, desde 15/11/2026): 34 cartas + as 8 de idade 11 = 42 no baralho (chave `13+`: dívida, crédito, golpes, apostas, primeiro emprego, contas da casa). As cartas de 13+ não têm pré-requisito de outras faixas. As 8 cartas originais receberam faixa em 10/11/2026 (antes entravam em qualquer filtro). Análise completa, ordem sugerida e propostas pendentes em `docs/mapa-curricular-cartas.md`.
 
 ## Esquema de carta
-`{title, char, icon, p[6], fake(1-based), correct[], near[], scene, opts[3], pts[3], why[3], faixa, tema}`
+`{title, char, icon, p[6], fake(1-based), correct[], near[], scene, opts[3], pts[3], why[3], faixa, idade, tema, kit?}` — `idade` = idade mínima interna (5, 8, 11 ou 13), pela Matriz por idade v1.2 da curadoria.
 
 ## Pendências conhecidas
 - Aprovação das 24 cartas novas (respostas, cenas, faixas, personagens).

@@ -1,6 +1,7 @@
 /* Missão Dinheiro Pocket — dados das cartas.
    CARDS: as cartas (JSON puro depois do "const CARDS ="). Esquema:
-   {title, char, icon, p[6], fake(1-based), correct[], near[], scene, opts[3], pts[3], why[3], faixa, tema}
+   {title, char, icon, p[6], fake(1-based), correct[], near[], scene, opts[3], pts[3], why[3], faixa, idade, tema, kit?}
+   idade = idade mínima interna (5, 8, 11 ou 13; Matriz por idade v1.2). Na faixa 8–12, idade 11 só entra em "13 anos ou mais" e "Todas".
    EXTRA: dicas ("tipo"), empurrãozinho ("nudge") e respostas aceitas ("sets") por título de carta.
    Fica em .js (e não .json) para o jogo abrir por duplo clique, sem servidor. */
 const CARDS = [
@@ -45,7 +46,8 @@ const CARDS = [
       "A oferta é atraente, mas deixa apenas R$ 5 para o caderno necessário.",
       "O caderno é o que você precisa, e ainda sobram R$ 10."
     ],
-    "faixa": "8–11",
+    "faixa": "8–12",
+    "idade": 8,
     "tema": "Consumo e escolhas"
   },
   {
@@ -89,6 +91,7 @@ const CARDS = [
       "Avisar na hora é o jeito mais fácil de resolver."
     ],
     "faixa": "5–7",
+    "idade": 5,
     "tema": "Consumo e escolhas",
     "kit": true
   },
@@ -134,7 +137,8 @@ const CARDS = [
       "Evita o link suspeito, mas pode deixar sem verificar um problema real.",
       "Verifica por um canal independente sem confiar no link recebido."
     ],
-    "faixa": "8–11",
+    "faixa": "8–12",
+    "idade": 11,
     "tema": "Dinheiro digital e segurança"
   },
   {
@@ -179,7 +183,8 @@ const CARDS = [
       "Resolve agora, mas pode durar menos.",
       "4 × R$ 18 = R$ 72: R$ 12 a mais, sem pressa nenhuma."
     ],
-    "faixa": "8–11",
+    "faixa": "8–12",
+    "idade": 8,
     "tema": "Consumo e escolhas",
     "kit": true
   },
@@ -225,7 +230,8 @@ const CARDS = [
       "Cada lápis sai a R$ 1; na caixa de 6, sai a R$ 1,50.",
       "Dá os 12 lápis, mas paga R$ 6 a mais."
     ],
-    "faixa": "8–11",
+    "faixa": "8–12",
+    "idade": 8,
     "tema": "Consumo e escolhas"
   },
   {
@@ -270,6 +276,7 @@ const CARDS = [
       "Você se molha, e o problema continua."
     ],
     "faixa": "5–7",
+    "idade": 5,
     "tema": "Poupar e guardar"
   },
   {
@@ -315,6 +322,7 @@ const CARDS = [
       "O dinheiro do livro acaba, e ele fica bem mais longe."
     ],
     "faixa": "5–7",
+    "idade": 5,
     "tema": "Poupar e guardar",
     "kit": true
   },
@@ -362,6 +370,7 @@ const CARDS = [
       "Você ajuda o colega e não fica sem o que precisa."
     ],
     "faixa": "5–7",
+    "idade": 5,
     "tema": "Poupar e guardar",
     "kit": true
   },
@@ -408,6 +417,7 @@ const CARDS = [
       "Esvazia o cofrinho e o sonho some."
     ],
     "faixa": "5–7",
+    "idade": 5,
     "tema": "Poupar e guardar",
     "kit": true
   },
@@ -454,6 +464,7 @@ const CARDS = [
       "Dá o mesmo prazer por bem menos."
     ],
     "faixa": "5–7",
+    "idade": 5,
     "tema": "Poupar e guardar"
   },
   {
@@ -498,7 +509,8 @@ const CARDS = [
       "Chega nos R$ 60 no prazo planejado.",
       "Sem guardar, a bola não vem."
     ],
-    "faixa": "8–11",
+    "faixa": "8–12",
+    "idade": 8,
     "tema": "Poupar e guardar",
     "kit": true
   },
@@ -544,7 +556,8 @@ const CARDS = [
       "O dinheiro cresce um pouco enquanto você pensa.",
       "Fica guardado, mas não cresce nada."
     ],
-    "faixa": "8–11",
+    "faixa": "8–12",
+    "idade": 8,
     "tema": "Poupar e guardar",
     "kit": true
   },
@@ -590,7 +603,8 @@ const CARDS = [
       "Esconder piora o problema e cria uma dívida escondida.",
       "Resolve, mas desmonta o sonho do fone sem necessidade."
     ],
-    "faixa": "8–11",
+    "faixa": "8–12",
+    "idade": 8,
     "tema": "Poupar e guardar",
     "kit": true
   },
@@ -636,6 +650,7 @@ const CARDS = [
       "Evita o choro, mas troca o que você quer por outra coisa qualquer."
     ],
     "faixa": "5–7",
+    "idade": 5,
     "tema": "Poupar e guardar",
     "kit": true
   },
@@ -682,6 +697,7 @@ const CARDS = [
       "Segura o dinheiro, mas o problema continua."
     ],
     "faixa": "5–7",
+    "idade": 5,
     "tema": "Consumo e escolhas",
     "kit": true
   },
@@ -728,6 +744,7 @@ const CARDS = [
       "Esconder tira a chance de conversar e planejar."
     ],
     "faixa": "5–7",
+    "idade": 5,
     "tema": "Consumo e escolhas",
     "kit": true
   },
@@ -773,7 +790,8 @@ const CARDS = [
       "O anúncio funcionou, e o gasto não foi pensado.",
       "Evita o gasto, mas ignora uma troca que pode ser necessária um dia."
     ],
-    "faixa": "8–11",
+    "faixa": "8–12",
+    "idade": 8,
     "tema": "Consumo e escolhas",
     "kit": true
   },
@@ -819,7 +837,8 @@ const CARDS = [
       "Dar um tempo ajuda a ver se é vontade de verdade ou só impulso.",
       "Gasta menos, mas ainda compra algo que não estava nos planos."
     ],
-    "faixa": "8–11",
+    "faixa": "8–12",
+    "idade": 8,
     "tema": "Consumo e escolhas",
     "kit": true
   },
@@ -865,7 +884,8 @@ const CARDS = [
       "Funciona, mas sai mais caro ao longo do tempo.",
       "Pode quebrar logo e gerar novo gasto."
     ],
-    "faixa": "8–11",
+    "faixa": "8–12",
+    "idade": 8,
     "tema": "Consumo e escolhas"
   },
   {
@@ -910,6 +930,7 @@ const CARDS = [
       "Sem lista, é fácil esquecer algo ou gastar demais."
     ],
     "faixa": "5–7",
+    "idade": 5,
     "tema": "Consumo e escolhas"
   },
   {
@@ -954,7 +975,8 @@ const CARDS = [
       "Evita o erro, mas o código errado continua lá para o próximo cliente.",
       "Conferir antes evita um erro difícil de corrigir."
     ],
-    "faixa": "8–11",
+    "faixa": "8–12",
+    "idade": 8,
     "tema": "Dinheiro digital e segurança",
     "kit": true
   },
@@ -1000,7 +1022,8 @@ const CARDS = [
       "A senha é só sua. Passar para outra pessoa tira a proteção.",
       "Você ajuda e mantém a conta protegida."
     ],
-    "faixa": "8–11",
+    "faixa": "8–12",
+    "idade": 8,
     "tema": "Dinheiro digital e segurança",
     "kit": true
   },
@@ -1052,7 +1075,8 @@ const CARDS = [
       "Verifica antes de arriscar.",
       "Evita o golpe, mas você continua sem o fone."
     ],
-    "faixa": "8–11",
+    "faixa": "8–12",
+    "idade": 11,
     "tema": "Dinheiro digital e segurança"
   },
   {
@@ -1097,7 +1121,8 @@ const CARDS = [
       "Cabe, mas prende 8 meses e pode ter juros.",
       "R$ 300 não cabe em R$ 200: esperar evita a dívida."
     ],
-    "faixa": "8–11",
+    "faixa": "8–12",
+    "idade": 11,
     "tema": "Dinheiro digital e segurança"
   },
   {
@@ -1142,7 +1167,8 @@ const CARDS = [
       "Olhar o saldo mostra o que cabe.",
       "Gasta mais do que tem e cria problema."
     ],
-    "faixa": "5–7",
+    "faixa": "8–12",
+    "idade": 8,
     "tema": "Dinheiro digital e segurança"
   },
   {
@@ -1187,7 +1213,8 @@ const CARDS = [
       "Confirma por um canal que você mesmo escolheu.",
       "Você não cai no golpe, mas sua família não fica sabendo que alguém tentou."
     ],
-    "faixa": "8–11",
+    "faixa": "8–12",
+    "idade": 11,
     "tema": "Dinheiro digital e segurança"
   },
   {
@@ -1233,6 +1260,7 @@ const CARDS = [
       "Escolhe uma coisa por vez com a mesada."
     ],
     "faixa": "5–7",
+    "idade": 5,
     "tema": "Trabalho e ganhar dinheiro",
     "kit": true
   },
@@ -1278,6 +1306,7 @@ const CARDS = [
       "Você foi sincero, mas a tia fica sem a sua ajuda."
     ],
     "faixa": "5–7",
+    "idade": 5,
     "tema": "Trabalho e ganhar dinheiro",
     "kit": true
   },
@@ -1323,7 +1352,8 @@ const CARDS = [
       "Atrasar contas costuma custar mais do que a viagem.",
       "Planeja sem faltar com o essencial."
     ],
-    "faixa": "8–11",
+    "faixa": "8–12",
+    "idade": 8,
     "tema": "Trabalho e ganhar dinheiro"
   },
   {
@@ -1368,7 +1398,8 @@ const CARDS = [
       "A conta correta é 30 menos 12.",
       "Gastou, mas também ganhou mais do que gastou."
     ],
-    "faixa": "8–11",
+    "faixa": "8–12",
+    "idade": 8,
     "tema": "Trabalho e ganhar dinheiro"
   },
   {
@@ -1413,7 +1444,8 @@ const CARDS = [
       "Valor justo e combinado com limite de tempo.",
       "Preço sem conversa pode afastar os clientes."
     ],
-    "faixa": "8–11",
+    "faixa": "8–12",
+    "idade": 8,
     "tema": "Trabalho e ganhar dinheiro",
     "kit": true
   },
@@ -1459,7 +1491,8 @@ const CARDS = [
       "Gasta muito sem saber se alguém vai comprar.",
       "Evita o risco, mas não aprende nada."
     ],
-    "faixa": "8–11",
+    "faixa": "8–12",
+    "idade": 8,
     "tema": "Trabalho e ganhar dinheiro",
     "kit": true
   },
@@ -1505,6 +1538,7 @@ const CARDS = [
       "Não erra, mas fica sem nenhum dos dois hoje."
     ],
     "faixa": "5–7",
+    "idade": 5,
     "tema": "Consumo e escolhas",
     "kit": true
   },
@@ -1550,6 +1584,7 @@ const CARDS = [
       "Pode dar certo, mas sem conferir é fácil errar a conta."
     ],
     "faixa": "5–7",
+    "idade": 5,
     "tema": "Poupar e guardar"
   },
   {
@@ -1595,6 +1630,7 @@ const CARDS = [
       "Juntar para o sonho é bom, mas não sobra nada para agora nem para quando algo der errado."
     ],
     "faixa": "5–7",
+    "idade": 5,
     "tema": "Poupar e guardar",
     "kit": true
   },
@@ -1640,6 +1676,7 @@ const CARDS = [
       "R$ 5 + R$ 10 = R$ 15: a meta da bola está alcançada."
     ],
     "faixa": "5–7",
+    "idade": 5,
     "tema": "Poupar e guardar"
   },
   {
@@ -1685,6 +1722,7 @@ const CARDS = [
       "Quem decide gastar o dinheiro da família é o adulto."
     ],
     "faixa": "5–7",
+    "idade": 5,
     "tema": "Dinheiro digital e segurança",
     "kit": true
   },
@@ -1730,6 +1768,7 @@ const CARDS = [
       "Não faz mal, mas os brinquedos ficam parados enquanto alguém poderia usar."
     ],
     "faixa": "5–7",
+    "idade": 5,
     "tema": "Ajudar e compartilhar",
     "kit": true
   },
@@ -1775,6 +1814,7 @@ const CARDS = [
       "Ajuda um pouco, mas dava para dividir mais."
     ],
     "faixa": "5–7",
+    "idade": 5,
     "tema": "Ajudar e compartilhar"
   },
   {
@@ -1820,6 +1860,7 @@ const CARDS = [
       "Contar é bom, mas é muito mais fácil resolver na hora."
     ],
     "faixa": "5–7",
+    "idade": 5,
     "tema": "Ajudar e compartilhar",
     "kit": true
   },
@@ -1865,7 +1906,8 @@ const CARDS = [
       "Comparar o que ganha e o que perde ajuda a escolher sem arrependimento.",
       "Aproveita o programa e perde menos do que já juntou."
     ],
-    "faixa": "8–11",
+    "faixa": "8–12",
+    "idade": 11,
     "tema": "Consumo e escolhas"
   },
   {
@@ -1910,7 +1952,8 @@ const CARDS = [
       "Pode faltar dinheiro para o lanche no fim do mês.",
       "A conta fecha (20 + 15 = 35), mas a meta de guardar fica para trás."
     ],
-    "faixa": "8–11",
+    "faixa": "8–12",
+    "idade": 8,
     "tema": "Consumo e escolhas",
     "kit": true
   },
@@ -1956,7 +1999,8 @@ const CARDS = [
       "Evita o golpe, e o adulto pode avisar o resto da família.",
       "Evita o golpe, mas outras pessoas da casa podem receber a mesma mensagem."
     ],
-    "faixa": "8–11",
+    "faixa": "8–12",
+    "idade": 8,
     "tema": "Dinheiro digital e segurança",
     "kit": true
   },
@@ -2002,7 +2046,8 @@ const CARDS = [
       "Ganha dinheiro, mas perde a chance de ajudar a escola.",
       "Quem contava com você fica sem ajuda."
     ],
-    "faixa": "8–11",
+    "faixa": "8–12",
+    "idade": 8,
     "tema": "Ajudar e compartilhar",
     "kit": true
   },
@@ -2050,6 +2095,7 @@ const CARDS = [
       "Troca a dívida mais cara por parcelas conhecidas que cabem no mês."
     ],
     "faixa": "13+",
+    "idade": 13,
     "tema": "Poupar e guardar"
   },
   {
@@ -2096,6 +2142,7 @@ const CARDS = [
       "Também resolve, mas o nome fica sujo por mais tempo enquanto você junta."
     ],
     "faixa": "13+",
+    "idade": 13,
     "tema": "Poupar e guardar"
   },
   {
@@ -2141,6 +2188,7 @@ const CARDS = [
       "Muitos pedidos de crédito de uma vez costumam baixar a pontuação."
     ],
     "faixa": "13+",
+    "idade": 13,
     "tema": "Poupar e guardar"
   },
   {
@@ -2186,6 +2234,7 @@ const CARDS = [
       "Quanto antes começa, mais tempo os juros têm para render em cima de juros."
     ],
     "faixa": "13+",
+    "idade": 13,
     "tema": "Poupar e guardar"
   },
   {
@@ -2234,6 +2283,7 @@ const CARDS = [
       "Você não arrisca nada e ainda ajuda o amigo a ver o que ele esconde de si mesmo."
     ],
     "faixa": "13+",
+    "idade": 13,
     "tema": "Dinheiro digital e segurança"
   },
   {
@@ -2279,6 +2329,7 @@ const CARDS = [
       "Você se protege, mas a colega continua arriscando o dinheiro dela."
     ],
     "faixa": "13+",
+    "idade": 13,
     "tema": "Dinheiro digital e segurança"
   },
   {
@@ -2325,6 +2376,7 @@ const CARDS = [
       "O dinheiro costuma ser de golpe, e quem empresta a conta também responde por isso."
     ],
     "faixa": "13+",
+    "idade": 13,
     "tema": "Dinheiro digital e segurança"
   },
   {
@@ -2371,6 +2423,7 @@ const CARDS = [
       "Ajuda a desconfiar, mas quem aplica o golpe às vezes pesquisa antes."
     ],
     "faixa": "13+",
+    "idade": 13,
     "tema": "Dinheiro digital e segurança"
   },
   {
@@ -2420,6 +2473,7 @@ const CARDS = [
       "Os primeiros pagamentos servem de isca: os R$ 200 não voltam."
     ],
     "faixa": "13+",
+    "idade": 13,
     "tema": "Dinheiro digital e segurança"
   },
   {
@@ -2465,6 +2519,7 @@ const CARDS = [
       "O programa exige estudar: faltar põe em risco a escola e a vaga."
     ],
     "faixa": "13+",
+    "idade": 13,
     "tema": "Trabalho e ganhar dinheiro"
   },
   {
@@ -2512,6 +2567,7 @@ const CARDS = [
       "Você decide com o valor real, que é o que paga as contas."
     ],
     "faixa": "13+",
+    "idade": 13,
     "tema": "Trabalho e ganhar dinheiro"
   },
   {
@@ -2559,6 +2615,7 @@ const CARDS = [
       "Vocês sabem desde o início quanto custa morar ali e quanto sobra."
     ],
     "faixa": "13+",
+    "idade": 13,
     "tema": "Consumo e escolhas"
   },
   {
@@ -2606,6 +2663,7 @@ const CARDS = [
       "Corta o gasto, mas pode virar um vai e vem de assinar e cancelar sem planejar."
     ],
     "faixa": "13+",
+    "idade": 13,
     "tema": "Consumo e escolhas"
   },
   {
@@ -2652,6 +2710,7 @@ const CARDS = [
       "Você enxerga o custo total e escolhe a oferta mais barata."
     ],
     "faixa": "13+",
+    "idade": 13,
     "tema": "Consumo e escolhas"
   },
   {
@@ -2697,6 +2756,7 @@ const CARDS = [
       "O padrão de vida sobe junto, e no fim do mês sobra o mesmo de antes."
     ],
     "faixa": "13+",
+    "idade": 13,
     "tema": "Consumo e escolhas"
   },
   {
@@ -2743,6 +2803,7 @@ const CARDS = [
       "Você paga menos juros e volta a ter controle do mês."
     ],
     "faixa": "13+",
+    "idade": 13,
     "tema": "Poupar e guardar"
   },
   {
@@ -2788,6 +2849,7 @@ const CARDS = [
       "Se o celular sumir, você fica sem ele e ainda com as parcelas para pagar."
     ],
     "faixa": "13+",
+    "idade": 13,
     "tema": "Poupar e guardar"
   },
   {
@@ -2833,6 +2895,7 @@ const CARDS = [
       "É seguro, mas rende pouco; dividir entre opções costuma render mais com risco controlado."
     ],
     "faixa": "13+",
+    "idade": 13,
     "tema": "Poupar e guardar"
   },
   {
@@ -2879,6 +2942,7 @@ const CARDS = [
       "Você evita o golpe e paga a conta certa, no prazo."
     ],
     "faixa": "13+",
+    "idade": 13,
     "tema": "Dinheiro digital e segurança"
   },
   {
@@ -2927,6 +2991,7 @@ const CARDS = [
       "O nome de quem recebe não confere: o dinheiro vai para o golpista."
     ],
     "faixa": "13+",
+    "idade": 13,
     "tema": "Dinheiro digital e segurança"
   },
   {
@@ -2971,6 +3036,7 @@ const CARDS = [
       "A nota no nome de outra pessoa é irregular e pode dar problema para os dois."
     ],
     "faixa": "13+",
+    "idade": 13,
     "tema": "Trabalho e ganhar dinheiro"
   },
   {
@@ -3015,6 +3081,7 @@ const CARDS = [
       "Ajuda a começar, mas um currículo igual a todos não mostra o que você tem de especial."
     ],
     "faixa": "13+",
+    "idade": 13,
     "tema": "Trabalho e ganhar dinheiro"
   },
   {
@@ -3061,6 +3128,7 @@ const CARDS = [
       "Os amigos pagam a sua parte, e a amizade sai arranhada."
     ],
     "faixa": "13+",
+    "idade": 13,
     "tema": "Ajudar e compartilhar"
   },
   {
@@ -3107,6 +3175,7 @@ const CARDS = [
       "Protege a sua reserva e ainda ajuda, mas ele continua com a conta atrasada."
     ],
     "faixa": "13+",
+    "idade": 13,
     "tema": "Ajudar e compartilhar"
   },
   {
@@ -3150,7 +3219,8 @@ const CARDS = [
       "O importante ficou para trás, e alguém vai ter que pagar por ele.",
       "O caderno vem primeiro, e ainda sobram R$ 2."
     ],
-    "faixa": "5–7",
+    "faixa": "8–12",
+    "idade": 8,
     "tema": "Consumo e escolhas"
   },
   {
@@ -3196,6 +3266,7 @@ const CARDS = [
       "Joga fora algo que dava para arrumar e ainda gasta R$ 20."
     ],
     "faixa": "5–7",
+    "idade": 5,
     "tema": "Consumo e escolhas"
   },
   {
@@ -3241,6 +3312,7 @@ const CARDS = [
       "Paga o que gastou e ainda sobra R$ 1 por copo."
     ],
     "faixa": "5–7",
+    "idade": 5,
     "tema": "Trabalho e ganhar dinheiro",
     "kit": true
   },
@@ -3288,6 +3360,7 @@ const CARDS = [
       "Você se protege, mas ninguém fica sabendo do que apareceu."
     ],
     "faixa": "5–7",
+    "idade": 5,
     "tema": "Dinheiro digital e segurança",
     "kit": true
   },
@@ -3333,6 +3406,7 @@ const CARDS = [
       "Ninguém gasta muito, e o presente é de todos."
     ],
     "faixa": "5–7",
+    "idade": 5,
     "tema": "Ajudar e compartilhar"
   },
   {
@@ -3379,7 +3453,8 @@ const CARDS = [
       "Você separa a propaganda da opinião de quem usou de verdade.",
       "Desconfiar ajuda, mas nem todo vídeo é publi."
     ],
-    "faixa": "8–11",
+    "faixa": "8–12",
+    "idade": 8,
     "tema": "Consumo e escolhas",
     "kit": true
   },
@@ -3425,7 +3500,8 @@ const CARDS = [
       "Você fica devendo por algo que nem estava nos planos.",
       "Você segue o seu plano, e amigo de verdade não liga para o boné."
     ],
-    "faixa": "8–11",
+    "faixa": "8–12",
+    "idade": 8,
     "tema": "Consumo e escolhas"
   },
   {
@@ -3473,7 +3549,8 @@ const CARDS = [
       "Gasta menos, mas paga por um sorteio sem saber o que vem.",
       "Cada baú custa R$ 10, e não há garantia de ganhar."
     ],
-    "faixa": "8–11",
+    "faixa": "8–12",
+    "idade": 8,
     "tema": "Dinheiro digital e segurança",
     "kit": true
   },
@@ -3519,7 +3596,8 @@ const CARDS = [
       "Você pretende pagar, mas sem plano a dívida pode demorar muito.",
       "Você cumpre o combinado e fica livre da dívida."
     ],
-    "faixa": "8–11",
+    "faixa": "8–12",
+    "idade": 8,
     "tema": "Poupar e guardar",
     "kit": true
   },
@@ -3567,6 +3645,7 @@ const CARDS = [
       "Você tem direito de desistir mesmo sem defeito e perde essa chance."
     ],
     "faixa": "13+",
+    "idade": 13,
     "tema": "Consumo e escolhas"
   },
   {
@@ -3612,6 +3691,7 @@ const CARDS = [
       "Você descobre se precisa declarar e faz do jeito certo."
     ],
     "faixa": "13+",
+    "idade": 13,
     "tema": "Trabalho e ganhar dinheiro"
   },
   {
@@ -3658,6 +3738,7 @@ const CARDS = [
       "Os anos que você deixa passar são os que mais rendem depois."
     ],
     "faixa": "13+",
+    "idade": 13,
     "tema": "Poupar e guardar"
   },
   {
@@ -3703,6 +3784,7 @@ const CARDS = [
       "A máquina também pode estar com o valor errado."
     ],
     "faixa": "5–7",
+    "idade": 5,
     "tema": "Dinheiro digital e segurança",
     "kit": true
   },
@@ -3750,6 +3832,7 @@ const CARDS = [
       "Ela fica contente, mas você prometeu algo que talvez não consiga cumprir."
     ],
     "faixa": "5–7",
+    "idade": 5,
     "tema": "Trabalho e ganhar dinheiro"
   },
   {
@@ -3794,6 +3877,7 @@ const CARDS = [
       "Ninguém joga comida fora, e você come o quanto precisa."
     ],
     "faixa": "5–7",
+    "idade": 5,
     "tema": "Consumo e escolhas"
   },
   {
@@ -3837,7 +3921,8 @@ const CARDS = [
       "Funciona, mas o dinheiro continua em casa e não fica anotado.",
       "Dá para perder ou esquecer onde está."
     ],
-    "faixa": "5–7",
+    "faixa": "8–12",
+    "idade": 8,
     "tema": "Poupar e guardar"
   },
   {
@@ -3883,7 +3968,8 @@ const CARDS = [
       "O dinheiro fica protegido e cresce um pouco com o tempo.",
       "Promessa de dobrar rápido é sinal de golpe."
     ],
-    "faixa": "8–11",
+    "faixa": "8–12",
+    "idade": 11,
     "tema": "Poupar e guardar"
   },
   {
@@ -3928,7 +4014,8 @@ const CARDS = [
       "Chama a atenção, mas as pessoas não sabem onde levar.",
       "As pessoas sabem como ajudar, e a campanha arrecada mais."
     ],
-    "faixa": "8–11",
+    "faixa": "8–12",
+    "idade": 8,
     "tema": "Ajudar e compartilhar"
   },
   {
@@ -3973,7 +4060,8 @@ const CARDS = [
       "Sem imposto, não teria escola pública nem posto de saúde.",
       "Você explica para que serve o que todo mundo paga."
     ],
-    "faixa": "8–11",
+    "faixa": "8–12",
+    "idade": 8,
     "tema": "Trabalho e ganhar dinheiro"
   },
   {
@@ -4019,6 +4107,7 @@ const CARDS = [
       "Você gasta R$ 300 para receber R$ 30: no fim, sai com R$ 270 a menos."
     ],
     "faixa": "13+",
+    "idade": 13,
     "tema": "Consumo e escolhas"
   },
   {
@@ -4065,6 +4154,7 @@ const CARDS = [
       "Ajuda, mas o que é combinado de boca é fácil de esquecer."
     ],
     "faixa": "13+",
+    "idade": 13,
     "tema": "Trabalho e ganhar dinheiro"
   },
   {
@@ -4111,6 +4201,7 @@ const CARDS = [
       "Você ajuda e sabe para onde vai o dinheiro."
     ],
     "faixa": "13+",
+    "idade": 13,
     "tema": "Ajudar e compartilhar"
   },
   {
@@ -4157,6 +4248,7 @@ const CARDS = [
       "Em casa, todos ajudam porque moram juntos, não para ganhar dinheiro."
     ],
     "faixa": "5–7",
+    "idade": 5,
     "tema": "Ajudar e compartilhar",
     "kit": true
   },
@@ -4202,6 +4294,7 @@ const CARDS = [
       "Você descobre profissões como veterinária e cuidadora de animais."
     ],
     "faixa": "5–7",
+    "idade": 5,
     "tema": "Trabalho e ganhar dinheiro"
   },
   {
@@ -4247,6 +4340,7 @@ const CARDS = [
       "Você não atrapalha, mas o moço pode ver a senha."
     ],
     "faixa": "5–7",
+    "idade": 5,
     "tema": "Dinheiro digital e segurança"
   },
   {
@@ -4291,7 +4385,8 @@ const CARDS = [
       "Fica caro demais, e os clientes vão para a cantina.",
       "Cobre o custo, tem lucro e atrai clientes."
     ],
-    "faixa": "8–11",
+    "faixa": "8–12",
+    "idade": 8,
     "tema": "Trabalho e ganhar dinheiro",
     "kit": true
   },
@@ -4336,7 +4431,8 @@ const CARDS = [
       "Agradecer já é gentil, mesmo sem gorjeta.",
       "Agradecer e, quando dá, dar gorjeta valoriza um bom trabalho."
     ],
-    "faixa": "8–11",
+    "faixa": "8–12",
+    "idade": 8,
     "tema": "Trabalho e ganhar dinheiro"
   },
   {
@@ -4383,7 +4479,8 @@ const CARDS = [
       "Ninguém quer trocar por algo estragado.",
       "Os livros ganham novos leitores, e você volta com livros novos."
     ],
-    "faixa": "8–11",
+    "faixa": "8–12",
+    "idade": 8,
     "tema": "Ajudar e compartilhar",
     "kit": true
   },
@@ -4430,7 +4527,8 @@ const CARDS = [
       "A senha é só de quem é dono da conta.",
       "O dinheiro fica protegido, e você aprende a acompanhar o saldo."
     ],
-    "faixa": "8–11",
+    "faixa": "8–12",
+    "idade": 8,
     "tema": "Poupar e guardar"
   },
   {
@@ -4475,6 +4573,7 @@ const CARDS = [
       "Passa a impressão de que não liga para a vaga."
     ],
     "faixa": "13+",
+    "idade": 13,
     "tema": "Trabalho e ganhar dinheiro"
   },
   {
@@ -4520,6 +4619,7 @@ const CARDS = [
       "Com registro, você tem férias, 13º, FGTS e tempo para a aposentadoria."
     ],
     "faixa": "13+",
+    "idade": 13,
     "tema": "Trabalho e ganhar dinheiro"
   },
   {
@@ -4566,7 +4666,445 @@ const CARDS = [
       "Você protege o seu nome e ainda ajuda o amigo a achar uma saída."
     ],
     "faixa": "13+",
+    "idade": 13,
     "tema": "Ajudar e compartilhar"
+  },
+  {
+    "title": "Dinheiro",
+    "char": "Bia",
+    "icon": "💵",
+    "p": [
+      "Antigamente, as pessoas trocavam uma galinha por um saco de milho.",
+      "Hoje, a gente usa ele para trocar por coisas.",
+      "Pode ser nota, moeda ou aparecer no celular.",
+      "Ele nasce em árvore, no quintal.",
+      "A gente ganha com trabalho e usa para comprar.",
+      "É o que a gente usa para pagar as coisas."
+    ],
+    "fake": 4,
+    "correct": [
+      "dinheiro",
+      "grana",
+      "dinheirinho",
+      "reais"
+    ],
+    "near": [
+      "moeda",
+      "nota",
+      "troca",
+      "cofrinho",
+      "salário"
+    ],
+    "scene": "O pipoqueiro vende a pipoca por R$ 4. Você tem R$ 4 e uma figurinha repetida.",
+    "opts": [
+      "Oferecer a figurinha no lugar do dinheiro.",
+      "Pegar a pipoca e dizer que paga outro dia, sem combinar.",
+      "Pagar os R$ 4 e levar a pipoca."
+    ],
+    "pts": [
+      1,
+      -1,
+      2
+    ],
+    "why": [
+      "Pode até dar certo, mas o pipoqueiro precisa de dinheiro para comprar mais milho.",
+      "Levar sem pagar não é justo com quem trabalhou.",
+      "O dinheiro serve para trocar: você paga e o pipoqueiro recebe pelo trabalho."
+    ],
+    "faixa": "5–7",
+    "idade": 5,
+    "tema": "Consumo e escolhas"
+  },
+  {
+    "title": "Aumento de preço",
+    "char": "Mel",
+    "icon": "🏷️",
+    "p": [
+      "Aparece na etiqueta de uma loja.",
+      "O mesmo picolé pode custar mais no ano que vem.",
+      "Às vezes, o dinheiro que você juntou deixa de dar.",
+      "Acontece com comida, brinquedo e passagem de ônibus.",
+      "Depois que um preço é escrito, ele nunca mais muda.",
+      "É quando uma coisa passa a custar mais caro do que antes."
+    ],
+    "fake": 5,
+    "correct": [
+      "aumento de preço",
+      "aumento do preço",
+      "aumento",
+      "ficou mais caro",
+      "mais caro",
+      "preço subiu",
+      "subiu o preço",
+      "preço mais alto"
+    ],
+    "near": [
+      "preço",
+      "caro",
+      "inflação",
+      "promoção",
+      "etiqueta"
+    ],
+    "scene": "Você juntou R$ 5 para um caderno que custava R$ 5. Na loja, ele agora custa R$ 6.",
+    "opts": [
+      "Comprar um caderno mais simples, de R$ 5.",
+      "Juntar mais R$ 1 e voltar para comprar.",
+      "Ficar bravo com o vendedor e ir embora."
+    ],
+    "pts": [
+      1,
+      2,
+      -1
+    ],
+    "why": [
+      "Resolve hoje, mas não é o caderno que você queria.",
+      "Os preços mudam: juntar um pouco mais resolve.",
+      "O vendedor não tem culpa: os preços mudam com o tempo."
+    ],
+    "faixa": "5–7",
+    "idade": 5,
+    "tema": "Consumo e escolhas"
+  },
+  {
+    "title": "Coisas de todos",
+    "char": "Tiko",
+    "icon": "🛝",
+    "p": [
+      "A praça, o parquinho e o posto de saúde são exemplos.",
+      "Muita gente usa, e ninguém leva para casa.",
+      "Alguém trabalhou para construir e para cuidar delas.",
+      "Se quebrar, ninguém precisa consertar.",
+      "Quando a gente cuida, elas duram mais para todo mundo.",
+      "São coisas que não são minhas nem suas: são de todo mundo."
+    ],
+    "fake": 4,
+    "correct": [
+      "coisas de todos",
+      "coisa de todos",
+      "de todos",
+      "de todo mundo",
+      "bem público",
+      "bens públicos",
+      "coisa pública",
+      "espaço público"
+    ],
+    "near": [
+      "praça",
+      "parquinho",
+      "escola",
+      "compartilhar",
+      "emprestar"
+    ],
+    "scene": "No parquinho da praça, você vê um amigo riscando o escorregador com uma pedra.",
+    "opts": [
+      "Riscar também, porque o parquinho não é de ninguém.",
+      "Pedir para ele parar e contar para um adulto.",
+      "Não riscar junto, mas não dizer nada."
+    ],
+    "pts": [
+      -1,
+      2,
+      1
+    ],
+    "why": [
+      "O parquinho é de todos: estragar tira a diversão de todo mundo.",
+      "Cuidar do que é de todos é bom para todo mundo.",
+      "Você não estraga, mas o escorregador continua sendo riscado."
+    ],
+    "faixa": "5–7",
+    "idade": 5,
+    "tema": "Ajudar e compartilhar"
+  },
+  {
+    "title": "Inflação",
+    "char": "Vinicius",
+    "icon": "📈",
+    "p": [
+      "Aparece no noticiário como uma porcentagem por ano.",
+      "Com ela, o mesmo dinheiro compra menos coisas.",
+      "Faz o preço do lanche subir de um ano para o outro.",
+      "Quando ela está alta, o dinheiro parado perde força mais rápido.",
+      "Faz todos os preços caírem pela metade todo ano.",
+      "É a alta geral dos preços ao longo do tempo."
+    ],
+    "fake": 5,
+    "correct": [
+      "inflação",
+      "alta dos preços",
+      "alta de preços",
+      "aumento dos preços",
+      "aumento geral dos preços",
+      "carestia"
+    ],
+    "near": [
+      "juros",
+      "preço",
+      "aumento",
+      "crise",
+      "desvalorização",
+      "aumento de preço"
+    ],
+    "scene": "Você quer um jogo de R$ 60 e já tem R$ 40. Faltam alguns meses, e os preços estão subindo.",
+    "opts": [
+      "Seguir guardando sem olhar o preço de novo.",
+      "Gastar os R$ 40 agora, porque guardar não adianta com os preços subindo.",
+      "Conferir o preço antes de comprar e ajustar a meta se ele subir."
+    ],
+    "pts": [
+      1,
+      -1,
+      2
+    ],
+    "why": [
+      "Você continua juntando, mas pode faltar dinheiro no fim.",
+      "Os preços sobem aos poucos: desistir da meta deixa você sem o jogo e sem o dinheiro.",
+      "Com a inflação, o preço pode mudar; ajustar a meta evita surpresa."
+    ],
+    "faixa": "8–12",
+    "idade": 11,
+    "tema": "Poupar e guardar"
+  },
+  {
+    "title": "Compre agora, pague depois",
+    "char": "Leticia",
+    "icon": "🛒",
+    "p": [
+      "Aparece no botão de pagar de lojas e aplicativos.",
+      "Você leva o produto hoje e paga em partes nas próximas semanas.",
+      "Parece que não custa nada, porque nada sai do bolso na hora.",
+      "Se atrasar uma parte, pode vir multa.",
+      "Não é dívida, porque o aplicativo chama de outro nome.",
+      "É comprar hoje e deixar o pagamento para depois, em parcelas."
+    ],
+    "fake": 5,
+    "correct": [
+      "compre agora pague depois",
+      "compre agora e pague depois",
+      "comprar agora e pagar depois",
+      "compra agora paga depois",
+      "pague depois",
+      "pagar depois",
+      "bnpl",
+      "buy now pay later"
+    ],
+    "near": [
+      "parcelamento",
+      "parcelado",
+      "parcela",
+      "cartão de crédito",
+      "crediário",
+      "fiado",
+      "dívida"
+    ],
+    "scene": "Você tem R$ 20 e quer um fone de R$ 80. No aplicativo da loja aparece: “Leve agora e pague depois em 4 vezes”.",
+    "opts": [
+      "Juntar o dinheiro e comprar à vista quando tiver os R$ 80.",
+      "Conversar com o responsável e só parcelar se as 4 parcelas couberem no orçamento.",
+      "Clicar no botão e ver depois como paga as parcelas."
+    ],
+    "pts": [
+      2,
+      1,
+      -1
+    ],
+    "why": [
+      "Sem parcelas para lembrar e sem risco de multa.",
+      "Pode funcionar, mas prende o seu dinheiro dos próximos meses.",
+      "Comprar sem saber como vai pagar é o caminho mais curto para a dívida."
+    ],
+    "faixa": "8–12",
+    "idade": 11,
+    "tema": "Dinheiro digital e segurança"
+  },
+  {
+    "title": "Centavos",
+    "char": "Caio",
+    "icon": "🪙",
+    "p": [
+      "Aparecem em moedas pequenas, como as de 10 e de 50.",
+      "Cem deles formam R$ 1.",
+      "No preço, ficam depois da vírgula, como em R$ 2,50.",
+      "Ajudam a conferir se o troco veio certinho.",
+      "Valem mais do que uma nota de R$ 2.",
+      "São as partes pequenas de um real."
+    ],
+    "fake": 5,
+    "correct": [
+      "centavos",
+      "centavo",
+      "moedas de centavo",
+      "moedinhas de centavo"
+    ],
+    "near": [
+      "moeda",
+      "troco",
+      "real",
+      "trocado",
+      "vírgula"
+    ],
+    "scene": "Uma bala custa R$ 1. Você tem duas moedas de 50 centavos.",
+    "opts": [
+      "Deixar as moedas de lado, porque centavo não compra nada.",
+      "Juntar as duas moedas e pagar a bala.",
+      "Guardar as moedas e pedir dinheiro para um adulto."
+    ],
+    "pts": [
+      -1,
+      2,
+      1
+    ],
+    "why": [
+      "Cem centavos formam R$ 1: moeda pequena também é dinheiro.",
+      "50 + 50 centavos = R$ 1: as duas moedas pagam a bala.",
+      "Funciona, mas você já tinha o valor certo na mão."
+    ],
+    "faixa": "8–12",
+    "idade": 8,
+    "tema": "Consumo e escolhas"
+  },
+  {
+    "title": "Cartão de débito",
+    "char": "Mel",
+    "icon": "💳",
+    "p": [
+      "Fica na carteira e tem o nome de um banco.",
+      "Na maquininha, você escolhe a opção dele.",
+      "O dinheiro sai da conta na hora da compra.",
+      "Precisa de uma senha, que não se conta para ninguém.",
+      "Deixa gastar mais do que tem na conta, e você paga só no mês que vem.",
+      "É um cartão que paga com o dinheiro que já está na conta."
+    ],
+    "fake": 5,
+    "correct": [
+      "cartão de débito",
+      "débito",
+      "cartão do banco",
+      "cartão da conta"
+    ],
+    "near": [
+      "cartão de crédito",
+      "cartão",
+      "pix",
+      "conta bancária",
+      "maquininha",
+      "saldo"
+    ],
+    "scene": "Imagine que o seu responsável deixou você pagar um lanche de R$ 15 com o cartão de débito da família.",
+    "opts": [
+      "Pagar e não falar mais nisso.",
+      "Comprar também um sorvete, porque no cartão parece que não gasta.",
+      "Pagar o lanche e ver com o responsável quanto sobrou na conta."
+    ],
+    "pts": [
+      1,
+      -1,
+      2
+    ],
+    "why": [
+      "Pagou certo, mas fica sem saber quanto sobrou.",
+      "No débito o dinheiro sai na hora: é o mesmo dinheiro de verdade.",
+      "Débito é o dinheiro da conta: olhar o saldo ajuda a não gastar demais."
+    ],
+    "faixa": "8–12",
+    "idade": 8,
+    "tema": "Dinheiro digital e segurança"
+  },
+  {
+    "title": "Prevenção",
+    "char": "Vinicius",
+    "icon": "⛑️",
+    "p": [
+      "Pode ser um capacete, um cadeado ou uma capinha.",
+      "Custa um pouco agora para evitar um gasto maior depois.",
+      "Às vezes não custa nada: é só ter cuidado.",
+      "Ajuda a não precisar usar o pote Reserva.",
+      "Só serve para quem tem muito dinheiro.",
+      "É fazer algo antes para evitar um prejuízo."
+    ],
+    "fake": 5,
+    "correct": [
+      "prevenção",
+      "prevenir",
+      "previnir",
+      "precaução",
+      "evitar prejuízo",
+      "evitar o prejuízo"
+    ],
+    "near": [
+      "seguro",
+      "reserva",
+      "proteção",
+      "imprevisto",
+      "cuidado",
+      "cuidar"
+    ],
+    "scene": "Você ganhou um tablet usado da família. Uma capinha custa R$ 15, e consertar a tela custa R$ 90.",
+    "opts": [
+      "Usar sem capinha em qualquer lugar e, se quebrar, ver depois.",
+      "Juntar para a capinha e usar o tablet com cuidado.",
+      "Usar sem capinha, mas só em cima da mesa."
+    ],
+    "pts": [
+      -1,
+      2,
+      1
+    ],
+    "why": [
+      "Se a tela quebrar, o conserto custa 6 vezes mais que a capinha.",
+      "R$ 15 agora evitam um gasto de R$ 90 depois.",
+      "O cuidado ajuda, mas um tombo ainda pode quebrar a tela."
+    ],
+    "faixa": "8–12",
+    "idade": 8,
+    "tema": "Poupar e guardar"
+  },
+  {
+    "title": "Colchão financeiro",
+    "char": "Caio",
+    "icon": "🛟",
+    "p": [
+      "Fica num lugar seguro, de onde dá para tirar o dinheiro rápido.",
+      "Costuma ser medido em meses de gastos.",
+      "Quem tem um enfrenta uma demissão ou uma doença com mais calma.",
+      "Depois de usado, o certo é ir recompondo aos poucos.",
+      "Deve ficar todo em ações, para render o máximo possível.",
+      "É uma reserva para pagar as contas por alguns meses se a renda parar."
+    ],
+    "fake": 5,
+    "correct": [
+      "colchão financeiro",
+      "colchão de segurança",
+      "colchão",
+      "reserva de emergência",
+      "fundo de emergência",
+      "reserva financeira"
+    ],
+    "near": [
+      "reserva",
+      "poupança",
+      "investimento",
+      "seguro",
+      "imprevisto"
+    ],
+    "scene": "Você trabalha, e suas contas comem quase todo o salário. Já guardou o valor de um mês de contas. Um amigo chama para pôr tudo numa ação que “só sobe”.",
+    "opts": [
+      "Investir metade na ação e manter a outra metade guardada.",
+      "Continuar guardando até ter de 3 a 6 meses de contas, e só depois pensar em investir com risco.",
+      "Pôr tudo na ação, porque um mês de reserva já basta."
+    ],
+    "pts": [
+      1,
+      2,
+      -1
+    ],
+    "why": [
+      "Divide o risco, mas o colchão fica menor que um mês de contas.",
+      "Primeiro o colchão, depois o risco: assim um imprevisto não vira dívida.",
+      "Se a renda parar, você teria de vender a ação na hora errada ou se endividar. E nada “só sobe”."
+    ],
+    "faixa": "13+",
+    "idade": 13,
+    "tema": "Poupar e guardar"
   }
 ];
 
@@ -4594,3 +5132,5 @@ Object.assign(EXTRA,{"Prioridade":{"tipo":"É um jeito de organizar escolhas.","
 Object.assign(EXTRA,{"Maquininha":{"tipo":"É uma máquina.","nudge":"Pense: onde a gente passa o cartão para pagar na padaria?","sets":[["maquina","cartao"],["maquina","pag"]]},"Cliente":{"tipo":"É uma pessoa.","nudge":"Pense: quem compra na loja ou na barraquinha?","sets":[["client"],["fregues"],["comprador"],["quem","compr"]]},"Desperdício":{"tipo":"É um jeito de gastar.","nudge":"Pense: usar mais do que precisa e jogar fora.","sets":[["desperdic"],["gast","toa"]]},"Banco":{"tipo":"É um lugar.","nudge":"Pense: onde as pessoas guardam dinheiro numa conta?","sets":[["banc"],["agenci"]]},"Investimento":{"tipo":"É um jeito de usar o dinheiro guardado.","nudge":"Pense: colocar o dinheiro num lugar para ele crescer com o tempo.","sets":[["invest"],["aplic","dinheiro"]]},"Campanha solidária":{"tipo":"É uma ação em grupo.","nudge":"Pense: a escola junta agasalhos para quem precisa.","sets":[["campanh"],["arrecad"],["solidari"]]},"Imposto":{"tipo":"É um pagamento que todos fazem.","nudge":"Pense: o dinheiro que vai para o governo cuidar da escola e do posto.","sets":[["impost"],["tribut"]]},"Cashback":{"tipo":"É um tipo de vantagem na compra.","nudge":"Pense: parte do dinheiro que você gastou volta para você.","sets":[["cashback"],["cash","back"],["dinheiro","volta"]]},"Sócio":{"tipo":"É uma pessoa num negócio.","nudge":"Pense: quem divide o negócio com você.","sets":[["socio"],["socia"],["sociedad"]]},"Vaquinha online":{"tipo":"É um jeito de ajudar.","nudge":"Pense: juntar doações pela internet.","sets":[["vaquinh","online"],["vaquinh","internet"],["vaquinh","virtual"],["crowdfund"],["doac","online"],["doac","internet"]]}});
 /* Lote 6 de cartas novas do jogo digital: 3 de 5–7, 4 de 8–12, 3 de 13+ — 100 cartas (16/11/2026) */
 Object.assign(EXTRA,{"Ajudar em casa":{"tipo":"É algo que se faz em família.","nudge":"Pense: pôr a mesa e arrumar a cama, sem ganhar nada por isso.","sets":[["ajud","casa"],["tarefa","casa"],["arrum","casa"]]},"Profissão":{"tipo":"É algo que a pessoa escolhe para a vida.","nudge":"Pense: padeira, médico e motorista são exemplos de quê?","sets":[["profiss"]]},"Caixa eletrônico":{"tipo":"É uma máquina.","nudge":"Pense: a máquina do banco que entrega dinheiro com senha.","sets":[["caixa","eletron"],["caixa","banco"],["maquina","banco"]]},"Preço de venda":{"tipo":"É um valor de dinheiro.","nudge":"Pense: quanto você vai cobrar de quem compra.","sets":[["preco","venda"],["quanto","cobr"],["valor","venda"],["preco","vend"]]},"Gorjeta":{"tipo":"É um dinheiro a mais.","nudge":"Pense: o que se dá para agradecer um bom atendimento.","sets":[["gorjet"],["taxa","servico"]]},"Feira de trocas":{"tipo":"É um encontro.","nudge":"Pense: cada um leva o que não usa e volta com outra coisa, sem dinheiro.","sets":[["trocar"],["trocas"],["escamb"]]},"Conta bancária":{"tipo":"É algo que se abre num banco.","nudge":"Pense: onde fica o seu dinheiro no banco, com número e saldo.","sets":[["conta","banc"],["conta","corrent"],["conta","digital"]]},"Entrevista de emprego":{"tipo":"É uma conversa.","nudge":"Pense: a conversa antes de conseguir a vaga.","sets":[["entrevist"],["process","seletiv"]]},"Carteira de trabalho":{"tipo":"É um documento.","nudge":"Pense: o documento que registra o emprego com direitos.","sets":[["carteira","trabalh"],["carteira","assinad"],["ctps"],["registr","carteira"]]},"Fiador":{"tipo":"É uma pessoa que dá garantia.","nudge":"Pense: quem assina junto no aluguel e paga se o outro não pagar.","sets":[["fiador"],["fianc"],["avalist"]]}});
+Object.assign(EXTRA,{"Dinheiro":{"tipo":"É algo que a gente usa todo dia.","nudge":"Pense: o que você dá para o pipoqueiro em troca da pipoca?","sets":[["dinheir"],["grana"]]},"Aumento de preço":{"tipo":"É uma mudança que acontece na loja.","nudge":"Pense: o caderno custava R$ 5 e agora custa R$ 6. O que aconteceu?","sets":[["aument","preco"],["mais","caro"],["preco","subi"],["subi","preco"]]},"Coisas de todos":{"tipo":"São lugares e coisas que muita gente usa.","nudge":"Pense: de quem é o parquinho da praça?","sets":[["coisa","todos"],["coisa","todo","mundo"],["bem","public"],["bens","public"],["espaco","public"],["lugar","public"]]},"Inflação":{"tipo":"É uma palavra do noticiário sobre preços.","nudge":"Pense: quando quase tudo fica mais caro com o tempo, como isso se chama?","sets":[["inflac"],["inflaç"],["alta","precos"],["aument","geral"]]},"Compre agora, pague depois":{"tipo":"É um jeito de pagar em lojas e aplicativos.","nudge":"Pense: você leva hoje e paga quando?","sets":[["pag","depois"],["compr","agora","depois"],["bnpl"]]}});
+Object.assign(EXTRA,{"Centavos":{"tipo":"É uma parte do dinheiro.","nudge":"Pense: o que fica depois da vírgula no preço?","sets":[["centav"]]},"Cartão de débito":{"tipo":"É um jeito de pagar na maquininha.","nudge":"Pense: um cartão que tira o dinheiro da conta na hora.","sets":[["cartao","debit"],["debit"]]},"Prevenção":{"tipo":"É algo que se faz antes de um problema.","nudge":"Pense: a capinha protege o tablet antes do tombo. Como se chama isso?","sets":[["prevenc"],["prevenir"],["previn"],["precau"],["evit","prejuiz"]]},"Colchão financeiro":{"tipo":"É um dinheiro guardado para um momento difícil.","nudge":"Pense: um dinheiro que segura as contas por alguns meses se o salário parar.","sets":[["colcha"],["reserva","emergenc"],["fundo","emergenc"],["reserva","financeir"]]}});

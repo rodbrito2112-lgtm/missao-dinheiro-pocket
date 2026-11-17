@@ -8,11 +8,13 @@ const KEY_SAVE='mdp-pocket-v3-save',KEY_TUT='mdp-pocket-v3-tut';
 /* Chaves autorizadas em 14/11/2026 (ver CLAUDE.md) */
 const KEY_CHAR='mdp-pocket-char',KEY_SOM='mdp-pocket-som',KEY_CONQ='mdp-pocket-conquistas',KEY_FB='mdp-pocket-fb';
 /* Versão que vai no resumo do feedback, para saber de qual jogo veio cada resposta */
-const VERSAO_JOGO='2026-11-17 (curadoria: 29 cartas corrigidas; kit troca Cartão de crédito por Propaganda)';
+const VERSAO_JOGO='2026-11-17 (idade mínima por carta; 9 cartas novas; faixa 8–12)';
 const PERSONAGENS=['Caio','Mel','Leticia','Vinicius','Bia','Tiko'];
-/* Faixas: a chave '8–11' continua (álbum salvo depende dela), mas aparece como 8 a 12 anos. '13+' = jovens e adultos. */
-const FAIXAS=['5–7','8–11','13+'];
-const FAIXA_TXT={'5–7':'5 a 7 anos','8–11':'8 a 12 anos','13+':'13 anos ou mais'};
+/* Faixas: '8–12' (até 17/11/2026 a chave era '8–11'; partidas e relatórios antigos são convertidos). '13+' = jovens e adultos. */
+const FAIXAS=['5–7','8–12','13+'];
+/* Idade mínima (Matriz por idade v1.2): carta da faixa 8 a 12 com idade 11 só entra no baralho e no álbum de "13 anos ou mais" (e em "Todas"). */
+const faixaJogo=c=>c.faixa==='8–12'&&c.idade>=11?'13+':c.faixa;
+const FAIXA_TXT={'5–7':'5 a 7 anos','8–12':'8 a 12 anos','8–11':'8 a 12 anos','13+':'13 anos ou mais'};
 /* Conceitos que só entram depois da base: Juros, Parcelamento e Cartão pedem Empréstimo ou Poupança antes */
 const PRE={'Juros':['Empréstimo','Poupança'],'Parcelamento':['Empréstimo','Poupança'],'Cartão de crédito':['Empréstimo','Poupança']};
 const $=id=>document.getElementById(id);
@@ -24,9 +26,9 @@ let S=null,R=null,ph='setup',view={},DB=null,UID=null,CANEDIT=false,CONN='ok',TU
 function albumList(){return store.get('mdp-album')||[]}
 /* Guarda o conceito no álbum; se a faixa ficar completa nesta partida, marca para celebrar no fim */
 function album(t){const a=albumList();if(a.indexOf(t)<0){a.push(t);store.set('mdp-album',a);
- const c=CARDS.find(x=>x.title===t);if(c&&S){const tot=CARDS.filter(x=>x.faixa===c.faixa),tem=tot.filter(x=>a.includes(x.title));if(tem.length===tot.length){S.completou=S.completou||[];if(!S.completou.includes(c.faixa))S.completou.push(c.faixa)}}}}
+ const c=CARDS.find(x=>x.title===t);if(c&&S){const tot=CARDS.filter(x=>faixaJogo(x)===faixaJogo(c)),tem=tot.filter(x=>a.includes(x.title));if(tem.length===tot.length){S.completou=S.completou||[];if(!S.completou.includes(faixaJogo(c)))S.completou.push(faixaJogo(c))}}}}
 function albumN(){return albumList().length}
-function albumFaixa(f){const a=albumList(),tot=CARDS.filter(c=>c.faixa===f);return {tem:tot.filter(c=>a.includes(c.title)).length,tot:tot.length}}
+function albumFaixa(f){const a=albumList(),tot=CARDS.filter(c=>faixaJogo(c)===f);return {tem:tot.filter(c=>a.includes(c.title)).length,tot:tot.length}}
 function persist(){if(S&&['clues','falseq','reveal','scene','sceneRes','bot'].includes(ph))store.set(KEY_SAVE,{S,R,ph})}
 function lev(a,b){const m=a.length,n=b.length;if(!m)return n;if(!n)return m;let p=[...Array(n+1).keys()];for(let i=1;i<=m;i++){const c=[i];for(let j=1;j<=n;j++)c[j]=Math.min(p[j]+1,c[j-1]+1,p[j-1]+(a[i-1]===b[j-1]?0:1));p=c}return p[n]}
 function hasTok(n,words,t){if(t.includes(' '))return n.includes(t);return words.some(w=>w.startsWith(t)||(t.length>=5&&w.length>=t.length&&lev(w.slice(0,t.length),t)<=1))}
@@ -48,7 +50,7 @@ function montarBaralho(pool,len){const a=albumList();
  for(const i of [...novos,...vistos]){if(deck.length>=len)break;if(pode(i)){deck.push(i);for(let k=esperando.length-1;k>=0;k--)if(deck.length<len&&pode(esperando[k]))deck.push(esperando.splice(k,1)[0])}else esperando.push(i)}
  while(deck.length<len&&esperando.length)deck.push(esperando.shift());
  return deck}
-function newGame(mode,names,rule,helps,faixa,len,ch,cena){const pool=CARDS.map((c,i)=>i).filter(i=>faixa==='todas'||!CARDS[i].faixa||CARDS[i].faixa===faixa);
+function newGame(mode,names,rule,helps,faixa,len,ch,cena){const pool=CARDS.map((c,i)=>i).filter(i=>faixa==='todas'||!CARDS[i].faixa||faixaJogo(CARDS[i])===faixa);
  S={mode,names,rule,helps,faixa,len,char:ch||null,cena:cena!==false,life:[{dica:0,opc:0,falsa:0},{dica:0,opc:0,falsa:0}],deck:montarBaralho(pool,len),round:0,score:[0,0],log:[],t0:Date.now()};startRound()}
 function startRound(){
  R={k:1,shown:1,blocked:false,nextBlocked:false,elim:false,correctAt:0,disc:0,bonus:0,fakePick:null,choice:null,msg:null,msgKind:'',showKey:false,adults:0,guesses:0,nears:0,lifeUsed:false,lifeKind:'',hint:null,options:null,fakeKnown:false,ord:shuffle([0,1,2])};
@@ -107,7 +109,7 @@ function pickOpt(i){R.choice=i;render()}
 function useLife(k){
  if(!S.helps||R.lifeUsed||S.life[team()][k])return;const c=card(),x=EXTRA[c.title]||{};const t=team();
  if(k==='dica'){S.life[t].dica=1;R.lifeUsed=true;R.lifeKind='dica';R.hint=(x.tipo||'')+' Começa com a letra "'+c.title[0].toUpperCase()+'".'}
- else if(k==='opc'){if(R.blocked)return;S.life[t].opc=1;R.lifeUsed=true;R.lifeKind='opcoes';R.options=shuffle([c.title,...shuffle(CARDS.filter(y=>y.title!==c.title&&(!c.faixa||y.faixa===c.faixa)).map(y=>y.title)).slice(0,3)])}
+ else if(k==='opc'){if(R.blocked)return;S.life[t].opc=1;R.lifeUsed=true;R.lifeKind='opcoes';R.options=shuffle([c.title,...shuffle(CARDS.filter(y=>y.title!==c.title&&(!c.faixa||faixaJogo(y)===faixaJogo(c))).map(y=>y.title)).slice(0,3)])}
  else if(k==='falsa'){if(c.fake>R.k){setMsg('A pista falsa ainda não apareceu. Esta ajuda não foi gasta; tente depois.','');render();return}
   S.life[t].falsa=1;R.lifeUsed=true;R.lifeKind='pista_falsa';R.fakeKnown=true;setMsg('Marcamos a pista falsa. Nesta carta não há bônus de +2.','')}
  render()}
@@ -123,7 +125,7 @@ const CONQ=[['detetive','🔍','Detetive','achou a pista falsa',l=>l.bonus===2],
 function conquistas(t){const L=S.log.filter(l=>l.t===t&&!l.bot);return CONQ.map(([id,ic,nome,txt,f])=>({id,ic,nome,txt,n:L.filter(f).length})).filter(c=>c.n>0)}
 function registrarConquistas(){if(S.conqOk)return;S.conqOk=true;const tot=store.get(KEY_CONQ)||{};
  const eq=S.mode==='solo'?[0]:[0,1];eq.forEach(t=>conquistas(t).forEach(c=>{tot[c.id]=(tot[c.id]||0)+c.n}));store.set(KEY_CONQ,tot)}
-function resumeGame(){const d=store.get(KEY_SAVE);if(d){S=d.S;R=d.R;ph=d.ph;render()}}
+function resumeGame(){const d=store.get(KEY_SAVE);if(d){S=d.S;if(S.faixa==='8–11')S.faixa='8–12';R=d.R;ph=d.ph;render()}}
 function quit(){if(!view.confirmQuit){view.confirmQuit=true;render();return}view.confirmQuit=false;store.del(KEY_SAVE);ph='setup';render()}
 function cancelQuit(){view.confirmQuit=false;render()}
 
@@ -236,7 +238,7 @@ function viewSetup(){const saved=store.get(KEY_SAVE),alb=FAIXAS.map(albumFaixa),
  <div><label>Quem vai jogar?</label><div role="radiogroup" aria-label="Quem vai jogar?" class="seg mode"><label><input type="radio" name="mode" value="duo" checked onchange="setupChange()"><span><span class="faces" aria-hidden="true"><img src="${ASSETS.Caio}" alt=""><img src="${ASSETS.Bia}" alt=""></span><b>Equipes</b><small>Um celular passando de mão em mão</small></span></label><label><input type="radio" name="mode" value="solo" onchange="setupChange()"><span><span class="faces" aria-hidden="true"><img src="${ASSETS.Leticia}" alt=""><i>🤖</i></span><b>Sozinho</b><small>Com o Robô das Pistas de colega</small></span></label></div></div>
  <div class="row nomes"><div><label for="n0" id="l0" class="sr">Equipe 1</label><input id="n0" type="text" maxlength="20" value="Equipe 1" placeholder="Nome da equipe 1"></div><div id="w1"><label for="n1" id="l1" class="sr">Equipe 2</label><input id="n1" type="text" maxlength="20" value="Equipe 2" placeholder="Nome da equipe 2"></div></div>
  <div id="charbox" hidden><label id="lb_char">Escolha seu personagem</label><div role="radiogroup" aria-labelledby="lb_char" class="seg chars">${PERSONAGENS.map(p=>`<label><input type="radio" name="char" value="${p}" ${store.get(KEY_CHAR)===p?'checked':''}><span><img src="${ASSETS[p]}" alt=""><b>${esc(NAMES[p]||p)}</b></span></label>`).join('')}</div></div>
- <div><label id="lb_faixa">Idade de quem vai jogar</label><div role="radiogroup" aria-labelledby="lb_faixa" class="seg faixas"><label><input type="radio" name="faixa" value="5–7" onchange="$('fxmsg').textContent=''"><span>5 a 7 anos</span></label><label><input type="radio" name="faixa" value="8–11" onchange="$('fxmsg').textContent=''"><span>8 a 12 anos</span></label><label><input type="radio" name="faixa" value="13+" onchange="$('fxmsg').textContent=''"><span>13 anos ou mais</span></label><label><input type="radio" name="faixa" value="todas" onchange="$('fxmsg').textContent=''"><span>Todas</span></label></div><p id="fxmsg" class="fxmsg" role="alert"></p></div>
+ <div><label id="lb_faixa">Idade de quem vai jogar</label><div role="radiogroup" aria-labelledby="lb_faixa" class="seg faixas"><label><input type="radio" name="faixa" value="5–7" onchange="$('fxmsg').textContent=''"><span>5 a 7 anos</span></label><label><input type="radio" name="faixa" value="8–12" onchange="$('fxmsg').textContent=''"><span>8 a 12 anos</span></label><label><input type="radio" name="faixa" value="13+" onchange="$('fxmsg').textContent=''"><span>13 anos ou mais</span></label><label><input type="radio" name="faixa" value="todas" onchange="$('fxmsg').textContent=''"><span>Todas</span></label></div><p id="fxmsg" class="fxmsg" role="alert"></p></div>
  <button id="startbtn" class="btn-y full big-start" onclick="start()">Começar</button>
  <details class="adulto" id="cfg"><summary><span class="cfg-t">Configurações <small>tamanho, erro, ajudas, cena, som, álbum</small></span><span class="cfg-acao" aria-hidden="true"><span class="abrir">Abrir ▾</span><span class="fechar">Fechar ▴</span></span></summary><div class="stack">
  <div><label>Tamanho da partida</label><div role="radiogroup" aria-label="Tamanho da partida" class="seg"><label><input type="radio" name="len" value="4"><span><b>Curta</b><br><small>4 cartas, cerca de 10 min</small></span></label><label><input type="radio" name="len" value="6" checked><span><b>Normal</b><br><small>6 cartas, cerca de 15 a 20 min</small></span></label></div></div>
@@ -266,7 +268,7 @@ function viewFinal(){const [a,b]=S.score,solo=S.mode==='solo';
  const w=solo?'Partida concluída!':a===b?'Empate: vitória dividida!':(a>b?S.names[0]:S.names[1])+' venceu!';
  const mins=Math.max(1,Math.round(((S.t1||Date.now())-S.t0)/60000));
  const ch=solo&&S.char,img=ch&&POSE[ch]?`<img class="fimchar" src="${POSE[ch].cheer}" alt="${esc(NAMES[ch]||ch)} comemorando">`:'';
- const comp=(S.completou||[]).map(f=>`<div class="msg good"><span aria-hidden="true">🎉</span> <b>Álbum completo: ${FAIXA_TXT[f]}!</b> Vocês descobriram todos os conceitos desta faixa.${f==='5–7'?' Que tal experimentar a faixa <b>8 a 12 anos</b>?':f==='8–11'?' Que tal experimentar a faixa <b>13 anos ou mais</b>?':''}</div>`).join('');
+ const comp=(S.completou||[]).map(f=>`<div class="msg good"><span aria-hidden="true">🎉</span> <b>Álbum completo: ${FAIXA_TXT[f]}!</b> Vocês descobriram todos os conceitos desta faixa.${f==='5–7'?' Que tal experimentar a faixa <b>8 a 12 anos</b>?':f==='8–12'?' Que tal experimentar a faixa <b>13 anos ou mais</b>?':''}</div>`).join('');
  const blocos=solo?`<div class="fimbox">${img}<div><div class="lab">${esc(S.names[0])}</div><b class="big">${a}</b> pontos${destaques(0)}</div></div>`
   :`<div class="fim2">${[0,1].map(t=>`<div class="fimbox ${a===b||S.score[t]===Math.max(a,b)?'top':''}"><div class="lab">${esc(S.names[t])}</div><b class="big">${S.score[t]}</b>${destaques(t)}</div>`).join('')}</div>`;
  const tot=store.get(KEY_CONQ)||{},acum=CONQ.filter(([id])=>tot[id]).map(([id,ic,nome])=>`<span class="cq"><span aria-hidden="true">${ic}</span> ${nome} ×${tot[id]}</span>`).join('');
@@ -283,7 +285,7 @@ function jogarDeNovo(){if(!view.fbEnviado&&!view.sairSemFb){view.sairSemFb=true;
 /* Álbum: conceitos descobertos neste aparelho, por faixa, com "?" nos que faltam */
 function viewAlbum(){const a=albumList();
  return `${logo()}<div class="card"><div class="banner"><div class="num" aria-hidden="true">📒</div><div class="t"><small>Neste aparelho</small><h2 tabindex="-1">Álbum de conceitos</h2></div></div><div class="body">
- ${FAIXAS.map(f=>{const L=CARDS.filter(c=>c.faixa===f),n=L.filter(c=>a.includes(c.title)).length;
+ ${FAIXAS.map(f=>{const L=CARDS.filter(c=>faixaJogo(c)===f),n=L.filter(c=>a.includes(c.title)).length;
   return `<div class="lab">${FAIXA_TXT[f]} · ${n} de ${L.length}${n===L.length?' · completo! 🎉':''}</div><div class="alb">${L.map(c=>a.includes(c.title)?`<div class="ac t-${TEMA[c.tema]||'base'}"><span aria-hidden="true">${c.icon}</span><small>${esc(c.title)}</small></div>`:`<div class="ac falta"><span aria-hidden="true">?</span><small>Ainda não descoberto</small></div>`).join('')}</div>`}).join('')}
  <button class="btn-y full" onclick="ph='setup';render()">Voltar</button></div></div>`}
 function seg(name,opts){return `<div class="seg" role="radiogroup" aria-labelledby="lb_${name}">${opts.map(o=>`<label><input type="radio" name="${name}" value="${esc(o)}"><span>${esc(o)}</span></label>`).join('')}</div>`}
