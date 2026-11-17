@@ -2280,7 +2280,7 @@ const CARDS = [
     "why": [
       "Pesquisar ajuda, mas a resposta já é conhecida: no total, a casa sempre ganha mais.",
       "Dinheiro de conta não é para arriscar: se perder, a conta fica sem pagar.",
-      "Você não arrisca nada e ainda ajuda o amigo a ver o que ele esconde de si mesmo."
+      "Você não arrisca nada e ainda ajuda o amigo a ver o que ele esconde de si mesmo. E aposta é proibida para menores de 18 anos."
     ],
     "faixa": "13+",
     "idade": 13,

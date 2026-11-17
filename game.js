@@ -8,7 +8,7 @@ const KEY_SAVE='mdp-pocket-v3-save',KEY_TUT='mdp-pocket-v3-tut';
 /* Chaves autorizadas em 14/11/2026 (ver CLAUDE.md) */
 const KEY_CHAR='mdp-pocket-char',KEY_SOM='mdp-pocket-som',KEY_CONQ='mdp-pocket-conquistas',KEY_FB='mdp-pocket-fb';
 /* Versão que vai no resumo do feedback, para saber de qual jogo veio cada resposta */
-const VERSAO_JOGO='2026-11-17 (idade mínima por carta; 9 cartas novas; faixa 8–12)';
+const VERSAO_JOGO='2026-11-17 (idade mínima por carta; 9 cartas novas; faixa 8–12; Aposta: menores de 18)';
 const PERSONAGENS=['Caio','Mel','Leticia','Vinicius','Bia','Tiko'];
 /* Faixas: '8–12' (até 17/11/2026 a chave era '8–11'; partidas e relatórios antigos são convertidos). '13+' = jovens e adultos. */
 const FAIXAS=['5–7','8–12','13+'];
