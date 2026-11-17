@@ -8,7 +8,7 @@ const KEY_SAVE='mdp-pocket-v3-save',KEY_TUT='mdp-pocket-v3-tut';
 /* Chaves autorizadas em 14/11/2026 (ver CLAUDE.md) */
 const KEY_CHAR='mdp-pocket-char',KEY_SOM='mdp-pocket-som',KEY_CONQ='mdp-pocket-conquistas',KEY_FB='mdp-pocket-fb';
 /* Versão que vai no resumo do feedback, para saber de qual jogo veio cada resposta */
-const VERSAO_JOGO='2026-11-15 (revisão das cartas; opções da cena sorteadas)';
+const VERSAO_JOGO='2026-11-17 (curadoria: 29 cartas corrigidas; kit troca Cartão de crédito por Propaganda)';
 const PERSONAGENS=['Caio','Mel','Leticia','Vinicius','Bia','Tiko'];
 /* Faixas: a chave '8–11' continua (álbum salvo depende dela), mas aparece como 8 a 12 anos. '13+' = jovens e adultos. */
 const FAIXAS=['5–7','8–11','13+'];

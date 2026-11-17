@@ -41,9 +41,9 @@ const CARDS = [
       2
     ],
     "why": [
-      "Pode economizar, mas há risco de não resolver a necessidade antes da aula.",
+      "Pode sair mais barato, mas você arrisca ficar sem caderno na aula.",
       "A oferta é atraente, mas deixa apenas R$ 5 para o caderno necessário.",
-      "Resolve a necessidade já conhecida e preserva R$ 10."
+      "O caderno é o que você precisa, e ainda sobram R$ 10."
     ],
     "faixa": "8–11",
     "tema": "Consumo e escolhas"
@@ -56,7 +56,7 @@ const CARDS = [
       "Volta para a sua mão depois de pagar.",
       "Acontece quando você paga com uma nota maior.",
       "Vale contar antes de guardar.",
-      "Para saber quanto volta, você soma tudo.",
+      "O troco é sempre mais do que o dinheiro que você deu.",
       "Paguei 10, custou 7: voltam 3.",
       "É o dinheiro que o caixa devolve."
     ],
@@ -122,7 +122,7 @@ const CARDS = [
     "opts": [
       "Abrir o link recebido e pagar a taxa imediatamente.",
       "Ignorar a mensagem e esperar a entrega normalmente.",
-      "Conferir a entrega com o responsável pelo aplicativo ou site oficial."
+      "Conferir a entrega com o responsável no app ou site da loja, sem usar o link."
     ],
     "pts": [
       -1,
@@ -146,7 +146,7 @@ const CARDS = [
       "O vendedor combina com você valores para datas futuras.",
       "Depois da primeira parte paga, a compra fica totalmente quitada.",
       "A cobrança pode chegar todo mês, por algum tempo.",
-      "Uma etiqueta pode mostrar “10 × R$ 45”.",
+      "Uma etiqueta pode mostrar “4 × R$ 18”.",
       "É dividir o pagamento de uma compra em prestações."
     ],
     "fake": 3,
@@ -163,11 +163,11 @@ const CARDS = [
       "empréstimo",
       "comprar agora e pagar depois"
     ],
-    "scene": "Uma bicicleta nova custa R$ 400 à vista ou 10 × R$ 45. Você já guardou R$ 250, consegue guardar R$ 50 por mês e não precisa dela imediatamente. Uma usada custa R$ 320, mas exige R$ 100 em consertos.",
+    "scene": "Uma bola custa R$ 60 à vista ou 4 × R$ 18. Você tem R$ 40 e guarda R$ 10 por semana.",
     "opts": [
-      "Guardar mais R$ 150 durante três meses e comprar a nova à vista.",
-      "Escolher a usada e pagar o conserto.",
-      "Parcelar a bicicleta nova agora."
+      "Guardar por 2 semanas e comprar à vista.",
+      "Comprar uma bola usada em bom estado por R$ 40, hoje.",
+      "Pedir para a família parcelar agora."
     ],
     "pts": [
       2,
@@ -175,9 +175,9 @@ const CARDS = [
       -1
     ],
     "why": [
-      "Atende ao objetivo com custo conhecido de R$ 400 e sem parcelas.",
-      "O total estimado é R$ 420: menor que parcelar, maior que a nova à vista.",
-      "Pagará R$ 450 no total sem urgência, assumindo compromissos futuros."
+      "R$ 40 + 2 × R$ 10 = R$ 60, sem parcelas.",
+      "Resolve agora, mas pode durar menos.",
+      "4 × R$ 18 = R$ 72: R$ 12 a mais, sem pressa nenhuma."
     ],
     "faixa": "8–11",
     "tema": "Consumo e escolhas",
@@ -209,11 +209,11 @@ const CARDS = [
       "economia por comprar mais",
       "custo-benefício"
     ],
-    "scene": "Você tem R$ 30. Precisa de cinco lápis e quer deixar pelo menos R$ 15 para outro material amanhã. Há caixas de 6 lápis por R$ 9, de 12 por R$ 14 e de 24 por R$ 24.",
+    "scene": "Você precisa de 12 lápis para o ano. A caixa de 6 custa R$ 9, e a de 12 custa R$ 12.",
     "opts": [
-      "Comprar a caixa de 24 por R$ 24.",
-      "Comprar a caixa de 6 por R$ 9.",
-      "Comprar a caixa de 12 por R$ 14."
+      "Comprar só uma caixa de 6, porque é a mais barata.",
+      "Comprar a caixa de 12 por R$ 12.",
+      "Comprar duas caixas de 6, por R$ 18."
     ],
     "pts": [
       -1,
@@ -221,9 +221,9 @@ const CARDS = [
       1
     ],
     "why": [
-      "Menor preço por lápis, mas não atende à reserva de R$ 15 para amanhã.",
-      "Atende à necessidade e preserva R$ 21 para o outro material.",
-      "Mantém R$ 16 disponíveis e pode ter utilidade futura, embora compre além da necessidade atual."
+      "Parece barato, mas faltam 6 lápis.",
+      "Cada lápis sai a R$ 1; na caixa de 6, sai a R$ 1,50.",
+      "Dá os 12 lápis, mas paga R$ 6 a mais."
     ],
     "faixa": "8–11",
     "tema": "Consumo e escolhas"
@@ -253,10 +253,10 @@ const CARDS = [
       "gasto extra",
       "problema"
     ],
-    "scene": "Está chovendo, e o seu guarda-chuva quebrou. Você tem R$ 35 guardados para um brinquedo.",
+    "scene": "Está chovendo e o seu guarda-chuva quebrou. O conserto custa R$ 4. Você tem R$ 5 no pote Reserva e R$ 15 no pote Sonho, para um brinquedo.",
     "opts": [
-      "Pegar um emprestado hoje e consertar o seu depois, por R$ 8.",
-      "Usar R$ 30 do brinquedo para comprar um novo.",
+      "Pegar um emprestado hoje e consertar o seu depois, com R$ 4 do pote Reserva.",
+      "Usar o dinheiro do brinquedo para comprar um novo.",
       "Ir com o guarda-chuva quebrado e se molhar."
     ],
     "pts": [
@@ -265,7 +265,7 @@ const CARDS = [
       -1
     ],
     "why": [
-      "Resolve hoje e gasta pouco.",
+      "O pote Reserva existe para isso, e o Sonho continua inteiro.",
       "Resolve, mas o brinquedo vai demorar mais.",
       "Você se molha, e o problema continua."
     ],
@@ -298,11 +298,11 @@ const CARDS = [
       "planejamento",
       "reserva"
     ],
-    "scene": "Você quer um livro de R$ 30. Já tem R$ 20 e guarda R$ 5 por semana. Hoje viu figurinhas de R$ 10.",
+    "scene": "Você quer um livro de R$ 20. Já tem R$ 10 e guarda R$ 5 por semana. Hoje viu figurinhas de R$ 5.",
     "opts": [
-      "Comprar figurinhas mais baratas e esperar um pouco mais pelo livro.",
+      "Comprar as figurinhas e esperar uma semana a mais pelo livro.",
       "Não comprar e guardar R$ 5 por semana: em 2 semanas, o livro é seu.",
-      "Comprar as figurinhas de R$ 10 agora."
+      "Comprar figurinhas com todo o dinheiro."
     ],
     "pts": [
       1,
@@ -311,8 +311,8 @@ const CARDS = [
     ],
     "why": [
       "Dá para ter os dois, mas o livro demora mais.",
-      "Em duas semanas você chega aos R$ 30.",
-      "Você volta para R$ 10, e o livro fica bem mais longe."
+      "R$ 10 + R$ 5 + R$ 5 = R$ 20.",
+      "O dinheiro do livro acaba, e ele fica bem mais longe."
     ],
     "faixa": "5–7",
     "tema": "Poupar e guardar",
@@ -465,7 +465,7 @@ const CARDS = [
       "Todo dinheiro guardado desse jeito dobra sozinho em um mês.",
       "Você coloca dinheiro de lado de pouco em pouco.",
       "Geralmente é uma parte do que você recebe.",
-      "Quem faz isso sempre chega mais perto de um objetivo.",
+      "Quem faz isso costuma chegar mais perto de um objetivo.",
       "É separar um pouco todo mês para usar mais tarde."
     ],
     "fake": 2,
@@ -482,7 +482,7 @@ const CARDS = [
       "economia",
       "cofrinho"
     ],
-    "scene": "Você recebe R$ 20 de mesada por mês e quer uma bola de R$ 60 em três meses. Seu amigo chama para um sorvete de R$ 10 hoje.",
+    "scene": "Imagine que você recebe R$ 20 por mês e quer uma bola de R$ 60 em três meses. Seu amigo chama para um sorvete de R$ 10 hoje.",
     "opts": [
       "Tomar o sorvete e guardar R$ 10 neste mês.",
       "Guardar R$ 20 por mês e pular o sorvete.",
@@ -528,11 +528,11 @@ const CARDS = [
       "dívida",
       "poupança"
     ],
-    "scene": "Você tem R$ 50 e uma ideia: guardar por 6 meses num lugar seguro que paga um pouquinho por mês. Seu primo oferece vender um jogo usado por R$ 50 hoje.",
+    "scene": "Você tem R$ 50 e ainda não sabe no que quer gastar. Dá para deixar num lugar seguro que paga um pouquinho por mês.",
     "opts": [
-      "Comprar o jogo hoje.",
-      "Guardar por 6 meses e ver o que cresceu.",
-      "Guardar metade e comprar um jogo de R$ 25."
+      "Gastar logo em qualquer coisa, para o dinheiro não ficar parado.",
+      "Deixar lá e decidir com calma.",
+      "Deixar na gaveta até decidir."
     ],
     "pts": [
       -1,
@@ -540,9 +540,9 @@ const CARDS = [
       1
     ],
     "why": [
-      "Gasta tudo sem deixar o dinheiro trabalhar.",
-      "O dinheiro cresce um pouco enquanto você espera.",
-      "Aproveita um pouco agora, mas rende menos."
+      "Gastar sem saber no quê é o contrário de decidir com calma.",
+      "O dinheiro cresce um pouco enquanto você pensa.",
+      "Fica guardado, mas não cresce nada."
     ],
     "faixa": "8–11",
     "tema": "Poupar e guardar",
@@ -574,11 +574,11 @@ const CARDS = [
       "emergência",
       "cofrinho"
     ],
-    "scene": "Sua bicicleta fura o pneu antes de um passeio. O conserto custa R$ 15. Você tem R$ 25 na reserva e R$ 10 numa meta de um fone.",
+    "scene": "Sua bicicleta fura o pneu antes de um passeio. O conserto custa R$ 15. Você tem R$ 25 no pote Reserva e R$ 20 no pote Sonho, para um fone.",
     "opts": [
-      "Usar a reserva e depois repor aos poucos.",
+      "Usar a Reserva e depois repor aos poucos.",
       "Pedir emprestado e esconder da família.",
-      "Usar o dinheiro do fone e deixar a reserva intacta."
+      "Usar o dinheiro do pote Sonho e deixar a Reserva intacta."
     ],
     "pts": [
       2,
@@ -586,7 +586,7 @@ const CARDS = [
       1
     ],
     "why": [
-      "A reserva existe para isso. Repor depois mantém a proteção.",
+      "O pote Reserva existe para isso. Repor aos poucos mantém a proteção.",
       "Esconder piora o problema e cria uma dívida escondida.",
       "Resolve, mas desmonta o sonho do fone sem necessidade."
     ],
@@ -647,7 +647,7 @@ const CARDS = [
       "É algo que as pessoas procuram todos os dias.",
       "Sem isso, o corpo ou a casa ficam sem o que precisam.",
       "Comida, abrigo e roupa de frio entram aqui.",
-      "Vem antes de qualquer coisa só pelo gosto.",
+      "Sem isso, a gente passa fome ou frio.",
       "É um brinquedo novo que todo mundo da turma tem.",
       "É o que você precisa de verdade para viver bem."
     ],
@@ -665,11 +665,11 @@ const CARDS = [
       "comprar",
       "importante"
     ],
-    "scene": "Você tem R$ 20. Seus tênis estão rasgados e vão se estragar na chuva. Na loja há um tênis de R$ 20 e um boneco de R$ 20.",
+    "scene": "Sua garrafinha de água da escola quebrou. Você tem R$ 10. Uma garrafinha nova custa R$ 10, e um boneco também.",
     "opts": [
-      "Comprar o boneco e continuar com o tênis rasgado.",
-      "Comprar o tênis, que resolve o problema.",
-      "Não comprar nada para ficar com R$ 20."
+      "Comprar o boneco e ficar sem garrafinha.",
+      "Comprar a garrafinha, que resolve o problema.",
+      "Não comprar nada e ficar com os R$ 10."
     ],
     "pts": [
       -1,
@@ -677,7 +677,7 @@ const CARDS = [
       1
     ],
     "why": [
-      "O brinquedo é bom, mas o pé continua molhado.",
+      "O boneco é legal, mas você fica sem água na escola.",
       "Resolve a necessidade com o dinheiro disponível.",
       "Segura o dinheiro, mas o problema continua."
     ],
@@ -694,7 +694,7 @@ const CARDS = [
       "É um sentimento de querer muito.",
       "Pode mudar de um dia para o outro.",
       "Sem isso você não consegue comer nem se vestir.",
-      "Não é um problema por si só, mas pede cuidado.",
+      "Tudo bem sentir, e dá para esperar.",
       "É querer uma coisa, mesmo que você não precise dela."
     ],
     "fake": 4,
@@ -713,7 +713,7 @@ const CARDS = [
     ],
     "scene": "No mercado, a caixa de bombons de R$ 10 está bem na altura dos seus olhos. Você já tem dois chocolates em casa.",
     "opts": [
-      "Pedir os bombons e levar mais um para casa.",
+      "Pedir os bombons, mesmo já tendo chocolate em casa.",
       "Dizer \"eu quero, mas não preciso agora\" e seguir.",
       "Esconder os bombons no carrinho sem falar."
     ],
@@ -757,10 +757,10 @@ const CARDS = [
       "oferta",
       "televisão"
     ],
-    "scene": "Aparece um anúncio de um tênis com um jogador famoso. Seu tênis atual está bom, mas o novo custa R$ 200 e todos os seus amigos vão ter.",
+    "scene": "Aparece um anúncio de um tênis com um jogador famoso, por R$ 90. Seu tênis atual ainda está bom.",
     "opts": [
       "Pesquisar se o seu atual ainda serve e comparar.",
-      "Pedir o tênis hoje porque todo mundo vai ter.",
+      "Pedir o tênis hoje porque o anúncio é muito legal.",
       "Esquecer o assunto e nunca mais olhar tênis."
     ],
     "pts": [
@@ -774,7 +774,8 @@ const CARDS = [
       "Evita o gasto, mas ignora uma troca que pode ser necessária um dia."
     ],
     "faixa": "8–11",
-    "tema": "Consumo e escolhas"
+    "tema": "Consumo e escolhas",
+    "kit": true
   },
   {
     "title": "Compra por impulso",
@@ -860,7 +861,7 @@ const CARDS = [
       -1
     ],
     "why": [
-      "No total custa menos por ano de uso.",
+      "Em 4 anos, a de R$ 40 custaria R$ 160 (4 × R$ 40). A de R$ 70 custa só R$ 70.",
       "Funciona, mas sai mais caro ao longo do tempo.",
       "Pode quebrar logo e gerar novo gasto."
     ],
@@ -937,11 +938,11 @@ const CARDS = [
       "banco",
       "qr code"
     ],
-    "scene": "Você vai pagar R$ 12 num lanche. O dono do quiosque mostra um código para pagar por Pix. O valor que aparece no seu celular é R$ 120.",
+    "scene": "Você e seu responsável vão pagar R$ 12 num lanche por Pix. O valor que aparece no celular é R$ 120.",
     "opts": [
       "Pagar rápido porque está com pressa.",
       "Não pagar pelo código e pagar em dinheiro, sem avisar o dono.",
-      "Parar, conferir o valor e falar com o responsável."
+      "Parar e mostrar o valor para o responsável conferir com o dono do quiosque."
     ],
     "pts": [
       -1,
@@ -985,7 +986,7 @@ const CARDS = [
     ],
     "scene": "Um amigo pede a senha do seu jogo para \"dar uma força\" no nível. Ele promete devolver os itens.",
     "opts": [
-      "Dar a senha só por um minuto e trocar depois.",
+      "Dizer que não pode passar a senha e mudar de assunto.",
       "Dar a senha porque é um amigo.",
       "Não dar e jogar junto sem mostrar a senha."
     ],
@@ -995,7 +996,7 @@ const CARDS = [
       2
     ],
     "why": [
-      "Reduz o risco, mas a senha já foi vista.",
+      "A conta fica protegida, mas dava para ajudar jogando junto.",
       "A senha é só sua. Passar para outra pessoa tira a proteção.",
       "Você ajuda e mantém a conta protegida."
     ],
@@ -1080,11 +1081,11 @@ const CARDS = [
       "fatura",
       "limite"
     ],
-    "scene": "Sua família usa o cartão de crédito para comprar um sofá de R$ 1.200 em 4 vezes de R$ 300. O dinheiro do mês já está comprometido com contas.",
+    "scene": "Sua família quer um sofá de R$ 1.200 no cartão, em 4 × R$ 300. Depois das contas do mês, sobram R$ 200.",
     "opts": [
-      "Comprar e depois ver como paga a fatura.",
-      "Parcelar em 8 vezes de R$ 150 para caber no mês.",
-      "Conferir se a parcela cabe no que entra todo mês antes de comprar."
+      "Comprar e ver depois como paga a fatura.",
+      "Parcelar em 8 × R$ 150 para caber na sobra.",
+      "Esperar e juntar a sobra por alguns meses antes de comprar."
     ],
     "pts": [
       -1,
@@ -1093,12 +1094,11 @@ const CARDS = [
     ],
     "why": [
       "Pode virar dívida se a fatura passar do que entra.",
-      "A parcela cabe, mas o compromisso dura o dobro do tempo e pode ter juros.",
-      "Evita assumir mais do que cabe."
+      "Cabe, mas prende 8 meses e pode ter juros.",
+      "R$ 300 não cabe em R$ 200: esperar evita a dívida."
     ],
     "faixa": "8–11",
-    "tema": "Dinheiro digital e segurança",
-    "kit": true
+    "tema": "Dinheiro digital e segurança"
   },
   {
     "title": "Saldo",
@@ -1216,9 +1216,9 @@ const CARDS = [
       "salário",
       "cofrinho"
     ],
-    "scene": "Você recebe R$ 10 de mesada por semana. Hoje, na escola, há uma feira de livros de R$ 8 e um colega chama para comprar um doce de R$ 5.",
+    "scene": "Imagine que você recebe R$ 10 por semana. Hoje tem feira de livros de R$ 8, e um colega chama para comprar um doce de R$ 5.",
     "opts": [
-      "Guardar R$ 10 e não comprar nada.",
+      "Guardar os R$ 10 e não comprar nada hoje.",
       "Gastar R$ 10 em doces.",
       "Comprar o livro e deixar o doce para a próxima semana."
     ],
@@ -1228,7 +1228,7 @@ const CARDS = [
       2
     ],
     "why": [
-      "Guarda, mas deixa o livro sem chance.",
+      "Guarda tudo, mas o livro da feira fica sem chance.",
       "Gasta tudo sem pensar no que vem depois.",
       "Escolhe uma coisa por vez com a mesada."
     ],
@@ -1307,11 +1307,11 @@ const CARDS = [
       "pagamento",
       "renda"
     ],
-    "scene": "Sua tia recebe R$ 2.000 de salário. Ela tem R$ 1.500 de contas fixas e quer fazer uma viagem de R$ 800.",
+    "scene": "Sua tia recebe salário todo mês. Depois das contas da casa, sobram R$ 100. Ela quer uma viagem de R$ 800.",
     "opts": [
-      "Parcelar a viagem no cartão em 8 vezes de R$ 100.",
-      "Fazer a viagem de uma vez e atrasar contas.",
-      "Guardar R$ 100 por mês até chegar nos R$ 800."
+      "Fazer uma viagem mais curta, de R$ 300, daqui a 3 meses.",
+      "Viajar já e atrasar as contas da casa.",
+      "Guardar R$ 100 por mês: em 8 meses, a viagem está paga."
     ],
     "pts": [
       1,
@@ -1319,7 +1319,7 @@ const CARDS = [
       2
     ],
     "why": [
-      "Cabe no mês, mas ela viaja já devendo e prende o salário por 8 meses.",
+      "Viaja sem dívida, mas não é a viagem que ela queria.",
       "Atrasar contas costuma custar mais do que a viagem.",
       "Planeja sem faltar com o essencial."
     ],
@@ -1533,7 +1533,7 @@ const CARDS = [
       "cédula",
       "troco"
     ],
-    "scene": "Você quer um chiclete de R$ 2. No bolso tem 3 moedas de R$ 1 e 2 moedas de 50 centavos.",
+    "scene": "Você quer um chiclete de R$ 2. No bolso tem 4 moedas de R$ 1.",
     "opts": [
       "Separar duas moedas de R$ 1, conferir com um adulto e pagar.",
       "Entregar todas as moedas e deixar o caixa escolher.",
@@ -1623,11 +1623,11 @@ const CARDS = [
       "dinheiro",
       "sorte"
     ],
-    "scene": "No seu aniversário, a vó deu R$ 20. Você está juntando para uma bola de R$ 30 e já tem R$ 15 no cofrinho.",
+    "scene": "No seu aniversário, a vó deu R$ 10. Você está juntando para uma bola de R$ 15 e já tem R$ 5 no cofrinho.",
     "opts": [
-      "Gastar os R$ 20 em balas e figurinhas na mesma hora.",
+      "Gastar os R$ 10 em balas e figurinhas na mesma hora.",
       "Guardar uma parte para a bola e usar um pouco em algo especial.",
-      "Guardar tudo: com R$ 35 já dá para comprar a bola."
+      "Guardar tudo: com R$ 15 já dá para comprar a bola."
     ],
     "pts": [
       -1,
@@ -1637,7 +1637,7 @@ const CARDS = [
     "why": [
       "O presente acaba rápido e a bola fica para muito depois.",
       "Aproveita um pouco agora, mas a bola demora mais.",
-      "R$ 15 + R$ 20 = R$ 35: a meta da bola está alcançada."
+      "R$ 5 + R$ 10 = R$ 15: a meta da bola está alcançada."
     ],
     "faixa": "5–7",
     "tema": "Poupar e guardar"
@@ -2011,7 +2011,7 @@ const CARDS = [
     "char": "Leticia",
     "icon": "🔄",
     "p": [
-      "Começa no dia em que chega uma conta com data marcada.",
+      "Começa depois do vencimento da fatura.",
       "Aparece quando você paga só uma parte do valor.",
       "O que ficou faltando passa para o mês seguinte, maior.",
       "É uma das formas mais caras de ficar devendo.",
@@ -2452,7 +2452,7 @@ const CARDS = [
     "opts": [
       "Aceitar e gastar todo o salário, já que é o primeiro.",
       "Aceitar, organizar os horários de estudo e guardar uma parte de cada salário.",
-      "Recusar: salário pequeno não vale a pena."
+      "Aceitar e faltar às aulas quando o trabalho apertar."
     ],
     "pts": [
       1,
@@ -2462,7 +2462,7 @@ const CARDS = [
     "why": [
       "Ganha experiência, mas perde a chance de começar uma reserva desde o primeiro salário.",
       "Ganha experiência, mantém os estudos e já começa a guardar.",
-      "Perde experiência, contatos e o primeiro registro na carteira, que valem mais que o salário."
+      "O programa exige estudar: faltar põe em risco a escola e a vaga."
     ],
     "faixa": "13+",
     "tema": "Trabalho e ganhar dinheiro"
@@ -2954,7 +2954,7 @@ const CARDS = [
       "nota fiscal",
       "autônomo"
     ],
-    "scene": "Você vende bolos por encomenda, e as vendas cresceram. Uma empresa quer comprar todo mês, mas pede nota fiscal.",
+    "scene": "Você tem 20 anos e vende bolos por encomenda, e as vendas cresceram. Uma empresa quer comprar todo mês, mas pede nota fiscal.",
     "opts": [
       "Recusar a empresa e continuar só com as vendas pequenas.",
       "Abrir o MEI, pagar a taxa mensal em dia e emitir a nota.",
@@ -3071,7 +3071,7 @@ const CARDS = [
       "Começa quando alguém próximo passa por um aperto.",
       "Envolve dinheiro e amizade ao mesmo tempo.",
       "Combinar o valor e a data de devolução ajuda muito.",
-      "Só vale com um dinheiro de que você não vai precisar logo.",
+      "O ideal é usar um dinheiro de que você não vai precisar logo.",
       "Entre amigos, não precisa combinar nada: sempre dá certo.",
       "É dar dinheiro a um amigo para ele devolver depois."
     ],
@@ -3316,7 +3316,7 @@ const CARDS = [
       "compartilhar",
       "dividir"
     ],
-    "scene": "A turma quer dar um presente de R$ 30 para a professora. São 15 crianças.",
+    "scene": "A turma quer dar um presente de R$ 10 para a professora. São 5 crianças.",
     "opts": [
       "Uma criança paga tudo sozinha.",
       "Cada um coloca o quanto quiser, sem combinar.",
@@ -3834,7 +3834,7 @@ const CARDS = [
     ],
     "why": [
       "No banco, o dinheiro fica protegido e anotado.",
-      "Funciona, mas o dinheiro continua em casa, sem proteção.",
+      "Funciona, mas o dinheiro continua em casa e não fica anotado.",
       "Dá para perder ou esquecer onde está."
     ],
     "faixa": "5–7",
@@ -4187,7 +4187,7 @@ const CARDS = [
     ],
     "scene": "Na escola, a professora pergunta o que você quer ser quando crescer. Você gosta muito de animais.",
     "opts": [
-      "Dizer que vai escolher só a profissão que ganha mais, sem pensar no que gosta.",
+      "Escolher a mesma profissão do colega, sem pensar no que você gosta.",
       "Dizer que não sabe e não pensar mais nisso.",
       "Contar que gosta de animais e perguntar que profissões cuidam deles."
     ],
@@ -4197,7 +4197,7 @@ const CARDS = [
       2
     ],
     "why": [
-      "Ganhar bem importa, mas fazer algo de que você gosta também.",
+      "Pensar no que você gosta ajuda a escolher a sua.",
       "Tudo bem não saber, mas pensar no que você gosta ajuda a descobrir.",
       "Você descobre profissões como veterinária e cuidadora de animais."
     ],
@@ -4287,7 +4287,7 @@ const CARDS = [
       2
     ],
     "why": [
-      "Tem lucro, mas não chama mais atenção do que a cantina.",
+      "Tem lucro, mas pelo mesmo preço muita gente continua comprando na cantina.",
       "Fica caro demais, e os clientes vão para a cantina.",
       "Cobre o custo, tem lucro e atrai clientes."
     ],
